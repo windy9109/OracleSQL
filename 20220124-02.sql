@@ -6,7 +6,7 @@
   . UNION ALL: 중복을 허용한 두 집합의 모든 원소를 반환(정렬하지 않음)
   . INTERSECT: 두집합의 공통된 원소 반환(정렬)
   . MINUS: 피감수(빼짐을 당한)집합에서 감수(뺀)집합결과를 차감한 결과 반환
-  
+   
   (사용형식)
   QUERY1
   UNION|UNION ALL|INTERSECT|MINUS
