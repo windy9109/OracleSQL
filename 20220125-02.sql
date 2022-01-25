@@ -1,7 +1,7 @@
 2022-0125-01) 오라클 객체 
 - 오라클에서 제공하는 OBJECT로 VIEW, INDEX, PROCEDURE, FUNCTION, PACKAGE, TRIGGER, SYNONYM, SEQUENCE, DIRECTORY 등이 있음
 - 생성시 CREATE, 제거시 DROP 명령사용
-
+ 
 1. VIEW
 - 가상의 테이블
 - 기존의 테이블이나 뷰를 통하여 새로운 SELECT문의 결과를 테이블처럼 사용
