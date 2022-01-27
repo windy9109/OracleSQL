@@ -10,7 +10,7 @@
  -- Stored Procedure: (Procedure: 반환값 없음)
  -- 컴파일된것(저장)을 일반 프로시저처럼 불러서 사용
  
- 
+  
  1. Anonymous Block(익명블록)
    - PL/SQL의 기본구조 
    - 재사용할수 없음
