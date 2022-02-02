@@ -1,41 +1,41 @@
-2022-0127-01)ºñ±³¹®
- - ¿À¶óÅ¬ÀÇ ºÐ±â¹®À¸·Î IF¿Í CASE WHEN ~ THENÀÌ Á¦°ø
- - IF¹®Àº °³¹ß¾ð¾îÀÇ IF¿Í µ¿ÀÏ ±â´É
- - CASE WHEN ~THENÀº °³¹ß¾ð¾îÀÇ ´ÙÁß ºÐ±â¿Í °°Àº ±â´É
+2022-0127-01)ë¹„êµë¬¸
+ - ì˜¤ë¼í´ì˜ ë¶„ê¸°ë¬¸ìœ¼ë¡œ IFì™€ CASE WHEN ~ THENì´ ì œê³µ
+ - IFë¬¸ì€ ê°œë°œì–¸ì–´ì˜ IFì™€ ë™ì¼ ê¸°ëŠ¥
+ - CASE WHEN ~THENì€ ê°œë°œì–¸ì–´ì˜ ë‹¤ì¤‘ ë¶„ê¸°ì™€ ê°™ì€ ê¸°ëŠ¥
 
-1. IF¹® 
-- Á¦½ÃµÈ Á¶°ÇÀ» ÆÇ´ÜÇÏ¿© ¼­·Î´Ù¸¥ ´Ù¸¥ ¹æÇâÀ¸·Î Á¦¾î ÀÌµ¿
+1. IFë¬¸ 
+- ì œì‹œëœ ì¡°ê±´ì„ íŒë‹¨í•˜ì—¬ ì„œë¡œë‹¤ë¥¸ ë‹¤ë¥¸ ë°©í–¥ìœ¼ë¡œ ì œì–´ ì´ë™
 
-(»ç¿ëÇü½Ä-1)
-IF Á¶°Ç½Ä THEN
-    ¸í·É-1;
+(ì‚¬ìš©í˜•ì‹-1)
+IF ì¡°ê±´ì‹ THEN
+    ëª…ë ¹-1;
 [ELSE
-    ¸í·É-2;]
+    ëª…ë ¹-2;]
 END IF;
 
 
-(»ç¿ëÇü½Ä-2)
-IF Á¶°Ç½Ä-1 THEN
-    IF Á¶°Ç½Ä-2 THEN
-        ¸í·É-1;
+(ì‚¬ìš©í˜•ì‹-2)
+IF ì¡°ê±´ì‹-1 THEN
+    IF ì¡°ê±´ì‹-2 THEN
+        ëª…ë ¹-1;
     ELSE
-        ¸í·É-2;
+        ëª…ë ¹-2;
     END IF;
-ELSIF Á¶°Ç½Ä-3 THEN -- ¹®¹ýÁÖÀÇ: ¿À¶óÅ¬¿¡¼­ ELSE IF ÇÒ¶§´Â E°¡ ºüÁ®¼­ ELSIF·Î ¾´´Ù.
-    ¸í·É-3;
+ELSIF ì¡°ê±´ì‹-3 THEN -- ë¬¸ë²•ì£¼ì˜: ì˜¤ë¼í´ì—ì„œ ELSE IF í• ë•ŒëŠ” Eê°€ ë¹ ì ¸ì„œ ELSIFë¡œ ì“´ë‹¤.
+    ëª…ë ¹-3;
       :
 ELSE
-    ¸í·É-n;
+    ëª…ë ¹-n;
 END IF;
 
 
 
-»ç¿ë¿¹) Ã¹ ³¯¿¡ 100¿ø, µÎÂ°³¯ºÎÅÍ Àü³¯ÀÇ 2¹è¾¿ ÀúÃàÇÒ¶§ ÃÖÃÊ·Î 100¸¸¿øÀ» ³Ñ´Â ³¯°ú ±×¶§±îÁö ÀúÃàµÈ ±Ý¾×À» ±¸ÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) ì²« ë‚ ì— 100ì›, ë‘ì§¸ë‚ ë¶€í„° ì „ë‚ ì˜ 2ë°°ì”© ì €ì¶•í• ë•Œ ìµœì´ˆë¡œ 100ë§Œì›ì„ ë„˜ëŠ” ë‚ ê³¼ ê·¸ë•Œê¹Œì§€ ì €ì¶•ëœ ê¸ˆì•¡ì„ êµ¬í•˜ì‹œì˜¤.
     
     DECLARE
-     V_DAYS NUMBER:=1; --³¯¼ö
-     V_SUM NUMBER:=0; --ÀúÃàÇÑ ±Ý¾×ÇÕ°è(Àú±ÝÅë)
-     V_AMT NUMBER:=100; --ÀúÃàÇÒ ±Ý¾×
+     V_DAYS NUMBER:=1; --ë‚ ìˆ˜
+     V_SUM NUMBER:=0; --ì €ì¶•í•œ ê¸ˆì•¡í•©ê³„(ì €ê¸ˆí†µ)
+     V_AMT NUMBER:=100; --ì €ì¶•í•  ê¸ˆì•¡
     BEGIN
      LOOP
       V_SUM:=V_SUM+V_AMT;
@@ -43,14 +43,14 @@ END IF;
       V_AMT:=V_AMT*2;
       V_DAYS:=V_DAYS+1;
      END LOOP;
-     DBMS_OUTPUT.PUT_LINE('°æ°úÀÏ¼ö: '||V_DAYS);
-     DBMS_OUTPUT.PUT_LINE('ÀúÃà¾×: '||V_SUM);
+     DBMS_OUTPUT.PUT_LINE('ê²½ê³¼ì¼ìˆ˜: '||V_DAYS);
+     DBMS_OUTPUT.PUT_LINE('ì €ì¶•ì•¡: '||V_SUM);
     END;
 
 
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ È¸¿øµéÀÇ ¸¶ÀÏ¸®Áö¸¦ Á¶È¸ÇÏ¿© ¸¶ÀÏ¸®Áö°¡ 0-1000 ÀÌ¸é 'ÀÏ¹ÝÈ¸¿ø',
-        1001-2000ÀÌ¸é '¿­½ÉÈ¸¿ø', 2001 ÀÌ»óÀÌ¸é 'VIPÈ¸¿ø'À» Ãâ·ÂÇÏ´Â ÇÁ·Î½ÃÁ®¸¦ ÀÛ¼ºÇÏ½Ã¿À.
-        Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ¸¶ÀÏ¸®Áö, ºñ°í
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ íšŒì›ë“¤ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ ì¡°íšŒí•˜ì—¬ ë§ˆì¼ë¦¬ì§€ê°€ 0-1000 ì´ë©´ 'ì¼ë°˜íšŒì›',
+        1001-2000ì´ë©´ 'ì—´ì‹¬íšŒì›', 2001 ì´ìƒì´ë©´ 'VIPíšŒì›'ì„ ì¶œë ¥í•˜ëŠ” í”„ë¡œì‹œì ¸ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤.
+        AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ë§ˆì¼ë¦¬ì§€, ë¹„ê³ 
         
         DECLARE 
          V_MID MEMBER.MEM_ID%TYPE;
@@ -58,26 +58,26 @@ END IF;
          V_MILE NUMBER:=0;
          V_ROMARKS VARCHAR2(50);        
     BEGIN
-        SELECT MEM_ID, MEM_NAME, MEM_NILEAGE --º¹¼ö°³ÀÇ ÀÚ·á¹ÝÈ¯
-            INTO V_MID,V_MNAME, V_MILE --º¹¼ö°³ÀÇ ÀÚ·á¸¦ ÀúÀåÇÒ¼ö ¾øÀ½(¿À·ù)
+        SELECT MEM_ID, MEM_NAME, MEM_NILEAGE --ë³µìˆ˜ê°œì˜ ìžë£Œë°˜í™˜
+            INTO V_MID,V_MNAME, V_MILE --ë³µìˆ˜ê°œì˜ ìžë£Œë¥¼ ì €ìž¥í• ìˆ˜ ì—†ìŒ(ì˜¤ë¥˜)
             FROM MEMBER;
             
         IF V_MILE <= 1000 THEN
-            V_REMARKS:='ÀÏ¹ÝÈ¸¿ø';
+            V_REMARKS:='ì¼ë°˜íšŒì›';
             ELSIF V_MILE <=2000 THEN
-                V_REMARKS:='¿­½ÉÈ¸¿ø';
+                V_REMARKS:='ì—´ì‹¬íšŒì›';
             ELSE
-                V_REMARKS:='VIPÈ¸¿ø';
+                V_REMARKS:='VIPíšŒì›';
             END IF;
         END;
 
 
-
+ 
 -------------------------------------------------------
 
 
        DECLARE 
-         V_MID MEMBER.MEM_ID%TYPE; -- MEMBERÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀ» ¸ð¸¦¶§ ¾²´Â ÂüÁ¶Çü º¯¼öÅ¸ÀÔ ¼±¾ð¹®
+         V_MID MEMBER.MEM_ID%TYPE; -- MEMBERì˜ ë°ì´í„° íƒ€ìž…ì„ ëª¨ë¥¼ë•Œ ì“°ëŠ” ì°¸ì¡°í˜• ë³€ìˆ˜íƒ€ìž… ì„ ì–¸ë¬¸
          V_MNAME MEMBER.MEM_NAME%TYPE;
          V_MILE NUMBER:=0;
          V_REMARKS VARCHAR2(50);
@@ -87,22 +87,22 @@ END IF;
             FROM MEMBER;
          
     BEGIN
-       OPEN CUR_MEM01; --Ä¿¼­¸¦ ¼±¾ðÇÏ¸é °³¹ßÀÚ°¡ ÀÚÀ¯ÀÚÀç·Î OPEN½ÃÅ°°í CLOSE ½ÃÅ³¼ö ÀÖÀ½
-       -- DBMS_OUTPUT.PUT_LINE(V' È¸¿ø¸í  ¸¶ÀÏ¸®Áö  ºñ°í');
+       OPEN CUR_MEM01; --ì»¤ì„œë¥¼ ì„ ì–¸í•˜ë©´ ê°œë°œìžê°€ ìžìœ ìžìž¬ë¡œ OPENì‹œí‚¤ê³  CLOSE ì‹œí‚¬ìˆ˜ ìžˆìŒ
+       -- DBMS_OUTPUT.PUT_LINE(V' íšŒì›ëª…  ë§ˆì¼ë¦¬ì§€  ë¹„ê³ ');
        LOOP
-           FETCH CUR_MEM01 INTO V_MID,V_MNAME,V_MILE; -- FETCH´Â CUR_MEM01ÀÇ ¸Ç Ã¹¹øÂ°ÁÙÀ» ÀÐÀ»¶ó´Â ¶æ
-           EXIT WHEN CUR_MEM01%NOTFOUND; --Ä¿¼­¿¡ ´õÀÌ»ó ÆÐÄ¡ÇÒ µ¥ÀÌÅÍ°¡ ¾øÀ»¶§±îÁö(NOTFOUND) ¹Ýº¹ÇÏ¶ó, NOTFOUND =>ÂüÀÎ °æ¿ì Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
+           FETCH CUR_MEM01 INTO V_MID,V_MNAME,V_MILE; -- FETCHëŠ” CUR_MEM01ì˜ ë§¨ ì²«ë²ˆì§¸ì¤„ì„ ì½ì„ë¼ëŠ” ëœ»
+           EXIT WHEN CUR_MEM01%NOTFOUND; --ì»¤ì„œì— ë”ì´ìƒ íŒ¨ì¹˜í•  ë°ì´í„°ê°€ ì—†ì„ë•Œê¹Œì§€(NOTFOUND) ë°˜ë³µí•˜ë¼, NOTFOUND =>ì°¸ì¸ ê²½ìš° ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
         IF V_MILE <= 1000 THEN
-            V_REMARKS:='ÀÏ¹ÝÈ¸¿ø';
+            V_REMARKS:='ì¼ë°˜íšŒì›';
             ELSIF V_MILE <=2000 THEN
-                V_REMARKS:='¿­½ÉÈ¸¿ø';
+                V_REMARKS:='ì—´ì‹¬íšŒì›';
             ELSE
-                V_REMARKS:='VIPÈ¸¿ø';
+                V_REMARKS:='VIPíšŒì›';
             END IF;
             DBMS_OUTPUT.PUT_LINE(V_MID||'  '||V_MNAME||'   '|| V_MILE||'   '||V_REMARKS);
             DBMS_OUTPUT.PUT_LINE('------------------------------------------------------');
             END LOOP;
-             DBMS_OUTPUT.PUT_LINE('ÀüÃ¼È¸¿ø¼ö:'||CUR_MEM01%ROWCOUNT);
+             DBMS_OUTPUT.PUT_LINE('ì „ì²´íšŒì›ìˆ˜:'||CUR_MEM01%ROWCOUNT);
             CLOSE CUR_MEM01;
         END;
 
