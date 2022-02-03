@@ -2,7 +2,7 @@
  - 커서는 SQL명령으로 영향받은 행들의 집합
  - SELECT문의 커서는 뷰와 같음
  - 커서는 묵시적커서(IMPLICITE CURSOR)와 명시적커서(EXPLICITE CURSOR)가 존재
-      
+       
      
  1. 묵시적 커서
   . 이름이 없는 커서
