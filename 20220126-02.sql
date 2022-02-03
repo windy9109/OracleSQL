@@ -1,93 +1,93 @@
 2022-0126-02) PL/SQL(Procedural Language SQL)
- - Ç¥ÁØ SQL¿¡ ÀýÂ÷Àû ¾ð¾îÀÇ Æ¯Â¡ÀÌ Ãß°¡
- - block ±¸Á¶·Î ±¸¼ºµÊ
- - DBMS¿¡ ¹Ì¸® ÄÄÆÄÀÏµÇ¾î ÀúÀåµÇ¹Ç·Î ºü¸¥ ½ÇÇà°ú ³×Æ®¿ö¸¦ È¿À²ÀûÀ¸·Î ÀÌ¿ëÇÏ¿© ÀüÃ¼ SQL½ÇÇà È¿À²À» Áõ´ë
- - º¯¼ö, »ó¼ö, ¹Ýº¹Ã³¸®, ºñ±³ÆÇ´Ü, ¿¡·¯Ã³¸® °¡´É
- - Ç¥ÁØ ¹®¹ýÀÌ ¾øÀ½
- - User Defined Function, Stored Procedure, Trigger, Package, Anonymous block µîÀÌ Á¦°ø
- -- Anonymous blockÀÌ PL/SQLÀÇ ±âº»ÀÓ(ÀÍ¸í¼ºÀ» °¡Áö°íÀÖÀ½. ÀÌ¸§ÀÌ ¾øÀ¸´Ï ´Ù½ÃºÒ·¯¼­ ¾µ¼ö ¾ø´Ù.)
- -- User Defined Function : À¯Àú Á¤ÀÇ ÇÔ¼ö (Function: ¹ÝÈ¯°ªÀÌ ÀÖÀ½) 
- -- Stored Procedure: (Procedure: ¹ÝÈ¯°ª ¾øÀ½)
- -- ÄÄÆÄÀÏµÈ°Í(ÀúÀå)À» ÀÏ¹Ý ÇÁ·Î½ÃÀúÃ³·³ ºÒ·¯¼­ »ç¿ë
- 
+ - í‘œì¤€ SQLì— ì ˆì°¨ì  ì–¸ì–´ì˜ íŠ¹ì§•ì´ ì¶”ê°€
+ - block êµ¬ì¡°ë¡œ êµ¬ì„±ë¨
+ - DBMSì— ë¯¸ë¦¬ ì»´íŒŒì¼ë˜ì–´ ì €ìž¥ë˜ë¯€ë¡œ ë¹ ë¥¸ ì‹¤í–‰ê³¼ ë„¤íŠ¸ì›Œë¥¼ íš¨ìœ¨ì ìœ¼ë¡œ ì´ìš©í•˜ì—¬ ì „ì²´ SQLì‹¤í–‰ íš¨ìœ¨ì„ ì¦ëŒ€
+ - ë³€ìˆ˜, ìƒìˆ˜, ë°˜ë³µì²˜ë¦¬, ë¹„êµíŒë‹¨, ì—ëŸ¬ì²˜ë¦¬ ê°€ëŠ¥
+ - í‘œì¤€ ë¬¸ë²•ì´ ì—†ìŒ
+ - User Defined Function, Stored Procedure, Trigger, Package, Anonymous block ë“±ì´ ì œê³µ
+ -- Anonymous blockì´ PL/SQLì˜ ê¸°ë³¸ìž„(ìµëª…ì„±ì„ ê°€ì§€ê³ ìžˆìŒ. ì´ë¦„ì´ ì—†ìœ¼ë‹ˆ ë‹¤ì‹œë¶ˆëŸ¬ì„œ ì“¸ìˆ˜ ì—†ë‹¤.)
+ -- User Defined Function : ìœ ì € ì •ì˜ í•¨ìˆ˜ (Function: ë°˜í™˜ê°’ì´ ìžˆìŒ) 
+ -- Stored Procedure: (Procedure: ë°˜í™˜ê°’ ì—†ìŒ)
+ -- ì»´íŒŒì¼ëœê²ƒ(ì €ìž¥)ì„ ì¼ë°˜ í”„ë¡œì‹œì €ì²˜ëŸ¼ ë¶ˆëŸ¬ì„œ ì‚¬ìš©
   
- 1. Anonymous Block(ÀÍ¸íºí·Ï)
-   - PL/SQLÀÇ ±âº»±¸Á¶ 
-   - Àç»ç¿ëÇÒ¼ö ¾øÀ½
+  
+ 1. Anonymous Block(ìµëª…ë¸”ë¡)
+   - PL/SQLì˜ ê¸°ë³¸êµ¬ì¡° 
+   - ìž¬ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
    
-(»ç¿ëÇü½Ä)
+(ì‚¬ìš©í˜•ì‹)
     DECLARE
-        ¼±¾ðºÎ - º¯¼ö,»ó¼ö,Ä¿¼­ ¼±¾ð; 
-        --Ä¿¼­: SQL¹®¿¡ ¿µÇâ¹ÞÀº °á°ú(Çà)µéÀÇ ÁýÇÕ
-        --»ó¼ö: »ó¼ö´Â º¯¼ö·Î ¼±¾ðµÇ°í º¯¼ö¿ªÇÒÀº 1¹ø¸¸ ½ÇÇàÇÏ°í ¼Ó¼ºÀ» ¹Ù²Û´Ù
+        ì„ ì–¸ë¶€ - ë³€ìˆ˜,ìƒìˆ˜,ì»¤ì„œ ì„ ì–¸; 
+        --ì»¤ì„œ: SQLë¬¸ì— ì˜í–¥ë°›ì€ ê²°ê³¼(í–‰)ë“¤ì˜ ì§‘í•©
+        --ìƒìˆ˜: ìƒìˆ˜ëŠ” ë³€ìˆ˜ë¡œ ì„ ì–¸ë˜ê³  ë³€ìˆ˜ì—­í• ì€ 1ë²ˆë§Œ ì‹¤í–‰í•˜ê³  ì†ì„±ì„ ë°”ê¾¼ë‹¤
     BEGIN
-        ½ÇÇàºÎ- ¹®Á¦ÇØ°áÀ» À§ÇÑ ºñÁö´Ï½º ·ÎÁ÷Ã³¸® SQL¹®;
+        ì‹¤í–‰ë¶€- ë¬¸ì œí•´ê²°ì„ ìœ„í•œ ë¹„ì§€ë‹ˆìŠ¤ ë¡œì§ì²˜ë¦¬ SQLë¬¸;
     
     [EXCEPTION
-        ¿¹¿ÜÃ³¸®ºÎ;]
+        ì˜ˆì™¸ì²˜ë¦¬ë¶€;]
     END;
     
+     
     
     
-    
-»ç¿ë¿¹) 1ºÎÅÍ 100»çÀÌÀÇ Â¦¼öÀÇ ÇÕ°ú È¦¼öÀÇ ÇÕÀ» ±¸ÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ) 1ë¶€í„° 100ì‚¬ì´ì˜ ì§ìˆ˜ì˜ í•©ê³¼ í™€ìˆ˜ì˜ í•©ì„ êµ¬í•˜ì‹œì˜¤
         DECLARE
-          V_CNT NUMBER :=1; -- := ÇÒ´ç¿¬»êÀÚ/ 1~100±îÁö ¼ö¸¦ Áõ°¡½ÃÅ³ º¯¼ö
-          V_ESUM NUMBER :=0; -- Â¦¼öÀÇÇÕ
-          V_OSUM NUMBER :=0; -- È¦¼öÀÇÇÕ
+          V_CNT NUMBER :=1; -- := í• ë‹¹ì—°ì‚°ìž/ 1~100ê¹Œì§€ ìˆ˜ë¥¼ ì¦ê°€ì‹œí‚¬ ë³€ìˆ˜
+          V_ESUM NUMBER :=0; -- ì§ìˆ˜ì˜í•©
+          V_OSUM NUMBER :=0; -- í™€ìˆ˜ì˜í•©
         BEGIN
-          LOOP --LOOP´Â DO¹®°ú °°À½(¹«ÇÑ·çÇÁ¸¦ Á¦°ø)
-            IF MOD(V_CNT,2)=0 THEN -- 2·Î ³ª´« ¸òÀÌ 0ÀÌ¸é Â¦¼ö
+          LOOP --LOOPëŠ” DOë¬¸ê³¼ ê°™ìŒ(ë¬´í•œë£¨í”„ë¥¼ ì œê³µ)
+            IF MOD(V_CNT,2)=0 THEN -- 2ë¡œ ë‚˜ëˆˆ ëª«ì´ 0ì´ë©´ ì§ìˆ˜
               V_ESUM:=V_ESUM+V_CNT;
-            ELSE --¾Æ´Ï¸é È¦¼ö
+            ELSE --ì•„ë‹ˆë©´ í™€ìˆ˜
               V_OSUM:=V_OSUM+V_CNT;
             END IF;
-            EXIT WHEN V_CNT>=100; -- ÀÌ Á¶°ÇÀÌ ¸¸Á·µÉ¶§ LOOP¹®¹ÛÀ¸·Î ³ª°¡¼¼¿ä
-            V_CNT:=V_CNT+1; -- ++1 ¹Ýº¹
-        END LOOP; -- ¹Ýº¹À» ¹þ¾î³ª´Â ¸í·É¹®
-        DBMS_OUTPUT.PUT_LINE('Â¦¼öÀÇ ÇÕ'||V_ESUM);
-        DBMS_OUTPUT.PUT_LINE('È¦¼öÀÇ ÇÕ'||V_OSUM);
+            EXIT WHEN V_CNT>=100; -- ì´ ì¡°ê±´ì´ ë§Œì¡±ë ë•Œ LOOPë¬¸ë°–ìœ¼ë¡œ ë‚˜ê°€ì„¸ìš”
+            V_CNT:=V_CNT+1; -- ++1 ë°˜ë³µ
+        END LOOP; -- ë°˜ë³µì„ ë²—ì–´ë‚˜ëŠ” ëª…ë ¹ë¬¸
+        DBMS_OUTPUT.PUT_LINE('ì§ìˆ˜ì˜ í•©'||V_ESUM);
+        DBMS_OUTPUT.PUT_LINE('í™€ìˆ˜ì˜ í•©'||V_OSUM);
         END;
     
     
-   1)º¯¼ö(»ó¼ö)¼±¾ð
-   - °³¹ß¾ð¾ðÀÇ º¯¼ö, »ó¼ö¿Í °°Àº ÀÇ¹Ì]
-   (»ç¿ëÇü½Ä)
-   º¯¼ö(»ó¼ö)¸í [CONSTANT] µ¥ÀÌÅÍÅ¸ÀÔ[(Å©±â)]|NOT NULL[:=ÃÊ±â°ª];
-    .»ó¼ö¼±¾ðÀº 'CONSTANT'¿¹¾à¾î »ç¿ë
-    .»ó¼ö¼±¾ð½Ã ÃÊ±âÈ­°¡ ÇÊ¿ä
-    .µ¥ÀÌÅÍÅ¸ÀÔ: Ç¥ÁØ SQL¿¡¼­ »ç¿ëÇÏ´Â µ¥ÀÌÅÍÅ¸ÀÔ,
-                PLS_INTEGER, BINARY_INTEGER : 4BYTE Á¤¼ö,
-                BOOLEAN Å¸ÀÔ »ç¿ë°¡´É
- ** ÂüÁ¶Å¸ÀÔ -> µ¥ÀÌÅÍÅ¸ÀÔ ´ë½Å±â¼ú
-    Å×ÀÌºí¸í.ÄÃ·³¸í%TYPE: ÇØ´çÅ×ÀÌºíÀÇ ÄÃ·³°ú °°Àº Â÷ÀÔ/Å©±â·Î º¯¼ö(»ó¼ö)¸¦ ¼±¾ð
-    Å×ÀÌºí¸í%ROWTYPE: ÇØ´çÅ×ÀÌºíÀÇ ÇÑ Çà ÀüÃ¼¿Í °°Àº Å¸ÀÔÀ¸·Î º¯¼ö ¼±¾ð(C¾ð¾îÀÇ STRUCTURE Å¸ÀÔ°ú À¯»ç)
+   1)ë³€ìˆ˜(ìƒìˆ˜)ì„ ì–¸
+   - ê°œë°œì–¸ì–¸ì˜ ë³€ìˆ˜, ìƒìˆ˜ì™€ ê°™ì€ ì˜ë¯¸]
+   (ì‚¬ìš©í˜•ì‹)
+   ë³€ìˆ˜(ìƒìˆ˜)ëª… [CONSTANT] ë°ì´í„°íƒ€ìž…[(í¬ê¸°)]|NOT NULL[:=ì´ˆê¸°ê°’];
+    .ìƒìˆ˜ì„ ì–¸ì€ 'CONSTANT'ì˜ˆì•½ì–´ ì‚¬ìš©
+    .ìƒìˆ˜ì„ ì–¸ì‹œ ì´ˆê¸°í™”ê°€ í•„ìš”
+    .ë°ì´í„°íƒ€ìž…: í‘œì¤€ SQLì—ì„œ ì‚¬ìš©í•˜ëŠ” ë°ì´í„°íƒ€ìž…,
+                PLS_INTEGER, BINARY_INTEGER : 4BYTE ì •ìˆ˜,
+                BOOLEAN íƒ€ìž… ì‚¬ìš©ê°€ëŠ¥
+ ** ì°¸ì¡°íƒ€ìž… -> ë°ì´í„°íƒ€ìž… ëŒ€ì‹ ê¸°ìˆ 
+    í…Œì´ë¸”ëª….ì»¬ëŸ¼ëª…%TYPE: í•´ë‹¹í…Œì´ë¸”ì˜ ì»¬ëŸ¼ê³¼ ê°™ì€ ì°¨ìž…/í¬ê¸°ë¡œ ë³€ìˆ˜(ìƒìˆ˜)ë¥¼ ì„ ì–¸
+    í…Œì´ë¸”ëª…%ROWTYPE: í•´ë‹¹í…Œì´ë¸”ì˜ í•œ í–‰ ì „ì²´ì™€ ê°™ì€ íƒ€ìž…ìœ¼ë¡œ ë³€ìˆ˜ ì„ ì–¸(Cì–¸ì–´ì˜ STRUCTURE íƒ€ìž…ê³¼ ìœ ì‚¬)
                 
-    .'NOT NULL'ÁöÁ¤½Ã ¹Ýµå½Ã ÃÊ±â°ª ÁöÁ¤ÇØ¾ßÇÔ
+    .'NOT NULL'ì§€ì •ì‹œ ë°˜ë“œì‹œ ì´ˆê¸°ê°’ ì§€ì •í•´ì•¼í•¨
 
 
 
 
 
-»ç¿ë¿¹) ÀÓÀÇÀÇ ºÎ¼­¹øÈ£(10-110¹ø)¸¦ »ý¼ºÇÏ°í ÇØ´çºÎ¼­¿¡ ¼ÓÇÑ »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿ø¸í, ÀÔ»çÀÏ, ºÎ¼­¸íÀ» Ãâ·Â
+ì‚¬ìš©ì˜ˆ) ìž„ì˜ì˜ ë¶€ì„œë²ˆí˜¸(10-110ë²ˆ)ë¥¼ ìƒì„±í•˜ê³  í•´ë‹¹ë¶€ì„œì— ì†í•œ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ìž…ì‚¬ì¼, ë¶€ì„œëª…ì„ ì¶œë ¥
 
 
 
 
 
-»ç¿ë¿¹) ÀÓÀÇÀÇ ºÎ¼­¹øÈ£(10-110¹ø)¸¦ »ý¼ºÇÏ°í ÇØ´çºÎ¼­¿¡ ¼ÓÇÑ »ç¿øÁß 
-       ÀÔ»çÀÏÀÇ °¡Àåºü¸¥ »ç¿ø¹øÈ£, »ç¿ø¸í, ÀÔ»çÀÏ, ºÎ¼­¸íÀ» Ãâ·Â
+ì‚¬ìš©ì˜ˆ) ìž„ì˜ì˜ ë¶€ì„œë²ˆí˜¸(10-110ë²ˆ)ë¥¼ ìƒì„±í•˜ê³  í•´ë‹¹ë¶€ì„œì— ì†í•œ ì‚¬ì›ì¤‘ 
+       ìž…ì‚¬ì¼ì˜ ê°€ìž¥ë¹ ë¥¸ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ìž…ì‚¬ì¼, ë¶€ì„œëª…ì„ ì¶œë ¥
 
---PL/SQL¿¡¼­´Â SELECTÀýÀÇ ³»¿ë°ú INTOÀýÀÇ ³»¿ëÀÌ ÀÏÄ¡ÇØ¾ßÇÔ
+--PL/SQLì—ì„œëŠ” SELECTì ˆì˜ ë‚´ìš©ê³¼ INTOì ˆì˜ ë‚´ìš©ì´ ì¼ì¹˜í•´ì•¼í•¨
 DECLARE
-    V_DEPTNO HR.DEPARTMENTS.DEPARTMENT_ID%TYPE; --ºÎ¼­ÄÚµå
-    V_ENAME HR.EMPLOYEES.EMP_NAME%TYPE; --»ç¿ø¸í
-    V_EID HR.EMPLOYEES.EMPLOYEE_ID%TYPE; --»ç¿ø¹øÈ£
-    V_HDATE DATE; --ÀÔ»çÀÏ
-    V_DNAME VARCHAR2(100); --ºÎ¼­¸í
+    V_DEPTNO HR.DEPARTMENTS.DEPARTMENT_ID%TYPE; --ë¶€ì„œì½”ë“œ
+    V_ENAME HR.EMPLOYEES.EMP_NAME%TYPE; --ì‚¬ì›ëª…
+    V_EID HR.EMPLOYEES.EMPLOYEE_ID%TYPE; --ì‚¬ì›ë²ˆí˜¸
+    V_HDATE DATE; --ìž…ì‚¬ì¼
+    V_DNAME VARCHAR2(100); --ë¶€ì„œëª…
 BEGIN
-   -- V_DEPTNO:=DBMS_RANDOM.VALUE(10,110) --10¿¡¼­ 110»çÀÌÀÇ µÎÀÚ¸® Á¤¼ö¸¦ ¹ÝÈ¯ÇÑ´Ù.
-     V_DEPTNO:=TRUNC(DBMS_RANDOM.VALUE(10,119),-1); --10¿¡¼­ 110»çÀÌÀÇ µÎÀÚ¸® Á¤¼ö¸¦ ¹ÝÈ¯ÇÑ´Ù.(10¾¿ Â÷ÀÌ³ª°Ô)
+   -- V_DEPTNO:=DBMS_RANDOM.VALUE(10,110) --10ì—ì„œ 110ì‚¬ì´ì˜ ë‘ìžë¦¬ ì •ìˆ˜ë¥¼ ë°˜í™˜í•œë‹¤.
+     V_DEPTNO:=TRUNC(DBMS_RANDOM.VALUE(10,119),-1); --10ì—ì„œ 110ì‚¬ì´ì˜ ë‘ìžë¦¬ ì •ìˆ˜ë¥¼ ë°˜í™˜í•œë‹¤.(10ì”© ì°¨ì´ë‚˜ê²Œ)
      SELECT TBL.AID, TBL.ANAME, TBL.ADATE, TBL.BNAME
        INTO V_EID,V_ENAME, V_HDATE, V_DNAME
        FROM (SELECT A.EMPLOYEE_ID AS AID,
@@ -99,32 +99,32 @@ BEGIN
                 AND A.DEPARTMENT_ID=V_DEPTNO
                 ORDER BY 3)TBL
             WHERE ROWNUM =1;
-        DBMS_OUTPUT.PUT_LINE('»ç¿ø¹øÈ£'||V_EID);
-        DBMS_OUTPUT.PUT_LINE('»ç¿ø¸í'||V_ENAME);
-        DBMS_OUTPUT.PUT_LINE('ÀÔ»çÀÏ'||V_HDATE);
-        DBMS_OUTPUT.PUT_LINE('ºÎ¼­¸í'||V_DNAME);
-      -- 45°³¸¦ ÇÑ¹ø¿¡ ÀÐÀ» ¼ö ¾øÀ¸¹Ç·Î ÇÑÁÙ¾¿ ÀÐ´Â°ÍÀ» Ä¿¼­·Î ÇÑ´Ù.(¹è¿­°ú °°Àº ¿ªÇÒ)
-      -- º¹¼ö°³ÀÇ µ¥ÀÌÅÍ¸¦ °¡Áö°í ÀÖ´Ù°¡ ÇÑÁÙ¾¿ ²¨³»¼­ º¸³»ÁÜ
-      --¼­ºêÄõ¸®¿¡´Â SELECT INTO¸¦ ¾²¸é¾ÈµÊ       
+        DBMS_OUTPUT.PUT_LINE('ì‚¬ì›ë²ˆí˜¸'||V_EID);
+        DBMS_OUTPUT.PUT_LINE('ì‚¬ì›ëª…'||V_ENAME);
+        DBMS_OUTPUT.PUT_LINE('ìž…ì‚¬ì¼'||V_HDATE);
+        DBMS_OUTPUT.PUT_LINE('ë¶€ì„œëª…'||V_DNAME);
+      -- 45ê°œë¥¼ í•œë²ˆì— ì½ì„ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ í•œì¤„ì”© ì½ëŠ”ê²ƒì„ ì»¤ì„œë¡œ í•œë‹¤.(ë°°ì—´ê³¼ ê°™ì€ ì—­í• )
+      -- ë³µìˆ˜ê°œì˜ ë°ì´í„°ë¥¼ ê°€ì§€ê³  ìžˆë‹¤ê°€ í•œì¤„ì”© êº¼ë‚´ì„œ ë³´ë‚´ì¤Œ
+      --ì„œë¸Œì¿¼ë¦¬ì—ëŠ” SELECT INTOë¥¼ ì“°ë©´ì•ˆë¨       
 END;
 
 
     
-»ç¿ë¿¹) ±æÀÌ¸¦ ÇÏ³ª ÀÔ·Â¹Þ¾Æ ±× ±æÀÌ¸¦ ¹ÝÁö¸§À¸·Î ÇÏ´Â ¿øÀÇ ³Êºñ, ±× ±æÀÌ¸¦ ÇÑº¯À¸·Î ÇÏ´Â Á¤»ç°¢Çü ³Êºñ¸¦ °¢°¢ ±¸ÇÏ½Ã¿À.
-        --¿À¶óÅ¬¿¡¼­´Â SCANNER ´ë½Å ACCEPT¸¦ ¾´´Ù
-     ACCEPT P_LEN PROMPT'±æÀÌ¸¦ ÀÔ·Â:'
+ì‚¬ìš©ì˜ˆ) ê¸¸ì´ë¥¼ í•˜ë‚˜ ìž…ë ¥ë°›ì•„ ê·¸ ê¸¸ì´ë¥¼ ë°˜ì§€ë¦„ìœ¼ë¡œ í•˜ëŠ” ì›ì˜ ë„ˆë¹„, ê·¸ ê¸¸ì´ë¥¼ í•œë³€ìœ¼ë¡œ í•˜ëŠ” ì •ì‚¬ê°í˜• ë„ˆë¹„ë¥¼ ê°ê° êµ¬í•˜ì‹œì˜¤.
+        --ì˜¤ë¼í´ì—ì„œëŠ” SCANNER ëŒ€ì‹  ACCEPTë¥¼ ì“´ë‹¤
+     ACCEPT P_LEN PROMPT'ê¸¸ì´ë¥¼ ìž…ë ¥:'
      DECLARE
-     -- NUMBER·Î ¼±¾ðÇÑ º¯¼ö´Â ÃÊ±âÈ­ ÇØÁà¾ßÇÑ´Ù.
-     V_LENGTH NUMBER:= TO_NUMBER('&P_LEN'); --&´Â ³»¿ëÀ» °Ë»çÇÏ½Ê½Ã¿À¶ó´Â ¶æ
-     V_SEQUARE NUMBER:= 0; --»ç°¢Çü ³Êºñ
-     V_CIRCLE NUMBER:= 0; --¿øÀÇ³Êºñ
+     -- NUMBERë¡œ ì„ ì–¸í•œ ë³€ìˆ˜ëŠ” ì´ˆê¸°í™” í•´ì¤˜ì•¼í•œë‹¤.
+     V_LENGTH NUMBER:= TO_NUMBER('&P_LEN'); --&ëŠ” ë‚´ìš©ì„ ê²€ì‚¬í•˜ì‹­ì‹œì˜¤ë¼ëŠ” ëœ»
+     V_SEQUARE NUMBER:= 0; --ì‚¬ê°í˜• ë„ˆë¹„
+     V_CIRCLE NUMBER:= 0; --ì›ì˜ë„ˆë¹„
      V_PI CONSTANT NUMBER:= 3.1415926;
      BEGIN
      V_SEQUARE:=V_LENGTH*V_LENGTH;
      V_CIRCLE:=V_LENGTH*V_LENGTH*V_PI;
      
-     DBMS_OUTPUT.PUT_LINE('¿øÀÇ ³Êºñ:'||V_CIRCLE);
-     DBMS_OUTPUT.PUT_LINE('»ç°¢ÇüÀÇ ³Êºñ:'||V_SEQUARE);
+     DBMS_OUTPUT.PUT_LINE('ì›ì˜ ë„ˆë¹„:'||V_CIRCLE);
+     DBMS_OUTPUT.PUT_LINE('ì‚¬ê°í˜•ì˜ ë„ˆë¹„:'||V_SEQUARE);
      
      END;
     
