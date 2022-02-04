@@ -239,7 +239,10 @@ FETCH 사용예) 거주지가'충남'인 회원들의 2005년 구매정보를 조회하시오
         FOR REC IN CUR_BUY01 LOOP
         SELECT PROD_NAME INTO V_PNAME
           FROM PROD
-          WHERE PROD_ID =REC.APID
+          WHERE PROD_ID =REC.APID;
+          SELECT SUM(BUY_QTY) INTO V_QTY
+          FROM BUYPROD
+          WHERE BUY_PROD=REC.APID
                  AND EXTRACT(YEAR FROM BUY_DATE)=2005;
       DBMS_OUTPUT.PUT_LINE('제품코드: '||REC.APID);      
       DBMS_OUTPUT.PUT_LINE('제품명: '||V_PNAME); 

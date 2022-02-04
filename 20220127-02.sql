@@ -1,24 +1,24 @@
-2022-0127-02)ë°˜ë³µë¬¸
- - ì˜¤ë¼í´ì—ì„œ ì œê³µí•˜ëŠ” ë°˜ë³µë¬¸ì€ LOOP, WHILE, FORë¬¸ì´ ìžˆìŒ
- -- ì»¤ì„œë¥¼ ì“°ê¸°ìœ„í•´ ë°˜ë³µë¬¸ì„ ì“°ëŠ”ê²½ìš°ê°€ ë§Žë‹¤.
+2022-0127-02)¹Ýº¹¹®
+ - ¿À¶óÅ¬¿¡¼­ Á¦°øÇÏ´Â ¹Ýº¹¹®Àº LOOP, WHILE, FOR¹®ÀÌ ÀÖÀ½
+ -- Ä¿¼­¸¦ ¾²±âÀ§ÇØ ¹Ýº¹¹®À» ¾²´Â°æ¿ì°¡ ¸¹´Ù.
   
  1. LOOP
- - ë°˜ë³µë¬¸ì˜ ê¸°ë³¸ êµ¬ì¡° ì œê³µ
- - ë¬´í•œë£¨í”„
- - JAVAì˜ DOë¬¸ê³¼ ìœ ì‚¬ 
+ - ¹Ýº¹¹®ÀÇ ±âº» ±¸Á¶ Á¦°ø
+ - ¹«ÇÑ·çÇÁ
+ - JAVAÀÇ DO¹®°ú À¯»ç 
  
- (ì‚¬ìš©í˜•ì‹)
+ (»ç¿ëÇü½Ä)
  LOOP
-  ë°˜ë³µì²˜ë¦¬ ëª…ë ¹ë¬¸(ë“¤);
-  [EXIT WHEN ì¡°ê±´;]
+  ¹Ýº¹Ã³¸® ¸í·É¹®(µé);
+  [EXIT WHEN Á¶°Ç;]
         :
     END LOOP;
-. EXIT WHEN ì¡°ê±´: 'ì¡°ê±´'ì´ ì°¸ì¸ê²½ìš° ë°˜ë³µë¬¸ì„ ë²—ì–´ë‚¨
---WHILEëŠ” ì¡°ê±´ì´ ë§žìœ¼ë©´ ë°˜ë³µí•˜ê³  LOOPëŠ” ì¡°ê±´ì´ ë§žìœ¼ë©´ ë°˜ë³µì„ ë²—ì–´ë‚¨
+. EXIT WHEN Á¶°Ç: 'Á¶°Ç'ÀÌ ÂüÀÎ°æ¿ì ¹Ýº¹¹®À» ¹þ¾î³²
+--WHILE´Â Á¶°ÇÀÌ ¸ÂÀ¸¸é ¹Ýº¹ÇÏ°í LOOP´Â Á¶°ÇÀÌ ¸ÂÀ¸¸é ¹Ýº¹À» ¹þ¾î³²
 
 
 
-ì‚¬ìš©ì˜ˆ) êµ¬êµ¬ë‹¨ì˜ 6ë‹¨ì„ LOOPë¬¸ì„ ì´ìš©í•˜ì—¬ ìž‘ì„±
+»ç¿ë¿¹) ±¸±¸´ÜÀÇ 6´ÜÀ» LOOP¹®À» ÀÌ¿ëÇÏ¿© ÀÛ¼º
     DECLARE
         V_CNT NUMBER:=1;
         
@@ -31,16 +31,16 @@
     END;
 
 
-ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”ì—ì„œ ë¶„ë¥˜ì½”ë“œ 'P102'ì— ì†í•œ ìƒí’ˆì •ë³´ë¥¼ ëª¨ë‘ ì‚­ì œí•˜ì‹œì˜¤
+»ç¿ë¿¹) »óÇ°Å×ÀÌºí¿¡¼­ ºÐ·ùÄÚµå 'P102'¿¡ ¼ÓÇÑ »óÇ°Á¤º¸¸¦ ¸ðµÎ »èÁ¦ÇÏ½Ã¿À
 
-       'P102'ì— ì†í•œ ìƒí’ˆì½”ë“œëŠ” 'P102000001'ë¶€í„°
-       'P102000007'ì´ë‹¤.
+       'P102'¿¡ ¼ÓÇÑ »óÇ°ÄÚµå´Â 'P102000001'ºÎÅÍ
+       'P102000007'ÀÌ´Ù.
        
        DECLARE 
-        V_START NUMBER:=0; --ì‹œìž‘ê°’(6ìžë¦¬ìˆ˜)
-        V_END NUMBER:=0; --ëê°’(6ìžë¦¬ìˆ˜)
-        V_CNT NUMBER:=0; --ìƒí’ˆì½”ë“œë¥¼ 1ì”© ì¦ê°€ì‹œí‚¬ ê°’
-        V_PID GOODS.PROD_ID%TYPE;--(ìƒí’ˆì½”ë“œ)
+        V_START NUMBER:=0; --½ÃÀÛ°ª(6ÀÚ¸®¼ö)
+        V_END NUMBER:=0; --³¡°ª(6ÀÚ¸®¼ö)
+        V_CNT NUMBER:=0; --»óÇ°ÄÚµå¸¦ 1¾¿ Áõ°¡½ÃÅ³ °ª
+        V_PID GOODS.PROD_ID%TYPE;--(»óÇ°ÄÚµå)
        BEGIN
        SELECT MIN(TO_NUMBER(SUBSTR(PROD_ID,5))) INTO V_START
             FROM GOODS
@@ -60,7 +60,3 @@
         END;
        
        
-       
-
-
-
