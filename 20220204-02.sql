@@ -1,0 +1,89 @@
+2022-0204-02) 함수(User Defined Function : Function)
+ - 특징은 procedure와 동일하나 반환값이 존재함(반환값은 단 한개임)
+ - 반환을 여러개 받으려면 함수를 여러개 써야함
+ - select 문의 select절, where절, update구문 등에 사용
+ 
+ (사용형식)
+ CREATE [OR REPLACE] FUNCTION 함수명[(
+    변수명 [모드] 타입명 [:=[DEFAULT]값][,]
+                    :
+    변수명 [모드] 타입명 [:=[DEFAULT]값])
+    RETURN 타입명
+AS|IS
+    선언부; --변수,상수,커서 선언
+BEGIN
+    실행부;
+    RETURN expr; --반드시 반환해줘야함(값,수식,변수등)
+    [EXCEPTION
+        예외처리문;
+    ]
+END;
+
+
+사용예) 거래처코드를 입력받아 해당 거래처에서 납품하는 상품 정보를 조회하시오
+        Alias는 거래처 코드, 상품명, 매입단가(함수사용)
+        
+        CREATE OR REPLACE FUNCTION FN_PROD_INFO(
+            P_BID IN BUYER.BUYER_ID%TYPE
+            RETURN VARCHAR2)
+        IS
+            V_RES VARCHAR2(1000);
+        BEGIN
+            SELECT PROD_ID||' '||PROD(PROD_NAME,20)||
+                   LPAD(PROD_COST,8,' ')
+            INTO V_RES
+            FROM PROD
+            WHERE PROD_BUYER = P_BID
+             AND ROWNUM=1;
+            RETURN V_RES;
+            
+            EXCEPTION
+                WHEN OTHERS THEN
+                    DBMS_OUTPUT.PUT_LINE('에러발생'||SQLERRM);
+                    RETURN NULL;
+        END;
+        
+        
+        (실행)
+            SELECT BUYER_ID, BUYER_NAME, FN_PROD_INFO(BUYER_ID)
+                FROM BUYER;
+
+        
+        
+------------------------------------------------------------------------
+
+
+(사용예) 회원번호를 입력받아 회원명을 출력하는 함수 작성
+    
+    SELECT MEM_ID, MEM_NAME
+        FROM MEMBER;
+        
+        
+   CREATE OR REPLACE FUNCTION FN_MEM_NAME(
+        P_MID IN MEMBER.MEM_ID%TYPE)
+        RETURN MEMBER.MEM_NAME%TYPE
+   IS
+    V_NAME MEMBER.MEM_NAME%TYPE;
+   BEGIN
+        SELECT MEM_NAME INTO V_NAME
+         FROM MEMBER
+         WHERE MEM_ID=P_MID;
+        RETURN V_NAME;
+    END;
+        
+        
+(실행)
+SELECT MEM_ID AS 회원번호,
+        FN_MEM_NAME(MEM_ID) AS 회원명
+    FROM MEMBER;
+
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
