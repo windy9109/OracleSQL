@@ -6,7 +6,7 @@
  (사용형식)
  CREATE [OR REPLACE] PROCEDURE 프로시져명
   [(매개변수 [모드] 데이터타입 [:=[DEFAULT] 값][,]
-                     :
+                      :
   [(매개변수 [모드] 데이터타입 [:=[DEFAULT] 값])]
   AS|IS
     선언부;
