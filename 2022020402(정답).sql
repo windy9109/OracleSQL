@@ -190,7 +190,7 @@ SELECT EMPLOYEE_ID AS 사원번호,
               FROM PROD A, BUYPROD B
              WHERE    
         END; 
- 
+  
 
 
 --금액합계
