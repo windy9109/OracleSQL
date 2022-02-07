@@ -189,7 +189,7 @@ SELECT EMPLOYEE_ID AS 사원번호,
               INTO V_SQTY
               FROM PROD A, BUYPROD B
              WHERE    
-        END;
+        END; 
 
 
 
