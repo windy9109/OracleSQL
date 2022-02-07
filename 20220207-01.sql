@@ -1,7 +1,7 @@
 2022-0207-01)트리거(TRIGGER)
 - 특정 테이블에 발생된 이벤트 (INSERT, UPDATE, DELETE)에 의하여 별도의 동작이 필요한 일종의 프로시져
 
-(사용형식)
+(사용형식) 
 CREATE TRIGGER 트리거명
   BEFORE|AFTER INSERT|UPDATE|DELETE
   ON 테이블명
