@@ -10,7 +10,7 @@
         EMPLOYEE_ID     NUMBER(6)       N.N       PK&FK
         RETIRE_DATE     DATE
         JOB_ID          VARCHAR2(10)              FK
-        DEPARTMENT_ID   NUMBER(4)                 FK
+        DEPARTMENT_ID   NUMBER(4)                 FK  
         -------------------------------------------------- 
         CREATE TABLE RETIRES(
         EMPLOYEE_ID     NUMBER(6),
