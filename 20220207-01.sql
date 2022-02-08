@@ -86,12 +86,14 @@ CREATE TRIGGER 트리거명
   
     ROLLBACK;
     
+    
     --트리거삭제
     DROP TRIGGER TG_DELUPDATE_CUST;
     
+    
     사용예) CUSTOMER 테이블에 자료를 변경하면 '자료가 수정됬음'을 
             자료가 삭제되면 '자료가삭제되었음'을 출력하는 트리거 작성
-    
+    --트리거에서는 SAVEPOINT, COMMIT, ROLLBACK 등을 쓸수없음
     CREATE TRIGGER TG_DELUPDATE_CUST2
       AFTER UPDATE OR DELETE ON CUSTOMER
     BEGIN
@@ -101,7 +103,7 @@ CREATE TRIGGER 트리거명
             DBMS_OUTPUT.PUT_LINE('자료가 삭제되었음');
       END IF;
     END;
-    
+                        
 
     
     예) CUSTOMER의 마일리지를 모두 500씩증가
