@@ -1,30 +1,30 @@
 2022-0208-02)
-  ** CARTÅ×ÀÌºí¿¡ ´ÙÀ½ÀÚ·á¸¦ ÀúÀåÇÏ½Ã¿À
-        ±¸¸ÅÀÏÀÚ: ¿À´Ã(20050728)
-        ±¸¸ÅÈ¸¿ø: d001
-        ±¸¸Å»óÇ°
+  ** CARTí…Œì´ë¸”ì— ë‹¤ìŒìžë£Œë¥¼ ì €ìž¥í•˜ì‹œì˜¤
+        êµ¬ë§¤ì¼ìž: ì˜¤ëŠ˜(20050728)
+        êµ¬ë§¤íšŒì›: d001
+        êµ¬ë§¤ìƒí’ˆ
         -----------------------------
-        »óÇ°¹øÈ£         ¼ö·®
+        ìƒí’ˆë²ˆí˜¸         ìˆ˜ëŸ‰
         -----------------------------
         P201000003      3
         P201000015      2
  
         
- 
+   
         
         
 
---ÀÚµ¿À¸·Î Áõ°¡µÇ¾îÁö´Â ¹øÈ£ ¿¹Á¦
---ÇÔ¼ö·Î ³¯Â¥¿¡ ÇØ´çµÈ CART¹øÈ£¸¦ ¸¸µé¾îº¸ÀÚ
+--ìžë™ìœ¼ë¡œ ì¦ê°€ë˜ì–´ì§€ëŠ” ë²ˆí˜¸ ì˜ˆì œ
+--í•¨ìˆ˜ë¡œ ë‚ ì§œì— í•´ë‹¹ëœ CARTë²ˆí˜¸ë¥¼ ë§Œë“¤ì–´ë³´ìž
 
     CREATE OR REPLACE FUNCTION FN_CREATE_CARTNO(
         P_DATE DATE)
-        RETURN VARCHAR2 --¹ÝÈ¯Å¸ÀÔ
+        RETURN VARCHAR2 --ë°˜í™˜íƒ€ìž…
     IS
         V_CNO VARCHAR2(20):=TO_CHAR(P_DATE,'YYYYMMDD'); 
         V_FLAG NUMBER:=0;
     BEGIN
-        SELECT COUNT(*) INTO V_FLAG -- SUBSTR(CART_NO,1,8)=V_CNO;¸¸Á·ÇÏ´Â °ª¸¸Å­ V_FLAG¿¡ °ªÀ» ³Ö´Â´Ù
+        SELECT COUNT(*) INTO V_FLAG -- SUBSTR(CART_NO,1,8)=V_CNO;ë§Œì¡±í•˜ëŠ” ê°’ë§Œí¼ V_FLAGì— ê°’ì„ ë„£ëŠ”ë‹¤
             FROM CART
           WHERE SUBSTR(CART_NO,1,8)=V_CNO;
           
@@ -41,7 +41,7 @@
     
     
     
-(½ÇÇà)
+(ì‹¤í–‰)
     SELECT FN_CREATE_CARTNO(SYSDATE)
         FROM DUAL;
         
@@ -52,29 +52,29 @@
 
 
 
-    --±¸¸Å½Ã µ¿¹ÝµÇ´Â ¸¶ÀÏ¸®Áö Áõ°¡´Â Æ®¸®°Å·Î Ã³¸®ÇÔ
-    --Æ®¸®°Å¿¡¼­ Ã³¸®ÇØ¾ßÇÒ ³»¿ë: Àç°í UPDATE, ¸¶ÀÏ¸®Áö UPDATE
+    --êµ¬ë§¤ì‹œ ë™ë°˜ë˜ëŠ” ë§ˆì¼ë¦¬ì§€ ì¦ê°€ëŠ” íŠ¸ë¦¬ê±°ë¡œ ì²˜ë¦¬í•¨
+    --íŠ¸ë¦¬ê±°ì—ì„œ ì²˜ë¦¬í•´ì•¼í•  ë‚´ìš©: ìž¬ê³  UPDATE, ë§ˆì¼ë¦¬ì§€ UPDATE
     
     CREATE OR REPLACE TRIGGER TG_CART_CHANGE
       AFTER INSERT OR UPDATE OR DELETE ON CART
       FOR EACH ROW
     DECLARE
-      V_QTY NUMBER:=0; --¹øÈ£
-      V_PID PROD.PROD_ID%TYPE; --»óÇ°ID
-      V_MILE NUMBER:=0; --¸¶ÀÏ¸®Áö
-      V_DATE DATE; --³¯Â¥
-      V_MID MEMBER.MEM_ID%TYPE; --È¸¿ø¹øÈ£
+      V_QTY NUMBER:=0; --ë²ˆí˜¸
+      V_PID PROD.PROD_ID%TYPE; --ìƒí’ˆID
+      V_MILE NUMBER:=0; --ë§ˆì¼ë¦¬ì§€
+      V_DATE DATE; --ë‚ ì§œ
+      V_MID MEMBER.MEM_ID%TYPE; --íšŒì›ë²ˆí˜¸
     BEGIN
       IF INSERTING THEN 
-        V_QTY:=:NEW.CART_QTY; --»õ·Î¿î ¼ö·®Ãß°¡
-        V_PID:=:NEW.CART_PROD; --»õ·Î¿î »óÇ°IDÃß°¡ 
-        V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8)); --ÇöÀç³¯Â¥Ãß°¡
+        V_QTY:=:NEW.CART_QTY; --ìƒˆë¡œìš´ ìˆ˜ëŸ‰ì¶”ê°€
+        V_PID:=:NEW.CART_PROD; --ìƒˆë¡œìš´ ìƒí’ˆIDì¶”ê°€ 
+        V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8)); --í˜„ìž¬ë‚ ì§œì¶”ê°€
         V_MID:=:NEW.CART_MEMBER;
          SELECT V_QTY*PROD_MILEAGE INTO V_MILE
             FROM PROD
           WHERE PROD_ID=V_PID;
       ELSIF UPDATING THEN
-        V_QTY:=:NEW.CART_QTY - :OLD.CART_QTY; -- ³²Àº¼ö·® = ÇöÀçÀüÃ¼¼ö·® - ±âÁ¸¼ö·®
+        V_QTY:=:NEW.CART_QTY - :OLD.CART_QTY; -- ë‚¨ì€ìˆ˜ëŸ‰ = í˜„ìž¬ì „ì²´ìˆ˜ëŸ‰ - ê¸°ì¡´ìˆ˜ëŸ‰
         V_PID:=:NEW.CART_PROD;
         V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8));
         V_MID:=:NEW.CART_MEMBER;
@@ -106,7 +106,7 @@
     END;
 
 
-(Àç°íÁ¶È¸)
+(ìž¬ê³ ì¡°íšŒ)
 
           
           
@@ -128,7 +128,7 @@
     WHERE CART_NO='2005072800005'
      AND CART_PROD='P201000003';
 
-    --¹ÝÇ°ÇÒ°æ¿ì
+    --ë°˜í’ˆí• ê²½ìš°
     DELETE FROM CART
      WHERE CART_NO='2005072800005'
        AND CART_PROD='P201000003';
