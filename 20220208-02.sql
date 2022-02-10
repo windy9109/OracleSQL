@@ -1,30 +1,30 @@
 2022-0208-02)
-  ** CART?뀒?씠釉붿뿉 ?떎?쓬?옄猷뚮?? ???옣?븯?떆?삤
-        援щℓ?씪?옄: ?삤?뒛(20050728)
-        援щℓ?쉶?썝: d001
-        援щℓ?긽?뭹
+  ** CART테이블에 다음자료를 저장하시오
+        구매일자: 오늘(20050728)
+        구매회원: d001
+        구매상품
         -----------------------------
-        ?긽?뭹踰덊샇         ?닔?웾
+        상품번호         수량
         -----------------------------
         P201000003      3
         P201000015      2
  
-        
-    
+         
+
         
         
 
---?옄?룞?쑝濡? 利앷??릺?뼱吏??뒗 踰덊샇 ?삁?젣
---?븿?닔濡? ?궇吏쒖뿉 ?빐?떦?맂 CART踰덊샇瑜? 留뚮뱾?뼱蹂댁옄
+--자동으로 증가되어지는 번호 예제
+--함수로 날짜에 해당된 CART번호를 만들어보자
 
     CREATE OR REPLACE FUNCTION FN_CREATE_CARTNO(
         P_DATE DATE)
-        RETURN VARCHAR2 --諛섑솚???엯
+        RETURN VARCHAR2 --반환타입
     IS
         V_CNO VARCHAR2(20):=TO_CHAR(P_DATE,'YYYYMMDD'); 
         V_FLAG NUMBER:=0;
     BEGIN
-        SELECT COUNT(*) INTO V_FLAG -- SUBSTR(CART_NO,1,8)=V_CNO;留뚯”?븯?뒗 媛믩쭔?겮 V_FLAG?뿉 媛믪쓣 ?꽔?뒗?떎
+        SELECT COUNT(*) INTO V_FLAG -- SUBSTR(CART_NO,1,8)=V_CNO;만족하는 값만큼 V_FLAG에 값을 넣는다
             FROM CART
           WHERE SUBSTR(CART_NO,1,8)=V_CNO;
           
@@ -41,7 +41,7 @@
     
     
     
-(?떎?뻾)
+(실행)
     SELECT FN_CREATE_CARTNO(SYSDATE)
         FROM DUAL;
         
@@ -52,29 +52,29 @@
 
 
 
-    --援щℓ?떆 ?룞諛섎릺?뒗 留덉씪由ъ? 利앷??뒗 ?듃由ш굅濡? 泥섎━?븿
-    --?듃由ш굅?뿉?꽌 泥섎━?빐?빞?븷 ?궡?슜: ?옱怨? UPDATE, 留덉씪由ъ? UPDATE
+    --구매시 동반되는 마일리지 증가는 트리거로 처리함
+    --트리거에서 처리해야할 내용: 재고 UPDATE, 마일리지 UPDATE
     
     CREATE OR REPLACE TRIGGER TG_CART_CHANGE
       AFTER INSERT OR UPDATE OR DELETE ON CART
       FOR EACH ROW
     DECLARE
-      V_QTY NUMBER:=0; --踰덊샇
-      V_PID PROD.PROD_ID%TYPE; --?긽?뭹ID
-      V_MILE NUMBER:=0; --留덉씪由ъ?
-      V_DATE DATE; --?궇吏?
-      V_MID MEMBER.MEM_ID%TYPE; --?쉶?썝踰덊샇
+      V_QTY NUMBER:=0; --번호
+      V_PID PROD.PROD_ID%TYPE; --상품ID
+      V_MILE NUMBER:=0; --마일리지
+      V_DATE DATE; --날짜
+      V_MID MEMBER.MEM_ID%TYPE; --회원번호
     BEGIN
       IF INSERTING THEN 
-        V_QTY:=:NEW.CART_QTY; --?깉濡쒖슫 ?닔?웾異붽?
-        V_PID:=:NEW.CART_PROD; --?깉濡쒖슫 ?긽?뭹ID異붽? 
-        V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8)); --?쁽?옱?궇吏쒖텛媛?
+        V_QTY:=:NEW.CART_QTY; --새로운 수량추가
+        V_PID:=:NEW.CART_PROD; --새로운 상품ID추가 
+        V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8)); --현재날짜추가
         V_MID:=:NEW.CART_MEMBER;
          SELECT V_QTY*PROD_MILEAGE INTO V_MILE
             FROM PROD
           WHERE PROD_ID=V_PID;
       ELSIF UPDATING THEN
-        V_QTY:=:NEW.CART_QTY - :OLD.CART_QTY; -- ?궓???닔?웾 = ?쁽?옱?쟾泥댁닔?웾 - 湲곗〈?닔?웾
+        V_QTY:=:NEW.CART_QTY - :OLD.CART_QTY; -- 남은수량 = 현재전체수량 - 기존수량
         V_PID:=:NEW.CART_PROD;
         V_DATE:=TO_DATE(SUBSTR(:NEW.CART_NO,1,8));
         V_MID:=:NEW.CART_MEMBER;
@@ -106,7 +106,7 @@
     END;
 
 
-(?옱怨좎“?쉶)
+(재고조회)
 
           
           
@@ -119,21 +119,21 @@
     INSERT INTO CART
           VALUES('d001', FN_CREATE_CARTNO(TO_DATE('20050728')), 'P201000003', 3);
            
-    ROLLBACK;
+
        
     COMMIT;
         
     UPDATE CART
-      SET CART_QTY=30;
-    WHERE CART_NO='2005072800005'
+      SET CART_QTY=100
+    WHERE CART_NO='2005072800006'
      AND CART_PROD='P201000003';
 
-    --諛섑뭹?븷寃쎌슦
+    --반품할경우
     DELETE FROM CART
      WHERE CART_NO='2005072800005'
        AND CART_PROD='P201000003';
     
-    
+    ROLLBACK;
     
     
     
