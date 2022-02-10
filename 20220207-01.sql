@@ -1,82 +1,82 @@
-2022-0207-01)Æ®¸®°Å(TRIGGER)
-- Æ¯Á¤ Å×ÀÌºí¿¡ ¹ß»ýµÈ ÀÌº¥Æ® (INSERT, UPDATE, DELETE)¿¡ ÀÇÇÏ¿© º°µµÀÇ µ¿ÀÛÀÌ ÇÊ¿äÇÑ ÀÏÁ¾ÀÇ ÇÁ·Î½ÃÁ®
-
-(»ç¿ëÇü½Ä) 
-CREATE TRIGGER Æ®¸®°Å¸í
+2022-0207-01)íŠ¸ë¦¬ê±°(TRIGGER)
+- íŠ¹ì • í…Œì´ë¸”ì— ë°œìƒëœ ì´ë²¤íŠ¸ (INSERT, UPDATE, DELETE)ì— ì˜í•˜ì—¬ ë³„ë„ì˜ ë™ìž‘ì´ í•„ìš”í•œ ì¼ì¢…ì˜ í”„ë¡œì‹œì ¸
+ 
+(ì‚¬ìš©í˜•ì‹) 
+CREATE TRIGGER íŠ¸ë¦¬ê±°ëª…
   BEFORE|AFTER INSERT|UPDATE|DELETE 
-  -- BEFORE: ÀÌº¥Æ®(INSERT|UPDATE|DELETE) ¹ß»ýÀü¿¡ Æ®¸®°Å(º»¹®ÀÌ)°¡ ¼öÇà
-  -- AFTER: ÀÌº¥Æ®(INSERT|UPDATE|DELETE) ¹ß»ýÈÄ¿¡ Æ®¸®°Å(º»¹®ÀÌ)°¡ ¼öÇà
-  -- INSERT|UPDATE|DELETE : ÀÌº¥Æ®
-  ON Å×ÀÌºí¸í 
-  -- ON µÚÀÇ Å×ÀÌºí¸í°ú BEGIN µÚÀÇ Å×ÀÌºí¸íÀ» ¹Ýµå½Ã °°À¸¸é ¾ÈµÊ(¹«ÇÑ·çÇÁµÉ¼ö ÀÖÀ½)
-   [FOR EACH ROW] --Çà´ÜÀ§ Æ®¸®°Å(FOR EACH ROW), ¹®Àå´ÜÀ§ Æ®¸®°Å: ¿µÇâ¹ÞÀº ÇàµéÀÌ ´Ù¼ö¿©µµ µüÇÑ¹ø¸¸ ¼öÇàµÊ
-   [WHEN Á¶°Ç]
+  -- BEFORE: ì´ë²¤íŠ¸(INSERT|UPDATE|DELETE) ë°œìƒì „ì— íŠ¸ë¦¬ê±°(ë³¸ë¬¸ì´)ê°€ ìˆ˜í–‰
+  -- AFTER: ì´ë²¤íŠ¸(INSERT|UPDATE|DELETE) ë°œìƒí›„ì— íŠ¸ë¦¬ê±°(ë³¸ë¬¸ì´)ê°€ ìˆ˜í–‰
+  -- INSERT|UPDATE|DELETE : ì´ë²¤íŠ¸
+  ON í…Œì´ë¸”ëª… 
+  -- ON ë’¤ì˜ í…Œì´ë¸”ëª…ê³¼ BEGIN ë’¤ì˜ í…Œì´ë¸”ëª…ì„ ë°˜ë“œì‹œ ê°™ìœ¼ë©´ ì•ˆë¨(ë¬´í•œë£¨í”„ë ìˆ˜ ìžˆìŒ)
+   [FOR EACH ROW] --í–‰ë‹¨ìœ„ íŠ¸ë¦¬ê±°(FOR EACH ROW), ë¬¸ìž¥ë‹¨ìœ„ íŠ¸ë¦¬ê±°: ì˜í–¥ë°›ì€ í–‰ë“¤ì´ ë‹¤ìˆ˜ì—¬ë„ ë”±í•œë²ˆë§Œ ìˆ˜í–‰ë¨
+   [WHEN ì¡°ê±´]
   [DECLARE]
-   ¼±¾ðºÎ;
+   ì„ ì–¸ë¶€;
   BEGIN; 
-   Æ®¸®°Åº»¹®;
+   íŠ¸ë¦¬ê±°ë³¸ë¬¸;
   END;
-  --Æ®¸®°Å´Â Æ®·£Á§¼ÇÀÌ ¸¶¹«¸® µÇ¾î¾ß ´ÙÀ½ Æ®¸®°Å¸¦ ¾µ¼öÀÖÀ½
+  --íŠ¸ë¦¬ê±°ëŠ” íŠ¸ëžœì ì…˜ì´ ë§ˆë¬´ë¦¬ ë˜ì–´ì•¼ ë‹¤ìŒ íŠ¸ë¦¬ê±°ë¥¼ ì“¸ìˆ˜ìžˆìŒ
   
-  . 'BEFORE|AFTER': timingÀ¸·Î Æ®¸®°Å º»¹®ÀÌ ½ÇÇàµÇ´Â ½ÃÁ¡
-  . 'INSERT|UPDATE|DELETE': event·Î Æ®¸®°Åº»¹®À» ½ÇÇà½ÃÅ°´Â ¿øÀÎÀÌ µÇ´Â dml¸í·É. Á¶ÇÕ»ç¿ë°¡´É(insert or update µî)
-  . 'ON Å×ÀÌºí¸í': Æ®¸®°Å ¿øÀÎÀÌµÇ´Â ÀÌº¥Æ®°¡ ¹ß»ýµÈ Å×ÀÌºí¸í 
-  . 'FOR EACH ROW': Çà´ÜÀ§ÀÇ Æ®¸®°Å(ÀÌº¥Æ®°á°ú °¢ Çà ¸¶´Ù Æ®¸®°Å ¼öÇà). »ý·«ÇÏ¸é ¹®Àå´ÜÀ§ Æ®¸®°Å
-  . 'WHEN Á¶°Ç': Çà´ÜÀ§ÀÇ Æ®¸®°Å¿¡¼­¸¸ »ç¿ëÇÒ¼ö ÀÖÀ¸¸ç Æ®¸®°Å¸¦ ¹ß»ý ½ÃÅ°´Â 
-                ÀÌº¥Æ®°¡ ¹ß»ýµÇ´Â Å×ÀÌºí¿¡¼­ ÀÌº¥Æ®°¡ ¹ß»ýÇÒ ¶§ Á»´õ ±¸Ã¼ÀûÀÎ °Ë»öÁ¶°Ç Á¦½Ã¿¡ »ç¿ë
+  . 'BEFORE|AFTER': timingìœ¼ë¡œ íŠ¸ë¦¬ê±° ë³¸ë¬¸ì´ ì‹¤í–‰ë˜ëŠ” ì‹œì 
+  . 'INSERT|UPDATE|DELETE': eventë¡œ íŠ¸ë¦¬ê±°ë³¸ë¬¸ì„ ì‹¤í–‰ì‹œí‚¤ëŠ” ì›ì¸ì´ ë˜ëŠ” dmlëª…ë ¹. ì¡°í•©ì‚¬ìš©ê°€ëŠ¥(insert or update ë“±)
+  . 'ON í…Œì´ë¸”ëª…': íŠ¸ë¦¬ê±° ì›ì¸ì´ë˜ëŠ” ì´ë²¤íŠ¸ê°€ ë°œìƒëœ í…Œì´ë¸”ëª… 
+  . 'FOR EACH ROW': í–‰ë‹¨ìœ„ì˜ íŠ¸ë¦¬ê±°(ì´ë²¤íŠ¸ê²°ê³¼ ê° í–‰ ë§ˆë‹¤ íŠ¸ë¦¬ê±° ìˆ˜í–‰). ìƒëžµí•˜ë©´ ë¬¸ìž¥ë‹¨ìœ„ íŠ¸ë¦¬ê±°
+  . 'WHEN ì¡°ê±´': í–‰ë‹¨ìœ„ì˜ íŠ¸ë¦¬ê±°ì—ì„œë§Œ ì‚¬ìš©í• ìˆ˜ ìžˆìœ¼ë©° íŠ¸ë¦¬ê±°ë¥¼ ë°œìƒ ì‹œí‚¤ëŠ” 
+                ì´ë²¤íŠ¸ê°€ ë°œìƒë˜ëŠ” í…Œì´ë¸”ì—ì„œ ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ì¢€ë” êµ¬ì²´ì ì¸ ê²€ìƒ‰ì¡°ê±´ ì œì‹œì— ì‚¬ìš©
                 
                 
                 
-                
-  * Æ®¸®°Å À¯Çü 
-  - Çà´ÜÀ§ Æ®¸®°Å¿Í ¹®Àå´ÜÀ§ Æ®¸®°Å·Î ±¸ºÐ 
-  1)¹®Àå´ÜÀ§ Æ®¸®°Å: ÀÌº¥Æ® ¼öÇà°á°ú¿¡ °ü°è¾øÀÌ 1¹ø¸¸ ¼öÇà --EX)Àå¹Ù±¸´ÏÅ×ÀÌºí¿¡ ¿©·¯ ÁÖ¹®ÀÌ µé¾î¿Íµµ ÇÑ¹ø¸¸ ¼öÇà
-                    'FOR EACH ROW'»ý·«
-  2)Çà´ÜÀ§ Æ®¸®°Å: ÀÌº¥Æ®¸í·É ½ÇÇà°á°ú°¡ º¹¼ö°³ÀÇ ÇàÀÌ ¹ÝÈ¯µÇ´Â °æ¿ì °¢ Çà¸¶´Ù Æ®¸®°Å º»¹® ½ÇÇà 'FOR EACH ROW'±â¼ú
-  --´ëºÎºÐÀÌ Çà´ÜÀ§ Æ®¸®°ÅÀÓ
+                 
+  * íŠ¸ë¦¬ê±° ìœ í˜• 
+  - í–‰ë‹¨ìœ„ íŠ¸ë¦¬ê±°ì™€ ë¬¸ìž¥ë‹¨ìœ„ íŠ¸ë¦¬ê±°ë¡œ êµ¬ë¶„ 
+  1)ë¬¸ìž¥ë‹¨ìœ„ íŠ¸ë¦¬ê±°: ì´ë²¤íŠ¸ ìˆ˜í–‰ê²°ê³¼ì— ê´€ê³„ì—†ì´ 1ë²ˆë§Œ ìˆ˜í–‰ --EX)ìž¥ë°”êµ¬ë‹ˆí…Œì´ë¸”ì— ì—¬ëŸ¬ ì£¼ë¬¸ì´ ë“¤ì–´ì™€ë„ í•œë²ˆë§Œ ìˆ˜í–‰
+                    'FOR EACH ROW'ìƒëžµ
+  2)í–‰ë‹¨ìœ„ íŠ¸ë¦¬ê±°: ì´ë²¤íŠ¸ëª…ë ¹ ì‹¤í–‰ê²°ê³¼ê°€ ë³µìˆ˜ê°œì˜ í–‰ì´ ë°˜í™˜ë˜ëŠ” ê²½ìš° ê° í–‰ë§ˆë‹¤ íŠ¸ë¦¬ê±° ë³¸ë¬¸ ì‹¤í–‰ 'FOR EACH ROW'ê¸°ìˆ 
+  --ëŒ€ë¶€ë¶„ì´ í–‰ë‹¨ìœ„ íŠ¸ë¦¬ê±°ìž„
   
-  *ÀÇ»ç·¹ÄÚµå
-  - Çà´ÜÀ§ Æ®¸®°Å¿¡¼­¸¸ »ç¿ë°¡´É(¡Ø¸¹ÀÌ »ç¿ëµÇ¾îÁü)
+  *ì˜ì‚¬ë ˆì½”ë“œ
+  - í–‰ë‹¨ìœ„ íŠ¸ë¦¬ê±°ì—ì„œë§Œ ì‚¬ìš©ê°€ëŠ¥(â€»ë§Žì´ ì‚¬ìš©ë˜ì–´ì§)
 ---------------------------------------------------------------------------  
-    ÀÇ»ç·¹ÄÚµå           ÀÇ¹Ì
+    ì˜ì‚¬ë ˆì½”ë“œ           ì˜ë¯¸
 ---------------------------------------------------------------------------
-    :NEW            ÀÌº¥Æ®°¡ INSERT, UPDATE ÀÏ¶§¸¸ »ç¿ë
-                    µ¥ÀÌÅÍ°¡ »ðÀÔ(°»½Å)µÉ¶§ »õ·Ó°Ô ÀÔ·Â µÇ´Â ÀÚ·á(Çà)À» ÁöÄª
-                    DELETE½Ã »ç¿ëµÇ¸é ¸ðµç ÄÃ·³°ªÀÌ NULL
+    :NEW            ì´ë²¤íŠ¸ê°€ INSERT, UPDATE ì¼ë•Œë§Œ ì‚¬ìš©
+                    ë°ì´í„°ê°€ ì‚½ìž…(ê°±ì‹ )ë ë•Œ ìƒˆë¡­ê²Œ ìž…ë ¥ ë˜ëŠ” ìžë£Œ(í–‰)ì„ ì§€ì¹­
+                    DELETEì‹œ ì‚¬ìš©ë˜ë©´ ëª¨ë“  ì»¬ëŸ¼ê°’ì´ NULL
 ---------------------------------------------------------------------------                   
-    :OLD            ÀÌº¥Æ®°¡ DELETE, UPDATE ÀÏ¶§¸¸ »ç¿ë
-                    µ¥ÀÌÅÍ°¡ »èÁ¦(°»½Å)µÉ¶§ ÇØ´ç ¿¬»êÀÇ ´ë»óÀÌ µÇ´Â ÀÚ·á(Çà)À» ÁöÄª
-                    INSERT½Ã »ç¿ëµÇ¸é ¸ðµç ÄÃ·³°ªÀÌ NULL
+    :OLD            ì´ë²¤íŠ¸ê°€ DELETE, UPDATE ì¼ë•Œë§Œ ì‚¬ìš©
+                    ë°ì´í„°ê°€ ì‚­ì œ(ê°±ì‹ )ë ë•Œ í•´ë‹¹ ì—°ì‚°ì˜ ëŒ€ìƒì´ ë˜ëŠ” ìžë£Œ(í–‰)ì„ ì§€ì¹­
+                    INSERTì‹œ ì‚¬ìš©ë˜ë©´ ëª¨ë“  ì»¬ëŸ¼ê°’ì´ NULL
 ---------------------------------------------------------------------------  
  
  
  
- *Æ®¸®°Å ÇÔ¼ö 
- - ÀÌº¥Æ®·Î Á¤ÀÇµÈ ¸í·ÉÀ» ±¸ºÐÇÏ±âÀ§ÇØ »ç¿ë
+ *íŠ¸ë¦¬ê±° í•¨ìˆ˜ 
+ - ì´ë²¤íŠ¸ë¡œ ì •ì˜ëœ ëª…ë ¹ì„ êµ¬ë¶„í•˜ê¸°ìœ„í•´ ì‚¬ìš©
 ---------------------------------------------------------------------------  
-    ÇÔ¼ö           ÀÇ¹Ì
+    í•¨ìˆ˜           ì˜ë¯¸
 ---------------------------------------------------------------------------
-  INSERTING     ÀÌº¥Æ®°¡ INSERTÀÌ¸é Âü(ture)¹ÝÈ¯
-  UPDATING      ÀÌº¥Æ®°¡ UPDATEÀÌ¸é Âü(ture)¹ÝÈ¯
-  DELETING      ÀÌº¥Æ®°¡ DELETEÀÌ¸é Âü(ture)¹ÝÈ¯
+  INSERTING     ì´ë²¤íŠ¸ê°€ INSERTì´ë©´ ì°¸(ture)ë°˜í™˜
+  UPDATING      ì´ë²¤íŠ¸ê°€ UPDATEì´ë©´ ì°¸(ture)ë°˜í™˜
+  DELETING      ì´ë²¤íŠ¸ê°€ DELETEì´ë©´ ì°¸(ture)ë°˜í™˜
   
   
   
   
-»ç¿ë¿¹) ºÐ·ùÅ×ÀÌºí(LPROD)¿¡¼­ ¼ø¹ø 10ºÎÅÍ ¸ðµÎ »èÁ¦ÇÏ½Ã¿À
-        »èÁ¦ÈÄ 'ºÐ·ùÄÚµå°¡ »èÁ¦µÇ¾ú½À´Ï´Ù'¶ó´Â ¸Þ½ÃÁö¸¦ Ãâ·ÂÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) ë¶„ë¥˜í…Œì´ë¸”(LPROD)ì—ì„œ ìˆœë²ˆ 10ë¶€í„° ëª¨ë‘ ì‚­ì œí•˜ì‹œì˜¤
+        ì‚­ì œí›„ 'ë¶„ë¥˜ì½”ë“œê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤'ë¼ëŠ” ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 
   
     CREATE TRIGGER TG_DEL_LPROD
         AFTER DELETE ON LPROD
     BEGIN
-        DBMS_OUTPUT.PUT_LINE('ºÐ·ùÄÚµå°¡ »èÁ¦µÆ½À´Ï´Ù.');
+        DBMS_OUTPUT.PUT_LINE('ë¶„ë¥˜ì½”ë“œê°€ ì‚­ì œëìŠµë‹ˆë‹¤.');
     END;
     
-    --Æ®¸®°ÅÁö¿ì±â
+    --íŠ¸ë¦¬ê±°ì§€ìš°ê¸°
     DROP TG_DEL_LPROD;
   
---°á°ú°¡ Áï½Ã¹Ý¿µµÇÁö ¾ÊÀ¸¹Ç·Î SELECT¹®ÀÌ³ª COMMITÀ» ÅëÇÏ¿© ÇØÁØ´Ù.
+--ê²°ê³¼ê°€ ì¦‰ì‹œë°˜ì˜ë˜ì§€ ì•Šìœ¼ë¯€ë¡œ SELECTë¬¸ì´ë‚˜ COMMITì„ í†µí•˜ì—¬ í•´ì¤€ë‹¤.
 
     DELETE FROM LPROD
         WHERE LPROD_ID=12;  
@@ -87,26 +87,26 @@ CREATE TRIGGER Æ®¸®°Å¸í
     ROLLBACK;
     
     
-    --Æ®¸®°Å»èÁ¦
+    --íŠ¸ë¦¬ê±°ì‚­ì œ
     DROP TRIGGER TG_DELUPDATE_CUST;
     
     
-    »ç¿ë¿¹) CUSTOMER Å×ÀÌºí¿¡ ÀÚ·á¸¦ º¯°æÇÏ¸é 'ÀÚ·á°¡ ¼öÁ¤‰çÀ½'À» 
-            ÀÚ·á°¡ »èÁ¦µÇ¸é 'ÀÚ·á°¡»èÁ¦µÇ¾úÀ½'À» Ãâ·ÂÇÏ´Â Æ®¸®°Å ÀÛ¼º
-    --Æ®¸®°Å¿¡¼­´Â SAVEPOINT, COMMIT, ROLLBACK µîÀ» ¾µ¼ö¾øÀ½
+    ì‚¬ìš©ì˜ˆ) CUSTOMER í…Œì´ë¸”ì— ìžë£Œë¥¼ ë³€ê²½í•˜ë©´ 'ìžë£Œê°€ ìˆ˜ì •Â‰ç‘›'ì„ 
+            ìžë£Œê°€ ì‚­ì œë˜ë©´ 'ìžë£Œê°€ì‚­ì œë˜ì—ˆìŒ'ì„ ì¶œë ¥í•˜ëŠ” íŠ¸ë¦¬ê±° ìž‘ì„±
+    --íŠ¸ë¦¬ê±°ì—ì„œëŠ” SAVEPOINT, COMMIT, ROLLBACK ë“±ì„ ì“¸ìˆ˜ì—†ìŒ
     CREATE TRIGGER TG_DELUPDATE_CUST2
       AFTER UPDATE OR DELETE ON CUSTOMER
     BEGIN
       IF UPDATING THEN 
-            DBMS_OUTPUT.PUT_LINE('ÀÚ·á°¡ ¼öÁ¤µÇ¾úÀ½');
+            DBMS_OUTPUT.PUT_LINE('ìžë£Œê°€ ìˆ˜ì •ë˜ì—ˆìŒ');
       ELSIF DELETING THEN
-            DBMS_OUTPUT.PUT_LINE('ÀÚ·á°¡ »èÁ¦µÇ¾úÀ½');
+            DBMS_OUTPUT.PUT_LINE('ìžë£Œê°€ ì‚­ì œë˜ì—ˆìŒ');
       END IF;
     END;
                         
 
     
-    ¿¹) CUSTOMERÀÇ ¸¶ÀÏ¸®Áö¸¦ ¸ðµÎ 500¾¿Áõ°¡
+    ì˜ˆ) CUSTOMERì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ ëª¨ë‘ 500ì”©ì¦ê°€
     
     UPDATE CUSTOMER
         SET MEM_MILEAGE = MEM_MILEAGE+500;
@@ -115,7 +115,7 @@ CREATE TRIGGER Æ®¸®°Å¸í
     
   
   
-    ¿¹2) CUSTOMERÀÇ ÀÚ·áÁß ¸¶ÀÏ¸®Áö°¡ 3000¹Ì¸¸ ÀÚ·á»èÁ¦ 
+    ì˜ˆ2) CUSTOMERì˜ ìžë£Œì¤‘ ë§ˆì¼ë¦¬ì§€ê°€ 3000ë¯¸ë§Œ ìžë£Œì‚­ì œ 
     DELETE FROM CUSTOMER
       WHERE MEM_MILEAGE < 3000;
     SELECT * FROM CUSTOMER;
