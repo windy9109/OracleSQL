@@ -1,35 +1,35 @@
-2022-0204-01)ÀúÀåÇÁ·Î½ÃÁ®(Stored Procedure : Procedure)
- - ¼­¹ö¿¡ ÀúÀåµÈ ½ÇÇà °¡´ÉÇÑ ÇÁ·Î±×·¥ ¸ðµâ
- - ¸ðµç ÀÀ¿ëÇÁ·Î±×·¥¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ±â´ÉÀ» Ä¸½¶È­
- - º¸¾È¼º È®º¸  
- - ¹ÝÈ¯°ªÀÌ ¾øÀ½
- (»ç¿ëÇü½Ä)
- CREATE [OR REPLACE] PROCEDURE ÇÁ·Î½ÃÁ®¸í
-  [(¸Å°³º¯¼ö [¸ðµå] µ¥ÀÌÅÍÅ¸ÀÔ [:=[DEFAULT] °ª][,]
+2022-0204-01)ì €ìž¥í”„ë¡œì‹œì ¸(Stored Procedure : Procedure)
+ - ì„œë²„ì— ì €ìž¥ëœ ì‹¤í–‰ ê°€ëŠ¥í•œ í”„ë¡œê·¸ëž¨ ëª¨ë“ˆ
+ - ëª¨ë“  ì‘ìš©í”„ë¡œê·¸ëž¨ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìžˆë„ë¡ ê¸°ëŠ¥ì„ ìº¡ìŠí™”
+ - ë³´ì•ˆì„± í™•ë³´  
+ - ë°˜í™˜ê°’ì´ ì—†ìŒ 
+ (ì‚¬ìš©í˜•ì‹)
+ CREATE [OR REPLACE] PROCEDURE í”„ë¡œì‹œì ¸ëª…
+  [(ë§¤ê°œë³€ìˆ˜ [ëª¨ë“œ] ë°ì´í„°íƒ€ìž… [:=[DEFAULT] ê°’][,]
                       :
-  [(¸Å°³º¯¼ö [¸ðµå] µ¥ÀÌÅÍÅ¸ÀÔ [:=[DEFAULT] °ª])]
+  [(ë§¤ê°œë³€ìˆ˜ [ëª¨ë“œ] ë°ì´í„°íƒ€ìž… [:=[DEFAULT] ê°’])]
   AS|IS
-    ¼±¾ðºÎ;
+    ì„ ì–¸ë¶€;
   BEGIN
-    ½ÇÇàºÎ;
+    ì‹¤í–‰ë¶€;
     [EXCEPTION 
-      ¿¹¿ÜÃ³¸®;
+      ì˜ˆì™¸ì²˜ë¦¬;
     ]
   END;  
-   . '¸ðµå' : ¸Å°³º¯¼öÀÇ ¿ªÈ° => IN(ÀÔ·Â¿ë), OUT(Ãâ·Â¿ë), INOUT(ÀÔÃâ·Â¿ë:»ç¿ëÀÚÁ¦)--¿ÜºÎ¿¡¼­ ³»ºÎ·ÎIN, ³»ºÎ¿¡¼­ ¿ÜºÎ·Î OUT
-   . 'µ¥ÀÌÅÍÅ¸ÀÔ' : Å©±â¸¦ ÁöÁ¤ÇÏ¸é ¾ÈµÊ   -- EX) VARCHAR2 (O)/ VARCHAR2(50) (X)       
+   . 'ëª¨ë“œ' : ë§¤ê°œë³€ìˆ˜ì˜ ì—­í™œ => IN(ìž…ë ¥ìš©), OUT(ì¶œë ¥ìš©), INOUT(ìž…ì¶œë ¥ìš©:ì‚¬ìš©ìžì œ)--ì™¸ë¶€ì—ì„œ ë‚´ë¶€ë¡œIN, ë‚´ë¶€ì—ì„œ ì™¸ë¶€ë¡œ OUT
+   . 'ë°ì´í„°íƒ€ìž…' : í¬ê¸°ë¥¼ ì§€ì •í•˜ë©´ ì•ˆë¨   -- EX) VARCHAR2 (O)/ VARCHAR2(50) (X)       
   
- (½ÇÇà¹® Çü½Ä)
- EXECUTE|EXEC ÇÁ·Î½ÃÁ®¸í(¸Å°³º¯¼ölist);
-  --´Üµ¶ ½ÇÇà
+ (ì‹¤í–‰ë¬¸ í˜•ì‹)
+ EXECUTE|EXEC í”„ë¡œì‹œì ¸ëª…(ë§¤ê°œë³€ìˆ˜list);
+  --ë‹¨ë… ì‹¤í–‰
  OR  
- ÇÁ·Î½ÃÁ®¸í(¸Å°³º¯¼ölist);
-  --´Ù¸¥ ÇÁ·Î½ÃÁ® ¶Ç´Â ÇÔ¼ö ¹× ÀÍ¸íºí·Ï µî¿¡¼­ ½ÇÇà  
-  --µ¶¸³Àû½ÇÇà
-  --¹ÝÈ¯°ªÀÌ ¾ø¾î¼­ ´Ù¸¥Äõ¸®¿¡¼­ »ç¿ëÇÒ¼ö ¾ø°í SELECT¹®À» »ç¿ëÇÒ¼ö ¾øÀ½
+ í”„ë¡œì‹œì ¸ëª…(ë§¤ê°œë³€ìˆ˜list);
+  --ë‹¤ë¥¸ í”„ë¡œì‹œì ¸ ë˜ëŠ” í•¨ìˆ˜ ë° ìµëª…ë¸”ë¡ ë“±ì—ì„œ ì‹¤í–‰  
+  --ë…ë¦½ì ì‹¤í–‰
+  --ë°˜í™˜ê°’ì´ ì—†ì–´ì„œ ë‹¤ë¥¸ì¿¼ë¦¬ì—ì„œ ì‚¬ìš©í• ìˆ˜ ì—†ê³  SELECTë¬¸ì„ ì‚¬ìš©í• ìˆ˜ ì—†ìŒ
   
-»ç¿ë¿¹)»óÇ°ÄÚµå¸¦ ÀÔ·Â¹Þ¾Æ 2005³â ¸ÅÃâ¼ö·®°ú ¸ÅÃâ±Ý¾× ¹×
-      »óÇ°¸íÀ» Ãâ·ÂÇÏ´Â ÇÁ·Î½ÃÁ® ÀÛ¼º
+ì‚¬ìš©ì˜ˆ)ìƒí’ˆì½”ë“œë¥¼ ìž…ë ¥ë°›ì•„ 2005ë…„ ë§¤ì¶œìˆ˜ëŸ‰ê³¼ ë§¤ì¶œê¸ˆì•¡ ë°
+      ìƒí’ˆëª…ì„ ì¶œë ¥í•˜ëŠ” í”„ë¡œì‹œì ¸ ìž‘ì„±
   CREATE OR REPLACE PROCEDURE PROC_CART01(
     P_PID IN VARCHAR2) --PROD.PROD_ID%TYPE
   IS
@@ -45,20 +45,20 @@
        AND A.PROD_ID=B.CART_PROD
        AND B.CART_NO LIKE '2005%'
      GROUP BY A.PROD_NAME;  
-    DBMS_OUTPUT.PUT_LINE('»óÇ°ÄÚµå : '||P_PID);
-    DBMS_OUTPUT.PUT_LINE('»óÇ°¸í : '||V_NAME);
-    DBMS_OUTPUT.PUT_LINE('¸ÅÃâ¼ö·® : '||V_QTY);
-    DBMS_OUTPUT.PUT_LINE('¸ÅÃâ¾× : '||V_AMT);
+    DBMS_OUTPUT.PUT_LINE('ìƒí’ˆì½”ë“œ : '||P_PID);
+    DBMS_OUTPUT.PUT_LINE('ìƒí’ˆëª… : '||V_NAME);
+    DBMS_OUTPUT.PUT_LINE('ë§¤ì¶œìˆ˜ëŸ‰ : '||V_QTY);
+    DBMS_OUTPUT.PUT_LINE('ë§¤ì¶œì•¡ : '||V_AMT);
     DBMS_OUTPUT.PUT_LINE('----------------------');    
   END;
       
- (È£Ãâ¹®)
+ (í˜¸ì¶œë¬¸)
  EXECUTE PROC_CART01('P202000001');
  
  
  
-»ç¿ë¿¹)ºÎ¼­¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ ºÎ¼­¸í,ÀÎ¿ø¼ö,ÁÖ¼Ò¸¦ ¹ÝÈ¯ÇÏ´Â ÇÁ·Î½ÃÁ® ÀÛ¼º
-      --OUT¸Å°³º¯¼ö »ç¿ë¿¹
+ì‚¬ìš©ì˜ˆ)ë¶€ì„œë²ˆí˜¸ë¥¼ ìž…ë ¥ë°›ì•„ ë¶€ì„œëª…,ì¸ì›ìˆ˜,ì£¼ì†Œë¥¼ ë°˜í™˜í•˜ëŠ” í”„ë¡œì‹œì ¸ ìž‘ì„±
+      --OUTë§¤ê°œë³€ìˆ˜ ì‚¬ìš©ì˜ˆ
       
   CREATE OR REPLACE PROCEDURE PROC_EMP01(
     P_DID IN HR.DEPARTMENTS.DEPARTMENT_ID%TYPE,
@@ -67,7 +67,7 @@
     P_ADDR OUT VARCHAR2)
   IS    
   BEGIN
-    --ÀÎ¿ø¼ö,ÁÖ¼Ò,ºÎ¼­¸í
+    --ì¸ì›ìˆ˜,ì£¼ì†Œ,ë¶€ì„œëª…
     SELECT A.DEPARTMENT_NAME,
            B.POSTAL_CODE||' '||B.STREET_ADDRESS||' '
            ||B.CITY||' '||B.STATE_PROVINCE
@@ -80,8 +80,8 @@
      WHERE DEPARTMENT_ID=P_DID;      
   END;
       
-(½ÇÇà) --È£Ãâ¹®(È£Ãâ¹®µµ ÀÍ¸íºí·ÏÀ» ÀÌ¿ëÇØ¾ßÇÔ)
-  ACCEPT P_ID PROMPT ('ºÎ¼­ÄÚµå ÀÔ·Â(10~110) :') 
+(ì‹¤í–‰) --í˜¸ì¶œë¬¸(í˜¸ì¶œë¬¸ë„ ìµëª…ë¸”ë¡ì„ ì´ìš©í•´ì•¼í•¨)
+  ACCEPT P_ID PROMPT ('ë¶€ì„œì½”ë“œ ìž…ë ¥(10~110) :') 
   DECLARE
     V_DNAME VARCHAR2(200);
     V_CNT   NUMBER:=0;
@@ -89,16 +89,16 @@
   BEGIN
     PROC_EMP01(TO_NUMBER('&P_ID'),V_DNAME,V_CNT,V_ADDR);
     
-    DBMS_OUTPUT.PUT_LINE('ºÎ¼­ÄÚµå : '||'&P_ID');
-    DBMS_OUTPUT.PUT_LINE('ºÎ¼­¸í : '||V_DNAME);
-    DBMS_OUTPUT.PUT_LINE('ÀÎ¿ø¼ö : '||V_CNT);
-    DBMS_OUTPUT.PUT_LINE('ÁÖ¼Ò : '||V_ADDR);
+    DBMS_OUTPUT.PUT_LINE('ë¶€ì„œì½”ë“œ : '||'&P_ID');
+    DBMS_OUTPUT.PUT_LINE('ë¶€ì„œëª… : '||V_DNAME);
+    DBMS_OUTPUT.PUT_LINE('ì¸ì›ìˆ˜ : '||V_CNT);
+    DBMS_OUTPUT.PUT_LINE('ì£¼ì†Œ : '||V_ADDR);
     DBMS_OUTPUT.PUT_LINE('-------------------------------------------');   
   END;
 
-»ç¿ë¿¹) ³âµµ¿Í ¿ùÀ» ÀÔ·Â ¹Þ¾Æ ÇØ´ç ¿ù¿¡ °¡Àå ¸¹ÀÌ ±¸¸ÅÇÑ È¸¿øÀÇ
-       È¸¿ø¹øÈ£,ÀÌ¸§,ÁÖ¼Ò,¸¶ÀÏ¸®Áö¸¦ ¹ÝÈ¯ÇÏ´Â ÇÁ·Î½ÃÁ® ÀÛ¼º
-       ÇÁ·Î½ÃÁ®¸íÀº 'PROC_MEM01'ÀÌ´Ù
+ì‚¬ìš©ì˜ˆ) ë…„ë„ì™€ ì›”ì„ ìž…ë ¥ ë°›ì•„ í•´ë‹¹ ì›”ì— ê°€ìž¥ ë§Žì´ êµ¬ë§¤í•œ íšŒì›ì˜
+       íšŒì›ë²ˆí˜¸,ì´ë¦„,ì£¼ì†Œ,ë§ˆì¼ë¦¬ì§€ë¥¼ ë°˜í™˜í•˜ëŠ” í”„ë¡œì‹œì ¸ ìž‘ì„±
+       í”„ë¡œì‹œì ¸ëª…ì€ 'PROC_MEM01'ì´ë‹¤
        
   CREATE OR REPLACE PROCEDURE PROC_MEM01(
     P_PERIOD IN VARCHAR2,
@@ -126,7 +126,7 @@
   END;
 
 
-(½ÇÇà) --È£Ãâ¹®(È£Ãâ¹®µµ ÀÍ¸íºí·ÏÀ» ÀÌ¿ëÇØ¾ßÇÔ)
+(ì‹¤í–‰) --í˜¸ì¶œë¬¸(í˜¸ì¶œë¬¸ë„ ìµëª…ë¸”ë¡ì„ ì´ìš©í•´ì•¼í•¨)
   DECLARE
    V_MID MEMBER.MEM_ID%TYPE;
    V_NAME VARCHAR2(50);
@@ -134,22 +134,22 @@
    V_MILE NUMBER:=0;
   BEGIN
    PROC_MEM01('200505',V_MID,V_NAME,V_ADDR,V_MILE);
-   DBMS_OUTPUT.PUT_LINE('È¸¿ø¹øÈ£ : '||V_MID);
-   DBMS_OUTPUT.PUT_LINE('È¸¿ø¸í : '||V_NAME);
-   DBMS_OUTPUT.PUT_LINE('ÁÖ¼Ò : '||V_ADDR);
-   DBMS_OUTPUT.PUT_LINE('¸¶ÀÏ¸®Áö : '||V_MILE);
+   DBMS_OUTPUT.PUT_LINE('íšŒì›ë²ˆí˜¸ : '||V_MID);
+   DBMS_OUTPUT.PUT_LINE('íšŒì›ëª… : '||V_NAME);
+   DBMS_OUTPUT.PUT_LINE('ì£¼ì†Œ : '||V_ADDR);
+   DBMS_OUTPUT.PUT_LINE('ë§ˆì¼ë¦¬ì§€ : '||V_MILE);
    DBMS_OUTPUT.PUT_LINE('------------------------------------');  
   END;
 
 
 
-»ç¿ë¿¹)³âµµ¿Í ¿ùÀ» ÀÔ·Â¹Þ¾Æ Á¦Ç°º° ¸ÅÀÔ¼ö·®À» ±¸ÇÑµÚ
-      Àç°í¼öºÒÅ×ÀÌºíÀ» °»½ÅÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ)ë…„ë„ì™€ ì›”ì„ ìž…ë ¥ë°›ì•„ ì œí’ˆë³„ ë§¤ìž…ìˆ˜ëŸ‰ì„ êµ¬í•œë’¤
+      ìž¬ê³ ìˆ˜ë¶ˆí…Œì´ë¸”ì„ ê°±ì‹ í•˜ì‹œì˜¤
       
-    --¹ÝÈ¯µÇ¾îÁö´Â µ¥ÀÌÅÍ´Â ¾ø´Ù.
-    -- ÇÁ·Î½ÃÀúº¸´Ù´Â FUNTION¹®ÀÌ ÀûÇÕÇÔ 
-    --º¯¼ö¿¡ ÀúÀåÇØ¼­´Â ÇØ°áºÒ°¡´É
-    --Ä¿¼­·Î ÇØ°á
+    --ë°˜í™˜ë˜ì–´ì§€ëŠ” ë°ì´í„°ëŠ” ì—†ë‹¤.
+    -- í”„ë¡œì‹œì €ë³´ë‹¤ëŠ” FUNTIONë¬¸ì´ ì í•©í•¨ 
+    --ë³€ìˆ˜ì— ì €ìž¥í•´ì„œëŠ” í•´ê²°ë¶ˆê°€ëŠ¥
+    --ì»¤ì„œë¡œ í•´ê²°
 
 
   CREATE OR REPLACE PROCEDURE PROC_REMAIN01(
@@ -178,7 +178,7 @@
   END;
   
   
-  (½ÇÇà)
+  (ì‹¤í–‰)
   EXECUTE PROC_REMAIN01('200503');
   SELECT * FROM REMAIN;    
 
