@@ -1,11 +1,11 @@
-2002-0208-01) Æ®¸®°Å ¿¹Á¦
-    ** HR°èÁ¤ÀÇ »ç¿øÅ×ÀÌºí¿¡ ÅðÁ÷ÀÏÀÚ ÄÃ·³À» Ãß°¡ÇÏ½Ã¿À
+2002-0208-01) íŠ¸ë¦¬ê±° ì˜ˆì œ
+    ** HRê³„ì •ì˜ ì‚¬ì›í…Œì´ë¸”ì— í‡´ì§ì¼ìž ì»¬ëŸ¼ì„ ì¶”ê°€í•˜ì‹œì˜¤
         ALTER TABLE HR.EMPLOYEES ADD(RETIRE_DATE DATE);
-        --Table HR.EMPLOYEESÀÌ(°¡) º¯°æµÇ¾ú½À´Ï´Ù.
-    
-    ** HR°èÁ¤¿¡ ÅðÁ÷ÀÚ Å×ÀÌºíÀ» »ý¼ºÇÏ½Ã¿À
-        Å×ÀÌºí¸í: RETIRES
-        ÄÃ·³¸í           µ¥ÀÌÅÍÅ¸ÀÔ      NULLABLE    PK/FK
+        --Table HR.EMPLOYEESì´(ê°€) ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.
+     
+    ** HRê³„ì •ì— í‡´ì§ìž í…Œì´ë¸”ì„ ìƒì„±í•˜ì‹œì˜¤
+        í…Œì´ë¸”ëª…: RETIRES
+        ì»¬ëŸ¼ëª…           ë°ì´í„°íƒ€ìž…      NULLABLE    PK/FK
         --------------------------------------------------
         EMPLOYEE_ID     NUMBER(6)       N.N       PK&FK
         RETIRE_DATE     DATE
@@ -24,30 +24,30 @@
             REFERENCES JOBS(JOB_ID),
         CONSTRAINT fk_ret_dept FOREIGN KEY(DEPARTMENT_ID)
             REFERENCES DEPARTMENTS(DEPARTMENT_ID));
-        --Table RETIRESÀÌ(°¡) »ý¼ºµÇ¾ú½À´Ï´Ù.
+        --Table RETIRESì´(ê°€) ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.
             
             
 
-        »ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ÀÔ»çÀÏÀÌ 2003³â ÀÌÀü¿¡ ÀÔ»çÇÑ »ç¿øµéÀ» ÅðÁ÷ Ã³¸®ÇÏ·ÁÇÑ´Ù.
-               ÅðÁ÷ÀÚ´Â »ç¿øÅ×ÀÌºí ÅðÁ÷ÀÏÀÚ¿¡ ¿À´Ã³¯Â¥·Î º¯°æÇÏ±âÀü ÅðÁ÷ÀÚÅ×ÀÌºí¿¡ Á¤º¸¸¦ ÀÔ·ÂÇØ¾ßÇÑ´Ù.
-        --ÀÌ°ü ÀÛ¾÷¼±Çà
+        ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ìž…ì‚¬ì¼ì´ 2003ë…„ ì´ì „ì— ìž…ì‚¬í•œ ì‚¬ì›ë“¤ì„ í‡´ì§ ì²˜ë¦¬í•˜ë ¤í•œë‹¤.
+               í‡´ì§ìžëŠ” ì‚¬ì›í…Œì´ë¸” í‡´ì§ì¼ìžì— ì˜¤ëŠ˜ë‚ ì§œë¡œ ë³€ê²½í•˜ê¸°ì „ í‡´ì§ìží…Œì´ë¸”ì— ì •ë³´ë¥¼ ìž…ë ¥í•´ì•¼í•œë‹¤.
+        --ì´ê´€ ìž‘ì—…ì„ í–‰
         
         CREATE TRIGGER tg_retire
           BEFORE UPDATE ON EMPLOYEES
-          FOR EACH ROW  --°¢Çà¸¶´Ù½ÇÇà
+          FOR EACH ROW  --ê°í–‰ë§ˆë‹¤ì‹¤í–‰
           BEGIN
             INSERT INTO RETIRES
                 VALUES(:OLD.EMPLOYEE_ID,SYSDATE,:OLD.JOB_ID, :OLD.DEPARTMENT_ID);
-                --°¢Çà¸¶´ÙÀÇ 
+                --ê°í–‰ë§ˆë‹¤ì˜ 
           END;
-        --Trigger TG_RETIREÀÌ(°¡) ÄÄÆÄÀÏµÇ¾ú½À´Ï´Ù.
+        --Trigger TG_RETIREì´(ê°€) ì»´íŒŒì¼ë˜ì—ˆìŠµë‹ˆë‹¤.
         
         
-        (½ÇÇà)
+        (ì‹¤í–‰)
         UPDATE EMPLOYEES
             SET RETIRE_DATE = SYSDATE
          WHERE HIRE_DATE <= TO_DATE('20021231');
-        --8°³ Çà ÀÌ(°¡) ¾÷µ¥ÀÌÆ®µÇ¾ú½À´Ï´Ù.
+        --8ê°œ í–‰ ì´(ê°€) ì—…ë°ì´íŠ¸ë˜ì—ˆìŠµë‹ˆë‹¤.
         
         
         
