@@ -1,35 +1,35 @@
-2022-0125-01) ¿À¶óÅ¬ °´Ã¼ 
-- ¿À¶óÅ¬¿¡¼­ Á¦°øÇÏ´Â OBJECT·Î VIEW, INDEX, PROCEDURE, FUNCTION, PACKAGE, TRIGGER, SYNONYM, SEQUENCE, DIRECTORY µîÀÌ ÀÖÀ½
-- »ý¼º½Ã CREATE, Á¦°Å½Ã DROP ¸í·É»ç¿ë
- 
+2022-0125-01) ì˜¤ë¼í´ ê°ì²´ 
+- ì˜¤ë¼í´ì—ì„œ ì œê³µí•˜ëŠ” OBJECTë¡œ VIEW, INDEX, PROCEDURE, FUNCTION, PACKAGE, TRIGGER, SYNONYM, SEQUENCE, DIRECTORY ë“±ì´ ìžˆìŒ
+- ìƒì„±ì‹œ CREATE, ì œê±°ì‹œ DROP ëª…ë ¹ì‚¬ìš©
+  
 1. VIEW
-- °¡»óÀÇ Å×ÀÌºí
-- ±âÁ¸ÀÇ Å×ÀÌºíÀÌ³ª ºä¸¦ ÅëÇÏ¿© »õ·Î¿î SELECT¹®ÀÇ °á°ú¸¦ Å×ÀÌºíÃ³·³ »ç¿ë
-- Å×ÀÌºí°ú µ¶¸³Àû
-- ÇÊ¿äÇÑ Á¤º¸°¡ ¿©·¯ Å×ÀÌºí¿¡ ºÐ»êµÈ °æ¿ì
-- Å×ÀÌºíÀÇ ¸ðµç ÀÚ·á¿¡ ´ëÇÑ Á¢±ÙÀ» Á¦ÇÑÇÏ°í ÇÊ¿äÇÑ ÀÚ·á¸¸À» Á¦°øÇÏ´Â °æ¿ì
+- ê°€ìƒì˜ í…Œì´ë¸”
+- ê¸°ì¡´ì˜ í…Œì´ë¸”ì´ë‚˜ ë·°ë¥¼ í†µí•˜ì—¬ ìƒˆë¡œìš´ SELECTë¬¸ì˜ ê²°ê³¼ë¥¼ í…Œì´ë¸”ì²˜ëŸ¼ ì‚¬ìš©
+- í…Œì´ë¸”ê³¼ ë…ë¦½ì 
+- í•„ìš”í•œ ì •ë³´ê°€ ì—¬ëŸ¬ í…Œì´ë¸”ì— ë¶„ì‚°ëœ ê²½ìš°
+- í…Œì´ë¸”ì˜ ëª¨ë“  ìžë£Œì— ëŒ€í•œ ì ‘ê·¼ì„ ì œí•œí•˜ê³  í•„ìš”í•œ ìžë£Œë§Œì„ ì œê³µí•˜ëŠ” ê²½ìš°
 
-(»ç¿ëÇü½Ä)
-    CREATE [OR REPLACE] VIEW ºäÀÌ¸§ [(ÄÃ·³ list)]
-    -- [OR REPLACE] µ¤¾î¾º¿ì¶ó´Â ÀÇ¹Ì
-    -- VIEW ÀÌ¸§ Àû¿ë ¿ì¼±¼øÀ§: 1.(ÄÃ·³ list)  2.SELECT¹®ÀÇ AS¸í  3.SELECT¹®ÀÇ ÄÃ·³¸í
+(ì‚¬ìš©í˜•ì‹)
+    CREATE [OR REPLACE] VIEW ë·°ì´ë¦„ [(ì»¬ëŸ¼ list)]
+    -- [OR REPLACE] ë®ì–´ì”Œìš°ë¼ëŠ” ì˜ë¯¸
+    -- VIEW ì´ë¦„ ì ìš© ìš°ì„ ìˆœìœ„: 1.(ì»¬ëŸ¼ list)  2.SELECTë¬¸ì˜ ASëª…  3.SELECTë¬¸ì˜ ì»¬ëŸ¼ëª…
     AS
-      SELECT ¹®
-      [WITH CHECK OPTION] -- VIEW¿¡¼­ ÇØ´çÁ¶°ÇÀ» INSERT, UPDATE, DELECT ÇÒ¼ö ¾ø´Ù.
-      [WITH READ ONLY]; -- ÀÐ±âÀü¿ë(¿øº»ÀÌ ¼öÁ¤µÇ´Â°ÍÀ» ¹æÁöÇÏ±â À§ÇÔ)
+      SELECT ë¬¸
+      [WITH CHECK OPTION] -- VIEWì—ì„œ í•´ë‹¹ì¡°ê±´ì„ INSERT, UPDATE, DELECT í• ìˆ˜ ì—†ë‹¤.
+      [WITH READ ONLY]; -- ì½ê¸°ì „ìš©(ì›ë³¸ì´ ìˆ˜ì •ë˜ëŠ”ê²ƒì„ ë°©ì§€í•˜ê¸° ìœ„í•¨)
       
-      -- [WITH CHECK OPTION]°ú [WITH READ ONLY]Àº µ¿½Ã¿¡ »ç¿ë ÇÒ ¼ö ¾ø´Ù.
+      -- [WITH CHECK OPTION]ê³¼ [WITH READ ONLY]ì€ ë™ì‹œì— ì‚¬ìš© í•  ìˆ˜ ì—†ë‹¤.
 
 
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ ¸¶ÀÏ¸®Áö°¡ 2000ÀÌ»óÀÎ È¸¿øÀÇ È¸¿ø¹øÈ£, ÀÌ¸§, Á÷¾÷, ¸¶ÀÏ¸®Áö·Î ±¸¼ºµÈ ºä¸¦ »ý¼ºÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ë§ˆì¼ë¦¬ì§€ê°€ 2000ì´ìƒì¸ íšŒì›ì˜ íšŒì›ë²ˆí˜¸, ì´ë¦„, ì§ì—…, ë§ˆì¼ë¦¬ì§€ë¡œ êµ¬ì„±ëœ ë·°ë¥¼ ìƒì„±í•˜ì‹œì˜¤
 
-        -- VIEW¿¡ ÀÌ¸§ ÁöÁ¤ÇÏ¿© ¸¸µé±â
+        -- VIEWì— ì´ë¦„ ì§€ì •í•˜ì—¬ ë§Œë“¤ê¸°
         CREATE OR REPLACE VIEW V_MEM(MID,MNAME,MJOB,MILE)
         AS
-            SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                    MEM_NAME AS ÀÌ¸§, 
-                    MEM_JOB AS Á÷¾÷, 
-                    MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+            SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                    MEM_NAME AS ì´ë¦„, 
+                    MEM_JOB AS ì§ì—…, 
+                    MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
             FROM MEMBER
             WHERE MEM_MILEAGE >=2000;
             
@@ -38,13 +38,13 @@
             
             
             
-        -- º°ÄªÀ¸·Î VIEWº¯°æ(µ¤¾î¾²±â)
+        -- ë³„ì¹­ìœ¼ë¡œ VIEWë³€ê²½(ë®ì–´ì“°ê¸°)
         CREATE OR REPLACE VIEW V_MEM
         AS
-            SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                    MEM_NAME AS ÀÌ¸§, 
-                    MEM_JOB AS Á÷¾÷, 
-                    MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+            SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                    MEM_NAME AS ì´ë¦„, 
+                    MEM_JOB AS ì§ì—…, 
+                    MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
             FROM MEMBER
             WHERE MEM_MILEAGE >=2000;
             
@@ -52,7 +52,7 @@
         SELECT * FROM V_MEM;
         
         
-        --Å×ÀÌºí¸íÀ¸·Î VIEW»ý¼º(µ¤¾î¾²±â)
+        --í…Œì´ë¸”ëª…ìœ¼ë¡œ VIEWìƒì„±(ë®ì–´ì“°ê¸°)
         CREATE OR REPLACE VIEW V_MEM
         AS
             SELECT MEM_ID, 
@@ -68,9 +68,9 @@
         
         
         
-»ç¿ë¿¹) »ý¼ºµÈ ºä V_MEM¿¡¼­ 'r001'È¸¿øÀÇ ¸¶ÀÏ¸®Áö¸¦ 500À¸·Î º¯°æÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ) ìƒì„±ëœ ë·° V_MEMì—ì„œ 'r001'íšŒì›ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ 500ìœ¼ë¡œ ë³€ê²½í•˜ì‹œì˜¤
 
---¿øº»Å×ÀÌºíµµ º¯°æµÇ´Â °æ¿ì
+--ì›ë³¸í…Œì´ë¸”ë„ ë³€ê²½ë˜ëŠ” ê²½ìš°
     UPDATE V_MEM
         SET MEM_MILEAGE = 500
      WHERE MEM_ID = 'r001';
@@ -88,36 +88,36 @@
    
      CREATE OR REPLACE VIEW V_MEM(MID,MNAME,MJOB,MILE)
         AS
-            SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                    MEM_NAME AS ÀÌ¸§, 
-                    MEM_JOB AS Á÷¾÷, 
-                    MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+            SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                    MEM_NAME AS ì´ë¦„, 
+                    MEM_JOB AS ì§ì—…, 
+                    MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
               FROM MEMBER
              WHERE MEM_MILEAGE >=2000
             WITH CHECK OPTION;
             
             
      
--- Á¶°ÇÀýÀ» À§¹èÇÏ´Â ÇüÅÂ·Î ¼öÁ¤ºÒ°¡´É
-»ç¿ë¿¹) ºä V_MEMÀÇ 'r001'È¸¿øÀÇ ¸¶ÀÏ¸®Áö¸¦ 1500À¸·Î º¯°æÇÏ½Ã¿À.       
+-- ì¡°ê±´ì ˆì„ ìœ„ë°°í•˜ëŠ” í˜•íƒœë¡œ ìˆ˜ì •ë¶ˆê°€ëŠ¥
+ì‚¬ìš©ì˜ˆ) ë·° V_MEMì˜ 'r001'íšŒì›ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ 1500ìœ¼ë¡œ ë³€ê²½í•˜ì‹œì˜¤.       
             
         SELECT * FROM V_MEM;
         
-        --SQL ¿À·ù: ORA-00904: "È¸¿ø¹øÈ£": invalid identifier ( WITH CHECK OPTION À§¹è )
+        --SQL ì˜¤ë¥˜: ORA-00904: "íšŒì›ë²ˆí˜¸": invalid identifier ( WITH CHECK OPTION ìœ„ë°° )
          UPDATE V_MEM
-            SET ¸¶ÀÏ¸®Áö = 1500
-         WHERE È¸¿ø¹øÈ£ = 'r001';
+            SET ë§ˆì¼ë¦¬ì§€ = 1500
+         WHERE íšŒì›ë²ˆí˜¸ = 'r001';
          
          
 
- --¿øº»Å×ÀÌºíÀ» º¯°æÇÏ¸é viewµµ ÀÚµ¿À¸·Î ¹Ý¿µµÈ´Ù.
-** 'n001'È¸¿øÀÇ ¸¶ÀÏ¸®Áö¸¦ 2500À¸·Î º¯°æÇÏ½Ã¿À
+ --ì›ë³¸í…Œì´ë¸”ì„ ë³€ê²½í•˜ë©´ viewë„ ìžë™ìœ¼ë¡œ ë°˜ì˜ëœë‹¤.
+** 'n001'íšŒì›ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ 2500ìœ¼ë¡œ ë³€ê²½í•˜ì‹œì˜¤
          UPDATE MEMBER
             SET MEM_MILEAGE = 2500
          WHERE MEM_ID = 'n001';
 
         
- ** È¸¿øÅ×ÀÌºí¿¡¼­ 'f001'È¸¿øÀÇ ¸¶ÀÏ¸®Áö¸¦ 1500À¸·Î º¯°æÇÏ½Ã¿À       
+ ** íšŒì›í…Œì´ë¸”ì—ì„œ 'f001'íšŒì›ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ 1500ìœ¼ë¡œ ë³€ê²½í•˜ì‹œì˜¤       
         UPDATE MEMBER
             SET MEM_MILEAGE = 1500
          WHERE MEM_ID = 'f001';
@@ -131,29 +131,29 @@ ROLLBACK;
 
     CREATE OR REPLACE VIEW V_MEM(MID,MNAME,MJOB,MILE)
         AS
-        SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                MEM_NAME AS ÀÌ¸§, 
-                MEM_JOB AS Á÷¾÷, 
-                MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                MEM_NAME AS ì´ë¦„, 
+                MEM_JOB AS ì§ì—…, 
+                MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER
          WHERE MEM_MILEAGE >=2000
-        WITH READ ONLY; --ÀÐ±âÀü¿ë
+        WITH READ ONLY; --ì½ê¸°ì „ìš©
             
             
     SELECT * FROM V_MEM;
     
     
- ** »ý¼ºµÈ ºä V_MEMÀÇ ¸ðµç ÀÚ·á¸¦ »èÁ¦ÇÏ½Ã¿À.
+ ** ìƒì„±ëœ ë·° V_MEMì˜ ëª¨ë“  ìžë£Œë¥¼ ì‚­ì œí•˜ì‹œì˜¤.
  DELETE FROM V_MEM;
  
  
-** VIEW»ç¿ë½Ã ÁÖÀÇÇÒ Á¡
-  (1) VIEW »ý¼º½Ã WITHÀýÀ» »ç¿ëÇÑ Á¦¾àÁ¶°ÇÀÌ ºÎ¿©µÈ °æ¿ì ORDER BYÀý »ç¿ëºÒ°¡.
-  (2) VIEW »ý¼º¿¡ Áý°èÇÔ¼ö°¡ »ç¿ëµÈ °æ¿ì ºä¿¡ INSERT, UPDATE, DELETE¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½
-  (3) VIEWÀÇ ÄÃ·³ÀÌ Ç¥Çö½Ä (CASE~WHEN)ÀÌ³ª ÇÔ¼ö°¡ »ç¿ëµÈ °æ¿ì ÄÃ·³Ãß°¡ ¶Ç´Â ¼öÁ¤ÀÌ ºÒ°¡
-  (4) Pseudo Column(CURVAL, NEXTVAL µî) »ç¿ëºÒ°¡
+** VIEWì‚¬ìš©ì‹œ ì£¼ì˜í•  ì 
+  (1) VIEW ìƒì„±ì‹œ WITHì ˆì„ ì‚¬ìš©í•œ ì œì•½ì¡°ê±´ì´ ë¶€ì—¬ëœ ê²½ìš° ORDER BYì ˆ ì‚¬ìš©ë¶ˆê°€.
+  (2) VIEW ìƒì„±ì— ì§‘ê³„í•¨ìˆ˜ê°€ ì‚¬ìš©ëœ ê²½ìš° ë·°ì— INSERT, UPDATE, DELETEë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
+  (3) VIEWì˜ ì»¬ëŸ¼ì´ í‘œí˜„ì‹ (CASE~WHEN)ì´ë‚˜ í•¨ìˆ˜ê°€ ì‚¬ìš©ëœ ê²½ìš° ì»¬ëŸ¼ì¶”ê°€ ë˜ëŠ” ìˆ˜ì •ì´ ë¶ˆê°€
+  (4) Pseudo Column(CURVAL, NEXTVAL ë“±) ì‚¬ìš©ë¶ˆê°€
   
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
     CREATE OR REPLACE VIEW V_CART
     AS
         SELECT CART_PROD AS CID,
@@ -166,24 +166,24 @@ ROLLBACK;
          
         SELECT * FROM V_CART;
         
-        --SQL ¿À·ù: ORA-01732: data manipulation operation not legal on this view
-        --µ¥ÀÌÅÍÁ¶ÀÛ ¿¬»êÀÌ ¼öÇàµÇ¾îÁú¼ö ¾ø´Ù´Â ¶æ
+        --SQL ì˜¤ë¥˜: ORA-01732: data manipulation operation not legal on this view
+        --ë°ì´í„°ì¡°ìž‘ ì—°ì‚°ì´ ìˆ˜í–‰ë˜ì–´ì§ˆìˆ˜ ì—†ë‹¤ëŠ” ëœ»
         UPDATE V_CART
             SET CNT = 10
          WHERE CID='P101000001';
         
  
  
- »ç¿ë¿¹) 
+ ì‚¬ìš©ì˜ˆ) 
     CREATE OR REPLACE VIEW V_MEM02
     AS
     SELECT MEM_ID AS MID,
            MEM_NAME AS NMAME,
            CASE WHEN SUBSTR(MEM_REGNO2,1,1) ='1' OR
                      SUBSTR(MEM_REGNO2,1,1)= '3' THEN
-                     '³²¼º'
+                     'ë‚¨ì„±'
             ELSE
-                '¿©¼º'
+                'ì—¬ì„±'
             END AS GUBUN
     FROM MEMBER;
  
@@ -191,10 +191,10 @@ ROLLBACK;
  SELECT * FROM V_MEM02;
  
  
- --°¡»óÄÃ·³Àº »ç¿ëºÒ°¡´É(¿À·ù)
+ --ê°€ìƒì»¬ëŸ¼ì€ ì‚¬ìš©ë¶ˆê°€ëŠ¥(ì˜¤ë¥˜)
  UPDATE V_MEM02
-    SET GUBUN = '¿©¼ºÈ¸¿ø'
-  WHERE GUBUN = '¿©¼º';
+    SET GUBUN = 'ì—¬ì„±íšŒì›'
+  WHERE GUBUN = 'ì—¬ì„±';
  
  
     
