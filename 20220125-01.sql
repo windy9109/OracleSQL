@@ -1,17 +1,17 @@
-** ¼øÀ§ÇÔ¼ö(RANK OVER)
- - Æ¯Á¤ÄÃ·³À» ±âÁØÀ¸·Î ¼ø¼­È­ ½ÃÅ°°í µî¼öºÎ¿©
- - ±×·ì¾È¿¡¼­µµ ¼øÀ§ºÎ¿©
- - RANK OVER, DENSE_RANK µîÀÌ ÀÖ´Ù.
- 
+** ìˆœìœ„í•¨ìˆ˜(RANK OVER)
+ - íŠ¹ì •ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ìˆœì„œí™” ì‹œí‚¤ê³  ë“±ìˆ˜ë¶€ì—¬
+ - ê·¸ë£¹ì•ˆì—ì„œë„ ìˆœìœ„ë¶€ì—¬
+ - RANK OVER, DENSE_RANK ë“±ì´ ìžˆë‹¤.
+  
 
  
  1) RANK
- . ¼øÀ§¸¦ ºÎ¿©
- . °°Àº °ªÀº °°Àº ¼øÀ§¸¦ ºÎ¿©ÇÏ°í Â÷ ¼øÀ§´Â Áßº¹µÈ °³¼ö¸¸Å­ ¼øÀ§¸¦ ÁõºÐÇÏ¿© ºÎ¿©(ex 1,2,2,2,5,6....)
- . SELECT Àý¿¡ »ç¿ë
- (»ç¿ëÇü½Ä)
- RANK() OVER(ORDER BY ÄÃ·³¸í [ASC|DESC]) [AS º°Äª]
- - 'ÄÃ·³¸í'À» ±âÁØÀ¸·Î µî¼öºÎ¿©
+ . ìˆœìœ„ë¥¼ ë¶€ì—¬
+ . ê°™ì€ ê°’ì€ ê°™ì€ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ê³  ì°¨ ìˆœìœ„ëŠ” ì¤‘ë³µëœ ê°œìˆ˜ë§Œí¼ ìˆœìœ„ë¥¼ ì¦ë¶„í•˜ì—¬ ë¶€ì—¬(ex 1,2,2,2,5,6....)
+ . SELECT ì ˆì— ì‚¬ìš©
+ (ì‚¬ìš©í˜•ì‹)
+ RANK() OVER(ORDER BY ì»¬ëŸ¼ëª… [ASC|DESC]) [AS ë³„ì¹­]
+ - 'ì»¬ëŸ¼ëª…'ì„ ê¸°ì¤€ìœ¼ë¡œ ë“±ìˆ˜ë¶€ì—¬
  
  
  
@@ -19,14 +19,14 @@
  
  
  
- »ç¿ë¿¹)2005³â 5¿ù ¸ÅÀÔ±Ý¾×ÀÌ ¸¹Àº 5¸íÀÇ È¸¿øÀ» Á¶È¸ÇÏ½Ã¿À.
-      Alias´Â È¸¿ø¹øÈ£,È¸¿ø¸í,±¸¸Å±Ý¾×
+ ì‚¬ìš©ì˜ˆ)2005ë…„ 5ì›” ë§¤ìž…ê¸ˆì•¡ì´ ë§Žì€ 5ëª…ì˜ íšŒì›ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+      AliasëŠ” íšŒì›ë²ˆí˜¸,íšŒì›ëª…,êµ¬ë§¤ê¸ˆì•¡
  
  
-(¿À·ù) --ºÎÁ¤È®
-    SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-           B.MEM_NAME AS È¸¿ø¸í, 
-           SUM(A.CART_QTY*C.PROD_PRICE) AS ±¸¸Å±Ý¾×
+(ì˜¤ë¥˜) --ë¶€ì •í™•
+    SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+           B.MEM_NAME AS íšŒì›ëª…, 
+           SUM(A.CART_QTY*C.PROD_PRICE) AS êµ¬ë§¤ê¸ˆì•¡
       FROM CART A, MEMBER B, PROD C
     WHERE A.CART_MEMBER = B.MEM_ID
       AND A.CART_PROD = C.PROD_ID
@@ -37,9 +37,9 @@
     
     
        
-(¼­ºêÄõ¸® »ç¿ë) --Á¤´ä
+(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©) --ì •ë‹µ
     
-    (¼­ºêÄõ¸®: 2005³â È¸¿øº° ±¸¸Å±Ý¾× °è»ê, ±¸¸Å±Ý¾× ¼øÀ¸·Î ³»¸²Â÷¼ø Á¤·Ä)
+    (ì„œë¸Œì¿¼ë¦¬: 2005ë…„ íšŒì›ë³„ êµ¬ë§¤ê¸ˆì•¡ ê³„ì‚°, êµ¬ë§¤ê¸ˆì•¡ ìˆœìœ¼ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬)
     SELECT A.CART_MEMBER AS CID, 
            SUM(A.CART_QTY*B.PROD_PRICE) AS CSUM
       FROM CART A, PROD B
@@ -49,10 +49,10 @@
     ORDER BY 2 DESC;
     
     
-    (¸ÞÀÎÄõ¸®: ±¸¸Å±Ý¾×ÀÌ ¸¹Àº 5¸í Á¶È¸)
-    SELECT M.MEM_ID AS È¸¿ø¹øÈ£, 
-           M.MEM_NAME AS È¸¿ø¸í, 
-           C.CSUM ±¸¸Å±Ý¾×
+    (ë©”ì¸ì¿¼ë¦¬: êµ¬ë§¤ê¸ˆì•¡ì´ ë§Žì€ 5ëª… ì¡°íšŒ)
+    SELECT M.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+           M.MEM_NAME AS íšŒì›ëª…, 
+           C.CSUM êµ¬ë§¤ê¸ˆì•¡
       FROM MEMBER M, (SELECT A.CART_MEMBER AS CID, 
                                SUM(A.CART_QTY*B.PROD_PRICE) AS CSUM
                         FROM CART A, PROD B
@@ -66,83 +66,83 @@
       
       
       
- »ç¿ë¿¹)2005³â ±¸¸Å±Ý¾×ÀÌ ¸¹Àº È¸¿øºÎÅÍ µî¼ö¸¦ ºÎ¿©ÇÏ¿© Á¶È¸ÇÏ½Ã¿À.
-      Alias´Â È¸¿ø¹øÈ£,È¸¿ø¸í,±¸¸Å±Ý¾×, µî¼ö 
+ ì‚¬ìš©ì˜ˆ)2005ë…„ êµ¬ë§¤ê¸ˆì•¡ì´ ë§Žì€ íšŒì›ë¶€í„° ë“±ìˆ˜ë¥¼ ë¶€ì—¬í•˜ì—¬ ì¡°íšŒí•˜ì‹œì˜¤.
+      AliasëŠ” íšŒì›ë²ˆí˜¸,íšŒì›ëª…,êµ¬ë§¤ê¸ˆì•¡, ë“±ìˆ˜ 
       
-      SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-             B.MEM_NAME AS È¸¿ø¸í, 
-             SUM(A.CART_QTY*C.PROD_PRICE) AS ±¸¸Å±Ý¾×, 
-             RANK() OVER(ORDER BY  SUM(A.CART_QTY*C.PROD_PRICE) DESC ) AS µî¼ö 
+      SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+             B.MEM_NAME AS íšŒì›ëª…, 
+             SUM(A.CART_QTY*C.PROD_PRICE) AS êµ¬ë§¤ê¸ˆì•¡, 
+             RANK() OVER(ORDER BY  SUM(A.CART_QTY*C.PROD_PRICE) DESC ) AS ë“±ìˆ˜ 
         FROM CART A, MEMBER B, PROD C 
       WHERE A.CART_MEMBER = B.MEM_ID
         AND A.CART_PROD = C.PROD_ID
       GROUP BY A.CART_MEMBER,B.MEM_NAME;
   
   
-  2) ±×·ì³»¿¡¼­ ¼øÀ§
-  (»ç¿ëÇü½Ä)
-  RANK()OVER(PARTITION BY ÄÃ·³¸í[,ÄÃ·³¸í,....]   
-              ORDER BY ÄÃ·³¸í[,ÄÃ·³¸í,...][ASC|DESC]
-  . PARTITION BY ÄÃ·³¸í: ±×·ìÀ¸·Î ¹­À» ÄÃ·³¸í ±â¼ú
-  --GROUP BY¸¦ ¾²Áö ¾Ê±â À§ÇØ PARTITION BY¸¦ ¾´´Ù. ¼øÀ§¸¦ Á¤ÇÏ±â À§ÇÑ ±×·ìÈ­ÀÓ
+  2) ê·¸ë£¹ë‚´ì—ì„œ ìˆœìœ„
+  (ì‚¬ìš©í˜•ì‹)
+  RANK()OVER(PARTITION BY ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,....]   
+              ORDER BY ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...][ASC|DESC]
+  . PARTITION BY ì»¬ëŸ¼ëª…: ê·¸ë£¹ìœ¼ë¡œ ë¬¶ì„ ì»¬ëŸ¼ëª… ê¸°ìˆ 
+  --GROUP BYë¥¼ ì“°ì§€ ì•Šê¸° ìœ„í•´ PARTITION BYë¥¼ ì“´ë‹¤. ìˆœìœ„ë¥¼ ì •í•˜ê¸° ìœ„í•œ ê·¸ë£¹í™”ìž„
   
-  »ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ °¢ ºÎ¼­º° »ç¿øµéÀÇ ±Þ¿©¸¦ ±âÁØÀ¸·Î ¼øÀ§¸¦ ºÎ¿©ÇÏ¿© Ãâ·ÂÇÏ½Ã¿À. 
-         ¼øÀ§´Â ±Þ¿©°¡ ¸¹Àº »ç¶÷ ¼øÀ¸·Î ºÎ¿©ÇÏ°í °°Àº ±Þ¿©ÀÌ¸é ÀÔ»çÀÏÀÌ ºü¸¥¼øÀ¸·Î ºÎ¿©ÇÏ½Ã¿À.
-         Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¸í, ±Þ¿©, ¼øÀ§
+  ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ê° ë¶€ì„œë³„ ì‚¬ì›ë“¤ì˜ ê¸‰ì—¬ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ì—¬ ì¶œë ¥í•˜ì‹œì˜¤. 
+         ìˆœìœ„ëŠ” ê¸‰ì—¬ê°€ ë§Žì€ ì‚¬ëžŒ ìˆœìœ¼ë¡œ ë¶€ì—¬í•˜ê³  ê°™ì€ ê¸‰ì—¬ì´ë©´ ìž…ì‚¬ì¼ì´ ë¹ ë¥¸ìˆœìœ¼ë¡œ ë¶€ì—¬í•˜ì‹œì˜¤.
+         AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œëª…, ê¸‰ì—¬, ìˆœìœ„
          
-         SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-                A.EMP_NAME AS »ç¿ø¸í, 
-                B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-                A.SALARY AS ±Þ¿©, 
-                A.HIRE_DATE AS ÀÔ»çÀÏ,
+         SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+                A.EMP_NAME AS ì‚¬ì›ëª…, 
+                B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+                A.SALARY AS ê¸‰ì—¬, 
+                A.HIRE_DATE AS ìž…ì‚¬ì¼,
                 RANK() OVER(PARTITION BY A.DEPARTMENT_ID
-                            ORDER BY A.SALARY DESC, HIRE_DATE ASC)¼øÀ§
+                            ORDER BY A.SALARY DESC, HIRE_DATE ASC)ìˆœìœ„
            FROM HR.EMPLOYEES A, HR.DEPARTMENTS B
          WHERE A.DEPARTMENT_ID = B.DEPARTMENT_ID;
          
          
 3) DENSE_RANK()
-- ¼øÀ§ºÎ¿©
-- °°Àº °ªÀÌ¸é °°Àº ¼øÀ§¸¦ ºÎ¿©ÇÏ¸ç, Â÷¼øÀ§´Â °°Àº¼øÀ§ °¹¼ö¿Í °ü°è¾øÀÌ ´ÙÀ½ ¼øÀ§ ºÎ¿©(EX. 1,1,1,1,2,3,4,...)
-- ³ª¸ÓÁö Æ¯Â¡Àº RANK()¿Í µ¿ÀÏ
+- ìˆœìœ„ë¶€ì—¬
+- ê°™ì€ ê°’ì´ë©´ ê°™ì€ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ë©°, ì°¨ìˆœìœ„ëŠ” ê°™ì€ìˆœìœ„ ê°¯ìˆ˜ì™€ ê´€ê³„ì—†ì´ ë‹¤ìŒ ìˆœìœ„ ë¶€ì—¬(EX. 1,1,1,1,2,3,4,...)
+- ë‚˜ë¨¸ì§€ íŠ¹ì§•ì€ RANK()ì™€ ë™ì¼
 
 
 4) ROW_NUMBER()
-- ¼øÀ§ºÎ¿©                      °ª 9 9 9 8 7 6...
-- °°Àº °ªÀÌ¶óµµ ¼øÂ÷ÀûÀÎ ¼øÀ§ ºÎ¿©(EX. 1,2,3,4,5,6,...)
-- ³ª¸ÓÁö Æ¯Â¡Àº RANK()¿Í µ¿ÀÏ
+- ìˆœìœ„ë¶€ì—¬                      ê°’ 9 9 9 8 7 6...
+- ê°™ì€ ê°’ì´ë¼ë„ ìˆœì°¨ì ì¸ ìˆœìœ„ ë¶€ì—¬(EX. 1,2,3,4,5,6,...)
+- ë‚˜ë¨¸ì§€ íŠ¹ì§•ì€ RANK()ì™€ ë™ì¼
 
-»ç¿ë¿¹)È¸¿øÅ×ÀÌºí¿¡¼­ °ÅÁÖÁö°¡ '´ëÀü'ÀÎ È¸¿øµéÀÇ ¸¶ÀÏ¸®Áö¸¦ Á¶È¸ÇÏ°í °ª¿¡ µû¶ó ¼øÀ§¸¦ ºÎ¿©ÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ)íšŒì›í…Œì´ë¸”ì—ì„œ ê±°ì£¼ì§€ê°€ 'ëŒ€ì „'ì¸ íšŒì›ë“¤ì˜ ë§ˆì¼ë¦¬ì§€ë¥¼ ì¡°íšŒí•˜ê³  ê°’ì— ë”°ë¼ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ì‹œì˜¤
 
 
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ±Þ¿©°¡ 5000ÀÌÇÏÀÎ »ç¿øµéÀ» Á¶È¸ÇÏ°í ±Þ¿©¿¡ µû¸¥ ¼øÀ§¸¦ ºÎ¿©ÇÏ½Ã¿À
-(RANK() ÇÔ¼ö»ç¿ë)
-  SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-         EMP_NAME AS »ç¿ø¸í, 
-         DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-         SALARY AS ±Þ¿©, 
-         RANK() OVER(ORDER BY SALARY DESC) AS ¼øÀ§
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ê¸‰ì—¬ê°€ 5000ì´í•˜ì¸ ì‚¬ì›ë“¤ì„ ì¡°íšŒí•˜ê³  ê¸‰ì—¬ì— ë”°ë¥¸ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ì‹œì˜¤
+(RANK() í•¨ìˆ˜ì‚¬ìš©)
+  SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+         EMP_NAME AS ì‚¬ì›ëª…, 
+         DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+         SALARY AS ê¸‰ì—¬, 
+         RANK() OVER(ORDER BY SALARY DESC) AS ìˆœìœ„
     FROM HR.EMPLOYEES
     WHERE SALARY<= 5000;
   
   
-(DENSE_RANK() ÇÔ¼ö»ç¿ë)
-  SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-         EMP_NAME AS »ç¿ø¸í, 
-         DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-         SALARY AS ±Þ¿©, 
-         DENSE_RANK() OVER(ORDER BY SALARY DESC) AS ¼øÀ§
+(DENSE_RANK() í•¨ìˆ˜ì‚¬ìš©)
+  SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+         EMP_NAME AS ì‚¬ì›ëª…, 
+         DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+         SALARY AS ê¸‰ì—¬, 
+         DENSE_RANK() OVER(ORDER BY SALARY DESC) AS ìˆœìœ„
     FROM HR.EMPLOYEES
     WHERE SALARY<= 5000;
     
     
     
-(ROW_NUMBER() ÇÔ¼ö»ç¿ë)
-  SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-         EMP_NAME AS »ç¿ø¸í, 
-         DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-         SALARY AS ±Þ¿©, 
-         ROW_NUMBER() OVER(ORDER BY SALARY DESC) AS ¼øÀ§
+(ROW_NUMBER() í•¨ìˆ˜ì‚¬ìš©)
+  SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+         EMP_NAME AS ì‚¬ì›ëª…, 
+         DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+         SALARY AS ê¸‰ì—¬, 
+         ROW_NUMBER() OVER(ORDER BY SALARY DESC) AS ìˆœìœ„
     FROM HR.EMPLOYEES
     WHERE SALARY<= 5000;    
 
