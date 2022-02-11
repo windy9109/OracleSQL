@@ -1,13 +1,13 @@
-2022-0124-02) ÁýÇÕ¿¬»êÀÚ
-- º¹¼ö°³ÀÇ QUERY°á°ú¸¦ ¿¬»êÇÏ¿© »õ·Î¿î °á°ú¸¦ ¹ÝÈ¯
-- JOIN ¿¬»êÀ» ÁÙÀÏ ¼ö ÀÖÀ½
-- ÇÕÁýÇÕ(UNION, UNION ALL), ±³ÁýÇÕ(INTERSECT), Â÷ÁýÇÕ(MINUS) Á¦°ø
-  . UNION: µÎ ÁýÇÕÀÇ ¸ðµç ¿ø¼Ò¸¦ Áßº¹ÇÏÁö ¾Ê°Ô ¹ÝÈ¯(Á¤·Ä)
-  . UNION ALL: Áßº¹À» Çã¿ëÇÑ µÎ ÁýÇÕÀÇ ¸ðµç ¿ø¼Ò¸¦ ¹ÝÈ¯(Á¤·ÄÇÏÁö ¾ÊÀ½)
-  . INTERSECT: µÎÁýÇÕÀÇ °øÅëµÈ ¿ø¼Ò ¹ÝÈ¯(Á¤·Ä)
-  . MINUS: ÇÇ°¨¼ö(»©ÁüÀ» ´çÇÑ)ÁýÇÕ¿¡¼­ °¨¼ö(»«)ÁýÇÕ°á°ú¸¦ Â÷°¨ÇÑ °á°ú ¹ÝÈ¯
+2022-0124-02) ì§‘í•©ì—°ì‚°ìž
+- ë³µìˆ˜ê°œì˜ QUERYê²°ê³¼ë¥¼ ì—°ì‚°í•˜ì—¬ ìƒˆë¡œìš´ ê²°ê³¼ë¥¼ ë°˜í™˜
+- JOIN ì—°ì‚°ì„ ì¤„ì¼ ìˆ˜ ìžˆìŒ
+- í•©ì§‘í•©(UNION, UNION ALL), êµì§‘í•©(INTERSECT), ì°¨ì§‘í•©(MINUS) ì œê³µ
+  . UNION: ë‘ ì§‘í•©ì˜ ëª¨ë“  ì›ì†Œë¥¼ ì¤‘ë³µí•˜ì§€ ì•Šê²Œ ë°˜í™˜(ì •ë ¬)
+  . UNION ALL: ì¤‘ë³µì„ í—ˆìš©í•œ ë‘ ì§‘í•©ì˜ ëª¨ë“  ì›ì†Œë¥¼ ë°˜í™˜(ì •ë ¬í•˜ì§€ ì•ŠìŒ)
+  . INTERSECT: ë‘ì§‘í•©ì˜ ê³µí†µëœ ì›ì†Œ ë°˜í™˜(ì •ë ¬)
+  . MINUS: í”¼ê°ìˆ˜(ë¹¼ì§ì„ ë‹¹í•œ)ì§‘í•©ì—ì„œ ê°ìˆ˜(ëº€)ì§‘í•©ê²°ê³¼ë¥¼ ì°¨ê°í•œ ê²°ê³¼ ë°˜í™˜
    
-  (»ç¿ëÇü½Ä)
+  (ì‚¬ìš©í˜•ì‹)
   QUERY1
   UNION|UNION ALL|INTERSECT|MINUS
   QUERY_2
@@ -17,51 +17,51 @@
   [UNION|UNION ALL|INTERSECT|MINUS
   QUERY_n]
   
-  - ¸ðµçÄõ¸®ÀÇ SELECT Àý ÄÃ·³ÀÇ '¼ö'¿Í 'Å¸ÀÔ', '¼ø¼­'°¡ µ¿ÀÏÇØ¾ßÇÔ(Áß¿ä)
-  - Ãâ·ÂÀÇ ±âº»Àº Ã¹¹øÂ° SELECT ¹®ÀÓ
-  - ORDER BYÀýÀº ¸Ç ¸¶Áö¸· QUERY¸¸ »ç¿ë °¡´É
+  - ëª¨ë“ ì¿¼ë¦¬ì˜ SELECT ì ˆ ì»¬ëŸ¼ì˜ 'ìˆ˜'ì™€ 'íƒ€ìž…', 'ìˆœì„œ'ê°€ ë™ì¼í•´ì•¼í•¨(ì¤‘ìš”)
+  - ì¶œë ¥ì˜ ê¸°ë³¸ì€ ì²«ë²ˆì§¸ SELECT ë¬¸ìž„
+  - ORDER BYì ˆì€ ë§¨ ë§ˆì§€ë§‰ QUERYë§Œ ì‚¬ìš© ê°€ëŠ¥
   
   
 1. UION
-- ÇÕÁýÇÕÀÇ °á°ú Ãâ·Â
-- Áßº¹À» ¹èÁ¦
+- í•©ì§‘í•©ì˜ ê²°ê³¼ ì¶œë ¥
+- ì¤‘ë³µì„ ë°°ì œ
 
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ 2005³âµµ¿¡ ÀÔ»çÇÑ »ç¿ø°ú ºÎ¼­°¡ ½Ã¿¡Æ²ÀÎ »ç¿øÀ» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ÀÔ»çÀÏ, ±Ù¹«Áö
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ 2005ë…„ë„ì— ìž…ì‚¬í•œ ì‚¬ì›ê³¼ ë¶€ì„œê°€ ì‹œì—í‹€ì¸ ì‚¬ì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ìž…ì‚¬ì¼, ê·¼ë¬´ì§€
         
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£,
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.HIRE_DATE AS ÀÔ»çÀÏ, 
-               B.DEPARTMENT_NAME AS ºÎ¼­¸í
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸,
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.HIRE_DATE AS ìž…ì‚¬ì¼, 
+               B.DEPARTMENT_NAME AS ë¶€ì„œëª…
         FROM HR.EMPLOYEES A, HR.DEPARTMENTS B
        WHERE A.DEPARTMENT_ID =B.DEPARTMENT_ID
        AND EXTRACT(YEAR FROM HIRE_DATE) = 2005;
        
        
-       (ºÎ¼­°¡ ½Ã¿¡Æ²ÀÎ »ç¿ø)
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£,
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.HIRE_DATE AS ÀÔ»çÀÏ, 
-               B.DEPARTMENT_NAME AS ºÎ¼­¸í
+       (ë¶€ì„œê°€ ì‹œì—í‹€ì¸ ì‚¬ì›)
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸,
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.HIRE_DATE AS ìž…ì‚¬ì¼, 
+               B.DEPARTMENT_NAME AS ë¶€ì„œëª…
         FROM HR.EMPLOYEES A, HR.DEPARTMENTS B, HR.LOCATIONS C
        WHERE A.DEPARTMENT_ID =B.DEPARTMENT_ID
        AND B.LOCATION_ID = C.LOCATION_ID
        AND C.CITY='Seattle';
         
-        
+         
     
-       SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£,
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.HIRE_DATE AS ÀÔ»çÀÏ, 
-               B.DEPARTMENT_NAME AS ºÎ¼­¸í
+       SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸,
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.HIRE_DATE AS ìž…ì‚¬ì¼, 
+               B.DEPARTMENT_NAME AS ë¶€ì„œëª…
         FROM HR.EMPLOYEES A, HR.DEPARTMENTS B
        WHERE A.DEPARTMENT_ID =B.DEPARTMENT_ID
        AND EXTRACT(YEAR FROM HIRE_DATE) = 2005
        UNION
-      SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£,
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.HIRE_DATE AS ÀÔ»çÀÏ, 
-               B.DEPARTMENT_NAME AS ºÎ¼­¸í
+      SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸,
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.HIRE_DATE AS ìž…ì‚¬ì¼, 
+               B.DEPARTMENT_NAME AS ë¶€ì„œëª…
         FROM HR.EMPLOYEES A, HR.DEPARTMENTS B, HR.LOCATIONS C
        WHERE A.DEPARTMENT_ID =B.DEPARTMENT_ID
        AND B.LOCATION_ID = C.LOCATION_ID
@@ -70,22 +70,22 @@
         
         
         
-»ç¿ë¿¹) 2005³â 4¿ù¿¡ ¸ÅÀÔµÈ »óÇ°°ú ¸ÅÃâµÈ»óÇ°À» Áßº¹µÇÁö¾Ê°Ô ¸ðµÎ Á¶È¸ ÇÏ½Ã¿À --Áßº¹Á¦¿ÜÀÌ¹Ç·Î UNION
-       Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, °Å·¡Ã³¸í
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 4ì›”ì— ë§¤ìž…ëœ ìƒí’ˆê³¼ ë§¤ì¶œëœìƒí’ˆì„ ì¤‘ë³µë˜ì§€ì•Šê²Œ ëª¨ë‘ ì¡°íšŒ í•˜ì‹œì˜¤ --ì¤‘ë³µì œì™¸ì´ë¯€ë¡œ UNION
+       AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ê±°ëž˜ì²˜ëª…
 
-    --(¸ÅÀÔÅ×ÀÌºí)
-     SELECT DISTINCT A.BUY_PROD AS »óÇ°ÄÚµå, 
-            B.PROD_NAME AS »óÇ°¸í, 
-            C.BUYER_NAME AS °Å·¡Ã³¸í
+    --(ë§¤ìž…í…Œì´ë¸”)
+     SELECT DISTINCT A.BUY_PROD AS ìƒí’ˆì½”ë“œ, 
+            B.PROD_NAME AS ìƒí’ˆëª…, 
+            C.BUYER_NAME AS ê±°ëž˜ì²˜ëª…
         FROM BUYPROD A, PROD B, BUYER C
       WHERE B.PROD_ID = A.BUY_PROD
         AND B.PROD_BUYER = C.BUYER_ID
         AND A.BUY_DATE BETWEEN TO_DATE('20050401') AND LAST_DAY(TO_DATE('20050401'))
      UNION
-     --(¸ÅÃâÅ×ÀÌºí)
-     SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-            B.PROD_NAME AS »óÇ°¸í, 
-            C.BUYER_NAME AS °Å·¡Ã³¸í
+     --(ë§¤ì¶œí…Œì´ë¸”)
+     SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+            B.PROD_NAME AS ìƒí’ˆëª…, 
+            C.BUYER_NAME AS ê±°ëž˜ì²˜ëª…
         FROM CART A, PROD B, BUYER C
       WHERE B.PROD_ID = A.CART_PROD
         AND B.PROD_BUYER = C.BUYER_ID
@@ -95,13 +95,13 @@
         
         
         
-»ç¿ë¿¹) 2005³â 6¿ù°ú 7¿ù¿¡ »óÇ°À» ±¸ÀÔÇÑ È¸¿øÀ» Á¶È¸ÇÏ½Ã¿À
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ÁÖ¼Ò, ¸¶ÀÏ¸®Áö
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 6ì›”ê³¼ 7ì›”ì— ìƒí’ˆì„ êµ¬ìž…í•œ íšŒì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì£¼ì†Œ, ë§ˆì¼ë¦¬ì§€
        
-       SELECT DISTINCT A.MEM_ID AS È¸¿ø¹øÈ£, 
-              A.MEM_NAME AS È¸¿ø¸í, 
-              A.MEM_ADD1 || A.MEM_ADD2 AS ÁÖ¼Ò, 
-              A.MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT DISTINCT A.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              A.MEM_NAME AS íšŒì›ëª…, 
+              A.MEM_ADD1 || A.MEM_ADD2 AS ì£¼ì†Œ, 
+              A.MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
         FROM MEMBER A, CART B
        WHERE A.MEM_ID = B.CART_MEMBER AND 
        SUBSTR(B.CART_NO,1,6) BETWEEN '200506' AND '200507';
@@ -109,18 +109,18 @@
        
        
        
-       SELECT DISTINCT A.MEM_ID AS È¸¿ø¹øÈ£, 
-              A.MEM_NAME AS È¸¿ø¸í, 
-              A.MEM_ADD1 || A.MEM_ADD2 AS ÁÖ¼Ò, 
-              A.MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT DISTINCT A.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              A.MEM_NAME AS íšŒì›ëª…, 
+              A.MEM_ADD1 || A.MEM_ADD2 AS ì£¼ì†Œ, 
+              A.MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
         FROM MEMBER A, CART B
        WHERE A.MEM_ID = B.CART_MEMBER AND 
        SUBSTR(B.CART_NO,1,6) = '200506'
        UNION
-       SELECT DISTINCT A.MEM_ID AS È¸¿ø¹øÈ£, 
-              A.MEM_NAME AS È¸¿ø¸í, 
-              A.MEM_ADD1 || A.MEM_ADD2 AS ÁÖ¼Ò, 
-              A.MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT DISTINCT A.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              A.MEM_NAME AS íšŒì›ëª…, 
+              A.MEM_ADD1 || A.MEM_ADD2 AS ì£¼ì†Œ, 
+              A.MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
         FROM MEMBER A, CART B
        WHERE A.MEM_ID = B.CART_MEMBER AND 
        SUBSTR(B.CART_NO,1,6) = '200507';
@@ -128,12 +128,12 @@
        
        
 2. INTERSECT
- - µÎ °á°úÀÇ ±³ÁýÇÕ(°øÅëµÈ ¿µ¿ª)À» ¹ÝÈ¯
+ - ë‘ ê²°ê³¼ì˜ êµì§‘í•©(ê³µí†µëœ ì˜ì—­)ì„ ë°˜í™˜
  
-»ç¿ë¿¹)  2005³âµµ ±Ý¾×±âÁØ ¸ÅÀÔ¼øÀ§ »óÀ§ 5°³ Ç°¸ñ°ú ¸ÅÃâ¼øÀ§ »óÀ§ 5°³¸¦ Á¶È¸ÇÏ¿© ¾çÂÊ¸ðµÎ¸¦ ¸¸Á·ÇÏ´Â »óÇ°Á¤º¸¸¦ Ãâ·ÂÇÏ½Ã¿À.
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÀÔ±Ý¾×, ¼øÀ§
-        (2005³âµµ ±Ý¾×±âÁØ ¸ÅÀÔ¼øÀ§ »óÀ§ 5°³ Ç°¸ñ)
-        --ºÐ·ùÀÌ¸§µµ ¾Ë±â À§ÇØ¼­´Â LPRODµµ ÇÊ¿äÇÏ´Ù
+ì‚¬ìš©ì˜ˆ)  2005ë…„ë„ ê¸ˆì•¡ê¸°ì¤€ ë§¤ìž…ìˆœìœ„ ìƒìœ„ 5ê°œ í’ˆëª©ê³¼ ë§¤ì¶œìˆœìœ„ ìƒìœ„ 5ê°œë¥¼ ì¡°íšŒí•˜ì—¬ ì–‘ìª½ëª¨ë‘ë¥¼ ë§Œì¡±í•˜ëŠ” ìƒí’ˆì •ë³´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ìž…ê¸ˆì•¡, ìˆœìœ„
+        (2005ë…„ë„ ê¸ˆì•¡ê¸°ì¤€ ë§¤ìž…ìˆœìœ„ ìƒìœ„ 5ê°œ í’ˆëª©)
+        --ë¶„ë¥˜ì´ë¦„ë„ ì•Œê¸° ìœ„í•´ì„œëŠ” LPRODë„ í•„ìš”í•˜ë‹¤
         
         
         
@@ -148,11 +148,11 @@
         
         
         
-        (2005³âµµ ±Ý¾×±âÁØ ¸ÅÀÔ¼øÀ§ »óÀ§ 5°³ Ç°¸ñ)
-        SELECT C.BID AS ±Ý¾×,
-               C.BNAME AS »óÇ°¸í,
-               C.BSUM AS ÇÕ°è,
-               C.BRANK AS ¼øÀ§
+        (2005ë…„ë„ ê¸ˆì•¡ê¸°ì¤€ ë§¤ìž…ìˆœìœ„ ìƒìœ„ 5ê°œ í’ˆëª©)
+        SELECT C.BID AS ê¸ˆì•¡,
+               C.BNAME AS ìƒí’ˆëª…,
+               C.BSUM AS í•©ê³„,
+               C.BRANK AS ìˆœìœ„
           FROM(SELECT A.BUY_PROD AS BID, 
                        B.PROD_NAME AS BNAME, 
                        SUM(A.BUY_QTY*B.PROD_COST) AS BSUM,
@@ -165,11 +165,11 @@
         
         
         
-         (2005³âµµ ±Ý¾×±âÁØ ¸ÅÃâ¼øÀ§ »óÀ§ 5°³ Ç°¸ñ)
-          SELECT D.CID AS »óÇ°ÄÚµå,
-                   D.CNAME AS »óÇ°¸í,
-                   D.CSUM AS ÇÕ°è,
-                   D.CRANK AS ¼øÀ§
+         (2005ë…„ë„ ê¸ˆì•¡ê¸°ì¤€ ë§¤ì¶œìˆœìœ„ ìƒìœ„ 5ê°œ í’ˆëª©)
+          SELECT D.CID AS ìƒí’ˆì½”ë“œ,
+                   D.CNAME AS ìƒí’ˆëª…,
+                   D.CSUM AS í•©ê³„,
+                   D.CRANK AS ìˆœìœ„
               FROM(SELECT A.CART_PROD AS CID, 
                            B.PROD_NAME AS CNAME, 
                            SUM(A.CART_QTY*B.PROD_COST) AS CSUM,
@@ -184,21 +184,21 @@
       
         
   
-  »ç¿ë¿¹) 2005³â 1¿ù°ú 5¿ù¿¡ ¸ÅÀÔµÈ »óÇ°Á¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ºÐ·ù¸í
-        (2005³â 1¿ù¿¡ ¸ÅÀÔµÈ »óÇ°)
+  ì‚¬ìš©ì˜ˆ) 2005ë…„ 1ì›”ê³¼ 5ì›”ì— ë§¤ìž…ëœ ìƒí’ˆì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë¶„ë¥˜ëª…
+        (2005ë…„ 1ì›”ì— ë§¤ìž…ëœ ìƒí’ˆ)
         
-        SELECT DISTINCT A.BUY_PROD AS »óÇ°ÄÚµå, 
-               B.PROD_NAME AS »óÇ°¸í, 
-               C.LPROD_NM AS ºÐ·ù¸í
+        SELECT DISTINCT A.BUY_PROD AS ìƒí’ˆì½”ë“œ, 
+               B.PROD_NAME AS ìƒí’ˆëª…, 
+               C.LPROD_NM AS ë¶„ë¥˜ëª…
           FROM BUYPROD A, PROD B, LPROD C
         WHERE A.BUY_PROD =B.PROD_ID
          AND B.PROD_LGU = C.LPROD_GU
          AND A.BUY_DATE BETWEEN TO_DATE('20050101')AND LAST_DAY(TO_DATE('20050101'))
          INTERSECT 
-        SELECT DISTINCT A.BUY_PROD AS »óÇ°ÄÚµå, 
-               B.PROD_NAME AS »óÇ°¸í, 
-               C.LPROD_NM AS ºÐ·ù¸í
+        SELECT DISTINCT A.BUY_PROD AS ìƒí’ˆì½”ë“œ, 
+               B.PROD_NAME AS ìƒí’ˆëª…, 
+               C.LPROD_NM AS ë¶„ë¥˜ëª…
           FROM BUYPROD A, PROD B, LPROD C
         WHERE A.BUY_PROD =B.PROD_ID
          AND B.PROD_LGU = C.LPROD_GU
@@ -208,27 +208,27 @@
         
         
 3. MINUS
-- µÎ ÁýÇÕÀÇ Â÷ÁýÇÕ°á°ú¸¦ ¹ÝÈ¯
-- ±â¼ú ¼ø¼­°¡ Áß¿ä
+- ë‘ ì§‘í•©ì˜ ì°¨ì§‘í•©ê²°ê³¼ë¥¼ ë°˜í™˜
+- ê¸°ìˆ  ìˆœì„œê°€ ì¤‘ìš”
 
-»ç¿ë¿¹) 2005³â 6,7¿ùÁß 6¿ù´Þ¿¡¸¸ ÆÇ¸ÅµÈ »óÇ°Á¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À
-       Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ÆÇ¸Å°¡, ¸ÅÀÔ°¡
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 6,7ì›”ì¤‘ 6ì›”ë‹¬ì—ë§Œ íŒë§¤ëœ ìƒí’ˆì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, íŒë§¤ê°€, ë§¤ìž…ê°€
        
-    --±³ÁýÇÕ»©°í ³ª¸ÓÁö Ãâ·Â
-(2005³â 6¿ù¿¡ ÆÇ¸ÅµÈ »óÇ°)
-    SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-           B.PROD_NAME AS »óÇ°¸í, 
-           B.PROD_PRICE AS ÆÇ¸Å°¡, 
-           B.PROD_COST AS ¸ÅÀÔ°¡
+    --êµì§‘í•©ë¹¼ê³  ë‚˜ë¨¸ì§€ ì¶œë ¥
+(2005ë…„ 6ì›”ì— íŒë§¤ëœ ìƒí’ˆ)
+    SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+           B.PROD_NAME AS ìƒí’ˆëª…, 
+           B.PROD_PRICE AS íŒë§¤ê°€, 
+           B.PROD_COST AS ë§¤ìž…ê°€
       FROM CART A, PROD B
      WHERE A.CART_PROD = B.PROD_ID
       AND A.CART_NO LIKE '200506%'
       MINUS
-      --(2005³â 7¿ù¿¡ ÆÇ¸ÅµÈ »óÇ°)
-     SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-           B.PROD_NAME AS »óÇ°¸í, 
-           B.PROD_PRICE AS ÆÇ¸Å°¡, 
-           B.PROD_COST AS ¸ÅÀÔ°¡
+      --(2005ë…„ 7ì›”ì— íŒë§¤ëœ ìƒí’ˆ)
+     SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+           B.PROD_NAME AS ìƒí’ˆëª…, 
+           B.PROD_PRICE AS íŒë§¤ê°€, 
+           B.PROD_COST AS ë§¤ìž…ê°€
       FROM CART A, PROD B
      WHERE A.CART_PROD = B.PROD_ID
       AND A.CART_NO LIKE '200507%'
@@ -237,20 +237,20 @@
   
   
   
-    --±³ÁýÇÕ¸¸ Ãâ·Â
-      SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-           B.PROD_NAME AS »óÇ°¸í, 
-           B.PROD_PRICE AS ÆÇ¸Å°¡, 
-           B.PROD_COST AS ¸ÅÀÔ°¡
+    --êµì§‘í•©ë§Œ ì¶œë ¥
+      SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+           B.PROD_NAME AS ìƒí’ˆëª…, 
+           B.PROD_PRICE AS íŒë§¤ê°€, 
+           B.PROD_COST AS ë§¤ìž…ê°€
       FROM CART A, PROD B
      WHERE A.CART_PROD = B.PROD_ID
       AND A.CART_NO LIKE '200506%'
       INTERSECT
-      --(2005³â 7¿ù¿¡ ÆÇ¸ÅµÈ »óÇ°)
-     SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-           B.PROD_NAME AS »óÇ°¸í, 
-           B.PROD_PRICE AS ÆÇ¸Å°¡, 
-           B.PROD_COST AS ¸ÅÀÔ°¡
+      --(2005ë…„ 7ì›”ì— íŒë§¤ëœ ìƒí’ˆ)
+     SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+           B.PROD_NAME AS ìƒí’ˆëª…, 
+           B.PROD_PRICE AS íŒë§¤ê°€, 
+           B.PROD_COST AS ë§¤ìž…ê°€
       FROM CART A, PROD B
      WHERE A.CART_PROD = B.PROD_ID
       AND A.CART_NO LIKE '200507%'
@@ -258,18 +258,18 @@
         
      
      
- (EXISTS ¿¬»êÀÚ »ç¿ë°¡´É)
-      SELECT DISTINCT A.CART_PROD AS »óÇ°ÄÚµå, 
-               B.PROD_NAME AS »óÇ°¸í, 
-               B.PROD_PRICE AS ÆÇ¸Å°¡, 
-               B.PROD_COST AS ¸ÅÀÔ°¡
+ (EXISTS ì—°ì‚°ìž ì‚¬ìš©ê°€ëŠ¥)
+      SELECT DISTINCT A.CART_PROD AS ìƒí’ˆì½”ë“œ, 
+               B.PROD_NAME AS ìƒí’ˆëª…, 
+               B.PROD_PRICE AS íŒë§¤ê°€, 
+               B.PROD_COST AS ë§¤ìž…ê°€
           FROM CART A, PROD B
          WHERE A.CART_PROD = B.PROD_ID
           AND A.CART_NO LIKE '200506%'
           AND NOT EXISTS( SELECT 1  
-          -- C¿Í A°¡ °¡Áö°í ÀÖ´Â »óÇ°ÄÚµå°¡ °°À¸¸é ÂüÀÌ´Ù¸¦ NOT·Î ¹ÞÀ¸¹Ç·Î °ÅÁþÀÌ µÈ´Ù. 
-          --µû¶ó¼­ ºñ±³ÇØ¼­ °°Àº °ªµéÀ» Á¦¿ÜÇÏ°Ô µÊ
-          --¸¸¾à NOTÀ» »©¸é ±³ÁýÇÕ(INTERSECT)ÀÌ µÈ´Ù.
+          -- Cì™€ Aê°€ ê°€ì§€ê³  ìžˆëŠ” ìƒí’ˆì½”ë“œê°€ ê°™ìœ¼ë©´ ì°¸ì´ë‹¤ë¥¼ NOTë¡œ ë°›ìœ¼ë¯€ë¡œ ê±°ì§“ì´ ëœë‹¤. 
+          --ë”°ë¼ì„œ ë¹„êµí•´ì„œ ê°™ì€ ê°’ë“¤ì„ ì œì™¸í•˜ê²Œ ë¨
+          --ë§Œì•½ NOTì„ ë¹¼ë©´ êµì§‘í•©(INTERSECT)ì´ ëœë‹¤.
                   FROM CART C
                  WHERE A.CART_PROD = C.CART_PROD
                   AND C.CART_NO LIKE '200507%')
