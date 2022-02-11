@@ -1,39 +1,39 @@
 2022-0125-03) SEQUENCE
- - Â÷·Ê´ë·Î Áõ°¡µÇ´Â ¿¬¼ÓÀûÀÎ °ª ¹ÝÈ¯
- - Å×ÀÌºí°ú µ¶¸³ÀûÀÌ¸ç ¿©·¯ Å×ÀÌºíÀÌ µ¿½Ã¿¡ »ç¿ë°¡´É
- - ±âº»Å°°¡ ¾ø°Å³ª PK¸¦ ÀÇ¹ÌÀÖ°Ô ¸¸µéÁö ¾Ê¾Æµµ µÇ´Â °æ¿ì
- - ÀÚµ¿ÀûÀ¸·Î ºÎ¿©µÇ´Â ¹øÈ£°¡ ÇÊ¿äÇÑ°æ¿ì
+ - ì°¨ë¡€ëŒ€ë¡œ ì¦ê°€ë˜ëŠ” ì—°ì†ì ì¸ ê°’ ë°˜í™˜
+ - í…Œì´ë¸”ê³¼ ë…ë¦½ì ì´ë©° ì—¬ëŸ¬ í…Œì´ë¸”ì´ ë™ì‹œì— ì‚¬ìš©ê°€ëŠ¥
+ - ê¸°ë³¸í‚¤ê°€ ì—†ê±°ë‚˜ PKë¥¼ ì˜ë¯¸ìžˆê²Œ ë§Œë“¤ì§€ ì•Šì•„ë„ ë˜ëŠ” ê²½ìš°
+ - ìžë™ì ìœ¼ë¡œ ë¶€ì—¬ë˜ëŠ” ë²ˆí˜¸ê°€ í•„ìš”í•œê²½ìš°
+  
+ (ì‹œí€€ìŠ¤ì˜ íŠ¹ì§•)
+ - ì§€ë‚˜ê°„ ê°’ì€ ì°¸ì¡°í•  ìˆ˜ ì—†ë‹¤.
+ - ì„¸ì‹¬í•˜ê²Œ ì‚¬ìš©í•´ì•¼í•¨
  
- (½ÃÄö½ºÀÇ Æ¯Â¡)
- - Áö³ª°£ °ªÀº ÂüÁ¶ÇÒ ¼ö ¾ø´Ù.
- - ¼¼½ÉÇÏ°Ô »ç¿ëÇØ¾ßÇÔ
- 
- (»ç¿ëÇü½Ä)
- CREATE SEQUENCE ½ÃÄö½º¸í
-    [START WITH n] --½ÃÀÛ°ª(n)¼³Á¤ »ý·«ÇÏ¸é MINVALUE°¡ ÇÒ´ç
-    [INCREMENT BY n] --Áõ°¡[°¨¼Ò]°ª, À½¼öÀÌ¸é °¨¼Ò°ª, NÀÌ »ý·«µÇ¾îÁö¸é 1¾¿ Áõ°¡
-    [MAXVALUE n|NOMAXVALUE] --ÃÖ´ë°ª ¼³Á¤, ±âº»Àº NOMAXVALUEÀÌ¸ç(10^27)
-    [MINVALUE n|NOMINVALUE] --ÃÖ¼Ò°ª ¼³Á¤, ±âº»Àº NOMINVALUE(1)
-    [CYCLE|NOCYCLE] --ÃÖ´ë(ÃÖ¼Ò)°ª µµ´Þ ÈÄ ´Ù½Ã ½ÃÄö½º »ý¼º¿©ºÎ, ±âº»Àº NOCYCLE 
-    [CACHE n|NOCACHE] -- ¸Þ¸ð¸®¿¡ ¹Ì¸® »ý¼º¿©ºÎ, ±âº»Àº CACHE 20
-    [ORDER|NOORDER] --À§ÀÇ ¼±ÅÃ»çÇ×´ë·Î ½ÃÄö½º »ý¼ºÀ» º¸Áõ¿©ºÎ, 
-    --NOORDERÀÌ ±âº» (ORDER: º¸Áõ | NOORDER: º¸ÁõX])
+ (ì‚¬ìš©í˜•ì‹)
+ CREATE SEQUENCE ì‹œí€€ìŠ¤ëª…
+    [START WITH n] --ì‹œìž‘ê°’(n)ì„¤ì • ìƒëžµí•˜ë©´ MINVALUEê°€ í• ë‹¹
+    [INCREMENT BY n] --ì¦ê°€[ê°ì†Œ]ê°’, ìŒìˆ˜ì´ë©´ ê°ì†Œê°’, Nì´ ìƒëžµë˜ì–´ì§€ë©´ 1ì”© ì¦ê°€
+    [MAXVALUE n|NOMAXVALUE] --ìµœëŒ€ê°’ ì„¤ì •, ê¸°ë³¸ì€ NOMAXVALUEì´ë©°(10^27)
+    [MINVALUE n|NOMINVALUE] --ìµœì†Œê°’ ì„¤ì •, ê¸°ë³¸ì€ NOMINVALUE(1)
+    [CYCLE|NOCYCLE] --ìµœëŒ€(ìµœì†Œ)ê°’ ë„ë‹¬ í›„ ë‹¤ì‹œ ì‹œí€€ìŠ¤ ìƒì„±ì—¬ë¶€, ê¸°ë³¸ì€ NOCYCLE 
+    [CACHE n|NOCACHE] -- ë©”ëª¨ë¦¬ì— ë¯¸ë¦¬ ìƒì„±ì—¬ë¶€, ê¸°ë³¸ì€ CACHE 20
+    [ORDER|NOORDER] --ìœ„ì˜ ì„ íƒì‚¬í•­ëŒ€ë¡œ ì‹œí€€ìŠ¤ ìƒì„±ì„ ë³´ì¦ì—¬ë¶€, 
+    --NOORDERì´ ê¸°ë³¸ (ORDER: ë³´ì¦ | NOORDER: ë³´ì¦X])
     
 
-- SEQUENCE¿¡¼­ »ç¿ëµÇ´Â ÀÇ»çÄÃ·³
+- SEQUENCEì—ì„œ ì‚¬ìš©ë˜ëŠ” ì˜ì‚¬ì»¬ëŸ¼
 -------------------------------------------------------------
-    ÀÇ»ç ÄÃ·³                ÀÇ¹Ì
+    ì˜ì‚¬ ì»¬ëŸ¼                ì˜ë¯¸
 -------------------------------------------------------------
-½ÃÄö½º¸í.CURRVAL    ½ÃÄö½º°¡ °®°í ÀÖ´Â ÇöÀç°ª
-½ÃÄö½º¸í.NEXTVAL    ½ÃÄö½ºÀÇ ´ÙÀ½ °ª ¹ÝÈ¯
+ì‹œí€€ìŠ¤ëª….CURRVAL    ì‹œí€€ìŠ¤ê°€ ê°–ê³  ìžˆëŠ” í˜„ìž¬ê°’
+ì‹œí€€ìŠ¤ëª….NEXTVAL    ì‹œí€€ìŠ¤ì˜ ë‹¤ìŒ ê°’ ë°˜í™˜
 -------------------------------------------------------------
-**½ÃÄö½º°¡ »ý¼ºµÈ ÈÄ Ã³À½ ¼öÇàµÇ¾î¾ßÇÏ´Â ¸í·ÉÀº NEXTVALÀÌ¾î¾ß ÇÔ
+**ì‹œí€€ìŠ¤ê°€ ìƒì„±ëœ í›„ ì²˜ìŒ ìˆ˜í–‰ë˜ì–´ì•¼í•˜ëŠ” ëª…ë ¹ì€ NEXTVALì´ì–´ì•¼ í•¨
 
-(»ç¿ë¿¹)
+(ì‚¬ìš©ì˜ˆ)
     CREATE SEQUENCE SEQ_SAMPLE
         START WITH 10;
 
---¿À·ù
+--ì˜¤ë¥˜
 SELECT SEQ_SAMPLE.CURRVAL FROM DUAL;
 
 --ORA-08002: sequence SEQ_SAMPLE.CURRVAL is not yet defined in this session
@@ -41,44 +41,44 @@ SELECT SEQ_SAMPLE.CURRVAL FROM DUAL;
 --*Cause:    sequence CURRVAL has been selected before sequence NEXTVAL
 --*Action:   select NEXTVAL from the sequence before selecting CURRVAL
 
---CURRVALÀÌ Á¤ÀÇµÇÁö ¾ÊÀ½
+--CURRVALì´ ì •ì˜ë˜ì§€ ì•ŠìŒ
 
 
 
---Á¤»ó
-SELECT SEQ_SAMPLE.NEXTVAL FROM DUAL; --NEXT°¡ ¸ÕÀú¿Í¾ßÇÔ
-SELECT SEQ_SAMPLE.CURRVAL FROM DUAL; --Á¤»ó ½ÇÇà
--- ½ÇÇàÈÄ Áö³ª¿Â °ªÀº µÇµ¹¾Æ°¥¼ö ¾ø´Ù. SEQUENCE¸¦ ´Ù½Ã ¸¸µé¾î¾ßÇÔ
+--ì •ìƒ
+SELECT SEQ_SAMPLE.NEXTVAL FROM DUAL; --NEXTê°€ ë¨¼ì €ì™€ì•¼í•¨
+SELECT SEQ_SAMPLE.CURRVAL FROM DUAL; --ì •ìƒ ì‹¤í–‰
+-- ì‹¤í–‰í›„ ì§€ë‚˜ì˜¨ ê°’ì€ ë˜ëŒì•„ê°ˆìˆ˜ ì—†ë‹¤. SEQUENCEë¥¼ ë‹¤ì‹œ ë§Œë“¤ì–´ì•¼í•¨
 
 
-»ç¿ë¿¹) ºÐ·ùÅ×ÀÌºí¿¡ ´ÙÀ½ ÀÚ·á¸¦ Ãß°¡ ÇÏ½Ã¿À
-        ´Ü, LPROD_ID´Â ½ÃÄö½º¸¦ »ý¼ºÇÏ¿© »ç¿ëÇÒ°Í
+ì‚¬ìš©ì˜ˆ) ë¶„ë¥˜í…Œì´ë¸”ì— ë‹¤ìŒ ìžë£Œë¥¼ ì¶”ê°€ í•˜ì‹œì˜¤
+        ë‹¨, LPROD_IDëŠ” ì‹œí€€ìŠ¤ë¥¼ ìƒì„±í•˜ì—¬ ì‚¬ìš©í• ê²ƒ
         
-        [ÀÚ·á]
-        ºÐ·ùÄÚµå        ºÐ·ù¸í
+        [ìžë£Œ]
+        ë¶„ë¥˜ì½”ë“œ        ë¶„ë¥˜ëª…
         ------------------------------
-        P501        ³ó»ê¹°
-        P502        ¼ö»ê¹°
-        P503        ÀÓ»ê¹°
+        P501        ë†ì‚°ë¬¼
+        P502        ìˆ˜ì‚°ë¬¼
+        P503        ìž„ì‚°ë¬¼
         ------------------------------
         
-(½ÃÄö½º »ý¼º)
-    CREATE SEQUENCE SEQ_LPROD_ID -- ½ÃÄö½º¸íÀº º¸Åë ¾Õ¿¡ Á¢µÎ¾î SEQ_°¡ ºÙ´Â´Ù
+(ì‹œí€€ìŠ¤ ìƒì„±)
+    CREATE SEQUENCE SEQ_LPROD_ID -- ì‹œí€€ìŠ¤ëª…ì€ ë³´í†µ ì•žì— ì ‘ë‘ì–´ SEQ_ê°€ ë¶™ëŠ”ë‹¤
         START WITH 10;
 
     INSERT INTO LPROD(LPROD_ID,LPROD_GU, LPROD_NM)
-        VALUES(SEQ_LPROD_ID.NEXTVAL,'P501','³ó»ê¹°');
+        VALUES(SEQ_LPROD_ID.NEXTVAL,'P501','ë†ì‚°ë¬¼');
 
     INSERT INTO LPROD(LPROD_ID,LPROD_GU, LPROD_NM)
-        VALUES(SEQ_LPROD_ID.NEXTVAL,'P502','¼ö»ê¹°');
+        VALUES(SEQ_LPROD_ID.NEXTVAL,'P502','ìˆ˜ì‚°ë¬¼');
         
      INSERT INTO LPROD(LPROD_ID,LPROD_GU, LPROD_NM)
-        VALUES(SEQ_LPROD_ID.NEXTVAL,'P503','ÀÓ»ê¹°');
+        VALUES(SEQ_LPROD_ID.NEXTVAL,'P503','ìž„ì‚°ë¬¼');
 
     SELECT * FROM LPROD;
     
     
-»ç¿ë¿¹) ¿À´ÃÀÌ 2005³â 7¿ù 8ÀÏÀÌ¶ó ÇÏ°í Àå¹Ù±¸´Ï¹øÈ£¸¦ »ý¼ºÇÏ½Ã¿À(½ÃÄö½º »ç¿ë)
+ì‚¬ìš©ì˜ˆ) ì˜¤ëŠ˜ì´ 2005ë…„ 7ì›” 8ì¼ì´ë¼ í•˜ê³  ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸ë¥¼ ìƒì„±í•˜ì‹œì˜¤(ì‹œí€€ìŠ¤ ì‚¬ìš©)
 
     CREATE OR REPLACE PROCEDURE PROC_CARTNO_CREATE(
         P_DATE IN DATE,
@@ -95,23 +95,23 @@ SELECT SEQ_SAMPLE.CURRVAL FROM DUAL; --Á¤»ó ½ÇÇà
     END;
         
 
-(½ÇÇà)
+(ì‹¤í–‰)
     DECLARE
      V_CNO CHAR(13);
      V_CNUM NUMBER:=0;
     BEGIN
-     PROC_CARTNO_CREATE('20050708',V_CNUM); -- P_CNUM°ªÀ» ³Ñ°Ü¹ÞÀ½
-     V_CNO:='20050708'||TRIM(TO_CHAR(V_CNUM,'00000')); -- 5ÀÚ¸®·Î ¸ÂÃã
-     DBMS_OUTPUT.PUT_LINE('Àå¹Ù±¸´Ï¹øÈ£:'||V_CNO);
+     PROC_CARTNO_CREATE('20050708',V_CNUM); -- P_CNUMê°’ì„ ë„˜ê²¨ë°›ìŒ
+     V_CNO:='20050708'||TRIM(TO_CHAR(V_CNUM,'00000')); -- 5ìžë¦¬ë¡œ ë§žì¶¤
+     DBMS_OUTPUT.PUT_LINE('ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸:'||V_CNO);
     END;
 
     
-    ** ½ÃÄö½º¸¦ »ç¿ëÇÒ ¼ö ¾ø´Â °æ¿ì
-    . SELECT, UPDATE, DELETE ¹®¿¡ »ç¿ëµÇ´Â SUBQUERY
-    . VIEWÀÇ QUERY
-    . DISTINCT°¡ »ç¿ëµÈ SELECT¹®
-    . GROUP BY, ORDER BYÀýÀÌ ÀÖ´Â SELECT¹®
-    . SELECT ¹®ÀÇ WHEREÀý
+    ** ì‹œí€€ìŠ¤ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ëŠ” ê²½ìš°
+    . SELECT, UPDATE, DELETE ë¬¸ì— ì‚¬ìš©ë˜ëŠ” SUBQUERY
+    . VIEWì˜ QUERY
+    . DISTINCTê°€ ì‚¬ìš©ëœ SELECTë¬¸
+    . GROUP BY, ORDER BYì ˆì´ ìžˆëŠ” SELECTë¬¸
+    . SELECT ë¬¸ì˜ WHEREì ˆ
     
     
     
