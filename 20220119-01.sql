@@ -1,12 +1,12 @@
 2022-01190-01)
-
-����) ������̺� ���� �̿��Ͽ� �̱����� ��ġ�� �μ��� ������� ����ӱ��� ��ȸ�Ͻÿ�.
-    Alias�� �μ���ȣ, �μ���, �����, ����ӱ��̴�.
+ 
+문제) 사원테이블 등을 이용하여 미국내에 위치한 부서별 사원수와 평균임금을 조회하시오.
+    Alias는 부서번호, 부서명, 사원수, 평균임금이다.
     
-    SELECT A.DEPARTMENT_ID AS �μ���ȣ, 
-           B.DEPARTMENT_NAME AS �μ���, 
-           COUNT(*) AS �����, 
-           ROUND(AVG(A.SALARY)) AS ����ӱ�
+    SELECT A.DEPARTMENT_ID AS 부서번호, 
+           B.DEPARTMENT_NAME AS 부서명, 
+           COUNT(*) AS 사원수, 
+           ROUND(AVG(A.SALARY)) AS 평균임금
         FROM HR.EMPLOYEES A, HR.DEPARTMENTS B, HR.LOCATIONS C, HR.COUNTRIES D
      WHERE A.DEPARTMENT_ID = B.DEPARTMENT_ID 
        AND B.LOCATION_ID = C.LOCATION_ID
@@ -16,16 +16,16 @@
        
        
        
-       ����) ��ٱ��� ���̺�(CART)���� 2005�� �����ڷḦ �м��Ͽ� �ŷ�ó��, ��ǰ�� ������Ȳ�� ��ȸ�Ͻÿ�
-            Alias�� �ŷ�ó�ڵ�, �ŷ�ó��, ��ǰ��, �������, ����ݾ�
+       문제) 장바구니 테이블(CART)에서 2005년 매출자료를 분석하여 거래처별, 상품별 매출현황을 조회하시오
+            Alias는 거래처코드, 거래처명, 상품명, 매출수량, 매출금액
             
             
-            (�Ϲ�����)
-            SELECT C.BUYER_ID AS �ŷ�ó�ڵ�, 
-                   C.BUYER_NAME AS �ŷ�ó��, 
-                   B.PROD_NAME AS ��ǰ��, 
-                   SUM(A.CART_QTY) AS �������, 
-                   SUM(A.CART_QTY*B.PROD_PRICE) AS ����ݾ�
+            (일반조인)
+            SELECT C.BUYER_ID AS 거래처코드, 
+                   C.BUYER_NAME AS 거래처명, 
+                   B.PROD_NAME AS 상품명, 
+                   SUM(A.CART_QTY) AS 매출수량, 
+                   SUM(A.CART_QTY*B.PROD_PRICE) AS 매출금액
               FROM CART A, PROD B, BUYER C
              WHERE A.CART_PROD = B.PROD_ID
                 AND C.BUYER_ID = B.PROD_BUYER AND SUBSTR(CART_NO,1,4) = '2005'
@@ -34,12 +34,12 @@
        
        
        
-          (ANSI����)
-           SELECT C.BUYER_ID AS �ŷ�ó�ڵ�, 
-                   C.BUYER_NAME AS �ŷ�ó��, 
-                   B.PROD_NAME AS ��ǰ��, 
-                   SUM(A.CART_QTY) AS �������, 
-                   SUM(A.CART_QTY*B.PROD_PRICE) AS ����ݾ�
+          (ANSI조인)
+           SELECT C.BUYER_ID AS 거래처코드, 
+                   C.BUYER_NAME AS 거래처명, 
+                   B.PROD_NAME AS 상품명, 
+                   SUM(A.CART_QTY) AS 매출수량, 
+                   SUM(A.CART_QTY*B.PROD_PRICE) AS 매출금액
               FROM CART A
               INNER JOIN PROD B ON(A.CART_PROD = B.PROD_ID)
               INNER JOIN BUYER C ON(C.BUYER_ID = B.PROD_BUYER AND SUBSTR(CART_NO,1,4) = '2005')
