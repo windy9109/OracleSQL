@@ -1,31 +1,31 @@
 2022-0119-03)
 2. SELF JOIN
-    -ÇÏ³ªÀÇ Å×ÀÌºí¿¡ ¿©·¯°³ÀÇ º°ÄªÀ» ºÎ¿©ÇÏ¿© ¼öÇàÇÏ´Â Á¶ÀÎ
-    
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ '¶óÁØÈ£'È¸¿øÀÇ ¸¶ÀÏ¸®Áöº¸´Ù ¸¹Àº ¸¶ÀÏ¸®Áö¸¦ º¸À¯ÇÑ È¸¿øÀÇ
-       È¸¿ø¹øÈ£, È¸¿ø¸í, Á÷¾÷, ¸¶ÀÏ¸®Áö¸¦ Á¶È¸ÇÏ½Ã¿À.
+    -í•˜ë‚˜ì˜ í…Œì´ë¸”ì— ì—¬ëŸ¬ê°œì˜ ë³„ì¹­ì„ ë¶€ì—¬í•˜ì—¬ ìˆ˜í–‰í•˜ëŠ” ì¡°ì¸
+     
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ 'ë¼ì¤€í˜¸'íšŒì›ì˜ ë§ˆì¼ë¦¬ì§€ë³´ë‹¤ ë§Žì€ ë§ˆì¼ë¦¬ì§€ë¥¼ ë³´ìœ í•œ íšŒì›ì˜
+       íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì§ì—…, ë§ˆì¼ë¦¬ì§€ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
         
-        SELECT B.MEM_ID AS È¸¿ø¹øÈ£, 
-               B.MEM_NAME AS È¸¿ø¸í, 
-               B.MEM_JOB AS Á÷¾÷, 
-               B.MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        SELECT B.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+               B.MEM_NAME AS íšŒì›ëª…, 
+               B.MEM_JOB AS ì§ì—…, 
+               B.MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
          FROM MEMBER A, MEMBER B
-         WHERE A.MEM_NAME ='¶óÁØÈ£'
+         WHERE A.MEM_NAME ='ë¼ì¤€í˜¸'
             AND B.MEM_MILEAGE> A.MEM_MILEAGE;
             
             
             
 
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ °¢ »ç¿øÀÇ °ü¸®ÀÚ »ç¿øÀÌ¸§À» Á¶È¸ÇÏ½Ã¿À
-        °ü¸®ÀÚ°¡ ¾øÀ¸¸é 'CEO'¸¦ Ãâ·ÂÇÏ½Ã¿À
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¸í, °ü¸®ÀÚÀÌ¸§ 
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ê° ì‚¬ì›ì˜ ê´€ë¦¬ìž ì‚¬ì›ì´ë¦„ì„ ì¡°íšŒí•˜ì‹œì˜¤
+        ê´€ë¦¬ìžê°€ ì—†ìœ¼ë©´ 'CEO'ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œëª…, ê´€ë¦¬ìžì´ë¦„ 
     
-    SELECT C.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-           C.EMP_NAME AS »ç¿ø¸í, 
-           B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
+    SELECT C.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+           C.EMP_NAME AS ì‚¬ì›ëª…, 
+           B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
            NVL((SELECT D.EMP_NAME
                   FROM HR.EMPLOYEES D
-                WHERE D.EMPLOYEE_ID = C.MANAGER_ID),'CEO')  AS °ü¸®ÀÚÀÌ¸§
+                WHERE D.EMPLOYEE_ID = C.MANAGER_ID),'CEO')  AS ê´€ë¦¬ìžì´ë¦„
         FROM HR.DEPARTMENTS B, HR.EMPLOYEES C 
         WHERE  C.DEPARTMENT_ID = B.DEPARTMENT_ID
         ORDER BY 1;
@@ -34,11 +34,11 @@
                 
                 
                 
-        --°ü¸®ÀÚ°¡ NULLÀÎ »ç¿ø OUTER Á¶ÀÎ
-        SELECT C.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-           C.EMP_NAME AS »ç¿ø¸í, 
-           B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-           NVL(D.EMP_NAME,'CEO') AS °ü¸®ÀÚÀÌ¸§
+        --ê´€ë¦¬ìžê°€ NULLì¸ ì‚¬ì› OUTER ì¡°ì¸
+        SELECT C.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+           C.EMP_NAME AS ì‚¬ì›ëª…, 
+           B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+           NVL(D.EMP_NAME,'CEO') AS ê´€ë¦¬ìžì´ë¦„
 --           NVL((SELECT D.EMP_NAME
 --                  FROM HR.EMPLOYEES D
 --                WHERE D.EMPLOYEE_ID = C.MANAGER_ID),'CEO') 
