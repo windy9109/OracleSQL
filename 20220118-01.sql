@@ -1,52 +1,52 @@
 2022-0118-01) TABLE JOIN
-- µ¥ÀÌÅÍº£ÀÌ½º ¼³°è¿¡ Á¤±ÔÈ­ °úÁ¤À» ¼öÇàÇÏ¸é Å×ÀÌºíÀÌ ºÐÈ°µÇ°í ÇÊ¿äÇÑ ÀÚ·á¸¦ 
-  Á¶È¸ÇÏ±â À§ÇØ º¹¼ö°³ÀÇ Å×ÀÌºíÀÌ °øÅëÀÇ ÄÃ·³À» ±âÁØÀ¸·Î ¿¬»ê¿¡ Âü¿©ÇØ¾ßÇÔ => Á¶ÀÎ¿¬»ê
-- °ü°èÇü µ¥ÀÌÅÍ º£ÀÌ½ºÀÇ ±âº»¿¬»ê
-- Á¾·ù
-  . ³»ºÎÁ¶ÀÎ(INNER JOIN)°ú ¿ÜºÎÁ¶ÀÎ(OUTER JOIN)
-  . ÀÏ¹ÝÁ¶ÀÎ°ú ANSI JOIN
-  . µ¿µîÁ¶ÀÎ(EQUI JOIN)°ú ºñµ¿µîÁ¶ÀÎ(NON EQUI JOIN)
+- ë°ì´í„°ë² ì´ìŠ¤ ì„¤ê³„ì— ì •ê·œí™” ê³¼ì •ì„ ìˆ˜í–‰í•˜ë©´ í…Œì´ë¸”ì´ ë¶„í™œë˜ê³  í•„ìš”í•œ ìžë£Œë¥¼ 
+  ì¡°íšŒí•˜ê¸° ìœ„í•´ ë³µìˆ˜ê°œì˜ í…Œì´ë¸”ì´ ê³µí†µì˜ ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì—°ì‚°ì— ì°¸ì—¬í•´ì•¼í•¨ => ì¡°ì¸ì—°ì‚°
+- ê´€ê³„í˜• ë°ì´í„° ë² ì´ìŠ¤ì˜ ê¸°ë³¸ì—°ì‚°
+- ì¢…ë¥˜ 
+  . ë‚´ë¶€ì¡°ì¸(INNER JOIN)ê³¼ ì™¸ë¶€ì¡°ì¸(OUTER JOIN)
+  . ì¼ë°˜ì¡°ì¸ê³¼ ANSI JOIN
+  . ë™ë“±ì¡°ì¸(EQUI JOIN)ê³¼ ë¹„ë™ë“±ì¡°ì¸(NON EQUI JOIN)
   
--- ³»ºÎÁ¶ÀÎ: ºÎÁ·ÇÑÂÊ(Ç¥ÇöÇÏ´Â µ¥ÀÌÅÍÀÇ Á¾·ù)À» ±âÁØÀ¸·Î ÇÔ. 
-       -- ³²´ÂÀÚ·á´Â ¸ðµÎ ¹«½ÃÇÔ/ 80~90%´Â ´ëºÎºÐ ³»ºÎÁ¶ÀÎÀÓ
--- ¿ÜºÎÁ¶ÀÎ: ¸¹ÀºÂÊÀ» ±âÁØÀ¸·Î ÇÔ(NULL°ªÀ» Ã¤¿ö¼­ Ã¤¿ò)
--- ÀÏ¹ÝÁ¶ÀÎ: Æ¯Á¤ DBMS¿¡ ¸ÂÃç Æ¯È­µÈ Á¶ÀÎ
--- ANSI JOIN: ¹Ì±¹Ç¥ÁØÀ§¿øÈ¸¿¡¼­ Á¦½ÃÇÑ Á¶ÀÎÀÇ ¹®¹ý/¸ðµçDBMS¿¡¼­ ¼ö¿ë°¡´É
--- µ¿µîÁ¶ÀÎ: (=) »ç¿ëµÇ¾îÁö´Â ¿¬»êÀÚ¿¡ µû¶ó¼­ ±¸ºÐÇÔ(95% ´ëºÎºÐÀº µ¿µîÁ¶ÀÎÀÓ)
--- ºñµ¿µîÁ¶ÀÎ(<,>,<=,>=)
+-- ë‚´ë¶€ì¡°ì¸: ë¶€ì¡±í•œìª½(í‘œí˜„í•˜ëŠ” ë°ì´í„°ì˜ ì¢…ë¥˜)ì„ ê¸°ì¤€ìœ¼ë¡œ í•¨. 
+       -- ë‚¨ëŠ”ìžë£ŒëŠ” ëª¨ë‘ ë¬´ì‹œí•¨/ 80~90%ëŠ” ëŒ€ë¶€ë¶„ ë‚´ë¶€ì¡°ì¸ìž„
+-- ì™¸ë¶€ì¡°ì¸: ë§Žì€ìª½ì„ ê¸°ì¤€ìœ¼ë¡œ í•¨(NULLê°’ì„ ì±„ì›Œì„œ ì±„ì›€)
+-- ì¼ë°˜ì¡°ì¸: íŠ¹ì • DBMSì— ë§žì¶° íŠ¹í™”ëœ ì¡°ì¸
+-- ANSI JOIN: ë¯¸êµ­í‘œì¤€ìœ„ì›íšŒì—ì„œ ì œì‹œí•œ ì¡°ì¸ì˜ ë¬¸ë²•/ëª¨ë“ DBMSì—ì„œ ìˆ˜ìš©ê°€ëŠ¥
+-- ë™ë“±ì¡°ì¸: (=) ì‚¬ìš©ë˜ì–´ì§€ëŠ” ì—°ì‚°ìžì— ë”°ë¼ì„œ êµ¬ë¶„í•¨(95% ëŒ€ë¶€ë¶„ì€ ë™ë“±ì¡°ì¸ìž„)
+-- ë¹„ë™ë“±ì¡°ì¸(<,>,<=,>=)
 
 
 
 1. cartesian Prodrct
-  - Á¶ÀÎÁ¶°ÇÀÌ »ý·«µÇ¾ú°Å³ª Àß¸ø±â¼úµÈ °æ¿ì
-  - ANSI JOIN ¿¡¼­´Â cross joinÀÌ¶ó°íÇÔ
-  - Á¶ÀÎÀÇ °á°ú´Â ÃÖ¾ÇÀÇ °æ¿ì ÇàÀÇ¼ö¸¦ °öÀÇ °á°ú¿Í ¿­ÀÇ ¼ö¸¦ ´õÇÑ°á°ú ¹ÝÈ¯
-  - ºÒ°¡ÇÇÇÏ°Ô ÇÊ¿äÇÑ °æ¿ì°¡ ¾Æ´Ï¸é »ç¿ëÇÏÁö ¸»¾Æ¾ß ÇÔ
+  - ì¡°ì¸ì¡°ê±´ì´ ìƒëžµë˜ì—ˆê±°ë‚˜ ìž˜ëª»ê¸°ìˆ ëœ ê²½ìš°
+  - ANSI JOIN ì—ì„œëŠ” cross joinì´ë¼ê³ í•¨
+  - ì¡°ì¸ì˜ ê²°ê³¼ëŠ” ìµœì•…ì˜ ê²½ìš° í–‰ì˜ìˆ˜ë¥¼ ê³±ì˜ ê²°ê³¼ì™€ ì—´ì˜ ìˆ˜ë¥¼ ë”í•œê²°ê³¼ ë°˜í™˜
+  - ë¶ˆê°€í”¼í•˜ê²Œ í•„ìš”í•œ ê²½ìš°ê°€ ì•„ë‹ˆë©´ ì‚¬ìš©í•˜ì§€ ë§ì•„ì•¼ í•¨
   
-(»ç¿ëÇü½Ä)
-SELECT ÄÃ·³ list
-   FROM Å×ÀÌºí¸í1 [º°Äª1], Å×ÀÌºí¸í2 [º°Äª2][,Å×ÀÌºí¸í3 [º°Äª3],...]
-  WHERE Á¶ÀÎÁ¶°Ç1
-   [AND Á¶ÀÎÁ¶°Ç2,...]
-   [AND ÀÏ¹ÝÁ¶°Ç]
+(ì‚¬ìš©í˜•ì‹)
+SELECT ì»¬ëŸ¼ list
+   FROM í…Œì´ë¸”ëª…1 [ë³„ì¹­1], í…Œì´ë¸”ëª…2 [ë³„ì¹­2][,í…Œì´ë¸”ëª…3 [ë³„ì¹­3],...]
+  WHERE ì¡°ì¸ì¡°ê±´1
+   [AND ì¡°ì¸ì¡°ê±´2,...]
+   [AND ì¼ë°˜ì¡°ê±´]
    
    
-(CROSS JOIN¹® Çü½Ä)  
-SELECT ÄÃ·³ list
-   FROM Å×ÀÌºí¸í1 [º°Äª1]
- CROSS JOIN Å×ÀÌºí¸í2[º°Äª2]
- CROSS JOIN Å×ÀÌºí¸í3[º°Äª3]
+(CROSS JOINë¬¸ í˜•ì‹)  
+SELECT ì»¬ëŸ¼ list
+   FROM í…Œì´ë¸”ëª…1 [ë³„ì¹­1]
+ CROSS JOIN í…Œì´ë¸”ëª…2[ë³„ì¹­2]
+ CROSS JOIN í…Œì´ë¸”ëª…3[ë³„ì¹­3]
                 :
- [WHERE ÀÏ¹ÝÁ¶°Ç]; 
+ [WHERE ì¼ë°˜ì¡°ê±´]; 
  
  
- (»ç¿ë¿¹)
+ (ì‚¬ìš©ì˜ˆ)
  SELECT COUNT(*) FROM CART;
  SELECT COUNT(*) FROM PROD;
  SELECT 207*74 FROM DUAL;
  
  
- --Ä«Å¸½Ã¾È Á¶ÀÎ, °¡ÀåÃÖ¾ÇÀÇ °æ¿ì
+ --ì¹´íƒ€ì‹œì•ˆ ì¡°ì¸, ê°€ìž¥ìµœì•…ì˜ ê²½ìš°
  SELECT *
     FROM CART, PROD; 
     
@@ -70,62 +70,62 @@ SELECT *
   CROSS JOIN PROD
   CROSS JOIN BUYPROD; 
 
--- N°³ÀÇ Å×ÀÌºíÀÌ »ç¿ëµÇ¾úÀ»¶§ ÃÖ¼Ò N-1°³ÀÇ Á¶ÀÎ Á¶°ÇÀÌ ³ª¿ÍÁà¾ßÇÔ
--- ÀÏ¹ÝÁ¶°Ç, Á¶ÀÎÁ¶°Ç ¼ø¼­ »ó°ü ¾øÀ½
+-- Nê°œì˜ í…Œì´ë¸”ì´ ì‚¬ìš©ë˜ì—ˆì„ë•Œ ìµœì†Œ N-1ê°œì˜ ì¡°ì¸ ì¡°ê±´ì´ ë‚˜ì™€ì¤˜ì•¼í•¨
+-- ì¼ë°˜ì¡°ê±´, ì¡°ì¸ì¡°ê±´ ìˆœì„œ ìƒê´€ ì—†ìŒ
 
 
 
 2. Equi Join
- - Á¶ÀÎÁ¶°Ç¹®¿¡ µ¿µî¿¬»êÀÚ('=')°¡ »ç¿ë
- - »ç¿ëµÈ Å×ÀÌºíÀÇ ¼ö°¡ N°³ÀÏ¶§ Á¶ÀÎÁ¶°ÇÀº Àû¾îµµ N-1°³ ÀÌ»ó ÀÌ¾î¾ß ÇÔ
- - ANSI¿¡¼­´Â INNER JOIN»ç¿ëÀ» ±Ç°íÇÔ
+ - ì¡°ì¸ì¡°ê±´ë¬¸ì— ë™ë“±ì—°ì‚°ìž('=')ê°€ ì‚¬ìš©
+ - ì‚¬ìš©ëœ í…Œì´ë¸”ì˜ ìˆ˜ê°€ Nê°œì¼ë•Œ ì¡°ì¸ì¡°ê±´ì€ ì ì–´ë„ N-1ê°œ ì´ìƒ ì´ì–´ì•¼ í•¨
+ - ANSIì—ì„œëŠ” INNER JOINì‚¬ìš©ì„ ê¶Œê³ í•¨
  
- (±â¼úÇü½Ä-ÀÏ¹Ý Á¶ÀÎ¹®)
- SELECT [Å×ÀÌºí¸í.|Å×ÀÌºíº°Äª.]ÄÃ·³¸í [AS ÄÃ·³º°Äª][,]
+ (ê¸°ìˆ í˜•ì‹-ì¼ë°˜ ì¡°ì¸ë¬¸)
+ SELECT [í…Œì´ë¸”ëª….|í…Œì´ë¸”ë³„ì¹­.]ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­][,]
                         :
-        [Å×ÀÌºí¸í.|Å×ÀÌºíº°Äª.]ÄÃ·³¸í [AS ÄÃ·³º°Äª]
-    FROM Å×ÀÌºí¸í[º°Äª], Å×ÀÌºí¸í[º°Äª[,Å×ÀÌºí¸í[º°Äª],...]
-  WHERE Á¶ÀÎÁ¶°Ç
-   [AND Á¶ÀÎÁ¶°Ç]
+        [í…Œì´ë¸”ëª….|í…Œì´ë¸”ë³„ì¹­.]ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­]
+    FROM í…Œì´ë¸”ëª…[ë³„ì¹­], í…Œì´ë¸”ëª…[ë³„ì¹­[,í…Œì´ë¸”ëª…[ë³„ì¹­],...]
+  WHERE ì¡°ì¸ì¡°ê±´
+   [AND ì¡°ì¸ì¡°ê±´]
         : 
-   [AND ÀÏ¹ÝÁ¶°Ç];
+   [AND ì¼ë°˜ì¡°ê±´];
    
    
    
    
-(±â¼úÇü½Ä-ANSI Á¶ÀÎ¹®)
- SELECT [Å×ÀÌºí¸í.|Å×ÀÌºíº°Äª.]ÄÃ·³¸í [AS ÄÃ·³º°Äª][,]
+(ê¸°ìˆ í˜•ì‹-ANSI ì¡°ì¸ë¬¸)
+ SELECT [í…Œì´ë¸”ëª….|í…Œì´ë¸”ë³„ì¹­.]ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­][,]
                         :
-        [Å×ÀÌºí¸í.|Å×ÀÌºíº°Äª.]ÄÃ·³¸í [AS ÄÃ·³º°Äª]
-    FROM Å×ÀÌºí¸í1[º°Äª]
-    INNER JOIN Å×ÀÌºí¸í2[º°Äª] ON (Á¶ÀÎÁ¶°Ç[AND ÀÏ¹ÝÁ¶°Ç]) --INNER JOIN¿¡ °ü·ÃÇÑ ÀÏ¹ÝÁ¶°ÇÀº ANDµÚ¿¡ ¹«Á¶°Ç ±â¼ú
-    [INNER JOIN Å×ÀÌºí¸í3[º°Äª] ON (Á¶ÀÎÁ¶°Ç[AND ÀÏ¹ÝÁ¶°Ç])]
-  [WHERE ÀÏ¹ÝÁ¶°Ç];
-  - Å×ÀÌºí¸í 1°ú Å×ÀÌºí¸í2´Â ¹Ýµå½Ã Á¶ÀÎ °¡´ÉÇØ¾ßÇÔ
+        [í…Œì´ë¸”ëª….|í…Œì´ë¸”ë³„ì¹­.]ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­]
+    FROM í…Œì´ë¸”ëª…1[ë³„ì¹­]
+    INNER JOIN í…Œì´ë¸”ëª…2[ë³„ì¹­] ON (ì¡°ì¸ì¡°ê±´[AND ì¼ë°˜ì¡°ê±´]) --INNER JOINì— ê´€ë ¨í•œ ì¼ë°˜ì¡°ê±´ì€ ANDë’¤ì— ë¬´ì¡°ê±´ ê¸°ìˆ 
+    [INNER JOIN í…Œì´ë¸”ëª…3[ë³„ì¹­] ON (ì¡°ì¸ì¡°ê±´[AND ì¼ë°˜ì¡°ê±´])]
+  [WHERE ì¼ë°˜ì¡°ê±´];
+  - í…Œì´ë¸”ëª… 1ê³¼ í…Œì´ë¸”ëª…2ëŠ” ë°˜ë“œì‹œ ì¡°ì¸ ê°€ëŠ¥í•´ì•¼í•¨
   
   
-»ç¿ë¿¹) »óÇ°Å×ÀÌºí°ú ºÐ·ùÅ×ÀÌºíÀ» ÀÌ¿ëÇÏ¿© ÆÇ¸Å°¡°¡ 10¸¸¿ø ÀÌ»óÀÎ »óÇ°À» Á¶È¸ÇÏ½Ã¿À. 
-        -- ÆÇ¸Å°¡°¡ 10¸¸¿ø ÀÌ»óÀÎ => ÀÏ¹ÝÁ¶°Ç
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ºÐ·ùÄÚµå, ºÐ·ù¸í, ÆÇ¸Å°¡
+ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”ê³¼ ë¶„ë¥˜í…Œì´ë¸”ì„ ì´ìš©í•˜ì—¬ íŒë§¤ê°€ê°€ 10ë§Œì› ì´ìƒì¸ ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤. 
+        -- íŒë§¤ê°€ê°€ 10ë§Œì› ì´ìƒì¸ => ì¼ë°˜ì¡°ê±´
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë¶„ë¥˜ì½”ë“œ, ë¶„ë¥˜ëª…, íŒë§¤ê°€
         
-        (ÀÏ¹Ý JOIN)
-        SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-                A.PROD_NAME AS »óÇ°¸í, 
-                A.PROD_LGU AS ºÐ·ùÄÚµå, 
-                B.LPROD_NM AS ºÐ·ù¸í, 
-                A.PROD_PRICE AS ÆÇ¸Å°¡
+        (ì¼ë°˜ JOIN)
+        SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+                A.PROD_NAME AS ìƒí’ˆëª…, 
+                A.PROD_LGU AS ë¶„ë¥˜ì½”ë“œ, 
+                B.LPROD_NM AS ë¶„ë¥˜ëª…, 
+                A.PROD_PRICE AS íŒë§¤ê°€
             FROM PROD A, LPROD B
-          WHERE A.PROD_PRICE>=100000 --ÀÏ¹ÝÁ¶°Ç
-            AND A.PROD_LGU = B.LPROD_GU --Á¶ÀÎÁ¶°Ç( EQUIÁ¶ÀÎ )
+          WHERE A.PROD_PRICE>=100000 --ì¼ë°˜ì¡°ê±´
+            AND A.PROD_LGU = B.LPROD_GU --ì¡°ì¸ì¡°ê±´( EQUIì¡°ì¸ )
          ORDER BY 5 DESC;
          
          
          (ANSI JOIN)
-          SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-                A.PROD_NAME AS »óÇ°¸í, 
-                A.PROD_LGU AS ºÐ·ùÄÚµå, 
-                B.LPROD_NM AS ºÐ·ù¸í, 
-                A.PROD_PRICE AS ÆÇ¸Å°¡
+          SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+                A.PROD_NAME AS ìƒí’ˆëª…, 
+                A.PROD_LGU AS ë¶„ë¥˜ì½”ë“œ, 
+                B.LPROD_NM AS ë¶„ë¥˜ëª…, 
+                A.PROD_PRICE AS íŒë§¤ê°€
             FROM PROD A
           INNER JOIN LPROD B ON(A.PROD_LGU=B.LPROD_GU AND
                         A.PROD_PRICE>=100000)
@@ -135,25 +135,25 @@ SELECT *
          
          
          
-»ç¿ë¿¹) 2005³â 6¿ù È¸¿øº° ±¸¸ÅÇöÈ²À» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ±¸¸Å±Ý¾×ÇÕ°èÇÕ°è
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 6ì›” íšŒì›ë³„ êµ¬ë§¤í˜„í™©ì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, êµ¬ë§¤ê¸ˆì•¡í•©ê³„í•©ê³„
         
-        (ÀÏ¹Ý Á¶ÀÎ)
-        SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-               B.MEM_NAME AS È¸¿ø¸í, 
-               SUM(A.CART_QTY*C.PROD_PRICE) AS ±¸¸Å±Ý¾×ÇÕ°èÇÕ°è
+        (ì¼ë°˜ ì¡°ì¸)
+        SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+               B.MEM_NAME AS íšŒì›ëª…, 
+               SUM(A.CART_QTY*C.PROD_PRICE) AS êµ¬ë§¤ê¸ˆì•¡í•©ê³„í•©ê³„
             FROM CART A, MEMBER B, PROD C
-        WHERE A.CART_PROD = C.PROD_ID AND  --Á¶ÀÎÁ¶°Ç: ÆÇ¸Å´Ü°¡ ÃßÃâ
-              A.CART_MEMBER = B.MEM_ID AND --Á¶ÀÎÁ¶°Ç: È¸¿ø¸í ÃßÃâ
+        WHERE A.CART_PROD = C.PROD_ID AND  --ì¡°ì¸ì¡°ê±´: íŒë§¤ë‹¨ê°€ ì¶”ì¶œ
+              A.CART_MEMBER = B.MEM_ID AND --ì¡°ì¸ì¡°ê±´: íšŒì›ëª… ì¶”ì¶œ
               A.CART_NO LIKE'200506%'
           GROUP BY A.CART_MEMBER, B.MEM_NAME;
           
           
           
-        (ANSIÁ¶ÀÎ)
-        SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-               B.MEM_NAME AS È¸¿ø¸í, 
-               SUM(A.CART_QTY*C.PROD_PRICE) AS ±¸¸Å±Ý¾×ÇÕ°èÇÕ°è
+        (ANSIì¡°ì¸)
+        SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+               B.MEM_NAME AS íšŒì›ëª…, 
+               SUM(A.CART_QTY*C.PROD_PRICE) AS êµ¬ë§¤ê¸ˆì•¡í•©ê³„í•©ê³„
             FROM CART A
             INNER JOIN MEMBER B ON(MEM_ID=CART_MEMBER)
             INNER JOIN PROD C ON(CART_PROD=PROD_ID)
@@ -164,27 +164,27 @@ SELECT *
             
             
             
-»ç¿ë¿¹) ºÎ¼­º° ÀÎ¿ø¼ö¿Í Æò±ÕÀÓ±ÝÀ» Á¶È¸ÇÏ½Ã¿À.
-       Alias ºÎ¼­ÄÚµå, ºÎ¼­¸í, ÀÎ¿ø¼ö, Æò±ÕÀÓ±Ý
+ì‚¬ìš©ì˜ˆ) ë¶€ì„œë³„ ì¸ì›ìˆ˜ì™€ í‰ê· ìž„ê¸ˆì„ ì¡°íšŒí•˜ì‹œì˜¤.
+       Alias ë¶€ì„œì½”ë“œ, ë¶€ì„œëª…, ì¸ì›ìˆ˜, í‰ê· ìž„ê¸ˆ
        
        
        
-       (ÀÏ¹ÝÁ¶ÀÎ)
-       SELECT A.DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-              B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-              COUNT(*) AS ÀÎ¿ø¼ö, 
-              ROUND(AVG(A.SALARY)) AS Æò±ÕÀÓ±Ý
+       (ì¼ë°˜ì¡°ì¸)
+       SELECT A.DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+              B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+              COUNT(*) AS ì¸ì›ìˆ˜, 
+              ROUND(AVG(A.SALARY)) AS í‰ê· ìž„ê¸ˆ
             FROM HR.EMPLOYEES A, HR.DEPARTMENTS B
         WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
         GROUP BY A.DEPARTMENT_ID, B.DEPARTMENT_NAME
             ORDER BY 1;
       
 
-       (ANSIÁ¶ÀÎ)
-      SELECT A.DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-              B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-              COUNT(*) AS ÀÎ¿ø¼ö, 
-              ROUND(AVG(A.SALARY)) AS Æò±ÕÀÓ±Ý
+       (ANSIì¡°ì¸)
+      SELECT A.DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+              B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+              COUNT(*) AS ì¸ì›ìˆ˜, 
+              ROUND(AVG(A.SALARY)) AS í‰ê· ìž„ê¸ˆ
             FROM HR.EMPLOYEES A
             INNER JOIN HR.DEPARTMENTS B ON(A.DEPARTMENT_ID=B.DEPARTMENT_ID)
             GROUP BY A.DEPARTMENT_ID, B.DEPARTMENT_NAME
@@ -194,13 +194,13 @@ SELECT *
             
        
             
-¹®Á¦) 2005³â 1¿ù ~ 6¿ù °¢ °Å·¡Ã³º° ¸ÅÀÔÇöÈ²À» Á¶È¸ÇÏ½Ã¿À.
-     Alias´Â °Å·¡Ã³ ÄÚµå, °Å·¡Ã³¸í, ¸ÅÀÔ±Ý¾×ÇÕ°è
+ë¬¸ì œ) 2005ë…„ 1ì›” ~ 6ì›” ê° ê±°ëž˜ì²˜ë³„ ë§¤ìž…í˜„í™©ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+     AliasëŠ” ê±°ëž˜ì²˜ ì½”ë“œ, ê±°ëž˜ì²˜ëª…, ë§¤ìž…ê¸ˆì•¡í•©ê³„
         
-        (ÀÏ¹ÝÁ¶ÀÎ)
-        SELECT A.BUYER_ID AS °Å·¡Ã³ÄÚµå,
-               A.BUYER_NAME AS °Å·¡Ã³¸í,
-               SUM(B.BUY_COST) AS °Å·¡±Ý¾×ÇÕ°è
+        (ì¼ë°˜ì¡°ì¸)
+        SELECT A.BUYER_ID AS ê±°ëž˜ì²˜ì½”ë“œ,
+               A.BUYER_NAME AS ê±°ëž˜ì²˜ëª…,
+               SUM(B.BUY_COST) AS ê±°ëž˜ê¸ˆì•¡í•©ê³„
           FROM BUYER A, BUYPROD B, PROD C
           WHERE A.BUYER_ID = C.PROD_BUYER
                 AND B.BUY_PROD=C.PROD_ID
@@ -209,10 +209,10 @@ SELECT *
             ORDER BY 1;
           
    
-        (ANSIÁ¶ÀÎ)
-          SELECT A.BUYER_ID AS °Å·¡Ã³ÄÚµå,
-               A.BUYER_NAME AS °Å·¡Ã³¸í,
-               SUM(B.BUY_COST) AS °Å·¡±Ý¾×ÇÕ°è
+        (ANSIì¡°ì¸)
+          SELECT A.BUYER_ID AS ê±°ëž˜ì²˜ì½”ë“œ,
+               A.BUYER_NAME AS ê±°ëž˜ì²˜ëª…,
+               SUM(B.BUY_COST) AS ê±°ëž˜ê¸ˆì•¡í•©ê³„
           FROM BUYER A
             INNER JOIN PROD C ON(A.BUYER_ID = C.PROD_BUYER)
             INNER JOIN BUYPROD B ON(B.BUY_PROD=C.PROD_ID)
@@ -221,13 +221,13 @@ SELECT *
             ORDER BY 1;
 
 
-¹®Á¦) 2005³â 4¿ù ~ 6¿ù °¢ »óÇ°º° ¸ÅÃâÇöÈ²À» Á¶È¸ÇÏ½Ã¿À.
-     Alias »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÃâ¼ö·®ÇÕ°è, ¸ÅÃâ±Ý¾×ÇÕ°èÀÌ´Ù.
+ë¬¸ì œ) 2005ë…„ 4ì›” ~ 6ì›” ê° ìƒí’ˆë³„ ë§¤ì¶œí˜„í™©ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+     Alias ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ì¶œìˆ˜ëŸ‰í•©ê³„, ë§¤ì¶œê¸ˆì•¡í•©ê³„ì´ë‹¤.
      
-     SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-            A.PROD_NAME AS »óÇ°¸í, 
-            COUNT(*) AS ¸ÅÃâ¼ö·®ÇÕ°è, 
-            SUM(A.PROD_PRICE*B.CART_QTY) AS ¸ÅÃâ±Ý¾×ÇÕ°è
+     SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+            A.PROD_NAME AS ìƒí’ˆëª…, 
+            COUNT(*) AS ë§¤ì¶œìˆ˜ëŸ‰í•©ê³„, 
+            SUM(A.PROD_PRICE*B.CART_QTY) AS ë§¤ì¶œê¸ˆì•¡í•©ê³„
         FROM PROD A, CART B
       WHERE A.PROD_ID = B.CART_PROD AND
        TO_DATE(SUBSTR(B.CART_NO,1,8)) BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)) 
@@ -236,13 +236,13 @@ SELECT *
      
 
 
-¹®Á¦) 2005³â 4¿ù ~ 6¿ù °¢ »óÇ°º° ¸ÅÀÔÇöÈ²À» Á¶È¸ÇÏ½Ã¿À.
-     Alias »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÀÔ¼ö·®ÇÕ°è, ¸ÅÀÔ±Ý¾×ÇÕ°èÀÌ´Ù.
+ë¬¸ì œ) 2005ë…„ 4ì›” ~ 6ì›” ê° ìƒí’ˆë³„ ë§¤ìž…í˜„í™©ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+     Alias ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ìž…ìˆ˜ëŸ‰í•©ê³„, ë§¤ìž…ê¸ˆì•¡í•©ê³„ì´ë‹¤.
      
-        SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-            A.PROD_NAME AS »óÇ°¸í, 
-            SUM(BUY_QTY) AS ¸ÅÀÔ¼ö·®ÇÕ°è, 
-            SUM(B.BUY_QTY*A.PROD_COST) AS ¸ÅÀÔ±Ý¾×ÇÕ°è
+        SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+            A.PROD_NAME AS ìƒí’ˆëª…, 
+            SUM(BUY_QTY) AS ë§¤ìž…ìˆ˜ëŸ‰í•©ê³„, 
+            SUM(B.BUY_QTY*A.PROD_COST) AS ë§¤ìž…ê¸ˆì•¡í•©ê³„
         FROM PROD A, BUYPROD B
       WHERE A.PROD_ID = B.BUY_PROD AND
        B.BUY_DATE BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)) 
@@ -250,46 +250,46 @@ SELECT *
       ORDER BY 1;
      
      
-¹®Á¦) 2005³â 4¿ù ~ 6¿ù °¢ »óÇ°º° ¸ÅÀÔ/¸ÅÃâÇöÈ²À» Á¶È¸ÇÏ½Ã¿À.
-     Alias »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÀÔ±Ý¾×ÇÕ°è, ¸ÅÃâ±Ý¾×ÇÕ°èÀÌ´Ù.
+ë¬¸ì œ) 2005ë…„ 4ì›” ~ 6ì›” ê° ìƒí’ˆë³„ ë§¤ìž…/ë§¤ì¶œí˜„í™©ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+     Alias ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ìž…ê¸ˆì•¡í•©ê³„, ë§¤ì¶œê¸ˆì•¡í•©ê³„ì´ë‹¤.
 
-    (ÀÏ¹ÝÁ¶ÀÎ)
-      SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-            A.PROD_NAME AS »óÇ°¸í, 
-            SUM(B.BUY_QTY*A.PROD_COST) AS ¸ÅÀÔ±Ý¾×ÇÕ°è, 
-            SUM(A.PROD_PRICE*C.CART_QTY) AS ¸ÅÃâ±Ý¾×ÇÕ°è
+    (ì¼ë°˜ì¡°ì¸)
+      SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+            A.PROD_NAME AS ìƒí’ˆëª…, 
+            SUM(B.BUY_QTY*A.PROD_COST) AS ë§¤ìž…ê¸ˆì•¡í•©ê³„, 
+            SUM(A.PROD_PRICE*C.CART_QTY) AS ë§¤ì¶œê¸ˆì•¡í•©ê³„
         FROM PROD A, BUYPROD B, CART C
       WHERE A.PROD_ID = B.BUY_PROD AND
             A.PROD_ID = C.CART_PROD AND
        B.BUY_DATE BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)) AND 
        TO_DATE(SUBSTR(C.CART_NO,1,8)) BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)) 
-       --³í¸®¸ð¼ø ³¯Â¥°¡ µÎ¹ø ÁßÃ¸µÊ
+       --ë…¼ë¦¬ëª¨ìˆœ ë‚ ì§œê°€ ë‘ë²ˆ ì¤‘ì²©ë¨
       GROUP BY A.PROD_ID, A.PROD_NAME
       ORDER BY 1;
       
       
       
-      (ANSI Á¶ÀÎ)
-      SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-            A.PROD_NAME AS »óÇ°¸í, 
-            SUM(B.BUY_QTY*A.PROD_COST) AS ¸ÅÀÔ±Ý¾×ÇÕ°è, 
-            SUM(A.PROD_PRICE*C.CART_QTY) AS ¸ÅÃâ±Ý¾×ÇÕ°è
+      (ANSI ì¡°ì¸)
+      SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+            A.PROD_NAME AS ìƒí’ˆëª…, 
+            SUM(B.BUY_QTY*A.PROD_COST) AS ë§¤ìž…ê¸ˆì•¡í•©ê³„, 
+            SUM(A.PROD_PRICE*C.CART_QTY) AS ë§¤ì¶œê¸ˆì•¡í•©ê³„
         FROM PROD A
         INNER JOIN BUYPROD B ON(A.PROD_ID = B.BUY_PROD AND 
                     B.BUY_DATE BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)))
         INNER JOIN CART C ON(A.PROD_ID = C.CART_PROD AND 
                     TO_DATE(SUBSTR(C.CART_NO,1,8)) BETWEEN TO_DATE(20050401) AND LAST_DAY(TO_DATE(20050601)) )   
-                     --³í¸®¸ð¼ø ³¯Â¥°¡ µÎ¹ø ÁßÃ¸µÊ
+                     --ë…¼ë¦¬ëª¨ìˆœ ë‚ ì§œê°€ ë‘ë²ˆ ì¤‘ì²©ë¨
       GROUP BY A.PROD_ID, A.PROD_NAME
       ORDER BY 1;
 
 
-          -- ¼­ºêÄõ¸®-----------------------------------------------------
+          -- ì„œë¸Œì¿¼ë¦¬-----------------------------------------------------
   
-  SELECT A.PROD_ID AS »óÇ°ÄÚµå,
-           A.PROD_NAME AS »óÇ°¸í,
-           BSUM AS ¸ÅÀÔ±Ý¾×ÇÕ°è,
-           CSUM AS ¸ÅÃâ±Ý¾×ÇÕ°è
+  SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ,
+           A.PROD_NAME AS ìƒí’ˆëª…,
+           BSUM AS ë§¤ìž…ê¸ˆì•¡í•©ê³„,
+           CSUM AS ë§¤ì¶œê¸ˆì•¡í•©ê³„
       FROM PROD A,
            (SELECT CC. BUY_PROD AS BID,
                    SUM(CC.BUY_QTY * CC.BUY_COST) AS BSUM
