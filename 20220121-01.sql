@@ -1,40 +1,40 @@
 2022-0121-01)
 
-»ç¿ë¿¹) ¸ðµç ºÎ¼­º° ÀÎ¿ø¼ö¸¦ Á¶È¸ÇÏ½Ã¿À --¿ÜºÎÁ¶ÀÎ ±×·ì
-        Alias´Â ºÎ¼­ÄÚµå, ºÎ¼­¸í, ÀÎ¿ø¼ö
-        
-   (ÀÏ¹ÝÁ¶ÀÎ) --¹®¹ý¿À·ù
-  SELECT B.DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-       B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-       COUNT(*) AS ÀÎ¿ø¼ö
+ì‚¬ìš©ì˜ˆ) ëª¨ë“  ë¶€ì„œë³„ ì¸ì›ìˆ˜ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤ --ì™¸ë¶€ì¡°ì¸ ê·¸ë£¹
+        AliasëŠ” ë¶€ì„œì½”ë“œ, ë¶€ì„œëª…, ì¸ì›ìˆ˜
+         
+   (ì¼ë°˜ì¡°ì¸) --ë¬¸ë²•ì˜¤ë¥˜
+  SELECT B.DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+       B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+       COUNT(*) AS ì¸ì›ìˆ˜
     FROM HR.EMPLOYEES A, HR.DEPARTMENTS B 
   WHERE A.DEPARTMENT_ID(+) = B.DEPARTMENT_ID(+)
     GROUP BY B.DEPARTMENT_ID, B.DEPARTMENT_NAME
     ORDER BY 1;
     
     
-    (ANSIÁ¶ÀÎ) --FULL OUTER JOIN »ç¿ë½Ã
-    SELECT NVL(TO_CHAR(B.DEPARTMENT_ID),'¹Ì¹èÁ¤') AS ºÎ¼­ÄÚµå, 
-            --NVL(B.DEPARTMENT_ID,0) »ç¿ë½Ã °°Àº Å¸ÀÔÀÇ °ªÀ» ¹ÝÈ¯ÇØ¼­ ¸ÂÃçÁà¾ßÇÔ
-       NVL(B.DEPARTMENT_NAME,'ÇÁ¸®·£¼­') AS ºÎ¼­¸í, 
-       COUNT(A.EMPLOYEE_ID) AS ÀÎ¿ø¼ö 
-       --COUNT(*)´Â NULLÇà±îÁö Æ÷ÇÔÇØ 1À» Ä«¿îÆ®½ÃÅ°¹Ç·Î COUNT¾È¿¡ ÄÃ·³¸íÀ» ±â¼úÇÑ´Ù.
+    (ANSIì¡°ì¸) --FULL OUTER JOIN ì‚¬ìš©ì‹œ
+    SELECT NVL(TO_CHAR(B.DEPARTMENT_ID),'ë¯¸ë°°ì •') AS ë¶€ì„œì½”ë“œ, 
+            --NVL(B.DEPARTMENT_ID,0) ì‚¬ìš©ì‹œ ê°™ì€ íƒ€ìž…ì˜ ê°’ì„ ë°˜í™˜í•´ì„œ ë§žì¶°ì¤˜ì•¼í•¨
+       NVL(B.DEPARTMENT_NAME,'í”„ë¦¬ëžœì„œ') AS ë¶€ì„œëª…, 
+       COUNT(A.EMPLOYEE_ID) AS ì¸ì›ìˆ˜ 
+       --COUNT(*)ëŠ” NULLí–‰ê¹Œì§€ í¬í•¨í•´ 1ì„ ì¹´ìš´íŠ¸ì‹œí‚¤ë¯€ë¡œ COUNTì•ˆì— ì»¬ëŸ¼ëª…ì„ ê¸°ìˆ í•œë‹¤.
     FROM HR.EMPLOYEES A
     FULL OUTER JOIN HR.DEPARTMENTS B ON (A.DEPARTMENT_ID = B.DEPARTMENT_ID)
     GROUP BY B.DEPARTMENT_ID, B.DEPARTMENT_NAME
     ORDER BY B.DEPARTMENT_ID; 
-    --1·Î ¼³Á¤ÇÏ¸é ¹®ÀÚ¿­·Î Á¤·Ä½ÃÅ°°Ô µÇ¹Ç·Î º»·¡ ÄÃ·³ÀÎ B.DEPARTMENT_ID¸¦ ±â¼úÇØÁØ´Ù.
+    --1ë¡œ ì„¤ì •í•˜ë©´ ë¬¸ìžì—´ë¡œ ì •ë ¬ì‹œí‚¤ê²Œ ë˜ë¯€ë¡œ ë³¸ëž˜ ì»¬ëŸ¼ì¸ B.DEPARTMENT_IDë¥¼ ê¸°ìˆ í•´ì¤€ë‹¤.
     
     
     
-»ç¿ë¿¹) 2005³â ¸ðµç »óÇ°º° ¸ÅÀÔ/¸ÅÃâ¼ö·®À» Áý°èÇÏ½Ã¿À
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÀÔ¼ö·®, ¸ÅÃâ¼ö·®
-        --¼­ºêÄõ¸®·Î¸¸ ÇØ°á°¡´É
+ì‚¬ìš©ì˜ˆ) 2005ë…„ ëª¨ë“  ìƒí’ˆë³„ ë§¤ìž…/ë§¤ì¶œìˆ˜ëŸ‰ì„ ì§‘ê³„í•˜ì‹œì˜¤
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ìž…ìˆ˜ëŸ‰, ë§¤ì¶œìˆ˜ëŸ‰
+        --ì„œë¸Œì¿¼ë¦¬ë¡œë§Œ í•´ê²°ê°€ëŠ¥
         
-(2005³â ¸ðµç »óÇ°º° ¸ÅÀÔ¼ö·® Áý°è)
-SELECT B.PROD_ID AS »óÇ°ÄÚµå, 
-       B.PROD_NAME AS »óÇ°¸í, 
-       SUM(A.BUY_QTY)AS ¸ÅÀÔ¼ö·®
+(2005ë…„ ëª¨ë“  ìƒí’ˆë³„ ë§¤ìž…ìˆ˜ëŸ‰ ì§‘ê³„)
+SELECT B.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+       B.PROD_NAME AS ìƒí’ˆëª…, 
+       SUM(A.BUY_QTY)AS ë§¤ìž…ìˆ˜ëŸ‰
   FROM BUYPROD A
 RIGHT OUTER JOIN PROD B ON(A.BUY_PROD =B.PROD_ID AND A.BUY_DATE BETWEEN TO_DATE('20050101') AND TO_DATE('20051231'))
  GROUP BY B.PROD_ID, B.PROD_NAME
@@ -42,24 +42,24 @@ RIGHT OUTER JOIN PROD B ON(A.BUY_PROD =B.PROD_ID AND A.BUY_DATE BETWEEN TO_DATE(
 
 
 
-(2005³â ¸ðµç »óÇ°º° ¸ÅÃâ¼ö·® Áý°è)
-SELECT B.PROD_ID AS »óÇ°ÄÚµå, 
-       B.PROD_NAME AS »óÇ°¸í, 
-       SUM(A.CART_QTY)AS ¸ÅÃâ¼ö·®
+(2005ë…„ ëª¨ë“  ìƒí’ˆë³„ ë§¤ì¶œìˆ˜ëŸ‰ ì§‘ê³„)
+SELECT B.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+       B.PROD_NAME AS ìƒí’ˆëª…, 
+       SUM(A.CART_QTY)AS ë§¤ì¶œìˆ˜ëŸ‰
   FROM CART A
-RIGHT OUTER JOIN PROD B ON(A.CART_PROD =B.PROD_ID AND A.CART_NO LIKE '2005%') --°á°úÀûÀ¸·Î FULL OUTER
+RIGHT OUTER JOIN PROD B ON(A.CART_PROD =B.PROD_ID AND A.CART_NO LIKE '2005%') --ê²°ê³¼ì ìœ¼ë¡œ FULL OUTER
  GROUP BY B.PROD_ID, B.PROD_NAME
  ORDER BY 1;
  
- --¸ÅÀÔ/¸ÅÃâ ¸ðµÎ ÃæÁ·ÇÏ´Â°ÍÀº ¸ð¼ø
+ --ë§¤ìž…/ë§¤ì¶œ ëª¨ë‘ ì¶©ì¡±í•˜ëŠ”ê²ƒì€ ëª¨ìˆœ
 
 
 
-(ÇÑ¹®ÀåÀ¸·Î ÇÕÃÆÀ»¶§) --³í¸®¿À·ù
-SELECT B.PROD_ID AS »óÇ°ÄÚµå, 
-       B.PROD_NAME AS »óÇ°¸í, 
-       SUM(A.BUY_QTY)AS ¸ÅÀÔ¼ö·®,
-       SUM(C.CART_QTY)AS ¸ÅÃâ¼ö·®
+(í•œë¬¸ìž¥ìœ¼ë¡œ í•©ì³¤ì„ë•Œ) --ë…¼ë¦¬ì˜¤ë¥˜
+SELECT B.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+       B.PROD_NAME AS ìƒí’ˆëª…, 
+       SUM(A.BUY_QTY)AS ë§¤ìž…ìˆ˜ëŸ‰,
+       SUM(C.CART_QTY)AS ë§¤ì¶œìˆ˜ëŸ‰
   FROM BUYPROD A
 RIGHT OUTER JOIN PROD B ON(A.BUY_PROD =B.PROD_ID AND A.BUY_DATE BETWEEN TO_DATE('20050101') AND TO_DATE('20051231'))
 LEFT OUTER JOIN CART C ON(C.CART_PROD =B.PROD_ID AND C.CART_NO LIKE '2005%')
@@ -68,26 +68,26 @@ LEFT OUTER JOIN CART C ON(C.CART_PROD =B.PROD_ID AND C.CART_NO LIKE '2005%')
 
 
 
-(¼­ºêÄõ¸® »ç¿ë)
-SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-       A.PROD_NAME AS »óÇ°¸í, 
-        AS ¸ÅÀÔ¼ö·®,
-        AS ¸ÅÃâ¼ö·®
+(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©)
+SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+       A.PROD_NAME AS ìƒí’ˆëª…, 
+        AS ë§¤ìž…ìˆ˜ëŸ‰,
+        AS ë§¤ì¶œìˆ˜ëŸ‰
   FROM PROD A, 
-       (2005³â »óÇ°º° ¸ÅÀÔ¼ö·® Áý°è)B, 
-       (2005³â »óÇ°º° ¸ÅÃâ¼ö·® Áý°è)C  --AÅ×ÀÌºíÀ» ±âÁØÀ¸·Î B,C°¡ È®ÀåµÇ´Â°ÍÀº °¡´ÉÇÏ´Ù.
-WHERE A.PROD_ID = B.»óÇ°ÄÚµå(+)
-  AND A.PROD_ID = C.»óÇ°ÄÚµå(+)
+       (2005ë…„ ìƒí’ˆë³„ ë§¤ìž…ìˆ˜ëŸ‰ ì§‘ê³„)B, 
+       (2005ë…„ ìƒí’ˆë³„ ë§¤ì¶œìˆ˜ëŸ‰ ì§‘ê³„)C  --Aí…Œì´ë¸”ì„ ê¸°ì¤€ìœ¼ë¡œ B,Cê°€ í™•ìž¥ë˜ëŠ”ê²ƒì€ ê°€ëŠ¥í•˜ë‹¤.
+WHERE A.PROD_ID = B.ìƒí’ˆì½”ë“œ(+)
+  AND A.PROD_ID = C.ìƒí’ˆì½”ë“œ(+)
 ORDER BY 1;
 
 
 
 
-(¼­ºêÄõ¸® »ç¿ë2)
-SELECT A.PROD_ID AS »óÇ°ÄÚµå, 
-       A.PROD_NAME AS »óÇ°¸í, 
-       NVL(B.BSUM,0) AS ¸ÅÀÔ¼ö·®,
-       NVL(C.CSUM,0) AS ¸ÅÃâ¼ö·®
+(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©2)
+SELECT A.PROD_ID AS ìƒí’ˆì½”ë“œ, 
+       A.PROD_NAME AS ìƒí’ˆëª…, 
+       NVL(B.BSUM,0) AS ë§¤ìž…ìˆ˜ëŸ‰,
+       NVL(C.CSUM,0) AS ë§¤ì¶œìˆ˜ëŸ‰
   FROM PROD A, 
        ( SELECT BUY_PROD AS BID,
                 SUM(BUY_QTY) AS BSUM 
@@ -99,7 +99,7 @@ SELECT A.PROD_ID AS »óÇ°ÄÚµå,
                 SUM(CART_QTY) AS CSUM
             FROM CART
           WHERE CART_NO LIKE '2005%'
-          GROUP BY CART_PROD )C  --AÅ×ÀÌºíÀ» ±âÁØÀ¸·Î B,C°¡ È®ÀåµÇ´Â°ÍÀº °¡´ÉÇÏ´Ù.
+          GROUP BY CART_PROD )C  --Aí…Œì´ë¸”ì„ ê¸°ì¤€ìœ¼ë¡œ B,Cê°€ í™•ìž¥ë˜ëŠ”ê²ƒì€ ê°€ëŠ¥í•˜ë‹¤.
 WHERE A.PROD_ID = B.BID(+)
   AND A.PROD_ID = C.CID(+)
 ORDER BY 1;
