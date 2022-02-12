@@ -1,10 +1,10 @@
 2022-0119-02)
 2. NON-EQUI JOIN
-   - Á¶ÀÎÁ¶°Ç¹®¿¡ '='¿¬»êÀÚ ÀÌ¿ÜÀÇ ¿¬»êÀÚ°¡ »ç¿ëµÇ´Â Á¶ÀÎ
-
-**HR °èÁ¤¿¡ ±Þ¿©¿¡ µû¸¥ µî±ÞÇ¥¸¦ ÀÛ¼ºÇÏ½Ã¿À 
-  1)Å×ÀÌºí¸í: SAL_GRADE
-  2)ÄÃ·³¸í
+   - ì¡°ì¸ì¡°ê±´ë¬¸ì— '='ì—°ì‚°ìž ì´ì™¸ì˜ ì—°ì‚°ìžê°€ ì‚¬ìš©ë˜ëŠ” ì¡°ì¸
+ 
+**HR ê³„ì •ì— ê¸‰ì—¬ì— ë”°ë¥¸ ë“±ê¸‰í‘œë¥¼ ìž‘ì„±í•˜ì‹œì˜¤ 
+  1)í…Œì´ë¸”ëª…: SAL_GRADE
+  2)ì»¬ëŸ¼ëª…
   ---------------------------------------------------
   GRADE         LOW SAL         MAX_SAL
   ---------------------------------------------------
@@ -16,7 +16,7 @@
     6             20000           40000
   ---------------------------------------------------
   
-  3)±âº»Å°: GRADE
+  3)ê¸°ë³¸í‚¤: GRADE
   
   CREATE TABLE SAL_GRADE(
     GRADE NUMBER(2) PRIMARY KEY,
@@ -36,28 +36,28 @@ SELECT * FROM SAL_GRADE;
 COMMIT;
 
 
-»ç¿ë¿¹) HR°èÁ¤ÀÇ »ç¿øÅ×ÀÌºí¿¡¼­ ±Þ¿©¿¡ µû¸¥ µî±ÞÀ» Á¶È¸ÇÏ¿© Ãâ·ÂÇÏ½Ã¿À
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¸í, ±Þ¿©, µî±ÞÀÌ´Ù
+ì‚¬ìš©ì˜ˆ) HRê³„ì •ì˜ ì‚¬ì›í…Œì´ë¸”ì—ì„œ ê¸‰ì—¬ì— ë”°ë¥¸ ë“±ê¸‰ì„ ì¡°íšŒí•˜ì—¬ ì¶œë ¥í•˜ì‹œì˜¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œëª…, ê¸‰ì—¬, ë“±ê¸‰ì´ë‹¤
         
-        (NON-EQUI Á¶ÀÎ)
-            SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-                   A.EMP_NAME AS »ç¿ø¸í, 
-                   B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-                   A.SALARY AS ±Þ¿©, 
-                   C.GRADE AS µî±Þ
+        (NON-EQUI ì¡°ì¸)
+            SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+                   A.EMP_NAME AS ì‚¬ì›ëª…, 
+                   B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+                   A.SALARY AS ê¸‰ì—¬, 
+                   C.GRADE AS ë“±ê¸‰
                 FROM HR.EMPLOYEES A, HR.DEPARTMENTS B, SAL_GRADE C
                WHERE A.DEPARTMENT_ID=B.DEPARTMENT_ID
                  AND (A.SALARY>=C.LOW_SAL AND A.SALARY>=C.MAX_SAL)
                  ORDER BY 3;
   
   
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ »ç¿øµéÀÇ Æò±Õ±Þ¿©º¸´Ù ¸¹Àº ±Þ¿©¸¦ ¹Þ´Â »ç¿øµéÀ» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, Á÷¹«¸í, ±Þ¿©
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì‚¬ì›ë“¤ì˜ í‰ê· ê¸‰ì—¬ë³´ë‹¤ ë§Žì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ë“¤ì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ì§ë¬´ëª…, ê¸‰ì—¬
         
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               A.EMP_NAME AS »ç¿ø¸í, 
-               B.JOB_TITLE AS Á÷¹«¸í, 
-               A.SALARY AS ±Þ¿©
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               B.JOB_TITLE AS ì§ë¬´ëª…, 
+               A.SALARY AS ê¸‰ì—¬
             FROM HR.EMPLOYEES A, HR.JOBS B, (SELECT AVG(SALARY) AS ASAL 
                                                 FROM HR.EMPLOYEES)C
         WHERE A.JOB_ID =B.JOB_ID
@@ -67,16 +67,16 @@ COMMIT;
 
 
   
-¼÷Á¦) »ç¿øÅ×ÀÌºí¿¡¼­ ºÎ¼­º° Æò±Õ ÀÓ±ÝÀ» ±¸ÇÏ°í ÇØ´çºÎ¼­¿¡ ¼ÓÇÑ »ç¿øÁß 
-      ÀÚ±âºÎ¼­ÀÇ Æò±Õ ±Þ¿©º¸´Ù ¸¹Àº ±Þ¿©¸¦ ¹Þ´Â »ç¿øÀ» Á¶È¸ÇÏ½Ã¿À.  
-      Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¸í, ºÎ¼­Æò±Õ±Þ¿©, ±Þ¿©
+ìˆ™ì œ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ë¶€ì„œë³„ í‰ê·  ìž„ê¸ˆì„ êµ¬í•˜ê³  í•´ë‹¹ë¶€ì„œì— ì†í•œ ì‚¬ì›ì¤‘ 
+      ìžê¸°ë¶€ì„œì˜ í‰ê·  ê¸‰ì—¬ë³´ë‹¤ ë§Žì€ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ì„ ì¡°íšŒí•˜ì‹œì˜¤.  
+      AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œëª…, ë¶€ì„œí‰ê· ê¸‰ì—¬, ê¸‰ì—¬
       
       
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-                 A.EMP_NAME AS »ç¿ø¸í, 
-                 B.DEPARTMENT_NAME AS ºÎ¼­¸í, 
-                 ROUND(C.AVGSAL) AS Æò±Õ±Þ¿©,
-                A.SALARY AS ±Þ¿©
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+                 A.EMP_NAME AS ì‚¬ì›ëª…, 
+                 B.DEPARTMENT_NAME AS ë¶€ì„œëª…, 
+                 ROUND(C.AVGSAL) AS í‰ê· ê¸‰ì—¬,
+                A.SALARY AS ê¸‰ì—¬
             FROM HR.EMPLOYEES A, HR.DEPARTMENTS B, ( SELECT DEPARTMENT_ID AS DID, 
                                                             AVG(SALARY) AS AVGSAL
                                                       FROM HR.EMPLOYEES
@@ -90,9 +90,9 @@ COMMIT;
 
         
         
-        Á¦ÃâÀÏÀÚ: 2022/1/28
-        Á¦Ãâ¹æ¹ý: ÆÄÀÏÀü¼Û(SEM-PCÀÇ D:\°øÀ¯Æú´õ\Oracle\homework01)
-        ÆÄÀÏ¸í: ¸Þ¸ðÀå µîÀ» È°¿ëÇÏ¿© txt¶Ç´Â doc ¶Ç´Â hwpÆÄÀÏ·Î ÀúÀåÇÏ¿© Àü¼Û
-               ÆÄÀÏ¸íÀº ÀÌ¸§ÀÛ¼ºÀÏÀÚ.txt(ex È«±æµ¿20220127.txt)
+        ì œì¶œì¼ìž: 2022/1/28
+        ì œì¶œë°©ë²•: íŒŒì¼ì „ì†¡(SEM-PCì˜ D:\ê³µìœ í´ë”\Oracle\homework01)
+        íŒŒì¼ëª…: ë©”ëª¨ìž¥ ë“±ì„ í™œìš©í•˜ì—¬ txtë˜ëŠ” doc ë˜ëŠ” hwpíŒŒì¼ë¡œ ì €ìž¥í•˜ì—¬ ì „ì†¡
+               íŒŒì¼ëª…ì€ ì´ë¦„ìž‘ì„±ì¼ìž.txt(ex í™ê¸¸ë™20220127.txt)
   
   
