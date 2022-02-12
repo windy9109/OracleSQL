@@ -1,129 +1,129 @@
 2022-0121-02) SUBQUERY
-- SQL±¸¹®¾È¿¡ ¶Ç ´Ù¸¥ SELECT¹®ÀÌ Á¸ÀçÇÏ´Â °æ¿ì
-- JOINÀÌ³ª º¹Àâµµ¸¦ °³¼±ÇÏ±â À§ÇØ »ç¿ë
-- ¸ðµç SUBQUERY ¹®Àº ()¾È¿¡ ±â¼úÇØ¾ßÇÔ. ´Ü, INSRT¹®¿¡ »ç¿ëµÇ´Â SUBQUERY´Â Á¦¿Ü
-- ¼­ºêÄõ¸® WHEREÀý µî¿¡¼­ ¿¬»êÀÚ¿Í °°ÀÌ »ç¿ëµÉ¶§ ¹Ýµå½Ã ¿¬»êÀÚ ¿À¸¥ÂÊ¿¡ À§Ä¡                   
---¼­ºêÄõ¸®´Â ¹«Á¶°Ç ¿¬»êÀÚ ¿À¸¥ÂÊ¿¡ ¿Â´Ù.
-- ¼­ºêÄõ¸®ÀÇ ºÐ·ù
-  . »ç¿ë À§Ä¡¿¡ µû¶ó: ÀÏ¹Ý¼­ºêÄõ¸®(SELECT Àý), ÁßÃ¸¼­ºêÄõ¸®(WHERE Àý), In-line¼­ºêÄõ¸®(FROM Àý) 
-                    --WHERE¿Í FROM¿¡ »ç¿ëµÇ´Â ¼­ºêÄõ¸®°¡ »ç¿ë¼ºÀÌ ¸¹´Ù.
-  . ¸ÞÀÎÄõ¸®¿ÍÀÇ °ü°è¿¡ µû¶ó: °ü·Ã¼º ¾ø´Â ¼­ºêÄõ¸®(¸ÞÀÎÄõ¸®¿¡ »ç¿ëµÈ Å×ÀÌºí°ú JOIN ¾øÀÌ ±¸¼ºµÈ ¼­ºêÄõ¸®), 
-                          °ü·Ã¼º ÀÖ´Â ¼­ºêÄõ¸®(¸ÞÀÎÄõ¸®¿¡ »ç¿ëµÈ Å×ÀÌºí°ú JOIN À¸·Î ¿¬°áµÈ ¼­ºêÄõ¸®)
-  . ¹ÝÈ¯µÇ´Â Çà/¿­¿¡ µû¶ó: ´ÜÀÏ¿­|´ÙÁß¿­/´ÜÀÏÇà|´ÙÁßÇà
-                        ¼­ºêÄõ¸® => »ç¿ëµÇ´Â ¿¬»êÀÚ¿¡ ÀÇÇÑ ±¸º°
-- ¾Ë·ÁÁöÁö ¾ÊÀº Á¶°Ç¿¡ ±Ù°ÅÇÑ °ªµéÀ» °Ë»öÇÏ´Â SELECT¹® µî¿¡ È°¿ë
-- ¸ÞÀÎÄõ¸®°¡ ½ÇÇàµÇ±â Àü¿¡ ÇÑ¹ø ½ÇÇàµÈ´Ù.
+- SQLêµ¬ë¬¸ì•ˆì— ë˜ ë‹¤ë¥¸ SELECTë¬¸ì´ ì¡´ìž¬í•˜ëŠ” ê²½ìš° 
+- JOINì´ë‚˜ ë³µìž¡ë„ë¥¼ ê°œì„ í•˜ê¸° ìœ„í•´ ì‚¬ìš©
+- ëª¨ë“  SUBQUERY ë¬¸ì€ ()ì•ˆì— ê¸°ìˆ í•´ì•¼í•¨. ë‹¨, INSRTë¬¸ì— ì‚¬ìš©ë˜ëŠ” SUBQUERYëŠ” ì œì™¸
+- ì„œë¸Œì¿¼ë¦¬ WHEREì ˆ ë“±ì—ì„œ ì—°ì‚°ìžì™€ ê°™ì´ ì‚¬ìš©ë ë•Œ ë°˜ë“œì‹œ ì—°ì‚°ìž ì˜¤ë¥¸ìª½ì— ìœ„ì¹˜                   
+--ì„œë¸Œì¿¼ë¦¬ëŠ” ë¬´ì¡°ê±´ ì—°ì‚°ìž ì˜¤ë¥¸ìª½ì— ì˜¨ë‹¤.
+- ì„œë¸Œì¿¼ë¦¬ì˜ ë¶„ë¥˜
+  . ì‚¬ìš© ìœ„ì¹˜ì— ë”°ë¼: ì¼ë°˜ì„œë¸Œì¿¼ë¦¬(SELECT ì ˆ), ì¤‘ì²©ì„œë¸Œì¿¼ë¦¬(WHERE ì ˆ), In-lineì„œë¸Œì¿¼ë¦¬(FROM ì ˆ) 
+                    --WHEREì™€ FROMì— ì‚¬ìš©ë˜ëŠ” ì„œë¸Œì¿¼ë¦¬ê°€ ì‚¬ìš©ì„±ì´ ë§Žë‹¤.
+  . ë©”ì¸ì¿¼ë¦¬ì™€ì˜ ê´€ê³„ì— ë”°ë¼: ê´€ë ¨ì„± ì—†ëŠ” ì„œë¸Œì¿¼ë¦¬(ë©”ì¸ì¿¼ë¦¬ì— ì‚¬ìš©ëœ í…Œì´ë¸”ê³¼ JOIN ì—†ì´ êµ¬ì„±ëœ ì„œë¸Œì¿¼ë¦¬), 
+                          ê´€ë ¨ì„± ìžˆëŠ” ì„œë¸Œì¿¼ë¦¬(ë©”ì¸ì¿¼ë¦¬ì— ì‚¬ìš©ëœ í…Œì´ë¸”ê³¼ JOIN ìœ¼ë¡œ ì—°ê²°ëœ ì„œë¸Œì¿¼ë¦¬)
+  . ë°˜í™˜ë˜ëŠ” í–‰/ì—´ì— ë”°ë¼: ë‹¨ì¼ì—´|ë‹¤ì¤‘ì—´/ë‹¨ì¼í–‰|ë‹¤ì¤‘í–‰
+                        ì„œë¸Œì¿¼ë¦¬ => ì‚¬ìš©ë˜ëŠ” ì—°ì‚°ìžì— ì˜í•œ êµ¬ë³„
+- ì•Œë ¤ì§€ì§€ ì•Šì€ ì¡°ê±´ì— ê·¼ê±°í•œ ê°’ë“¤ì„ ê²€ìƒ‰í•˜ëŠ” SELECTë¬¸ ë“±ì— í™œìš©
+- ë©”ì¸ì¿¼ë¦¬ê°€ ì‹¤í–‰ë˜ê¸° ì „ì— í•œë²ˆ ì‹¤í–‰ëœë‹¤.
 
 
 
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ »ç¿øµéÀÇ Æò±ÕÀÓ±Ýº¸´Ù ¸¹Àº ±Þ¿©¸¦ 
-        ¹Þ´Â »ç¿øµéÀÇ »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­ÄÚµå ,±Þ¿©¸¦ Á¶È¸ÇÏ½Ã¿À 
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì‚¬ì›ë“¤ì˜ í‰ê· ìž„ê¸ˆë³´ë‹¤ ë§Žì€ ê¸‰ì—¬ë¥¼ 
+        ë°›ëŠ” ì‚¬ì›ë“¤ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œì½”ë“œ ,ê¸‰ì—¬ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤ 
         
-        (FROMÀý¿¡ »ç¿ëÇÏ´Â In-line VIEW ¼­ºêÄõ¸®)
+        (FROMì ˆì— ì‚¬ìš©í•˜ëŠ” In-line VIEW ì„œë¸Œì¿¼ë¦¬)
         
-        (¸ÞÀÎÄõ¸®: -- »ç¿øµéÀÇ »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­ÄÚµå ,±Þ¿©¸¦ Á¶È¸ )
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-               A.SALARY AS ±Þ¿©
-          FROM HR.EMPLOYEES A,(Æò±ÕÀÓ±Ý) B
-        WHERE A.SALARY > B.Æò±ÕÀÓ±Ý
+        (ë©”ì¸ì¿¼ë¦¬: -- ì‚¬ì›ë“¤ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œì½”ë“œ ,ê¸‰ì—¬ë¥¼ ì¡°íšŒ )
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+               A.SALARY AS ê¸‰ì—¬
+          FROM HR.EMPLOYEES A,(í‰ê· ìž„ê¸ˆ) B
+        WHERE A.SALARY > B.í‰ê· ìž„ê¸ˆ
         ORDER BY 3;
           
-        (¼­ºêÄõ¸®: -- Æò±ÕÀÓ±ÝÀ» ±¸ÇÏ´Â°Í )
+        (ì„œë¸Œì¿¼ë¦¬: -- í‰ê· ìž„ê¸ˆì„ êµ¬í•˜ëŠ”ê²ƒ )
         SELECT AVG(SALARY) AS ASAL 
           FROM HR.EMPLOYEES
 
 
 
-        (¸ÞÀÎ¼­ºê °áÇÕ) - In-line VIEW
-        SELECT A.EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               A.EMP_NAME AS »ç¿ø¸í, 
-               A.DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-               A.SALARY AS ±Þ¿©
-          FROM HR.EMPLOYEES A,(SELECT AVG(SALARY) AS ASAL --´ÜÀÏÇà ¼­ºêÄõ¸®
+        (ë©”ì¸ì„œë¸Œ ê²°í•©) - In-line VIEW
+        SELECT A.EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               A.EMP_NAME AS ì‚¬ì›ëª…, 
+               A.DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+               A.SALARY AS ê¸‰ì—¬
+          FROM HR.EMPLOYEES A,(SELECT AVG(SALARY) AS ASAL --ë‹¨ì¼í–‰ ì„œë¸Œì¿¼ë¦¬
                                  FROM HR.EMPLOYEES) B
         WHERE A.SALARY > B.ASAL
         ORDER BY 3;
 
 
 
-        (ÁßÃ¸¼­ºêÄõ¸®)
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               EMP_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-               SALARY AS ±Þ¿©
+        (ì¤‘ì²©ì„œë¸Œì¿¼ë¦¬)
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               EMP_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+               SALARY AS ê¸‰ì—¬
           FROM HR.EMPLOYEES
-        WHERE SALARY > (SELECT AVG(SALARY) --´ÜÀÏÇà ¼­ºêÄõ¸®
+        WHERE SALARY > (SELECT AVG(SALARY) --ë‹¨ì¼í–‰ ì„œë¸Œì¿¼ë¦¬
                           FROM HR.EMPLOYEES)
         ORDER BY 3;
 
--- ÀÎ¶óÀÎ ¼­ºêÄõ¸®´Â 1¹ø¸¸ ÂüÁ¶, ÁßÃ¸¼­ºêÄõ¸®´Â ¹Ýº¹ÇØ¼­ ¼öÇà
--- JAVA°¡ ÃÖÀûÈ­ ÄÚµåÀÓ
+-- ì¸ë¼ì¸ ì„œë¸Œì¿¼ë¦¬ëŠ” 1ë²ˆë§Œ ì°¸ì¡°, ì¤‘ì²©ì„œë¸Œì¿¼ë¦¬ëŠ” ë°˜ë³µí•´ì„œ ìˆ˜í–‰
+-- JAVAê°€ ìµœì í™” ì½”ë“œìž„
 
 
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ È¸¿øÀÇ Á÷¾÷º° ÃÖ´ë¸¶ÀÏ¸®Áö¸¦ °®°íÀÖ´Â È¸¿øÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, Á÷¾÷, ¸¶ÀÏ¸®Áö
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ íšŒì›ì˜ ì§ì—…ë³„ ìµœëŒ€ë§ˆì¼ë¦¬ì§€ë¥¼ ê°–ê³ ìžˆëŠ” íšŒì›ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì§ì—…, ë§ˆì¼ë¦¬ì§€
         
-        (¸ÞÀÎÄõ¸®: È¸¿ø¹øÈ£, È¸¿ø¸í, Á÷¾÷, ¸¶ÀÏ¸®Áö Á¶È¸)
-        SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                MEM_NAME AS È¸¿ø¸í, 
-                MEM_JOB AS Á÷¾÷, 
-                MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        (ë©”ì¸ì¿¼ë¦¬: íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì§ì—…, ë§ˆì¼ë¦¬ì§€ ì¡°íšŒ)
+        SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                MEM_NAME AS íšŒì›ëª…, 
+                MEM_JOB AS ì§ì—…, 
+                MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER
-        WHERE (MEM_JOB,MEM_MILEAGE) = (¼­ºêÄõ¸®) --½ÖÀ¸·Î ºñ±³ÇÏ±â
+        WHERE (MEM_JOB,MEM_MILEAGE) = (ì„œë¸Œì¿¼ë¦¬) --ìŒìœ¼ë¡œ ë¹„êµí•˜ê¸°
         
-        (¼­ºêÄõ¸®: È¸¿øÀÇ Á÷¾÷º° ÃÖ´ë ¸¶ÀÏ¸®Áö)
+        (ì„œë¸Œì¿¼ë¦¬: íšŒì›ì˜ ì§ì—…ë³„ ìµœëŒ€ ë§ˆì¼ë¦¬ì§€)
         SELECT MEM_JOB,
             MAX(MEM_MILEAGE)
           FROM MEMBER
         GROUP BY MEM_JOB
         
         
-        (°áÇÕ)
-        SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                MEM_NAME AS È¸¿ø¸í, 
-                MEM_JOB AS Á÷¾÷, 
-                MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        (ê²°í•©)
+        SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                MEM_NAME AS íšŒì›ëª…, 
+                MEM_JOB AS ì§ì—…, 
+                MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER
-        WHERE (MEM_JOB,MEM_MILEAGE) IN (SELECT MEM_JOB, --ÁßÃ¸¼­ºêÄõ¸®
+        WHERE (MEM_JOB,MEM_MILEAGE) IN (SELECT MEM_JOB, --ì¤‘ì²©ì„œë¸Œì¿¼ë¦¬
                                              MAX(MEM_MILEAGE)
                                          FROM MEMBER
-                                        GROUP BY MEM_JOB); --1:NÀ¸·Î ºñ±³ÇÏ°í ÀÖÀ¸¹Ç·Î ºñ±³¿¬»êÀÚ(=)·Î ºñ±³ºÒ°¡
-        -- ´ÙÁßÇà ¼­ºêÄõ¸®
-        -- Á¶ÀÎÀÌ ¹ß»ýÇÏÁö ¾Ê¾ÒÀ¸¹Ç·Î ¿¬°üÀÌ ¾ø´Ù.
+                                        GROUP BY MEM_JOB); --1:Nìœ¼ë¡œ ë¹„êµí•˜ê³  ìžˆìœ¼ë¯€ë¡œ ë¹„êµì—°ì‚°ìž(=)ë¡œ ë¹„êµë¶ˆê°€
+        -- ë‹¤ì¤‘í–‰ ì„œë¸Œì¿¼ë¦¬
+        -- ì¡°ì¸ì´ ë°œìƒí•˜ì§€ ì•Šì•˜ìœ¼ë¯€ë¡œ ì—°ê´€ì´ ì—†ë‹¤.
         
         
         
         
         
-        (EXISTS ¿¬»êÀÚ »ç¿ëÇÑ °¡Àå º¸ÆíÀû ¹æ¹ý)
-        SELECT A.MEM_ID AS È¸¿ø¹øÈ£, 
-               A.MEM_NAME AS È¸¿ø¸í, 
-               A.MEM_JOB AS Á÷¾÷, 
-               A.MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        (EXISTS ì—°ì‚°ìž ì‚¬ìš©í•œ ê°€ìž¥ ë³´íŽ¸ì  ë°©ë²•)
+        SELECT A.MEM_ID AS íšŒì›ë²ˆí˜¸, 
+               A.MEM_NAME AS íšŒì›ëª…, 
+               A.MEM_JOB AS ì§ì—…, 
+               A.MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER A
-        WHERE EXISTS (SELECT B.BMILE --SELECT¿¡´Â ¾î¶²°ÍÀÌ ¿Íµµ »ó°ü¾øÁö¸¸ º¸Åë 1À» ¾´´Ù.
+        WHERE EXISTS (SELECT B.BMILE --SELECTì—ëŠ” ì–´ë–¤ê²ƒì´ ì™€ë„ ìƒê´€ì—†ì§€ë§Œ ë³´í†µ 1ì„ ì“´ë‹¤.
                         FROM (SELECT MEM_JOB,
                                      MAX(MEM_MILEAGE) AS BMILE
                                 FROM MEMBER
                            GROUP BY MEM_JOB)B
         WHERE A.MEM_JOB = B.MEM_JOB
           AND A.MEM_MILEAGE = B.BMILE); 
-        --¼­ºêÄõ¸®ÀÇ °á°ú°¡ ´Ü ÇÏ³ª¶óµµ ÀÖÀ¸¸é °á°ú´Â ÂüÀÌ´Ù(IN°ú ¶È°°À½) 
+        --ì„œë¸Œì¿¼ë¦¬ì˜ ê²°ê³¼ê°€ ë‹¨ í•˜ë‚˜ë¼ë„ ìžˆìœ¼ë©´ ê²°ê³¼ëŠ” ì°¸ì´ë‹¤(INê³¼ ë˜‘ê°™ìŒ) 
 
 
 
 
 
 
-»ç¿ë¿¹) »óÇ°Å×ÀÌºí¿¡¼­ »óÇ°ÀÇ ÆÇ¸Å°¡°¡ Æò±ÕÆÇ¸Å°¡º¸´Ù Å« »óÇ°À» Á¶È¸ÇÏ½Ã¿À
-       Alias´Â »óÇ°¹øÈ£, »óÇ°¸í, ÆÇ¸Å°¡, Æò±ÕÆÇ¸Å°¡
+ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”ì—ì„œ ìƒí’ˆì˜ íŒë§¤ê°€ê°€ í‰ê· íŒë§¤ê°€ë³´ë‹¤ í° ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” ìƒí’ˆë²ˆí˜¸, ìƒí’ˆëª…, íŒë§¤ê°€, í‰ê· íŒë§¤ê°€
       
-      SELECT A.PROD_ID AS »óÇ°¹øÈ£, 
-             A.PROD_NAME AS »óÇ°¸í, 
-             A.PROD_PRICE AS ÆÇ¸Å°¡, 
-             ROUND(B.PRICE) AS Æò±ÕÆÇ¸Å°¡
+      SELECT A.PROD_ID AS ìƒí’ˆë²ˆí˜¸, 
+             A.PROD_NAME AS ìƒí’ˆëª…, 
+             A.PROD_PRICE AS íŒë§¤ê°€, 
+             ROUND(B.PRICE) AS í‰ê· íŒë§¤ê°€
         FROM PROD A, (SELECT AVG(PROD_PRICE) AS PRICE
                         FROM PROD) B
         WHERE A.PROD_PRICE > B.PRICE
@@ -131,14 +131,14 @@
       
       
       
-»ç¿ë¿¹) Àå¹Ù±¸´ÏÅ×ÀÌºí¿¡¼­ È¸¿øº° ÃÖ´ë ±¸¸Å¼ö·®À» ±â·ÏÇÑ »óÇ°À» Á¶È¸ÇÏ½Ã¿À.
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, »óÇ°¸í, ±¸¸Å¼ö·®
+ì‚¬ìš©ì˜ˆ) ìž¥ë°”êµ¬ë‹ˆí…Œì´ë¸”ì—ì„œ íšŒì›ë³„ ìµœëŒ€ êµ¬ë§¤ìˆ˜ëŸ‰ì„ ê¸°ë¡í•œ ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤.
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ìƒí’ˆëª…, êµ¬ë§¤ìˆ˜ëŸ‰
 
-        (EXISTS»ç¿ë ¹Ì¿Ï¼º)
-        SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-               C.MEM_NAME AS È¸¿ø¸í, 
-               D.PROD_NAME AS »óÇ°¸í, 
-               A.CART_QTY AS ±¸¸Å¼ö·®
+        (EXISTSì‚¬ìš© ë¯¸ì™„ì„±)
+        SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+               C.MEM_NAME AS íšŒì›ëª…, 
+               D.PROD_NAME AS ìƒí’ˆëª…, 
+               A.CART_QTY AS êµ¬ë§¤ìˆ˜ëŸ‰
           FROM CART A, MEMBER C, PROD D
         WHERE EXISTS (SELECT 1
                         FROM (SELECT CART_MEMBER,
@@ -153,14 +153,14 @@
            
             
             
-»ç¿ë¿¹) Àå¹Ù±¸´ÏÅ×ÀÌºí¿¡¼­ È¸¿øº° ÃÖ´ë ±¸¸Å¼ö·®À» ±â·ÏÇÑ »óÇ°À» Á¶È¸ÇÏ½Ã¿À.
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, »óÇ°¸í, ±¸¸Å¼ö·®         
+ì‚¬ìš©ì˜ˆ) ìž¥ë°”êµ¬ë‹ˆí…Œì´ë¸”ì—ì„œ íšŒì›ë³„ ìµœëŒ€ êµ¬ë§¤ìˆ˜ëŸ‰ì„ ê¸°ë¡í•œ ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤.
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ìƒí’ˆëª…, êµ¬ë§¤ìˆ˜ëŸ‰         
             
-      (ÁßÃ¸¼­ºêÄõ¸® »ç¿ë)      
-      SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-               C.MEM_NAME AS È¸¿ø¸í, 
-               D.PROD_NAME AS »óÇ°¸í, 
-               A.CART_QTY AS ±¸¸Å¼ö·®
+      (ì¤‘ì²©ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©)      
+      SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+               C.MEM_NAME AS íšŒì›ëª…, 
+               D.PROD_NAME AS ìƒí’ˆëª…, 
+               A.CART_QTY AS êµ¬ë§¤ìˆ˜ëŸ‰
           FROM CART A, MEMBER C, PROD D
          WHERE (A.CART_MEMBER, A.CART_QTY) IN ( SELECT CART_MEMBER,
                                                 MAX(CART_QTY) AS CAQTY
@@ -173,11 +173,11 @@
             
             
             
-         (´Ù¸¥¹æ¹ý)   
-        SELECT A.CART_MEMBER AS È¸¿ø¹øÈ£, 
-               C.MEM_NAME AS È¸¿ø¸í, 
-               D.PROD_NAME AS »óÇ°¸í, 
-               A.CART_QTY AS ±¸¸Å¼ö·®
+         (ë‹¤ë¥¸ë°©ë²•)   
+        SELECT A.CART_MEMBER AS íšŒì›ë²ˆí˜¸, 
+               C.MEM_NAME AS íšŒì›ëª…, 
+               D.PROD_NAME AS ìƒí’ˆëª…, 
+               A.CART_QTY AS êµ¬ë§¤ìˆ˜ëŸ‰
           FROM CART A, MEMBER C, PROD D
          WHERE  A.CART_MEMBER = C.MEM_ID 
             AND A.CART_PROD = D.PROD_ID
