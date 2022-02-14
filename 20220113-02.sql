@@ -1,46 +1,46 @@
-2022-0113-02)NULLÃ³¸®ÇÔ¼ö
-    - NULLÀº ±æÀÌ°¡ ¾ø´Â ÀÚ·á
-    - ¿¬»ê¿¡ NULLÀÌ »ç¿ëµÇ¸é ¸ðµç°á°ú´Â NULLÀÌ´Ù.
-    - NULL °ü·Ã ÇÔ¼ö´Â NVL, NVL2, NULLIF¿Í µ¥ÀÌÅÍ°¡ NULL°ú °°ÀºÁö ÆÇ´ÜÀ» À§ÇØ
-      IS NULL, IS NOT NULL, µÎ ¿¬»êÀÚ°¡ Á¦°øµÊ ( = °ú °°Àº ºñ±³¿¬»êÀÚ »ç¿ëºÒ°¡´É )
-      
-    1.  IS NULL, IS NOT NULL
-        .NULL°ª°ú µ¿¼º Æò°¡¸¦ À§ÇÑ ¿¬»êÀÚ
-        .NULLÀº '='¿¬»êÀÚ·Î ÆÇº° ºÒ°¡´É
-        
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ¿µ¾÷½ÇÀûÄÚµå(COMMISSION_PCT)°¡ NULLÀÌ ¾Æ´Ñ »ç¿øÀ» Á¶È¸ÇÏ½Ã¿À
-       Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­ÄÚµå, ¿µ¾÷½ÇÀûÄÚµå
+2022-0113-02)NULLì²˜ë¦¬í•¨ìˆ˜
+    - NULLì€ ê¸¸ì´ê°€ ì—†ëŠ” ìžë£Œ
+    - ì—°ì‚°ì— NULLì´ ì‚¬ìš©ë˜ë©´ ëª¨ë“ ê²°ê³¼ëŠ” NULLì´ë‹¤.
+    - NULL ê´€ë ¨ í•¨ìˆ˜ëŠ” NVL, NVL2, NULLIFì™€ ë°ì´í„°ê°€ NULLê³¼ ê°™ì€ì§€ íŒë‹¨ì„ ìœ„í•´
+      IS NULL, IS NOT NULL, ë‘ ì—°ì‚°ìžê°€ ì œê³µë¨ ( = ê³¼ ê°™ì€ ë¹„êµì—°ì‚°ìž ì‚¬ìš©ë¶ˆê°€ëŠ¥ )
        
-       SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-              EMP_NAME AS »ç¿ø¸í, 
-              DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-              COMMISSION_PCT AS ¿µ¾÷½ÇÀûÄÚµå
+    1.  IS NULL, IS NOT NULL
+        .NULLê°’ê³¼ ë™ì„± í‰ê°€ë¥¼ ìœ„í•œ ì—°ì‚°ìž
+        .NULLì€ '='ì—°ì‚°ìžë¡œ íŒë³„ ë¶ˆê°€ëŠ¥
+        
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ì˜ì—…ì‹¤ì ì½”ë“œ(COMMISSION_PCT)ê°€ NULLì´ ì•„ë‹Œ ì‚¬ì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œì½”ë“œ, ì˜ì—…ì‹¤ì ì½”ë“œ
+       
+       SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+              EMP_NAME AS ì‚¬ì›ëª…, 
+              DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+              COMMISSION_PCT AS ì˜ì—…ì‹¤ì ì½”ë“œ
         FROM HR.EMPLOYEES
         WHERE COMMISSION_PCT IS NOT NULL; 
-        --COMMISSION_PCT != NULL; ÆÇº°ºÒ°¡
+        --COMMISSION_PCT != NULL; íŒë³„ë¶ˆê°€
         
         
-»ç¿ë¿¹) »óÇ°Å×ÀÌºí¿¡¼­ »ö»óÁ¤º¸(PROD_COLOR)ÀÇ ÀÚ·á°¡ Á¸ÀçÇÏÁö ¾Ê´Â »óÇ°À» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ¸ÅÀÔ´Ü°¡, »ö»óÁ¤º¸
+ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”ì—ì„œ ìƒ‰ìƒì •ë³´(PROD_COLOR)ì˜ ìžë£Œê°€ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë§¤ìž…ë‹¨ê°€, ìƒ‰ìƒì •ë³´
         
-        SELECT PROD_ID AS »óÇ°ÄÚµå, 
-               PROD_NAME AS »óÇ°¸í, 
-               PROD_COST AS ¸ÅÀÔ´Ü°¡, 
-               PROD_COLOR AS »ö»óÁ¤º¸
+        SELECT PROD_ID AS ìƒí’ˆì½”ë“œ, 
+               PROD_NAME AS ìƒí’ˆëª…, 
+               PROD_COST AS ë§¤ìž…ë‹¨ê°€, 
+               PROD_COLOR AS ìƒ‰ìƒì •ë³´
             FROM PROD
          WHERE PROD_COLOR IS NULL;
         
         
-2. NULL Ã³¸®ÇÔ¼ö
+2. NULL ì²˜ë¦¬í•¨ìˆ˜
    1)NVL(col, val)
-   - 'col'ÀÇ °ªÀÌ NULLÀÌ¸é 'val'À» ¹ÝÈ¯ÇÏ°í NULLÀÌ ¾Æ´Ï¸é 'col'°ªÀ» ¹ÝÈ¯
-   - 'col'°ú 'val'Àº ¹Ýµå½Ã °°Àº Å¸ÀÔÀÌ¾î¾ß ÇÔ --(¼ýÀÚ,¼ýÀÚ) o / (¼ýÀÚ/±ÛÀÚ) x
+   - 'col'ì˜ ê°’ì´ NULLì´ë©´ 'val'ì„ ë°˜í™˜í•˜ê³  NULLì´ ì•„ë‹ˆë©´ 'col'ê°’ì„ ë°˜í™˜
+   - 'col'ê³¼ 'val'ì€ ë°˜ë“œì‹œ ê°™ì€ íƒ€ìž…ì´ì–´ì•¼ í•¨ --(ìˆ«ìž,ìˆ«ìž) o / (ìˆ«ìž/ê¸€ìž) x
    
-»ç¿ë¿¹) 2005³â 6¿ù ¸ðµç »óÇ°¿¡ ´ëÇÑ »óÇ°º° ¸ÅÀÔÇöÈ²À» Á¶È¸
-        Alias´Â »óÇ°º°, ¸ÅÀÔ¼ö·®Áý°è, ¸ÅÀÔ±Ý¾×Áý°è --¿ÜºÎÁ¶ÀÎ(¼ö½Ä¾î±¸·Î ¸ðµçÀÌ ºÙ´Â´Ù)
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 6ì›” ëª¨ë“  ìƒí’ˆì— ëŒ€í•œ ìƒí’ˆë³„ ë§¤ìž…í˜„í™©ì„ ì¡°íšŒ
+        AliasëŠ” ìƒí’ˆë³„, ë§¤ìž…ìˆ˜ëŸ‰ì§‘ê³„, ë§¤ìž…ê¸ˆì•¡ì§‘ê³„ --ì™¸ë¶€ì¡°ì¸(ìˆ˜ì‹ì–´êµ¬ë¡œ ëª¨ë“ ì´ ë¶™ëŠ”ë‹¤)
         
         
-        (2005³â 6¿ù ¸ÅÀÔ»óÇ°)
+        (2005ë…„ 6ì›” ë§¤ìž…ìƒí’ˆ)
         SELECT DISTINCT BUY_PROD
             FROM BUYPROD
          WHERE BUY_DATE BETWEEN TO_DATE('20050601') AND
@@ -49,9 +49,9 @@
         
         
             
-        SELECT PROD_NAME AS »óÇ°º°, 
-               NVL(SUM(A.BUY_QTY),0) AS ¸ÅÀÔ¼ö·®Áý°è, 
-               SUM(A.BUY_QTY*B.PROD_COST) AS ¸ÅÀÔ±Ý¾×Áý°è
+        SELECT PROD_NAME AS ìƒí’ˆë³„, 
+               NVL(SUM(A.BUY_QTY),0) AS ë§¤ìž…ìˆ˜ëŸ‰ì§‘ê³„, 
+               SUM(A.BUY_QTY*B.PROD_COST) AS ë§¤ìž…ê¸ˆì•¡ì§‘ê³„
             FROM BUYPROD A
          RIGHT OUTER JOIN PROD B ON(A.BUY_PROD=B.PROD_ID
             AND A.BUY_DATE BETWEEN TO_DATE('20050601') AND
