@@ -1,37 +1,37 @@
 2022-0111-01)
-
+ 
   3) LPAD(c1,n[,c2]), RPAD(c1,n[,c2])
-  - Á¤ÀÇµÈ ±â¾ï°ø°£ÀÇ Å©±â(n)¿¡¼­ c1¹®ÀÚ¿­À» Ã¤¿ì°í ³²´Â °ø°£ ¿ÞÂÊ(LPAD) ²¿´Â ¿À¸¥ÂÊ(PRAD)¿¡ c2¸¦ Ã¤¿ò
-  - c2°¡ »ý·«µÇ¸é °ø¹éÀ» Ã¤¿ò
-  - ¼öÇ¥º¸È£¹®ÀÚ µî¿¡ ÁÖ·Î »ç¿ëµÇ¾úÀ½
+  - ì •ì˜ëœ ê¸°ì–µê³µê°„ì˜ í¬ê¸°(n)ì—ì„œ c1ë¬¸ìžì—´ì„ ì±„ìš°ê³  ë‚¨ëŠ” ê³µê°„ ì™¼ìª½(LPAD) ê¼¬ëŠ” ì˜¤ë¥¸ìª½(PRAD)ì— c2ë¥¼ ì±„ì›€
+  - c2ê°€ ìƒëžµë˜ë©´ ê³µë°±ì„ ì±„ì›€
+  - ìˆ˜í‘œë³´í˜¸ë¬¸ìž ë“±ì— ì£¼ë¡œ ì‚¬ìš©ë˜ì—ˆìŒ
   
-  »ç¿ë¿¹)»óÇ°Å×ÀÌºí¿¡¼­ »óÇ°¸íÀ» Ãâ·ÂÇÏµÇ ¿ÞÂÊ ³²´Â °ø°£¿¡ '*'¸¦ Ã¤¿ö Ãâ·ÂÇÏ½Ã¿À
+  ì‚¬ìš©ì˜ˆ)ìƒí’ˆí…Œì´ë¸”ì—ì„œ ìƒí’ˆëª…ì„ ì¶œë ¥í•˜ë˜ ì™¼ìª½ ë‚¨ëŠ” ê³µê°„ì— '*'ë¥¼ ì±„ì›Œ ì¶œë ¥í•˜ì‹œì˜¤
         
-        --ÇÑ±ÛÀº Á¤·ÄÀÌ ÀÏÁ¤ÇÏÁö¾ÊÀ½
+        --í•œê¸€ì€ ì •ë ¬ì´ ì¼ì •í•˜ì§€ì•ŠìŒ
         SELECT LPAD(PROD_NAME,40,'*'),
                RPAD(PROD_NAME,40,'*')
             FROM PROD;
             
-        --¿µ¹®Àº Á¤·ÄÀÌ ÀÏÁ¤ÇÔ    
+        --ì˜ë¬¸ì€ ì •ë ¬ì´ ì¼ì •í•¨    
         SELECT LPAD(EMP_NAME,50), SALARY
             FROM HR.EMPLOYEES;
             
             
-        --¼ýÀÚ´Â Á¤·ÄÀÌ ÀÏÁ¤ÇÔ  
+        --ìˆ«ìžëŠ” ì •ë ¬ì´ ì¼ì •í•¨  
         SELECT LPAD(SALARY,8,'*')
             FROM HR.EMPLOYEES;
             
             
             
         5)LTRIM(C1[,C2]),RTRIM(C1[,C2])
-        - ÁÖ¾îÁø ¹®ÀÚ¿­ ¸Ç¿À¸¥ÂÊ(RTRIM) ¶Ç´Â ¿ÞÂÊ(LTRIM)ÀÇ ¹®ÀÚ¿­ÀÌ C2¿Í ÀÏÄ¡ÇÏ¸é »èÁ¦
-        - C2°¡ »ý·«µÇ¸é °ø¹éÀ» »èÁ¦
-        -- ÇöÀç´Â °ø¹é »èÁ¦¿ëÀ¸·Î ¸¹ÀÌ ¾²ÀÓ
+        - ì£¼ì–´ì§„ ë¬¸ìžì—´ ë§¨ì˜¤ë¥¸ìª½(RTRIM) ë˜ëŠ” ì™¼ìª½(LTRIM)ì˜ ë¬¸ìžì—´ì´ C2ì™€ ì¼ì¹˜í•˜ë©´ ì‚­ì œ
+        - C2ê°€ ìƒëžµë˜ë©´ ê³µë°±ì„ ì‚­ì œ
+        -- í˜„ìž¬ëŠ” ê³µë°± ì‚­ì œìš©ìœ¼ë¡œ ë§Žì´ ì“°ìž„
         
-**È¸¿øÅ×ÀÌºí(MEMBER)ÀÇ ±¸Á¶¿Í µ¥ÀÌÅÍ¸¦ º¹»çÇÏ¿© CUSTOMERÅ×ÀÌºíÀ» 
-  »ý¼ºÇÏ°í ÀÌ¸§ÄÃ·³(MEM_NAME)ÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀ» CHAR(20)À¸·Î º¯°æÇÏ½Ã¿À.
+**íšŒì›í…Œì´ë¸”(MEMBER)ì˜ êµ¬ì¡°ì™€ ë°ì´í„°ë¥¼ ë³µì‚¬í•˜ì—¬ CUSTOMERí…Œì´ë¸”ì„ 
+  ìƒì„±í•˜ê³  ì´ë¦„ì»¬ëŸ¼(MEM_NAME)ì˜ ë°ì´í„° íƒ€ìž…ì„ CHAR(20)ìœ¼ë¡œ ë³€ê²½í•˜ì‹œì˜¤.
 
---¸¸µé¾îÁø Å×ÀÌºíÀ» Å×½ºÆ®¿ëÀ¸·Î ¾²°í ¹ö¸±¶§ 'CREATE Å×ÀÌºí¸í AS ¼­ºêÄõ¸®'·Î »ý¼ºÇÔ
+--ë§Œë“¤ì–´ì§„ í…Œì´ë¸”ì„ í…ŒìŠ¤íŠ¸ìš©ìœ¼ë¡œ ì“°ê³  ë²„ë¦´ë•Œ 'CREATE í…Œì´ë¸”ëª… AS ì„œë¸Œì¿¼ë¦¬'ë¡œ ìƒì„±í•¨
 CREATE TABLE CUSTOMER AS
     SELECT MEM_ID, MEM_NAME, MEM_MILEAGE
         FROM MEMBER;
@@ -40,14 +40,14 @@ ALTER TABLE CUSTOMER
     MODIFY(MEM_NAME CHAR(20));
         
 SELECT * FROM CUSTOMER
-    --WHERE MEM_NAME='¿ÀÃ¶Èñ'; --9¹ÙÀÌÆ®
-       WHERE RTRIM(MEM_NAME)='¿ÀÃ¶Èñ';
+    --WHERE MEM_NAME='ì˜¤ì² í¬'; --9ë°”ì´íŠ¸
+       WHERE RTRIM(MEM_NAME)='ì˜¤ì² í¬';
        
        
        
     SELECT MEM_ID,
-            MEM_NAME, --°ø°£³²À½
-            RTRIM(MEM_NAME) AS ÀÌ¸§, --°ø°£»èÁ¦
+            MEM_NAME, --ê³µê°„ë‚¨ìŒ
+            RTRIM(MEM_NAME) AS ì´ë¦„, --ê³µê°„ì‚­ì œ
             MEM_MILEAGE
         FROM CUSTOMER;
         
@@ -56,16 +56,16 @@ SELECT LTRIM('PERSIMMON','PER')
        RTRIM('PERSIMMON','ON')
     FROM DUAL;
     
--- SELECT LTRIM('PERSIMMON','ER')°ú °°ÀÌ ºÎºÐ¹®ÀÚ¿­ºÎÅÍ Àû°ÔµÇ¸é Á¦°Å µÇÁö¾Ê´Â´Ù.
--- ¹«Á¶°Ç ÁøÇà¹æÇâÀÇ Ã¹±ÛÀÚºÎÅÍ
+-- SELECT LTRIM('PERSIMMON','ER')ê³¼ ê°™ì´ ë¶€ë¶„ë¬¸ìžì—´ë¶€í„° ì ê²Œë˜ë©´ ì œê±° ë˜ì§€ì•ŠëŠ”ë‹¤.
+-- ë¬´ì¡°ê±´ ì§„í–‰ë°©í–¥ì˜ ì²«ê¸€ìžë¶€í„°
     
         
         6)TRIM(C1)
-        - ÁÖ¾îÁø ¹®ÀÚ¿­ C1ÀÇ ¾Õ°ú µÚ¿¡ Á¸ÀçÇÏ´Â ¸ðµç ¹«È¿ÀÇ °ø¹éÀ» Á¦°Å
-        - ¹®ÀÚ¿­ ³»ºÎ¿¡ °ø¹é Á¦°Å´Â ºÒ°¡´É
+        - ì£¼ì–´ì§„ ë¬¸ìžì—´ C1ì˜ ì•žê³¼ ë’¤ì— ì¡´ìž¬í•˜ëŠ” ëª¨ë“  ë¬´íš¨ì˜ ê³µë°±ì„ ì œê±°
+        - ë¬¸ìžì—´ ë‚´ë¶€ì— ê³µë°± ì œê±°ëŠ” ë¶ˆê°€ëŠ¥
 
-»ç¿ë¿¹) CUSTOMERÅ×ÀÌºíÀÇ ÀÌ¸§ÄÃ·³ÀÇ ÀÚ·áÅ¸ÀÔÀ» VARCHAR2(20)
-       Çü½ÄÀ¸·Î º¯È¯ÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) CUSTOMERí…Œì´ë¸”ì˜ ì´ë¦„ì»¬ëŸ¼ì˜ ìžë£Œíƒ€ìž…ì„ VARCHAR2(20)
+       í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì‹œì˜¤.
        
        ALTER TABLE CUSTOMER
             MODIFY(MEM_NAME VARCHAR(20));
@@ -75,7 +75,7 @@ SELECT LTRIM('PERSIMMON','PER')
       SELECT * FROM CUSTOMER;
       
 
-      --°íÁ¤±æÀÌ ÀÚ·áÇüÀ» °¡º¯±æÀÌ·Î »ç¿ëÇÏ·Á¸é UPDATE¹®ÀÌ ÇÊ¼öÀÓ
+      --ê³ ì •ê¸¸ì´ ìžë£Œí˜•ì„ ê°€ë³€ê¸¸ì´ë¡œ ì‚¬ìš©í•˜ë ¤ë©´ UPDATEë¬¸ì´ í•„ìˆ˜ìž„
       UPDATE CUSTOMER
         SET MEM_NAME = TRIM(MEM_NAME);
         
@@ -85,23 +85,23 @@ SELECT LTRIM('PERSIMMON','PER')
       
       
 7)SUBSTR(c1,n1[,n2])
-- ÁÖ¾îÁø ¹®ÀÚ¿­ c1¿¡¼­ n1¹øÂ°¿¡¼­ n2 °¹¼ö ¸¸Å­ÀÇ ¹®ÀÚ¸¦ ÃßÃâ 
---ÀÚ¹Ù´Â n2°¡ ³¡³ª´Â À§Ä¡(¿À¶óÅ¬¿¡¼­´Â ÃßÃâµÉ ¹®ÀÚ°¹¼ö)
-- n1, n2´Â 1ºÎÅÍ ½ÃÀÛÇÏ´Â index
-- n2°¡ »ý·«µÇ¸é n1 ºÎÅÍ ±× ÀÌÈÄÀÇ ¸ðµç ¹®ÀÚ¿­ÀÌ ÃßÃâ
-- ÃßÃâµÈ °á°úµµ ¹®ÀÚ¿­ÀÓ
-- n1ÀÌ À½¼öÀÌ¸é ¿À¸¥ÂÊ ¹®ÀÚ¿­ºÎÅÍ Ã³¸®        
+- ì£¼ì–´ì§„ ë¬¸ìžì—´ c1ì—ì„œ n1ë²ˆì§¸ì—ì„œ n2 ê°¯ìˆ˜ ë§Œí¼ì˜ ë¬¸ìžë¥¼ ì¶”ì¶œ 
+--ìžë°”ëŠ” n2ê°€ ëë‚˜ëŠ” ìœ„ì¹˜(ì˜¤ë¼í´ì—ì„œëŠ” ì¶”ì¶œë  ë¬¸ìžê°¯ìˆ˜)
+- n1, n2ëŠ” 1ë¶€í„° ì‹œìž‘í•˜ëŠ” index
+- n2ê°€ ìƒëžµë˜ë©´ n1 ë¶€í„° ê·¸ ì´í›„ì˜ ëª¨ë“  ë¬¸ìžì—´ì´ ì¶”ì¶œ
+- ì¶”ì¶œëœ ê²°ê³¼ë„ ë¬¸ìžì—´ìž„
+- n1ì´ ìŒìˆ˜ì´ë©´ ì˜¤ë¥¸ìª½ ë¬¸ìžì—´ë¶€í„° ì²˜ë¦¬        
 
-»ç¿ë¿¹) 
-    SELECT SUBSTR('APPLEBANNER','2','5'), --Ãâ·Â°á°ú PPLEB
-            SUBSTR('APPLEBANNER','2'), -- Ãâ·Â°á°ú PPLEBANNER 
-            SUBSTR('APPLEBANNER','-6','5') --Ãâ·Â°á°ú (À½¼öÀÌ¹Ç·Î ¿À¸¥ÂÊ ³¡¿¡¼­ Ä«¿îÆÃ) BANNE
+ì‚¬ìš©ì˜ˆ) 
+    SELECT SUBSTR('APPLEBANNER','2','5'), --ì¶œë ¥ê²°ê³¼ PPLEB
+            SUBSTR('APPLEBANNER','2'), -- ì¶œë ¥ê²°ê³¼ PPLEBANNER 
+            SUBSTR('APPLEBANNER','-6','5') --ì¶œë ¥ê²°ê³¼ (ìŒìˆ˜ì´ë¯€ë¡œ ì˜¤ë¥¸ìª½ ëì—ì„œ ì¹´ìš´íŒ…) BANNE
         FROM DUAL;
         
         
-** È¸¿øÅ×ÀÌºí¿¡¼­ MEM_REGNO1
-   j001 ±èÀ±Èñ    751019	   2448920    1975/11/21 ÀÚ·á¸¦
-   j001 ±èÀ±Èñ    001019    4448920    2000/11/21 ÀÚ·á·Î
+** íšŒì›í…Œì´ë¸”ì—ì„œ MEM_REGNO1
+   j001 ê¹€ìœ¤í¬    751019	   2448920    1975/11/21 ìžë£Œë¥¼
+   j001 ê¹€ìœ¤í¬    001019    4448920    2000/11/21 ìžë£Œë¡œ
    
    UPDATE MEMBER
     SET MEM_REGNO1='001019',
@@ -111,8 +111,8 @@ SELECT LTRIM('PERSIMMON','PER')
     
     COMMIT;
    
-   t001 ¼º¿øÅÂ   760506     1454731	1976/05/06 ÀÚ·á¸¦
-   t001 ¼º¿øÅÂ   010506	   3454731  2001/05/06 ÀÚ·á·Î
+   t001 ì„±ì›íƒœ   760506     1454731	1976/05/06 ìžë£Œë¥¼
+   t001 ì„±ì›íƒœ   010506	   3454731  2001/05/06 ìžë£Œë¡œ
    
    
       UPDATE MEMBER
@@ -124,8 +124,8 @@ SELECT LTRIM('PERSIMMON','PER')
     COMMIT;
     
    
-   b001	ÀÌ»ÛÀÌ	741004	4900000	1974/01/07 ÀÚ·á¸¦
-   b001	ÀÌ»ÛÀÌ	031004	4900000	2003/01/07 ·Î º¯°æ
+   b001	ì´ìœì´	741004	4900000	1974/01/07 ìžë£Œë¥¼
+   b001	ì´ìœì´	031004	4900000	2003/01/07 ë¡œ ë³€ê²½
    
    
       UPDATE MEMBER
@@ -138,59 +138,59 @@ SELECT LTRIM('PERSIMMON','PER')
    
    
    
-** Ç¥Çö½Ä 
-    - SELECT ¹®¿¡¼­ »ç¿ëµÇ´Â ºñ±³±â´ÉÀ» °¡Áø ¼ö½Ä
-    - CASE WHEN THEN°ú DECODE°¡ Á¦°ø
-    (»ç¿ëÇü½Ä1)
-    CASE WHEN Á¶°Ç½Ä THEN °á°ú1
-         WHEN Á¶°Ç½Ä THEN °á°ú2
+** í‘œí˜„ì‹ 
+    - SELECT ë¬¸ì—ì„œ ì‚¬ìš©ë˜ëŠ” ë¹„êµê¸°ëŠ¥ì„ ê°€ì§„ ìˆ˜ì‹
+    - CASE WHEN THENê³¼ DECODEê°€ ì œê³µ
+    (ì‚¬ìš©í˜•ì‹1)
+    CASE WHEN ì¡°ê±´ì‹ THEN ê²°ê³¼1
+         WHEN ì¡°ê±´ì‹ THEN ê²°ê³¼2
                  :
-             [ELSE °á°ún]
+             [ELSE ê²°ê³¼n]
         END
         
         
-    (»ç¿ëÇü½Ä2) --Á¶°Ç½Ä ÇÑ°³¸¦ CASEµÚ¿¡ ³õ°í ºñ±³ÇÑ´Ù.
-    CASE Á¶°Ç½Ä WHEN °ª1 THEN °á°ú1
-               WHEN °ª2 THEN °á°ú2
+    (ì‚¬ìš©í˜•ì‹2) --ì¡°ê±´ì‹ í•œê°œë¥¼ CASEë’¤ì— ë†“ê³  ë¹„êµí•œë‹¤.
+    CASE ì¡°ê±´ì‹ WHEN ê°’1 THEN ê²°ê³¼1
+               WHEN ê°’2 THEN ê²°ê³¼2
                  :
-                [ELSE °á°ún]      
+                [ELSE ê²°ê³¼n]      
     END
     
 
-    (»ç¿ëÇü½Ä3)
-    DECODE(ÄÃ·³¸í, Á¶°Ç1, °á°ú, Á¶°Ç2, °á°ú2,...)
+    (ì‚¬ìš©í˜•ì‹3)
+    DECODE(ì»¬ëŸ¼ëª…, ì¡°ê±´1, ê²°ê³¼, ì¡°ê±´2, ê²°ê³¼2,...)
     END
         
         
    
    
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ 20´ë ÀÌÇÏÀÇ È¸¿øÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ¼ºº°, ³ªÀÌ, ¸¶ÀÏ¸®Áö
-        ¼ºº°¿¡´Â '¿©¼ºÈ¸¿ø', '³²¼ºÈ¸¿ø', Áß ÇÏ³ª Ãâ·Â
-        ³ªÀÌ´Â ÁÖ¹Î¹øÈ£¸¦ ÀÌ¿ëÇÏ¿© ±¸ÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ 20ëŒ€ ì´í•˜ì˜ íšŒì›ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì„±ë³„, ë‚˜ì´, ë§ˆì¼ë¦¬ì§€
+        ì„±ë³„ì—ëŠ” 'ì—¬ì„±íšŒì›', 'ë‚¨ì„±íšŒì›', ì¤‘ í•˜ë‚˜ ì¶œë ¥
+        ë‚˜ì´ëŠ” ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì´ìš©í•˜ì—¬ êµ¬í•˜ì‹œì˜¤.
         
  
-   SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-          MEM_NAME AS È¸¿ø¸í, 
-          CASE WHEN SUBSTR(MEM_REGNO2,1,1)='1' OR SUBSTR(MEM_REGNO2,1,1)='3' THEN '³²¼ºÈ¸¿ø' ELSE '¿©¼ºÈ¸¿ø' END AS ¼ºº°, 
-          MEM_REGNO1||'-'||MEM_REGNO2 AS ÁÖ¹Î¹øÈ£,
+   SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+          MEM_NAME AS íšŒì›ëª…, 
+          CASE WHEN SUBSTR(MEM_REGNO2,1,1)='1' OR SUBSTR(MEM_REGNO2,1,1)='3' THEN 'ë‚¨ì„±íšŒì›' ELSE 'ì—¬ì„±íšŒì›' END AS ì„±ë³„, 
+          MEM_REGNO1||'-'||MEM_REGNO2 AS ì£¼ë¯¼ë²ˆí˜¸,
           CASE WHEN SUBSTR(MEM_REGNO2,1,1)='1' OR 
                     SUBSTR(MEM_REGNO2,1,1)='2' THEN 
                     EXTRACT(YEAR FROM SYSDATE)- 
                         (TO_NUMBER(SUBSTR(MEM_REGNO1,1,2))+1900) 
           ELSE      
                     EXTRACT(YEAR FROM SYSDATE)- 
-                        (TO_NUMBER(SUBSTR(MEM_REGNO1,1,2))+2000) END AS ³ªÀÌ,
-          MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+                        (TO_NUMBER(SUBSTR(MEM_REGNO1,1,2))+2000) END AS ë‚˜ì´,
+          MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
      FROM MEMBER
    WHERE EXTRACT(YEAR FROM SYSDATE)- EXTRACT(YEAR FROM MEM_BIR)<=29;
    
    
    
    
-   --ÀÚ·áÃß°¡
- q001	À°ÆòÈ¸	721020	1402722	1972/10/20 ÀÚ·á¸¦
- q001	À°ÆòÈ¸	951020	1402722	1995/10/20 ·Î º¯°æ
+   --ìžë£Œì¶”ê°€
+ q001	ìœ¡í‰íšŒ	721020	1402722	1972/10/20 ìžë£Œë¥¼
+ q001	ìœ¡í‰íšŒ	951020	1402722	1995/10/20 ë¡œ ë³€ê²½
    
    
       UPDATE MEMBER
@@ -204,41 +204,41 @@ SELECT LTRIM('PERSIMMON','PER')
    
    
 8) REPLACE(c1, c2,[,c3])
-- ÁÖ¾îÁø ¹®ÀÚ¿­ c1¿¡ Æ÷ÇÔµÈ c2¹®ÀÚ¿­À» Ã£¾Æ c3¹®ÀÚ¿­·Î Ä¡È¯
-- c3°¡ »ý·«µÇ¸é c2¹®ÀÚ¿­À» Á¦°ÅÇÔ
-- ¹Ýº¹µÈ c3¸¦ ¸ðµÎ Á¦°Å
-- ¹®ÀÚ¿­ ³»ºÎ °ø¹éÁ¦°Å¿¡ ÁÖ·Î »ç¿ë
+- ì£¼ì–´ì§„ ë¬¸ìžì—´ c1ì— í¬í•¨ëœ c2ë¬¸ìžì—´ì„ ì°¾ì•„ c3ë¬¸ìžì—´ë¡œ ì¹˜í™˜
+- c3ê°€ ìƒëžµë˜ë©´ c2ë¬¸ìžì—´ì„ ì œê±°í•¨
+- ë°˜ë³µëœ c3ë¥¼ ëª¨ë‘ ì œê±°
+- ë¬¸ìžì—´ ë‚´ë¶€ ê³µë°±ì œê±°ì— ì£¼ë¡œ ì‚¬ìš©
 
-»ç¿ë¿¹) 
-    SELECT REPLACE('APPLEPERSIMMON','P','K') --¹Ýº¹µÈ ÀüºÎ¸¦ ¹Ù²Û´Ù. P > K
+ì‚¬ìš©ì˜ˆ) 
+    SELECT REPLACE('APPLEPERSIMMON','P','K') --ë°˜ë³µëœ ì „ë¶€ë¥¼ ë°”ê¾¼ë‹¤. P > K
         FROM DUAL;
     
-    SELECT REPLACE('APPLEPERSIMMON','PL','KL') --¹Ýº¹µÈ ÀüºÎ¸¦ ¹Ù²Û´Ù. PL > KL
+    SELECT REPLACE('APPLEPERSIMMON','PL','KL') --ë°˜ë³µëœ ì „ë¶€ë¥¼ ë°”ê¾¼ë‹¤. PL > KL
         FROM DUAL;
         
         
-»ç¿ë¿¹) 
-    SELECT PROD_ID AS »óÇ°ÄÚµå,
-        PROD_NAME AS »óÇ°¸í1,
-        REPLACE(PROD_NAME,' ') AS »óÇ°¸í2, --¹®ÀÚ¿­ ³»ºÎ¿¡ ÀÖ´Â °ø¹éÀ» Ã£¾Æ¼­ Á¦°ÅÇÏ¼¼¿ä ¶ó´Â ¶æ.
-        PROD_PRICE AS ÆÇ¸Å°¡°Ý
+ì‚¬ìš©ì˜ˆ) 
+    SELECT PROD_ID AS ìƒí’ˆì½”ë“œ,
+        PROD_NAME AS ìƒí’ˆëª…1,
+        REPLACE(PROD_NAME,' ') AS ìƒí’ˆëª…2, --ë¬¸ìžì—´ ë‚´ë¶€ì— ìžˆëŠ” ê³µë°±ì„ ì°¾ì•„ì„œ ì œê±°í•˜ì„¸ìš” ë¼ëŠ” ëœ».
+        PROD_PRICE AS íŒë§¤ê°€ê²©
       FROM PROD
     WHERE PROD_COST>=300000;
             
             
 
 9) ASCII(C1), CHR(n1) 
-- ASCII(C1) : C1¹®ÀÚ¿­ÀÇ ASCII ÄÚµå°ª --C1 ¹®ÀÚ¿­ÀÇ ¸ÇÃ¹±ÛÀÚ¸¸ ¾Æ½ºÅ° ÄÚµå°ªÀ¸·Î º¯È¯
-- CHR(n1): n1 ÄÚµå¿¡ ´ëÀÀÇÏ´Â ¹®ÀÚ¿­ ¹ÝÈ¯
+- ASCII(C1) : C1ë¬¸ìžì—´ì˜ ASCII ì½”ë“œê°’ --C1 ë¬¸ìžì—´ì˜ ë§¨ì²«ê¸€ìžë§Œ ì•„ìŠ¤í‚¤ ì½”ë“œê°’ìœ¼ë¡œ ë³€í™˜
+- CHR(n1): n1 ì½”ë“œì— ëŒ€ì‘í•˜ëŠ” ë¬¸ìžì—´ ë°˜í™˜
 
-SELECT ASCII('ABC'), ASCII('´ë'), 
+SELECT ASCII('ABC'), ASCII('ëŒ€'), 
         CHR(65)
     FROM DUAL;
     
     
 10)LENGTH(C1), LENGTHB(c1)
-- LENGTH(C1): ÁÖ¾îÁø ¹®ÀÚ¿­ C1 ³»ÀÇ ±ÛÀÚ¼ö¸¦ ¹ÝÈ¯
-- LENGTHB(C1): ÁÖ¾îÁø ¹®ÀÚ¿­ C1³»ÀÇ ±â¾ï°ø°£ÀÇ Å©±â(BYTE) ¹ÝÈ¯
+- LENGTH(C1): ì£¼ì–´ì§„ ë¬¸ìžì—´ C1 ë‚´ì˜ ê¸€ìžìˆ˜ë¥¼ ë°˜í™˜
+- LENGTHB(C1): ì£¼ì–´ì§„ ë¬¸ìžì—´ C1ë‚´ì˜ ê¸°ì–µê³µê°„ì˜ í¬ê¸°(BYTE) ë°˜í™˜
 
 
 
