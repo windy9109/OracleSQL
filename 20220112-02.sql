@@ -1,17 +1,17 @@
-2022-0112-02) ³¯Â¥ÇÔ¼ö
-
+2022-0112-02) ë‚ ì§œí•¨ìˆ˜
+ 
 1)SYSDATE
-- ½Ã½ºÅÛ¿¡¼­ Á¦°øÇÏ´Â ³¯Â¥Á¤º¸(³â,¿ù,ÀÏ,½Ã,ºÐ,ÃÊ) ¹ÝÈ¯
-- µ¡¼À°ú »¬¼À °¡´É
-- µ¡¼À(Àå·¡¿¡ µµ·¡ÇÒ ³¯Â¥)°ú »¬¼À(Áö³ª°£ ³¯Â¥) °¡´É
-- ³ª´°¼À, °ö¼À ºÒ°¡´É
-- ½Ã°£Á¤º¸(½Ã,ºÐ,ÃÊ)Ãâ·ÂÀº TO_CHAR ÇÔ¼ö »ç¿ë
+- ì‹œìŠ¤í…œì—ì„œ ì œê³µí•˜ëŠ” ë‚ ì§œì •ë³´(ë…„,ì›”,ì¼,ì‹œ,ë¶„,ì´ˆ) ë°˜í™˜
+- ë§ì…ˆê³¼ ëº„ì…ˆ ê°€ëŠ¥
+- ë§ì…ˆ(ìž¥ëž˜ì— ë„ëž˜í•  ë‚ ì§œ)ê³¼ ëº„ì…ˆ(ì§€ë‚˜ê°„ ë‚ ì§œ) ê°€ëŠ¥
+- ë‚˜ëˆ—ì…ˆ, ê³±ì…ˆ ë¶ˆê°€ëŠ¥
+- ì‹œê°„ì •ë³´(ì‹œ,ë¶„,ì´ˆ)ì¶œë ¥ì€ TO_CHAR í•¨ìˆ˜ ì‚¬ìš©
 
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
 SELECT SYSDATE, SYSDATE-20, 
-        --20ÀÏ ÀÌÀüÀÇ ³¯Â¥ 
+        --20ì¼ ì´ì „ì˜ ë‚ ì§œ 
         SYSDATE+20,
-        --¾ÕÀ¸·Î 20ÀÏ ÈÄÀÇ ³¯Â¥
+        --ì•žìœ¼ë¡œ 20ì¼ í›„ì˜ ë‚ ì§œ
         FROM DUAL;
     
     SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS'),
@@ -23,9 +23,9 @@ SELECT SYSDATE, SYSDATE-20,
 
 
 2)ADD_MONTHS(d1, n)
-- ÁÖ¾îÁø ³¯Â¥ d1¿¡ n°³¿ùÀ» ´õÇÑ ³¯Â¥ ¹ÝÈ¯
+- ì£¼ì–´ì§„ ë‚ ì§œ d1ì— nê°œì›”ì„ ë”í•œ ë‚ ì§œ ë°˜í™˜
 
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
     SELECT ADD_MONTHS(SYSDATE,4) FROM DUAL;
     
     SELECT EMP_NAME,
@@ -35,83 +35,83 @@ SELECT SYSDATE, SYSDATE-20,
     
     
 
-3) NEXT_DAY(d1,c) -- ÇÑ±Û·Î ÁöÄªµÈ °Í¸¸ ¹ÝÈ¯
-  - d1 ÀÏÀÚÀÌÈÄ °¡Àå ¸ÕÀú ¸¸³ª´Â c¿äÀÏÀÇ ³¯Â¥ ¹ÝÈ¯ 
-  - c´Â ¿äÀÏÀ» ÁöÄªÇÏ¸ç 'ÀÏ¿äÀÏ','ÀÏ',,'¿ù¿äÀÏ','¿ù'µîÀ¸·Î ±â¼ú
+3) NEXT_DAY(d1,c) -- í•œê¸€ë¡œ ì§€ì¹­ëœ ê²ƒë§Œ ë°˜í™˜
+  - d1 ì¼ìžì´í›„ ê°€ìž¥ ë¨¼ì € ë§Œë‚˜ëŠ” cìš”ì¼ì˜ ë‚ ì§œ ë°˜í™˜ 
+  - cëŠ” ìš”ì¼ì„ ì§€ì¹­í•˜ë©° 'ì¼ìš”ì¼','ì¼',,'ì›”ìš”ì¼','ì›”'ë“±ìœ¼ë¡œ ê¸°ìˆ 
 
-»ç¿ë¿¹)
-    SELECT NEXT_DAY(SYSDATE,'¿ù'),
-            NEXT_DAY(SYSDATE,'¼ö¿äÀÏ')
+ì‚¬ìš©ì˜ˆ)
+    SELECT NEXT_DAY(SYSDATE,'ì›”'),
+            NEXT_DAY(SYSDATE,'ìˆ˜ìš”ì¼')
         FROM DUAL;
         
         
         
 4) LAST_DAY(d1)
-- Á¦½ÃµÈ ³¯Â¥ d1¿¡ Æ÷ÇÔµÈ ¿ùÀÇ ¸¶Áö¸· ÀÏÀÚ¸¦ ¹ÝÈ¯
-- ÁÖ·Î 2¿ùÀÇ ¸¶Áö¸·ÀÏÀ» ¹ÝÈ¯ ¹ÞÀ»¶§ »ç¿ë
+- ì œì‹œëœ ë‚ ì§œ d1ì— í¬í•¨ëœ ì›”ì˜ ë§ˆì§€ë§‰ ì¼ìžë¥¼ ë°˜í™˜
+- ì£¼ë¡œ 2ì›”ì˜ ë§ˆì§€ë§‰ì¼ì„ ë°˜í™˜ ë°›ì„ë•Œ ì‚¬ìš©
 
-»ç¿ë¿¹) ¸ÅÀÔÅ×ÀÌºí(BUYPROD)¿¡¼­ 2005³â 2¿ù ÀÏÀÚº° ÆÇ¸ÅÁý°è¸¦ Á¶È¸ÇÏ½Ã¿À.
-        --ÀüÃ¼°¡ ¾Æ´Ñ ºÎºÐÁ¶°ÇÀ» ±¸ÇÏ´Â°ÍÀÌ¹Ç·Î WHERE°¡ ÇÊ¿äÇÔ
-        Alias´Â ÀÏÀÚ, ¼ö·®ÇÕ°è, ¸ÅÀÔ±Ý¾×ÇÕ°è
+ì‚¬ìš©ì˜ˆ) ë§¤ìž…í…Œì´ë¸”(BUYPROD)ì—ì„œ 2005ë…„ 2ì›” ì¼ìžë³„ íŒë§¤ì§‘ê³„ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        --ì „ì²´ê°€ ì•„ë‹Œ ë¶€ë¶„ì¡°ê±´ì„ êµ¬í•˜ëŠ”ê²ƒì´ë¯€ë¡œ WHEREê°€ í•„ìš”í•¨
+        AliasëŠ” ì¼ìž, ìˆ˜ëŸ‰í•©ê³„, ë§¤ìž…ê¸ˆì•¡í•©ê³„
         
-        SELECT BUY_DATE AS ÀÏÀÚ, 
-               SUM(BUY_QTY) AS ¼ö·®ÇÕ°è, 
-               SUM(BUY_QTY*BUY_COST) AS ¸ÅÀÔ±Ý¾×ÇÕ°è
+        SELECT BUY_DATE AS ì¼ìž, 
+               SUM(BUY_QTY) AS ìˆ˜ëŸ‰í•©ê³„, 
+               SUM(BUY_QTY*BUY_COST) AS ë§¤ìž…ê¸ˆì•¡í•©ê³„
             FROM BUYPROD
         WHERE BUY_DATE BETWEEN TO_DATE('20050201') AND LAST_DAY(TO_DATE('20050201'))
-          GROUP BY BUY_DATE -- ÀÏÀÚº°·Î ¹­À½
+          GROUP BY BUY_DATE -- ì¼ìžë³„ë¡œ ë¬¶ìŒ
           ORDER BY 1;
          
         
 5)EXTRACT(fmt FROM d1) 
--- d1À¸·Î ºÎÅÍ fmt¿¡ ÇØ´çÇÏ´Â ³¯Â¥ÀÚ·á¸¦ ¹ÝÈ¯ÇÏ¼¼¿ä
--- ³¯Â¥ÀÚ·á¸¸ ¹ÝÈ¯
-- Á¦½ÃµÈ ³¯Â¥ÀÚ·á d1¿¡¼­ 'fmt'¿¡ ÇØ´çÇÏ´Â ¿ä¼Ò¸¦ ÃßÃâÇÏ¿© ¹ÝÈ¯
-- ¹ÝÈ¯µÇ´Â Å¸ÀÔÀº ¼ýÀÚ
-- 'fmt(Format String: Çü½Ä ¹®ÀÚ¿­)'Àº YEAR, MONTH, DAY, HOUR, MINUTE, SECOND Áß ÇÏ³ªÀÌ¾î¾ß ÇÔ
+-- d1ìœ¼ë¡œ ë¶€í„° fmtì— í•´ë‹¹í•˜ëŠ” ë‚ ì§œìžë£Œë¥¼ ë°˜í™˜í•˜ì„¸ìš”
+-- ë‚ ì§œìžë£Œë§Œ ë°˜í™˜
+- ì œì‹œëœ ë‚ ì§œìžë£Œ d1ì—ì„œ 'fmt'ì— í•´ë‹¹í•˜ëŠ” ìš”ì†Œë¥¼ ì¶”ì¶œí•˜ì—¬ ë°˜í™˜
+- ë°˜í™˜ë˜ëŠ” íƒ€ìž…ì€ ìˆ«ìž
+- 'fmt(Format String: í˜•ì‹ ë¬¸ìžì—´)'ì€ YEAR, MONTH, DAY, HOUR, MINUTE, SECOND ì¤‘ í•˜ë‚˜ì´ì–´ì•¼ í•¨
 
     
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ ¿¬·ÉÀ» ±¸ÇÏ°í ¿¬·É´ëº° È¸¿ø¼ö¸¦ Á¶È¸ÇÏ½Ã¿À
-        Alias´Â ¿¬·É´ë, È¸¿ø¼ö
-        --TRUNC -> ÀÚ¸®¹ö¸²
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ì—°ë ¹ì„ êµ¬í•˜ê³  ì—°ë ¹ëŒ€ë³„ íšŒì›ìˆ˜ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ì—°ë ¹ëŒ€, íšŒì›ìˆ˜
+        --TRUNC -> ìžë¦¬ë²„ë¦¼
         
         SELECT TRUNC((EXTRACT(YEAR FROM SYSDATE)
-                    -EXTRACT(YEAR FROM MEM_BIR)),-1)||'´ë' AS ¿¬·É´ë, 
-                    COUNT(*) AS È¸¿ø¼ö --Áý°èÇÔ¼ö´Â GROUP BY°¡ ¹«Á¶°Ç ¿Í¾ßÇÑ´Ù.
+                    -EXTRACT(YEAR FROM MEM_BIR)),-1)||'ëŒ€' AS ì—°ë ¹ëŒ€, 
+                    COUNT(*) AS íšŒì›ìˆ˜ --ì§‘ê³„í•¨ìˆ˜ëŠ” GROUP BYê°€ ë¬´ì¡°ê±´ ì™€ì•¼í•œë‹¤.
            FROM MEMBER
          GROUP BY TRUNC((EXTRACT(YEAR FROM SYSDATE)
                         -EXTRACT(YEAR FROM MEM_BIR)),-1)
             ORDER BY 1;
             
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ÀÔ»ç¿ùÀÌ ÀÌ¹ø´ÞÀÎ »ç¿øµéÀ» Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­ÄÚµå, ÀÔ»çÀÏ (ÀÔ»çÀÏ ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä)
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ìž…ì‚¬ì›”ì´ ì´ë²ˆë‹¬ì¸ ì‚¬ì›ë“¤ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œì½”ë“œ, ìž…ì‚¬ì¼ (ìž…ì‚¬ì¼ ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬)
         
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               EMP_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-               HIRE_DATE AS ÀÔ»çÀÏ
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               EMP_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+               HIRE_DATE AS ìž…ì‚¬ì¼
             FROM HR.EMPLOYEES
           WHERE EXTRACT(MONTH FROM SYSDATE) = EXTRACT(MONTH FROM HIRE_DATE)
          ORDER BY 4;
          -- BETWEEN EXTRACT(MONTH FROM SYSDATE) AND EXTRACT(MONTH FROM SYSDATE);
          
-         SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               EMP_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­ÄÚµå, 
-               HIRE_DATE AS ÀÔ»çÀÏ
+         SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               EMP_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œì½”ë“œ, 
+               HIRE_DATE AS ìž…ì‚¬ì¼
             FROM HR.EMPLOYEES
          
          
          
          
 6) MONTHS_BETWEEN(d1, d2)
-    - Á¦½ÃµÈ µÎ ³¯Â¥ÀÚ·á »çÀÌÀÇ ¿ù¼ö¸¦ ¹ÝÈ¯
+    - ì œì‹œëœ ë‘ ë‚ ì§œìžë£Œ ì‚¬ì´ì˜ ì›”ìˆ˜ë¥¼ ë°˜í™˜
 
-»ç¿ë¿¹) 1998³â 3¿ù 10ÀÏ¿¡ ÅÂ¾î³­ »ç¶÷ÀÇ Á¤È®ÇÑ ³ªÀÌ´Â?
+ì‚¬ìš©ì˜ˆ) 1998ë…„ 3ì›” 10ì¼ì— íƒœì–´ë‚œ ì‚¬ëžŒì˜ ì •í™•í•œ ë‚˜ì´ëŠ”?
 
     SELECT 
-        TRUNC(ROUND(MONTHS_BETWEEN(SYSDATE, TO_DATE('19980310')))/12) ||'³â'||
-        MOD(ROUND(MONTHS_BETWEEN(SYSDATE, TO_DATE('19980310'))),12) ||'°³¿ù'
+        TRUNC(ROUND(MONTHS_BETWEEN(SYSDATE, TO_DATE('19980310')))/12) ||'ë…„'||
+        MOD(ROUND(MONTHS_BETWEEN(SYSDATE, TO_DATE('19980310'))),12) ||'ê°œì›”'
      FROM DUAL;
          
         
