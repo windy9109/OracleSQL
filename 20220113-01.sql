@@ -1,65 +1,65 @@
-2022-0113-01) Çüº¯È¯ÇÔ¼ö
-  1)CAST(expr AS Å¸ÀÔ¸í)
+2022-0113-01) í˜•ë³€í™˜í•¨ìˆ˜
+  1)CAST(expr AS íƒ€ìž…ëª…)
 -- TO_CHAR, TO_NUMBER, TO_DATE
-    - 'expr'·Î Á¤ÀÇµÈ ÄÃ·³ ¶Ç´Â ¼ö½ÄÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀÌ 'Å¸ÀÔ¸í' Çü½ÄÀ¸·Î º¯È¯
+    - 'expr'ë¡œ ì •ì˜ëœ ì»¬ëŸ¼ ë˜ëŠ” ìˆ˜ì‹ì˜ ë°ì´í„° íƒ€ìž…ì´ 'íƒ€ìž…ëª…' í˜•ì‹ìœ¼ë¡œ ë³€í™˜
 
-»ç¿ë¿¹) Àå¹Ù±¸´Ï Å×ÀÌºí¿¡¼­ 2005³â 5¿ù ÆÇ¸ÅÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À
-        Alias´Â ÀÏÀÚ,»óÇ°¸í,¼ö·®,±Ý¾×ÀÌ¸ç ÀÏÀÚ¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À
-
+ì‚¬ìš©ì˜ˆ) ìž¥ë°”êµ¬ë‹ˆ í…Œì´ë¸”ì—ì„œ 2005ë…„ 5ì›” íŒë§¤ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ì¼ìž,ìƒí’ˆëª…,ìˆ˜ëŸ‰,ê¸ˆì•¡ì´ë©° ì¼ìžìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤
+ 
     
-SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
-       PROD.PROD_NAME AS »óÇ°¸í,
-       CART.CART_QTY AS ¼ö·®,
-       CART.CART_QTY*PROD_PRICE AS ±Ý¾×
+SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ì¼ìž,
+       PROD.PROD_NAME AS ìƒí’ˆëª…,
+       CART.CART_QTY AS ìˆ˜ëŸ‰,
+       CART.CART_QTY*PROD_PRICE AS ê¸ˆì•¡
     FROM CART, PROD
-  WHERE CART.CART_PROD = PROD.PROD_ID --Á¶ÀÎÁ¶°Ç
+  WHERE CART.CART_PROD = PROD.PROD_ID --ì¡°ì¸ì¡°ê±´
     AND CART.CART_NO LIKE '200505%'
   ORDER BY 1;
   
   
   2) TO_CHAR(expr[,fmt])
-  - ¹®ÀÚ¿­(CHAR, CLOB=>VARCHAR2·Î), ¼ýÀÚ, ³¯Â¥ ÀÚ·á¸¦ ¹®ÀÚ¿­ ÀÚ·á·Î Çüº¯È¯
-  - ¼ýÀÚ,³¯Â¥->¹®ÀÚ(O) / ¹®ÀÚ->¹®ÀÚ(X)
-  - º¯È¯Çü½ÄÀ» ÁöÁ¤ÇÒ¶§¿¡´Â 'fmt'(Çü½ÄÁöÁ¤¹®ÀÚ¿­)À» ±â¼ú
-  - ³¯Â¥°ü·Ã Çü½Ä¹®ÀÚ¿­
+  - ë¬¸ìžì—´(CHAR, CLOB=>VARCHAR2ë¡œ), ìˆ«ìž, ë‚ ì§œ ìžë£Œë¥¼ ë¬¸ìžì—´ ìžë£Œë¡œ í˜•ë³€í™˜
+  - ìˆ«ìž,ë‚ ì§œ->ë¬¸ìž(O) / ë¬¸ìž->ë¬¸ìž(X)
+  - ë³€í™˜í˜•ì‹ì„ ì§€ì •í• ë•Œì—ëŠ” 'fmt'(í˜•ì‹ì§€ì •ë¬¸ìžì—´)ì„ ê¸°ìˆ 
+  - ë‚ ì§œê´€ë ¨ í˜•ì‹ë¬¸ìžì—´
 ----------------------------------------------------------------------
-    FORMAT              ÀÇ¹Ì                    »ç¿ë¿¹
+    FORMAT              ì˜ë¯¸                    ì‚¬ìš©ì˜ˆ
 ----------------------------------------------------------------------
-    BC,AD            ¼­±â,±â¿øÀü        SELECT TO_CHAR(SYSDATE,'BC') FROM DUAL; --¾ç¼öÀÌ±â¶§¹®¿¡ ¼­±â·Î Ãâ·ÂµÊ
-    CC               ¼¼±â              SELECT TO_CHAR(SYSDATE,'CC') FROM DUAL;
-    YYYY,YYY,YY,Y    ³âµµ             SELECT TO_CHAR(SYSDATE,'YYYY'),
+    BC,AD            ì„œê¸°,ê¸°ì›ì „        SELECT TO_CHAR(SYSDATE,'BC') FROM DUAL; --ì–‘ìˆ˜ì´ê¸°ë•Œë¬¸ì— ì„œê¸°ë¡œ ì¶œë ¥ë¨
+    CC               ì„¸ê¸°              SELECT TO_CHAR(SYSDATE,'CC') FROM DUAL;
+    YYYY,YYY,YY,Y    ë…„ë„             SELECT TO_CHAR(SYSDATE,'YYYY'),
                                             TO_CHAR(SYSDATE,'YYY'), 
                                             TO_CHAR(SYSDATE,'YY'), 
-                                            TO_CHAR(SYSDATE,'Y') --¿ÞÂÊºÎÅÍ ÇÏ³ª¾¿ Á¦°Å
+                                            TO_CHAR(SYSDATE,'Y') --ì™¼ìª½ë¶€í„° í•˜ë‚˜ì”© ì œê±°
                                         FROM DUAL; 
-    MM              (01~12¿ù)
-    MON, MONTH      ¿ù                SELECT TO_CHAR(SYSDATE,'MM'),
-                                             TO_CHAR(SYSDATE,'MONTH'), --(±ÛÀÚ±îÁö Æ÷ÇÔµÇ¾îÃâ·Â)
-                                             TO_CHAR(SYSDATE,'MON') --(±ÛÀÚ±îÁö Æ÷ÇÔµÇ¾îÃâ·Â)
+    MM              (01~12ì›”)
+    MON, MONTH      ì›”                SELECT TO_CHAR(SYSDATE,'MM'),
+                                             TO_CHAR(SYSDATE,'MONTH'), --(ê¸€ìžê¹Œì§€ í¬í•¨ë˜ì–´ì¶œë ¥)
+                                             TO_CHAR(SYSDATE,'MON') --(ê¸€ìžê¹Œì§€ í¬í•¨ë˜ì–´ì¶œë ¥)
                                         FROM DUAL;  
-    DD              (01~31)ÀÏÇ¥½Ã
-    DDD             (01~365)ÀÏÇ¥½Ã
-    D               ÇÑ ÁÖÀÇ ¼ø¹ø °ª(ÀÏ¿äÀÏºÎÅÍ 1)
-    DY              '¿ù'~'ÀÏ'
-    DAY             '¿ù¿äÀÏ'~'ÀÏ¿äÀÏ'     SELECT TO_CHAR(SYSDATE,'DD'), --ÇÑ´Þ(31)Áß ÀÏÀ» Ãâ·Â
-                                               TO_CHAR(SYSDATE,'DDD'), -- 365ÀÏÇ¥½Ã
-                                               TO_CHAR(SYSDATE,'D'), --¿äÀÏ¼ø¹ø°ª
-                                               TO_CHAR(SYSDATE,'DY'),--¿äÀÏÃâ·Â(Ãà¾à)
-                                               TO_CHAR(SYSDATE,'DAY') --¿äÀÏÃâ·Â
+    DD              (01~31)ì¼í‘œì‹œ
+    DDD             (01~365)ì¼í‘œì‹œ
+    D               í•œ ì£¼ì˜ ìˆœë²ˆ ê°’(ì¼ìš”ì¼ë¶€í„° 1)
+    DY              'ì›”'~'ì¼'
+    DAY             'ì›”ìš”ì¼'~'ì¼ìš”ì¼'     SELECT TO_CHAR(SYSDATE,'DD'), --í•œë‹¬(31)ì¤‘ ì¼ì„ ì¶œë ¥
+                                               TO_CHAR(SYSDATE,'DDD'), -- 365ì¼í‘œì‹œ
+                                               TO_CHAR(SYSDATE,'D'), --ìš”ì¼ìˆœë²ˆê°’
+                                               TO_CHAR(SYSDATE,'DY'),--ìš”ì¼ì¶œë ¥(ì¶•ì•½)
+                                               TO_CHAR(SYSDATE,'DAY') --ìš”ì¼ì¶œë ¥
                                             FROM DUAL;
-    WW              ¿¬Áß ÁÖ(01~53)       SELECT TO_CHAR(SYSDATE, 'WW')
+    WW              ì—°ì¤‘ ì£¼(01~53)       SELECT TO_CHAR(SYSDATE, 'WW')
                                           FROM DUAL;
-    AM, PM                              SELECT TO_CHAR(SYSDATE, 'PM') --SYSDATE¸¦ ¾²¸é ÇöÀç½Ã°£¿¡ ¸ÂÃß¾î ¹«Á¶°Ç Ãâ·ÂµÈ´Ù.
+    AM, PM                              SELECT TO_CHAR(SYSDATE, 'PM') --SYSDATEë¥¼ ì“°ë©´ í˜„ìž¬ì‹œê°„ì— ë§žì¶”ì–´ ë¬´ì¡°ê±´ ì¶œë ¥ëœë‹¤.
                                           FROM DUAL;
-    A.M., P.M.      ¿ÀÀü,¿ÀÈÄ
-    HH, HH12, HH24  ½Ã°£                 SELECT TO_CHAR(SYSDATE, 'HH')
+    A.M., P.M.      ì˜¤ì „,ì˜¤í›„
+    HH, HH12, HH24  ì‹œê°„                 SELECT TO_CHAR(SYSDATE, 'HH')
                                           FROM DUAL;
-    MI              ºÐ
-    SS              ÃÊ(01~60)
-    SSSSS           ÃÊ(01~86000)         SELECT TO_CHAR(SYSDATE, 'HH:MI:SS'),
+    MI              ë¶„
+    SS              ì´ˆ(01~60)
+    SSSSS           ì´ˆ(01~86000)         SELECT TO_CHAR(SYSDATE, 'HH:MI:SS'),
                                                 TO_CHAR(SYSDATE, 'HH:MI:SSSSS')
                                           FROM DUAL;
-                    --ÇÏ·ç´Â 86000ÃÊ
+                    --í•˜ë£¨ëŠ” 86000ì´ˆ
   
   ----------------------------------------------------------------------
   
@@ -67,44 +67,44 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
       FROM CART
      WHERE CART_NO LIKE '200504%';
   
-  --¾÷µ¥ÀÌÆ®µÊ
+  --ì—…ë°ì´íŠ¸ë¨
   SELECT TO_CHAR(CART_NO) 
     FROM CART;
   
 
-  - ¼ýÀÚ°ü·Ã Çü½Ä¹®ÀÚ¿­
+  - ìˆ«ìžê´€ë ¨ í˜•ì‹ë¬¸ìžì—´
 ----------------------------------------------------------------------
-    FORMAT              ÀÇ¹Ì                    »ç¿ë¿¹
+    FORMAT              ì˜ë¯¸                    ì‚¬ìš©ì˜ˆ
 ----------------------------------------------------------------------
-      9         ´ëÀÀµÇ´Â ¹«È¿ÀÇ 0À» °ø¹éÃ³¸®        99999 --À¯È¿¼ýÀÚ¸¦ ¸¸³ª¸é À¯È¿¼ýÀÚ Ãâ·Â
+      9         ëŒ€ì‘ë˜ëŠ” ë¬´íš¨ì˜ 0ì„ ê³µë°±ì²˜ë¦¬        99999 --ìœ íš¨ìˆ«ìžë¥¼ ë§Œë‚˜ë©´ ìœ íš¨ìˆ«ìž ì¶œë ¥
                                                01234
-                                            ----------- 9(5)¶ó¸é
+                                            ----------- 9(5)ë¼ë©´
                                                 1234
                                                
                                          SELECT TO_CHAR(12345,'9999999') AS AL
                                             FROM DUAL;
                                          
  
-     0         ´ëÀÀµÇ´Â ¹«È¿ÀÇ 0À» '0'À¸·Î Ãâ·Â     99999 --À¯È¿¼ýÀÚ¸¦ ¸¸³ª¸é À¯È¿¼ýÀÚ Ãâ·Â
+     0         ëŒ€ì‘ë˜ëŠ” ë¬´íš¨ì˜ 0ì„ '0'ìœ¼ë¡œ ì¶œë ¥     99999 --ìœ íš¨ìˆ«ìžë¥¼ ë§Œë‚˜ë©´ ìœ íš¨ìˆ«ìž ì¶œë ¥
                                                01234
-                                            ----------- 9(5)¶ó¸é
+                                            ----------- 9(5)ë¼ë©´
                                                01234
                                                
                                         SELECT TO_CHAR(12345,'0000000') AS AL
                                             FROM DUAL;
 
 
-    PR      ÀÚ·á°¡ À½¼öÀÌ¸é <> ¾È¿¡ Ãâ·Â       SELECT TO_CHAR(124,'99999PR'), --¾ç¼ö´Â ¹ÝÀÀ ¾øÀ½
+    PR      ìžë£Œê°€ ìŒìˆ˜ì´ë©´ <> ì•ˆì— ì¶œë ¥       SELECT TO_CHAR(124,'99999PR'), --ì–‘ìˆ˜ëŠ” ë°˜ì‘ ì—†ìŒ
                                                  TO_CHAR(-124,'99999PR') --<124>
                                               FROM DUAL;
 
-    ,(COMMA)        ÀÚ¸®Á¡
-    .(DOT)          ¼Ò¼ýÁ¡                 SELECT TO_CHAR(1234,'99,999.9PR'), --ÀÚ¸®¸ÂÃçÁÜ
+    ,(COMMA)        ìžë¦¬ì 
+    .(DOT)          ì†Œìˆ«ì                  SELECT TO_CHAR(1234,'99,999.9PR'), --ìžë¦¬ë§žì¶°ì¤Œ
                                                  TO_CHAR(-1234,'99,999.0PR')
                                               FROM DUAL;
 
-    $,L            È­Æó±âÈ£                 SELECT TO_CHAR(1234,'$99,999.9PR'),
-                                                 TO_CHAR(-1234,'L99,999.0PR') --LÀº ¿øÈ­ ±âÈ£ Ãâ·Â
+    $,L            í™”íê¸°í˜¸                 SELECT TO_CHAR(1234,'$99,999.9PR'),
+                                                 TO_CHAR(-1234,'L99,999.0PR') --Lì€ ì›í™” ê¸°í˜¸ ì¶œë ¥
                                               FROM DUAL;
   ----------------------------------------------------------------------
   
@@ -113,14 +113,14 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
 
 
 
-»ç¿ë¿¹) ¿À´ÃÀÌ 2005³â 7¿ù 31ÀÏÀÌ°í ¼îÇÎ¸ô ÆäÀÌÁö¿¡ Ã³À½ ·Î±×ÀÎ ÇÑ °æ¿ì Àå¹Ù±¸´Ï¹øÈ£¸¦ »ý¼ºÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) ì˜¤ëŠ˜ì´ 2005ë…„ 7ì›” 31ì¼ì´ê³  ì‡¼í•‘ëª° íŽ˜ì´ì§€ì— ì²˜ìŒ ë¡œê·¸ì¸ í•œ ê²½ìš° ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸ë¥¼ ìƒì„±í•˜ì‹œì˜¤.
     
     SELECT TO_CHAR(SYSDATE,'YYYYMMDD')||TRIM(TO_CHAR(1,'00000'))
         FROM DUAL;
-   --TO_CHAR(1,'00000') º¯È¯¿À·ù °ø¹é
+   --TO_CHAR(1,'00000') ë³€í™˜ì˜¤ë¥˜ ê³µë°±
    
    
-»ç¿ë¿¹) ¿À´ÃÀÌ 2005³â 7¿ù 28ÀÏÀÌ°í ¼îÇÎ¸ô¿¡ »õ·Ó°Ô ·Î±×ÀÎ ÇÑ °æ¿ì Àå¹Ù±¸´Ï¹øÈ£¸¦ »ý¼ºÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) ì˜¤ëŠ˜ì´ 2005ë…„ 7ì›” 28ì¼ì´ê³  ì‡¼í•‘ëª°ì— ìƒˆë¡­ê²Œ ë¡œê·¸ì¸ í•œ ê²½ìš° ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸ë¥¼ ìƒì„±í•˜ì‹œì˜¤.
 
     SELECT TO_CHAR(SYSDATE,'YYYYMMDD')||
            TRIM(TO_CHAR(TO_NUMBER(SUBSTR(MAX(CART_NO),9))+1,'00000'))
@@ -129,9 +129,9 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
     
 
 3) TO_NUMBER(expr[,fmt])
-    -¹®ÀÚ¿­À» ¼ýÀÚÀÚ·á·Î ¹ÝÈ¯
-    -º¯È¯½ÃÅ³ ¹®ÀÚÀÚ·á´Â ¼ýÀÚ·Î º¯È¯°¡´ÉÇÑ ÀÚ·áÀÌ¾î¾ß ÇÔ
-    -'fmt'´Â TO_CHAR¿¡¼­ »ç¿ëµÈ°Í°ú µ¿ÀÏ
+    -ë¬¸ìžì—´ì„ ìˆ«ìžìžë£Œë¡œ ë°˜í™˜
+    -ë³€í™˜ì‹œí‚¬ ë¬¸ìžìžë£ŒëŠ” ìˆ«ìžë¡œ ë³€í™˜ê°€ëŠ¥í•œ ìžë£Œì´ì–´ì•¼ í•¨
+    -'fmt'ëŠ” TO_CHARì—ì„œ ì‚¬ìš©ëœê²ƒê³¼ ë™ì¼
     
     
         CREATE TABLE GOODS AS
@@ -140,15 +140,15 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
         
     SELECT * FROM GOODS; 
     
-»ç¿ë¿¹) »óÇ°Å×ÀÌºí(GOODS)¿¡ ´ÙÀ½ ÀÚ·á¸¦ Ãß°¡·Î µî·ÏÇÏ½Ã¿À
-    »óÇ°¸í: »ï¼º ³ëÆ®ºÏ 15ÀÎÄ¡
-    °Å·¡Ã³ÄÚµå: P101000001
-    ÆÇ¸Å°¡°Ý: 1200000¿ø
+ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”(GOODS)ì— ë‹¤ìŒ ìžë£Œë¥¼ ì¶”ê°€ë¡œ ë“±ë¡í•˜ì‹œì˜¤
+    ìƒí’ˆëª…: ì‚¼ì„± ë…¸íŠ¸ë¶ 15ì¸ì¹˜
+    ê±°ëž˜ì²˜ì½”ë“œ: P101000001
+    íŒë§¤ê°€ê²©: 1200000ì›
     
-    ***(»óÇ°ÄÚµå»ý¼º)***
+    ***(ìƒí’ˆì½”ë“œìƒì„±)***
     
     INSERT INTO GOODS
-    SELECT A.P_CODE, '»ï¼º³ëÆ®ºÏ 15ÀÎÄ¡', 'P101', 1200000
+    SELECT A.P_CODE, 'ì‚¼ì„±ë…¸íŠ¸ë¶ 15ì¸ì¹˜', 'P101', 1200000
         FROM 
             (SELECT 'P101'
                 ||TRIM(TO_CHAR(TO_NUMBER(SUBSTR(MAX(PROD_ID),5))+1,'000000')) AS P_CODE
@@ -163,41 +163,41 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
     
     
     
-    SELECT TO_NUMBER('£Ü1,234','L99,999'),
+    SELECT TO_NUMBER('ï¿¦1,234','L99,999'),
             TO_NUMBER('<1,234>','99,999PR')+10
         FROM DUAL;
   
   
         
 4)TO_DATE(expr[,fmt])
-- ³¯Â¥Çü½ÄÀÇ ¹®ÀÚ¿­ ÀÚ·á¸¦ ³¯Â¥Çü½ÄÀ¸·Î º¯È¯ÇÏ¿© ¹ÝÈ¯
-- 'fmt'´Â TO_CHAR¿¡¼­ »ç¿ëµÈ ³¯Â¥Çü Çü½Ä ¹®ÀÚ¿­°ú µ¿ÀÏ
+- ë‚ ì§œí˜•ì‹ì˜ ë¬¸ìžì—´ ìžë£Œë¥¼ ë‚ ì§œí˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ë°˜í™˜
+- 'fmt'ëŠ” TO_CHARì—ì„œ ì‚¬ìš©ëœ ë‚ ì§œí˜• í˜•ì‹ ë¬¸ìžì—´ê³¼ ë™ì¼
 
 
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
     SELECT TO_DATE('20060708'),
            TO_CHAR(TO_DATE('20220113092035', 'YYYYMMDDHHMISS'),
                     'YYYY/MM/DD HH:MI:SS')
         FROM DUAL;
         
         
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ ÁÖ¹Îµî·Ï¹øÈ£¸¦ ÀÌ¿ëÇÏ¿© ´ÙÀ½°ú
-       °°Àº Çü½ÄÀ¸·Î ÀÚ·á¸¦ Ãâ·ÂÇÏ½Ã¿À
-       (Ãâ·Â)
-       È¸¿ø¹øÈ£     È¸¿ø¸í          »ý³â¿ùÀÏ           Á÷¾÷              ¸¶ÀÏ¸®Áö
-        XXXX       XXX       1997³â 00¿ù 00ÀÏ      ÀÚ¿µ¾÷              9999
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ ì´ìš©í•˜ì—¬ ë‹¤ìŒê³¼
+       ê°™ì€ í˜•ì‹ìœ¼ë¡œ ìžë£Œë¥¼ ì¶œë ¥í•˜ì‹œì˜¤
+       (ì¶œë ¥)
+       íšŒì›ë²ˆí˜¸     íšŒì›ëª…          ìƒë…„ì›”ì¼           ì§ì—…              ë§ˆì¼ë¦¬ì§€
+        XXXX       XXX       1997ë…„ 00ì›” 00ì¼      ìžì˜ì—…              9999
     
     
-    SELECT MEM_ID AS È¸¿ø¹øÈ£,
-           MEM_NAME AS È¸¿ø¸í,
+    SELECT MEM_ID AS íšŒì›ë²ˆí˜¸,
+           MEM_NAME AS íšŒì›ëª…,
            CASE WHEN SUBSTR(MEM_REGNO2,1,1)='1'OR 
                 SUBSTR(MEM_REGNO2,1,1)='2' THEN
-                TO_CHAR(TO_DATE('19'||MEM_REGNO1),'YYYY"³â" MM"¿ù" DD"ÀÏ"')
+                TO_CHAR(TO_DATE('19'||MEM_REGNO1),'YYYY"ë…„" MM"ì›”" DD"ì¼"')
            ELSE
-                TO_CHAR(TO_DATE('20'||MEM_REGNO1),'YYYY"³â" MM"¿ù" DD"ÀÏ"') -- ""´Â »ç¿ëÀÚ Á¤ÀÇÇü½Ä ¹®ÀÚ¿­
-            END  AS »ý³â¿ùÀÏ,
-           MEM_JOB AS Á÷¾÷,
-           MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+                TO_CHAR(TO_DATE('20'||MEM_REGNO1),'YYYY"ë…„" MM"ì›”" DD"ì¼"') -- ""ëŠ” ì‚¬ìš©ìž ì •ì˜í˜•ì‹ ë¬¸ìžì—´
+            END  AS ìƒë…„ì›”ì¼,
+           MEM_JOB AS ì§ì—…,
+           MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
         FROM MEMBER;
     
     
@@ -208,7 +208,7 @@ SELECT CAST(SUBSTR(CART.CART_NO,1,8)AS DATE) AS ÀÏÀÚ,
     
     
     
-    »ç¿ë¿¹) »óÇ°Å×ÀÌºí(PROD)¿¡ ´ÙÀ½ ÀÚ·á¸¦ Ãß°¡·Î µî·ÏÇÏ½Ã¿À
+    ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”(PROD)ì— ë‹¤ìŒ ìžë£Œë¥¼ ì¶”ê°€ë¡œ ë“±ë¡í•˜ì‹œì˜¤
 ---------------------------------------------------------------
-»óÇ°ÄÚµå       »óÇ°¸í      ºÐ·ùÄÚµå    °Å·¡Ã³     ¸ÅÀÔ      ÆÇ¸Å      ÇÒÀÎ      ¼³¸í      ÀÌ¹ÌÁö     ÀüÃ¼Àç°í      ÀûÁ¤Àç°í
+ìƒí’ˆì½”ë“œ       ìƒí’ˆëª…      ë¶„ë¥˜ì½”ë“œ    ê±°ëž˜ì²˜     ë§¤ìž…      íŒë§¤      í• ì¸      ì„¤ëª…      ì´ë¯¸ì§€     ì „ì²´ìž¬ê³       ì ì •ìž¬ê³ 
 
