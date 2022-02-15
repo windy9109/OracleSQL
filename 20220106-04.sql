@@ -1,53 +1,53 @@
 2022-0106-04) DML(Data Manipulation Language)
-1. µ¥ÀÌÅÍ »ðÀÔ
-  - insert into ¸í·ÉÀ¸·Î ÀÚ·á»ðÀÔ
-  (»ç¿ëÇü½Ä)
-  INSERT INTO Å×ÀÌºí¸í[(ÄÃ·³¸í[,ÄÃ·³¸í,...])]
-    VALUES(°ª[,°ª,...]);
-    .'Å×ÀÌºí¸í' : µ¥ÀÌÅÍ »ðÀÔ ´ë»ó Å×ÀÌºí¸í
-    .'[(ÄÃ·³¸í[,ÄÃ·³¸í,...])]': »ðÀÔÇÒ ÄÃ·³À» ¼±ÅÃÇÒ °æ¿ì ±â¼ú
-    .'[(ÄÃ·³¸í[,ÄÃ·³¸í,...])]': ÀÌ »ý·«µÇ¸é ¸ðµç ÄÃ·³¿¡ ±â¼úµÈ ¼ø¼­¿¡ ¸Â°Ô ÀÚ·á¸¦ VALUESÀý¿¡ ±â¼úÇØ¾ßÇÔ
-    .Å×ÀÌºí »ý¼º½Ã ÄÃ·³¿¡ NOT NULL Á¦¾àÁ¶°ÇÀÌ ±â¼úµÈ°æ¿ì 
-    --NULL ABLE -> NULL Çã¿ë¿¡ ´ëÇÑ Ç×¸ñ YES/NO 
-      '[(ÄÃ·³¸í[,ÄÃ·³¸í,...])]'¿¡¼­ »ý·« ºÒ°¡´É ÇÔ
-      '[(ÄÃ·³¸í[,ÄÃ·³¸í,...])]'¿Í VALUESÀýÀÇ °ªÀÇ °¹¼ö, Å¸ÀÔÀº ÀÏÄ¡ÇØ¾ßÇÔ
+1. ë°ì´í„° ì‚½ìž…
+  - insert into ëª…ë ¹ìœ¼ë¡œ ìžë£Œì‚½ìž… 
+  (ì‚¬ìš©í˜•ì‹)
+  INSERT INTO í…Œì´ë¸”ëª…[(ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...])]
+    VALUES(ê°’[,ê°’,...]);
+    .'í…Œì´ë¸”ëª…' : ë°ì´í„° ì‚½ìž… ëŒ€ìƒ í…Œì´ë¸”ëª…
+    .'[(ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...])]': ì‚½ìž…í•  ì»¬ëŸ¼ì„ ì„ íƒí•  ê²½ìš° ê¸°ìˆ 
+    .'[(ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...])]': ì´ ìƒëžµë˜ë©´ ëª¨ë“  ì»¬ëŸ¼ì— ê¸°ìˆ ëœ ìˆœì„œì— ë§žê²Œ ìžë£Œë¥¼ VALUESì ˆì— ê¸°ìˆ í•´ì•¼í•¨
+    .í…Œì´ë¸” ìƒì„±ì‹œ ì»¬ëŸ¼ì— NOT NULL ì œì•½ì¡°ê±´ì´ ê¸°ìˆ ëœê²½ìš° 
+    --NULL ABLE -> NULL í—ˆìš©ì— ëŒ€í•œ í•­ëª© YES/NO 
+      '[(ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...])]'ì—ì„œ ìƒëžµ ë¶ˆê°€ëŠ¥ í•¨
+      '[(ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...])]'ì™€ VALUESì ˆì˜ ê°’ì˜ ê°¯ìˆ˜, íƒ€ìž…ì€ ì¼ì¹˜í•´ì•¼í•¨
       
       
-»ç¿ë¿¹)Å×ÀÌºí GOODS¿¡ ´ÙÀ½ ÀÚ·á¸¦ »ðÀÔÇÏ½Ã¿À.
-      [ ÀÚ·á ]
+ì‚¬ìš©ì˜ˆ)í…Œì´ë¸” GOODSì— ë‹¤ìŒ ìžë£Œë¥¼ ì‚½ìž…í•˜ì‹œì˜¤.
+      [ ìžë£Œ ]
       ----------------------------------------------
-        »óÇ°ÄÚµå        »óÇ°¸í       ´Ü°¡
+        ìƒí’ˆì½”ë“œ        ìƒí’ˆëª…       ë‹¨ê°€
       ----------------------------------------------
-        P101          ½Å¶ó¸é       1000
-        P102          ¾È¼ºÅÁ¸é     1200
-        P103          °ÔÅä·¹ÀÌ      800
-        P104          »ï´Ù¼ö       500
+        P101          ì‹ ë¼ë©´       1000
+        P102          ì•ˆì„±íƒ•ë©´     1200
+        P103          ê²Œí† ë ˆì´      800
+        P104          ì‚¼ë‹¤ìˆ˜       500
       ----------------------------------------------
       
-      INSERT INTO GOODS VALUES('P101','½Å¶ó¸é','1000'); --Á¤»ó
-      INSERT INTO GOODS(GOOD_ID,GOOD_NAME) VALUES('P102','¾È¼ºÅÁ¸é'); --Á¤»ó /ÇØ´çÄÃ·³¸¸ ÁöÁ¤ÇÏ¿© ÀÚ·á»ðÀÔ, VALUES·Î ¹Þ´Â ¼ø¼­ Áß¿ä
-      INSERT INTO GOODS(GOOD_ID) VALUES('P103','°ÔÅä·¹ÀÌ'); --¿À·ù /VALUESÀÇ µ¥ÀÌÅÍ°¡ ÁöÁ¤ÄÃ·³º¸´Ù ¸¹À½
-      INSERT INTO GOODS(GOOD_ID) VALUES('P103'); --Á¤»ó
+      INSERT INTO GOODS VALUES('P101','ì‹ ë¼ë©´','1000'); --ì •ìƒ
+      INSERT INTO GOODS(GOOD_ID,GOOD_NAME) VALUES('P102','ì•ˆì„±íƒ•ë©´'); --ì •ìƒ /í•´ë‹¹ì»¬ëŸ¼ë§Œ ì§€ì •í•˜ì—¬ ìžë£Œì‚½ìž…, VALUESë¡œ ë°›ëŠ” ìˆœì„œ ì¤‘ìš”
+      INSERT INTO GOODS(GOOD_ID) VALUES('P103','ê²Œí† ë ˆì´'); --ì˜¤ë¥˜ /VALUESì˜ ë°ì´í„°ê°€ ì§€ì •ì»¬ëŸ¼ë³´ë‹¤ ë§ŽìŒ
+      INSERT INTO GOODS(GOOD_ID) VALUES('P103'); --ì •ìƒ
       
       SELECT * FROM GOODS;
       
-2. µ¥ÀÌÅÍ ¼öÁ¤
-- Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¿¡ ´ëÇÑ °ªÀ» ¼öÁ¤
-- UPDARE¹®À» »ç¿ë
+2. ë°ì´í„° ìˆ˜ì •
+- ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ì— ëŒ€í•œ ê°’ì„ ìˆ˜ì •
+- UPDAREë¬¸ì„ ì‚¬ìš©
 
-(»ç¿ëÇü½Ä)
-     UPDATE Å×ÀÌºí¸í
-        SET ÄÃ·³¸í=°ª[,
-            ÄÃ·³¸í=°ª,
+(ì‚¬ìš©í˜•ì‹)
+     UPDATE í…Œì´ë¸”ëª…
+        SET ì»¬ëŸ¼ëª…=ê°’[,
+            ì»¬ëŸ¼ëª…=ê°’,
                :
-            ÄÃ·³¸í=°ª]
-    [WHERE Á¶°Ç];
+            ì»¬ëŸ¼ëª…=ê°’]
+    [WHERE ì¡°ê±´];
     
-. 'Å×ÀÌºí¸í': ¼öÁ¤ÇÒ ´ë»óÀÚ·á¸¦ ÀúÀåÇÑ Å×ÀÌºí
-. 'WHERE Á¶°Ç': »ý·«µÇ¸é ÇØ´çÅ×ÀÌºíÀÇ ¸ðµç ÇàÀ» ¼öÁ¤ÇÏ¸ç, Á¶°ÇÀ» ±â¼úÇÑ °æ¿ì Á¶°ÇÀ» ¸¸Á·ÇÏ´Â Çà(µé)¸¸ ¼öÁ¤
+. 'í…Œì´ë¸”ëª…': ìˆ˜ì •í•  ëŒ€ìƒìžë£Œë¥¼ ì €ìž¥í•œ í…Œì´ë¸”
+. 'WHERE ì¡°ê±´': ìƒëžµë˜ë©´ í•´ë‹¹í…Œì´ë¸”ì˜ ëª¨ë“  í–‰ì„ ìˆ˜ì •í•˜ë©°, ì¡°ê±´ì„ ê¸°ìˆ í•œ ê²½ìš° ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” í–‰(ë“¤)ë§Œ ìˆ˜ì •
 
 
-»ç¿ë¿¹) P101ÀÇ ¾È¼ºÅÁ¸éÀÇ °¡°ÝÀ» 1000À¸·Î ¼öÁ¤ÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ) P101ì˜ ì•ˆì„±íƒ•ë©´ì˜ ê°€ê²©ì„ 1000ìœ¼ë¡œ ìˆ˜ì •í•˜ì‹œì˜¤
  --   UPDATE GOODS
  --       SET G_PRICE =1200;
 
@@ -55,9 +55,9 @@
         SET G_PRICE =1000
     WHERE GOOD_ID='P101';
     
-»ç¿ë¿¹) P103ÀÚ·áÀÇ Á¦Ç°¸íÀ» '°ÔÅä·¹ÀÌ' °¡°ÝÀ» 800À¸·Î ¼öÁ¤ÇÏ½Ã¿À
+ì‚¬ìš©ì˜ˆ) P103ìžë£Œì˜ ì œí’ˆëª…ì„ 'ê²Œí† ë ˆì´' ê°€ê²©ì„ 800ìœ¼ë¡œ ìˆ˜ì •í•˜ì‹œì˜¤
     UPDATE GOODS
-        SET GOOD_NAME ='°ÔÅä·¹ÀÌ',
+        SET GOOD_NAME ='ê²Œí† ë ˆì´',
             G_PRICE= 800
     WHERE GOOD_ID='P103';
         
