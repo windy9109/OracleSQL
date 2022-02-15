@@ -1,62 +1,62 @@
 2022-0110-01)
+ 
+(3) BETWEEN ì—°ì‚°ìž --Likeì—°ì‚°ìžì—ëŠ” ë‚ ì§œë°ì´í„° ì‚¬ìš© ë¶ˆê°€ëŠ¥, ë”°ë¼ì„œ BETWEENì—°ì‚°ìž ì‚¬ìš©
+- ë²”ìœ„ë¥¼ ì§€ì •í•˜ì—¬ ë°ì´í„°ë¥¼ ë¹„êµí• ë•Œ ì‚¬ìš©
+- AND ì—°ì‚°ìžë¡œ ë³€í™˜ ê°€ëŠ¥
 
-(3) BETWEEN ¿¬»êÀÚ --Like¿¬»êÀÚ¿¡´Â ³¯Â¥µ¥ÀÌÅÍ »ç¿ë ºÒ°¡´É, µû¶ó¼­ BETWEEN¿¬»êÀÚ »ç¿ë
-- ¹üÀ§¸¦ ÁöÁ¤ÇÏ¿© µ¥ÀÌÅÍ¸¦ ºñ±³ÇÒ¶§ »ç¿ë
-- AND ¿¬»êÀÚ·Î º¯È¯ °¡´É
-
-(»ç¿ëÇü½Ä)
-ÄÃ·³|¼ö½Ä   BETWEEN °ª1 AND °ª2
-
-
+(ì‚¬ìš©í˜•ì‹)
+ì»¬ëŸ¼|ìˆ˜ì‹   BETWEEN ê°’1 AND ê°’2
 
 
-»ç¿ë¿¹) »óÇ°Å×ÀÌºí(PROD)¿¡¼­ ÆÇ¸Å°¡°Ý(PROD_PRICE)ÀÌ 10¸¸¿ø¿¡¼­ 20¸¸¿ø »çÀÌ¿¡ ¼ÓÇÑ »óÇ°Á¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ºÐ·ùÄÚµå, ÆÇ¸Å°¡°ÝÀÌ´Ù.
+
+
+ì‚¬ìš©ì˜ˆ) ìƒí’ˆí…Œì´ë¸”(PROD)ì—ì„œ íŒë§¤ê°€ê²©(PROD_PRICE)ì´ 10ë§Œì›ì—ì„œ 20ë§Œì› ì‚¬ì´ì— ì†í•œ ìƒí’ˆì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ë¶„ë¥˜ì½”ë“œ, íŒë§¤ê°€ê²©ì´ë‹¤.
         
-(AND ¿¬»êÀÚ »ç¿ë)
+(AND ì—°ì‚°ìž ì‚¬ìš©)
         
-        SELECT PROD_ID AS »óÇ°ÄÚµå,
-                PROD_NAME AS »óÇ°¸í,
-                PROD_LGU AS ºÐ·ùÄÚµå,
-                PROD_PRICE AS ÆÇ¸Å°¡°Ý
+        SELECT PROD_ID AS ìƒí’ˆì½”ë“œ,
+                PROD_NAME AS ìƒí’ˆëª…,
+                PROD_LGU AS ë¶„ë¥˜ì½”ë“œ,
+                PROD_PRICE AS íŒë§¤ê°€ê²©
             FROM PROD
          WHERE PROD_PRICE >= 100000 AND PROD_PRICE <= 200000;
          
          
          
-(BETWEEN ¿¬»êÀÚ »ç¿ë)
-        SELECT PROD_ID AS »óÇ°ÄÚµå,
-                PROD_NAME AS »óÇ°¸í,
-                PROD_LGU AS ºÐ·ùÄÚµå,
-                PROD_PRICE AS ÆÇ¸Å°¡°Ý
+(BETWEEN ì—°ì‚°ìž ì‚¬ìš©)
+        SELECT PROD_ID AS ìƒí’ˆì½”ë“œ,
+                PROD_NAME AS ìƒí’ˆëª…,
+                PROD_LGU AS ë¶„ë¥˜ì½”ë“œ,
+                PROD_PRICE AS íŒë§¤ê°€ê²©
             FROM PROD
          WHERE PROD_PRICE 100000 BETWEEN 200000;
          
          
          
-»ç¿ë¿¹) Àå¹Ù±¸´Ï Å×ÀÌºí(CART)¿¡¼­ 2005³â 7¿ù¿¡ ÆÇ¸ÅµÈ Á¦Ç°À» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â ³¯Â¥, »óÇ°ÄÚµå, ÆÇ¸Å¼ö·®ÀÌ´Ù.
+ì‚¬ìš©ì˜ˆ) ìž¥ë°”êµ¬ë‹ˆ í…Œì´ë¸”(CART)ì—ì„œ 2005ë…„ 7ì›”ì— íŒë§¤ëœ ì œí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ë‚ ì§œ, ìƒí’ˆì½”ë“œ, íŒë§¤ìˆ˜ëŸ‰ì´ë‹¤.
         
-        SELECT SUBSTR(CART_NO,1,8) AS ³¯Â¥,
-                CART_PROD AS »óÇ°ÄÚµå,
-                CART_QTY AS ÆÇ¸Å¼ö·®
+        SELECT SUBSTR(CART_NO,1,8) AS ë‚ ì§œ,
+                CART_PROD AS ìƒí’ˆì½”ë“œ,
+                CART_QTY AS íŒë§¤ìˆ˜ëŸ‰
             FROM CART
-          WHERE SUBSTR(CART_NO,1,6)='200507'; -- ¿ù¸¸ Á¶È¸ ÇÏ¹Ç·Î ¾Õ 6±ÛÀÚ¸¸ ÃßÃâÇØµµ °¡´É(¹®ÀÚ¿­ ºñ±³ÀÓ)
+          WHERE SUBSTR(CART_NO,1,6)='200507'; -- ì›”ë§Œ ì¡°íšŒ í•˜ë¯€ë¡œ ì•ž 6ê¸€ìžë§Œ ì¶”ì¶œí•´ë„ ê°€ëŠ¥(ë¬¸ìžì—´ ë¹„êµìž„)
           
           
           
          
-»ç¿ë¿¹) ¸ÅÀÔ Å×ÀÌºí(BUYPROD)¿¡¼­ 2005³â 2¿ù¿¡ ¸ÅÀÔ»óÇ°À» Á¶È¸ÇÏ½Ã¿À
-        Alias´Â ³¯Â¥, »óÇ°ÄÚµå, ¸ÅÀÔ¼ö·®, ¸ÅÀÔ±Ý¾×ÀÌ´Ù.
+ì‚¬ìš©ì˜ˆ) ë§¤ìž… í…Œì´ë¸”(BUYPROD)ì—ì„œ 2005ë…„ 2ì›”ì— ë§¤ìž…ìƒí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ë‚ ì§œ, ìƒí’ˆì½”ë“œ, ë§¤ìž…ìˆ˜ëŸ‰, ë§¤ìž…ê¸ˆì•¡ì´ë‹¤.
             
-        SELECT  BUY_DATE AS ³¯Â¥, --³¯Â¥´Â ³¯Â¥·Î ºñ±³ÇÑ´Ù.
-                BUY_PROD AS »óÇ°ÄÚµå,
-                BUY_QTY AS ¸ÅÀÔ¼ö·®,
-                BUY_QTY*BUY_COST AS ¸ÅÀÔ±Ý¾×
+        SELECT  BUY_DATE AS ë‚ ì§œ, --ë‚ ì§œëŠ” ë‚ ì§œë¡œ ë¹„êµí•œë‹¤.
+                BUY_PROD AS ìƒí’ˆì½”ë“œ,
+                BUY_QTY AS ë§¤ìž…ìˆ˜ëŸ‰,
+                BUY_QTY*BUY_COST AS ë§¤ìž…ê¸ˆì•¡
             FROM BUYPROD
           WHERE BUY_DATE BETWEEN '20050201' AND '20050228';
          --WHERE BUY_DATE BETWEEN '20050201' AND LAST_DAY('20050201');
-         --À±³âÀÎÁö Æò³âÀÎÁö ¸ð¸¦¶§ ¸¶Áö¸· ³¯Â¥ LAST_DAYD¸¦ ¾²ÀÚ.
+         --ìœ¤ë…„ì¸ì§€ í‰ë…„ì¸ì§€ ëª¨ë¥¼ë•Œ ë§ˆì§€ë§‰ ë‚ ì§œ LAST_DAYDë¥¼ ì“°ìž.
         -- SELECT LAST_DAY('20050201') FROM DUAL;
                 
     SELECT * FROM BUYPROD;
@@ -66,8 +66,8 @@
          
             
             
-** »ç¿øÀÌ¸§À» ÇÕÃÄ »õ·Î¿î ÄÃ·³¿¡ ÀúÀå
-    ÄÃ·³¸í : EMP_NAME VARCHAR2(50) <= FIRST_NAME,' ',LAST_NAME ÀúÀå
+** ì‚¬ì›ì´ë¦„ì„ í•©ì³ ìƒˆë¡œìš´ ì»¬ëŸ¼ì— ì €ìž¥
+    ì»¬ëŸ¼ëª… : EMP_NAME VARCHAR2(50) <= FIRST_NAME,' ',LAST_NAME ì €ìž¥
     
     ALTER TABLE HR.EMPLOYEES ADD(EMP_NAME VARCHAR2(50));
     
@@ -77,17 +77,17 @@
         
         
         
-»ç¿ë¿¹) HR°èÁ¤ÀÇ »ç¿øÅ×ÀÌºí(EMPLOYEES)¿¡¼­ 2006³â ÀÌÀü¿¡ ÀÔ»çÇÑ »ç¿øÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ÀÔ»çÀÏ, ºÎ¼­ÄÚµå
-        ´Ü, Ãâ·ÂÀº ÀÔ»çÀÏ ¼øÀ¸·Î Ãâ·ÂÇÒ°Í
+ì‚¬ìš©ì˜ˆ) HRê³„ì •ì˜ ì‚¬ì›í…Œì´ë¸”(EMPLOYEES)ì—ì„œ 2006ë…„ ì´ì „ì— ìž…ì‚¬í•œ ì‚¬ì›ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ìž…ì‚¬ì¼, ë¶€ì„œì½”ë“œ
+        ë‹¨, ì¶œë ¥ì€ ìž…ì‚¬ì¼ ìˆœìœ¼ë¡œ ì¶œë ¥í• ê²ƒ
         
 
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               EMP_NAME AS »ç¿ø¸í, 
-               HIRE_DATE AS ÀÔ»çÀÏ, 
-               JOB_ID AS ºÎ¼­ÄÚµå
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               EMP_NAME AS ì‚¬ì›ëª…, 
+               HIRE_DATE AS ìž…ì‚¬ì¼, 
+               JOB_ID AS ë¶€ì„œì½”ë“œ
             FROM HR.EMPLOYEES
-        WHERE HIRE_DATE <= LAST_DAY('20051201') -- ³¯Â¥¸¦ ¹®ÀÚ·Î Ç¥±âÇÒ¶§´Â ³â¿ùÀÏÀ» ¸ÂÃç¼­ Ç¥±âÇÏ°í Áß°£¿¡ ±âÈ£¸¦ ³ÖÁö¾Ê´Â´Ù.
+        WHERE HIRE_DATE <= LAST_DAY('20051201') -- ë‚ ì§œë¥¼ ë¬¸ìžë¡œ í‘œê¸°í• ë•ŒëŠ” ë…„ì›”ì¼ì„ ë§žì¶°ì„œ í‘œê¸°í•˜ê³  ì¤‘ê°„ì— ê¸°í˜¸ë¥¼ ë„£ì§€ì•ŠëŠ”ë‹¤.
         -- WHERE HIRE_DATE <ANY '20060101'
         -- WHERE HIRE_DATE < '20060101'
          ORDER BY 3;
@@ -95,82 +95,82 @@
         COMMIT;
         
          
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí(MEMBER)¿¡¼­ '±è'¾¾ ~ '¹Ú'¾¾ ¼ºÀ» °¡Áø È¸¿ø Áß ¸¶ÀÏ¸®Áö 2000ÀÌ»óÀÎ È¸¿øÀ» Á¶È¸ÇÏ½Ã¿À.
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ÁÖ¼Ò, ¸¶ÀÏ¸®Áö
-       ´Ü ¼º¾¾¼øÀ¸·Î Ãâ·ÂÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”(MEMBER)ì—ì„œ 'ê¹€'ì”¨ ~ 'ë°•'ì”¨ ì„±ì„ ê°€ì§„ íšŒì› ì¤‘ ë§ˆì¼ë¦¬ì§€ 2000ì´ìƒì¸ íšŒì›ì„ ì¡°íšŒí•˜ì‹œì˜¤.
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì£¼ì†Œ, ë§ˆì¼ë¦¬ì§€
+       ë‹¨ ì„±ì”¨ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
        
-       SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-              MEM_NAME AS È¸¿ø¸í, 
-              MEM_ADD1 ||' '|| MEM_ADD2 AS ÁÖ¼Ò, 
-              MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              MEM_NAME AS íšŒì›ëª…, 
+              MEM_ADD1 ||' '|| MEM_ADD2 AS ì£¼ì†Œ, 
+              MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
             FROM MEMBER
-         WHERE SUBSTR(MEM_NAME,1,1) BETWEEN '±è' AND '¹Ú' AND MEM_MILEAGE >=2000
-         -- BETWEEN ¼ýÀÚ, ¹®ÀÚ, ³¯Â¥¿¡ ¾µ¼öÀÖÀ½
+         WHERE SUBSTR(MEM_NAME,1,1) BETWEEN 'ê¹€' AND 'ë°•' AND MEM_MILEAGE >=2000
+         -- BETWEEN ìˆ«ìž, ë¬¸ìž, ë‚ ì§œì— ì“¸ìˆ˜ìžˆìŒ
             ORDER BY 2;
          
        
-(4)LIKE ¿¬»êÀÚ 
---µÇµµ·Ï ¾È¾²´Â°Ô ÁÁÀ½ WHY? »ó´çÈ÷ ¸¹Àº µ¥ÀÌÅÍ¸¦ »Ì¾Æ³¿. °úºÎÇÏ À§Çè
-- ¹®ÀÚ¿­ÀÇ ÆÐÅÏÀ» ºñ±³ÇÒ¶§ »ç¿ë
-- ÆÐÅÏ¹®ÀÚ¿­(¿ÍÀÏµåÄ«µå): %,_»ç¿ë
-- '%':'%'ÀÌ »ç¿ëµÈ À§Ä¡¿¡¼­ µÚ¿¡ Á¸ÀçÇÏ´Â ¸ðµç ¹®ÀÚ¿­°ú ´ëÀÀ
-    ex) '±è%':'±è' À¸·Î ½ÃÀÛÇÏ´Â ¸ðµç ¹®ÀÚ¿­°ú ´ëÀÀ
-        '%±è':'±è' À¸·Î ³¡³ª´Â ¸ðµç ¹®ÀÚ¿­°ú ´ëÀÀ
-        '%±è%': ¹®ÀÚ¿­ ³»ºÎ¿¡ '±è' ÀÌ¶ó´Â ¹®ÀÚ¿­ÀÌ ÀÖÀ¸¸é °á°ú°¡ Âü(true)
+(4)LIKE ì—°ì‚°ìž 
+--ë˜ë„ë¡ ì•ˆì“°ëŠ”ê²Œ ì¢‹ìŒ WHY? ìƒë‹¹ížˆ ë§Žì€ ë°ì´í„°ë¥¼ ë½‘ì•„ëƒ„. ê³¼ë¶€í•˜ ìœ„í—˜
+- ë¬¸ìžì—´ì˜ íŒ¨í„´ì„ ë¹„êµí• ë•Œ ì‚¬ìš©
+- íŒ¨í„´ë¬¸ìžì—´(ì™€ì¼ë“œì¹´ë“œ): %,_ì‚¬ìš©
+- '%':'%'ì´ ì‚¬ìš©ëœ ìœ„ì¹˜ì—ì„œ ë’¤ì— ì¡´ìž¬í•˜ëŠ” ëª¨ë“  ë¬¸ìžì—´ê³¼ ëŒ€ì‘
+    ex) 'ê¹€%':'ê¹€' ìœ¼ë¡œ ì‹œìž‘í•˜ëŠ” ëª¨ë“  ë¬¸ìžì—´ê³¼ ëŒ€ì‘
+        '%ê¹€':'ê¹€' ìœ¼ë¡œ ëë‚˜ëŠ” ëª¨ë“  ë¬¸ìžì—´ê³¼ ëŒ€ì‘
+        '%ê¹€%': ë¬¸ìžì—´ ë‚´ë¶€ì— 'ê¹€' ì´ë¼ëŠ” ë¬¸ìžì—´ì´ ìžˆìœ¼ë©´ ê²°ê³¼ê°€ ì°¸(true)
         
-- '_':'_'°¡ »ç¿ëµÈ À§Ä¡¿¡¼­ ÇÑ±ÛÀÚ¿Í ´ëÀÀ
-    ex) '±è':'±è' À¸·Î ½ÃÀÛÇÏ°í 2±ÛÀÚÀÎ ¹®ÀÚ¿­°ú ´ëÀÀ
-        '_±è': 2±ÛÀÚ·Î ±¸¼ºµÇ°í '±è'À¸·Î ³¡³ª´Â ¸ðµç ¹®ÀÚ¿­°ú ´ëÀÀ
-        '_±è_': 3±ÛÀÚÀÌ¸é¼­ Áß°£ÀÇ ±ÛÀÚ°¡ '±è'ÀÎ ¹®ÀÚ¿­°ú ´ëÀÀ
+- '_':'_'ê°€ ì‚¬ìš©ëœ ìœ„ì¹˜ì—ì„œ í•œê¸€ìžì™€ ëŒ€ì‘
+    ex) 'ê¹€':'ê¹€' ìœ¼ë¡œ ì‹œìž‘í•˜ê³  2ê¸€ìžì¸ ë¬¸ìžì—´ê³¼ ëŒ€ì‘
+        '_ê¹€': 2ê¸€ìžë¡œ êµ¬ì„±ë˜ê³  'ê¹€'ìœ¼ë¡œ ëë‚˜ëŠ” ëª¨ë“  ë¬¸ìžì—´ê³¼ ëŒ€ì‘
+        '_ê¹€_': 3ê¸€ìžì´ë©´ì„œ ì¤‘ê°„ì˜ ê¸€ìžê°€ 'ê¹€'ì¸ ë¬¸ìžì—´ê³¼ ëŒ€ì‘
 
 
 
-»ç¿ë¿¹) Àå¹Ù±¸´Ï Å×ÀÌºí(CART)¿¡¼­ 2005³â 7¿ù¿¡ ÆÇ¸ÅµÈ Á¦Ç°À» Á¶È¸ÇÏ½Ã¿À. LIKE ¿¬»êÀÚ »ç¿ë
-        Alias´Â ³¯Â¥, »óÇ°ÄÚµå, ÆÇ¸Å¼ö·®ÀÌ´Ù.
+ì‚¬ìš©ì˜ˆ) ìž¥ë°”êµ¬ë‹ˆ í…Œì´ë¸”(CART)ì—ì„œ 2005ë…„ 7ì›”ì— íŒë§¤ëœ ì œí’ˆì„ ì¡°íšŒí•˜ì‹œì˜¤. LIKE ì—°ì‚°ìž ì‚¬ìš©
+        AliasëŠ” ë‚ ì§œ, ìƒí’ˆì½”ë“œ, íŒë§¤ìˆ˜ëŸ‰ì´ë‹¤.
 
-        SELECT TO_DATE(SUBSTR(CART_NO,1,8)) AS ³¯Â¥, --TO_DATE·Î ³¯Â¥Çü½ÄÀ¸·Î º¯È¯
-               CART_PROD AS »óÇ°ÄÚµå, 
-               CART_QTY AS ÆÇ¸Å¼ö·®
+        SELECT TO_DATE(SUBSTR(CART_NO,1,8)) AS ë‚ ì§œ, --TO_DATEë¡œ ë‚ ì§œí˜•ì‹ìœ¼ë¡œ ë³€í™˜
+               CART_PROD AS ìƒí’ˆì½”ë“œ, 
+               CART_QTY AS íŒë§¤ìˆ˜ëŸ‰
             FROM CART
           WHERE CART_NO LIKE '200507%';
           
         
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ °ÅÁÖÁö°¡ 'Ãæ³²'ÀÎ È¸¿øÀ» Á¶È¸ ÇÏ½Ã¿À
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ÁÖ¼Ò, Á÷¾÷, ¸¶ÀÏ¸®Áö
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ê±°ì£¼ì§€ê°€ 'ì¶©ë‚¨'ì¸ íšŒì›ì„ ì¡°íšŒ í•˜ì‹œì˜¤
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì£¼ì†Œ, ì§ì—…, ë§ˆì¼ë¦¬ì§€
        
-       SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-              MEM_NAME AS È¸¿ø¸í, 
-              MEM_ADD1|| ' ' || MEM_ADD2 AS ÁÖ¼Ò, 
-              MEM_JOB AS Á÷¾÷, 
-              MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              MEM_NAME AS íšŒì›ëª…, 
+              MEM_ADD1|| ' ' || MEM_ADD2 AS ì£¼ì†Œ, 
+              MEM_JOB AS ì§ì—…, 
+              MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
          FROM MEMBER
-        WHERE MEM_ADD1 LIKE 'Ãæ³²%';
+        WHERE MEM_ADD1 LIKE 'ì¶©ë‚¨%';
 
 
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ °ÅÁÖÁö°¡ 'Ãæ³²'ÀÌ°Å³ª '¼­¿ï' È¸¿øÀ» Á¶È¸ ÇÏ½Ã¿À
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ÁÖ¼Ò, Á÷¾÷, ¸¶ÀÏ¸®Áö
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ê±°ì£¼ì§€ê°€ 'ì¶©ë‚¨'ì´ê±°ë‚˜ 'ì„œìš¸' íšŒì›ì„ ì¡°íšŒ í•˜ì‹œì˜¤
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì£¼ì†Œ, ì§ì—…, ë§ˆì¼ë¦¬ì§€
        
-       SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-              MEM_NAME AS È¸¿ø¸í, 
-              MEM_ADD1||' '||MEM_ADD2 AS ÁÖ¼Ò,
-              MEM_JOB AS Á÷¾÷, 
-              MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+       SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              MEM_NAME AS íšŒì›ëª…, 
+              MEM_ADD1||' '||MEM_ADD2 AS ì£¼ì†Œ,
+              MEM_JOB AS ì§ì—…, 
+              MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER
-        WHERE SUBSTR(MEM_ADD1,1,2) IN('Ãæ³²','¼­¿ï'); --È¿À²ÀûÀÎ ¿¬»ê
-        --ºñÈ¿À²Àû ¿¬»ê
-        --WHERE MEM_ADD1 LIKE 'Ãæ³²%' AND MEM_ADD1 LIKE '¼­¿ï%'
+        WHERE SUBSTR(MEM_ADD1,1,2) IN('ì¶©ë‚¨','ì„œìš¸'); --íš¨ìœ¨ì ì¸ ì—°ì‚°
+        --ë¹„íš¨ìœ¨ì  ì—°ì‚°
+        --WHERE MEM_ADD1 LIKE 'ì¶©ë‚¨%' AND MEM_ADD1 LIKE 'ì„œìš¸%'
         
-»ç¿ë¿¹) 2005³â 4¿ù ¸ÅÀÔ»óÇ°º° ÆÇ¸ÅÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À
-       Alias´Â »óÇ°ÄÚµå, »óÇ°¸í, ¼ö·®ÇÕ°è, ±Ý¾×ÇÕ°è
+ì‚¬ìš©ì˜ˆ) 2005ë…„ 4ì›” ë§¤ìž…ìƒí’ˆë³„ íŒë§¤ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” ìƒí’ˆì½”ë“œ, ìƒí’ˆëª…, ìˆ˜ëŸ‰í•©ê³„, ê¸ˆì•¡í•©ê³„
 
         
-       SELECT A.BUY_PROD AS »óÇ°ÄÚµå, 
-              B.PROD_NAME AS »óÇ°¸í, 
-              SUM(A.BUY_QTY) AS ¼ö·®ÇÕ°è, 
-              SUM(A.BUY_QTY*B.PROD_COST) AS ±Ý¾×ÇÕ°è
-            FROM BUYPROD A, PROD B -- Å×ÀÌºí¿¡µµ º°Äª »ç¿ë°¡´É, Å×ÀÌºí º°ÄªÀº º¹ÀâÇÏ°Ô ºÎ¿©¾ÈÇÔ. A,B,C,¿Í °°Àº
-        WHERE A.BUY_PROD = B.PROD_ID --JOIN Á¶°Ç
-          AND A.BUY_DATE BETWEEN '20050401' AND LAST_DAY('20050401') --³¯Â¥µ¥ÀÌÅÍ¿¡ LIKE¸¦ Àý´ë ¾²¸é¾ÈµÊ! BETWEEN
+       SELECT A.BUY_PROD AS ìƒí’ˆì½”ë“œ, 
+              B.PROD_NAME AS ìƒí’ˆëª…, 
+              SUM(A.BUY_QTY) AS ìˆ˜ëŸ‰í•©ê³„, 
+              SUM(A.BUY_QTY*B.PROD_COST) AS ê¸ˆì•¡í•©ê³„
+            FROM BUYPROD A, PROD B -- í…Œì´ë¸”ì—ë„ ë³„ì¹­ ì‚¬ìš©ê°€ëŠ¥, í…Œì´ë¸” ë³„ì¹­ì€ ë³µìž¡í•˜ê²Œ ë¶€ì—¬ì•ˆí•¨. A,B,C,ì™€ ê°™ì€
+        WHERE A.BUY_PROD = B.PROD_ID --JOIN ì¡°ê±´
+          AND A.BUY_DATE BETWEEN '20050401' AND LAST_DAY('20050401') --ë‚ ì§œë°ì´í„°ì— LIKEë¥¼ ì ˆëŒ€ ì“°ë©´ì•ˆë¨! BETWEEN
         GROUP BY A.BUY_PROD, B.PROD_NAME
         ORDER BY 1;
         
