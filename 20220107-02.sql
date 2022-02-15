@@ -1,10 +1,10 @@
-2022-0107-02)µ¥ÀÌÅÍ °Ë»ö¸í·É(SELECT)
-
-**°´Ã¼»èÁ¦ (DROP)
-. Å×ÀÌºí »èÁ¦
-  DROP TABLE Å×ÀÌºí¸í;
+2022-0107-02)ë°ì´í„° ê²€ìƒ‰ëª…ë ¹(SELECT)
+ 
+**ê°ì²´ì‚­ì œ (DROP)
+. í…Œì´ë¸” ì‚­ì œ
+  DROP TABLE í…Œì´ë¸”ëª…;
   
-  »ç¿ë¿¹)¼îÇÎ¸ô Å×ÀÌºí(BUYER, BUYPROD, CART, LPROD, MEMBER)À» Á¦¿ÜÇÏ°í ¸ðµç Å×ÀÌºíÀ» »èÁ¦
+  ì‚¬ìš©ì˜ˆ)ì‡¼í•‘ëª° í…Œì´ë¸”(BUYER, BUYPROD, CART, LPROD, MEMBER)ì„ ì œì™¸í•˜ê³  ëª¨ë“  í…Œì´ë¸”ì„ ì‚­ì œ
         DROP TABLE ORDER_GOODS;
         DROP TABLE ORDERS;
         DROP TABLE CUSTOMERS;
@@ -22,152 +22,152 @@
     
 
 
-**HR°èÁ¤ È°¼ºÈ­
-1. HR°èÁ¤ÀÇ Àá±ÝÇØÁ¦
+**HRê³„ì • í™œì„±í™”
+1. HRê³„ì •ì˜ ìž ê¸ˆí•´ì œ
    ALTER USER HR ACCOUNT UNLOCK;
    
-2. HR°èÁ¤ ¾ÏÈ£¼³Á¤
+2. HRê³„ì • ì•”í˜¸ì„¤ì •
    ALTER USER HR IDENTIFIED BY java;
    
         
-**µ¥ÀÌÅÍ °Ë»ö ¸í·É
-  -SELECT¹® Á¦°ø
-  -SQL¸í·É Áß °¡Àå ¸¹ÀÌ »ç¿ëµÇ´Â ¸í·É
+**ë°ì´í„° ê²€ìƒ‰ ëª…ë ¹
+  -SELECTë¬¸ ì œê³µ
+  -SQLëª…ë ¹ ì¤‘ ê°€ìž¥ ë§Žì´ ì‚¬ìš©ë˜ëŠ” ëª…ë ¹
   
-(»ç¿ëÇü½Ä)
-SELECT * |[DISTINCT]ÄÃ·³¸í [AS ÄÃ·³º°Äª][,] --¸¶Áö¸· ½ÇÇà(AS»ç¿ë½Ã ÁÖÀÇ) / DISTINCT Áßº¹¹èÁ¦
-        ÄÃ·³¸í[AS ÄÃ·³º°Äª][,]
+(ì‚¬ìš©í˜•ì‹)
+SELECT * |[DISTINCT]ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­][,] --ë§ˆì§€ë§‰ ì‹¤í–‰(ASì‚¬ìš©ì‹œ ì£¼ì˜) / DISTINCT ì¤‘ë³µë°°ì œ
+        ì»¬ëŸ¼ëª…[AS ì»¬ëŸ¼ë³„ì¹­][,]
                 :
-        ÄÃ·³¸í [AS ÄÃ·³º°Äª]
-    FROM Å×ÀÌºí¸í --1
-    [WHERE Á¶°Ç  --2
-        [AND Á¶°Ç,...]]
-    [GROUP BY ÄÃ·³¸í[,ÄÃ·³¸í,...]] -- Æ¯Á¤ÄÃ·³¸í ¾È¿¡¼­ ±×·ìº°·Î ¹­Àº°Í(EX. ÇÐ±Þº°, ºÎ¼­º°)
-        [HAVING Á¶°Ç] -- SUM, COUNT, AVG, MIN, MAX ´Ù¼¸°³ÀÇ Áý°èÇÔ¼ö »ç¿ë
-        [ORDER BY ÄÃ·³¸í|ÄÃ·³index [ASC|DESC][, -- Á¤·Ä(ÄÃ·³ Áß½É)
-                    ÄÃ·³¸í|ÄÃ·³index [ASC|DESC],...]];
+        ì»¬ëŸ¼ëª… [AS ì»¬ëŸ¼ë³„ì¹­]
+    FROM í…Œì´ë¸”ëª… --1
+    [WHERE ì¡°ê±´  --2
+        [AND ì¡°ê±´,...]]
+    [GROUP BY ì»¬ëŸ¼ëª…[,ì»¬ëŸ¼ëª…,...]] -- íŠ¹ì •ì»¬ëŸ¼ëª… ì•ˆì—ì„œ ê·¸ë£¹ë³„ë¡œ ë¬¶ì€ê²ƒ(EX. í•™ê¸‰ë³„, ë¶€ì„œë³„)
+        [HAVING ì¡°ê±´] -- SUM, COUNT, AVG, MIN, MAX ë‹¤ì„¯ê°œì˜ ì§‘ê³„í•¨ìˆ˜ ì‚¬ìš©
+        [ORDER BY ì»¬ëŸ¼ëª…|ì»¬ëŸ¼index [ASC|DESC][, -- ì •ë ¬(ì»¬ëŸ¼ ì¤‘ì‹¬)
+                    ì»¬ëŸ¼ëª…|ì»¬ëŸ¼index [ASC|DESC],...]];
                 
 
-. 'DISTINCT': Áßº¹¹èÁ¦
-. 'AS ÄÃ·³º°Äª': ÄÃ·³¿¡ ºÎ¿©ÇÑ ¶Ç ´Ù¸¥ ÀÌ¸§. ÄÃ·³ÀÇ Á¦¸ñ Ãâ·ÂÇÒ ¸ñÀû
-. 'ÄÃ·³º°Äª'¿¡ Æ¯¼ö¹®ÀÚ(°ø¹éµî)³ª ¿¹¾à¾î°¡ Æ÷ÇÔµÈ °æ¿ì ¹Ýµå½Ã ""·Î ¹­¾î ÁÖ¾î¾ßÇÔ!!!
-. Æ¯Á¤ Å×ÀÌºíÀÌ ¾ø°Å³ª ºÒÇÊ¿äÇÑ °æ¿ì ½Ã½ºÅÛÀÌ Á¦°øÇÏ´Â ´õ¹Ì(DUMMY)Å×ÀÌºíÀÎ DUALÀ» »ç¿ë
+. 'DISTINCT': ì¤‘ë³µë°°ì œ
+. 'AS ì»¬ëŸ¼ë³„ì¹­': ì»¬ëŸ¼ì— ë¶€ì—¬í•œ ë˜ ë‹¤ë¥¸ ì´ë¦„. ì»¬ëŸ¼ì˜ ì œëª© ì¶œë ¥í•  ëª©ì 
+. 'ì»¬ëŸ¼ë³„ì¹­'ì— íŠ¹ìˆ˜ë¬¸ìž(ê³µë°±ë“±)ë‚˜ ì˜ˆì•½ì–´ê°€ í¬í•¨ëœ ê²½ìš° ë°˜ë“œì‹œ ""ë¡œ ë¬¶ì–´ ì£¼ì–´ì•¼í•¨!!!
+. íŠ¹ì • í…Œì´ë¸”ì´ ì—†ê±°ë‚˜ ë¶ˆí•„ìš”í•œ ê²½ìš° ì‹œìŠ¤í…œì´ ì œê³µí•˜ëŠ” ë”ë¯¸(DUMMY)í…Œì´ë¸”ì¸ DUALì„ ì‚¬ìš©
 
 
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí(MEMBER)¿¡¼­ ¿©¼ºÈ¸¿øµéÀÇ Á¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À
-        Alias´Â È¸¿øÁ¤º¸, È¸¿ø¸í, ÁÖ¼Ò, ³ªÀÌ, ¸¶ÀÏ¸®ÁöÀÌ´Ù.
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”(MEMBER)ì—ì„œ ì—¬ì„±íšŒì›ë“¤ì˜ ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤
+        AliasëŠ” íšŒì›ì •ë³´, íšŒì›ëª…, ì£¼ì†Œ, ë‚˜ì´, ë§ˆì¼ë¦¬ì§€ì´ë‹¤.
         
-        SELECT MEM_ID AS È¸¿øÁ¤º¸, 
-               MEM_NAME AS È¸¿ø¸í, 
-               MEM_ADD1 ||' '||MEM_ADD2 AS ÁÖ¼Ò, 
-               EXTRACT(YEAR FROM SYSDATE)- --ÃßÃâ
-                EXTRACT(YEAR FROM MEM_BIR) AS ³ªÀÌ, 
-               MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+        SELECT MEM_ID AS íšŒì›ì •ë³´, 
+               MEM_NAME AS íšŒì›ëª…, 
+               MEM_ADD1 ||' '||MEM_ADD2 AS ì£¼ì†Œ, 
+               EXTRACT(YEAR FROM SYSDATE)- --ì¶”ì¶œ
+                EXTRACT(YEAR FROM MEM_BIR) AS ë‚˜ì´, 
+               MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
           FROM MEMBER
-            WHERE SUBSTR(MEM_REGNO2,1,1)='2'; --¿©¼ºÈ¸¿ø¸¸ÀÎ Á¶°Ç, ÁÖ¹Îµî·Ï¿¡¼­ µÞÀÚ¸® Ã¹¹øÂ° ±ÛÀÚ¸¸ ÃßÃâÇÑ´Ù.
-            --SUBSTR ¹®ÀÚ ÃßÃâ
+            WHERE SUBSTR(MEM_REGNO2,1,1)='2'; --ì—¬ì„±íšŒì›ë§Œì¸ ì¡°ê±´, ì£¼ë¯¼ë“±ë¡ì—ì„œ ë’·ìžë¦¬ ì²«ë²ˆì§¸ ê¸€ìžë§Œ ì¶”ì¶œí•œë‹¤.
+            --SUBSTR ë¬¸ìž ì¶”ì¶œ
             
             
-»ç¿ë¿¹) DUAL·Î 2636363*24242 °ªÀ» Ãâ·Â
-       SELECT 2636363*24242 FROM DUAL; --¿¬»ê(Áßº¹¹èÁ¦)
+ì‚¬ìš©ì˜ˆ) DUALë¡œ 2636363*24242 ê°’ì„ ì¶œë ¥
+       SELECT 2636363*24242 FROM DUAL; --ì—°ì‚°(ì¤‘ë³µë°°ì œ)
        
-       SELECT SYSDATE FROM DUAL; --¿À´Ã ³¯Â¥ Ãâ·Â
+       SELECT SYSDATE FROM DUAL; --ì˜¤ëŠ˜ ë‚ ì§œ ì¶œë ¥
        
-1)¿¬»êÀÚ
-- »ê¼ú¿¬»êÀÚ(+,-,/,*)
-- ºñ±³(°ü°è)¿¬»êÀÚ(>,<,=,>=,<=,!=(<>))
-- ³í¸®¿¬»êÀÚ(NOT, AND, OR)
--- NOT>AND>OR¼øÀ¸·Î ½ÇÇà
--- ´ÜÇ× ¿ì¼± Ãâ·Â, »ê¼ú > ºñ±³¿¬»êÀÚ
+1)ì—°ì‚°ìž
+- ì‚°ìˆ ì—°ì‚°ìž(+,-,/,*)
+- ë¹„êµ(ê´€ê³„)ì—°ì‚°ìž(>,<,=,>=,<=,!=(<>))
+- ë…¼ë¦¬ì—°ì‚°ìž(NOT, AND, OR)
+-- NOT>AND>ORìˆœìœ¼ë¡œ ì‹¤í–‰
+-- ë‹¨í•­ ìš°ì„  ì¶œë ¥, ì‚°ìˆ  > ë¹„êµì—°ì‚°ìž
 
-»ç¿ë¿¹) HR°èÁ¤ÀÇ »ç¿øÅ×ÀÌºí(EMPLOYEES)¿¡¼­ º¸³Ê½º¸¦ ±¸ÇÏ°í °¢ »ç¿øÀÇ ±Þ¿© Áö±Þ¾×À» ±¸ÇÏ½Ã¿À.
-        º¸³Ê½º = ±âº»±Þ(SALARY)*¿µ¾÷½ÇÀû(COMMISSIN_PCT)
-        Áö±Þ¾× = ±âº»±Þ+º¸³Ê½º
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ±âº»±Þ, º¸³Ê½º, Áö±Þ¾×ÀÌ´Ù.
+ì‚¬ìš©ì˜ˆ) HRê³„ì •ì˜ ì‚¬ì›í…Œì´ë¸”(EMPLOYEES)ì—ì„œ ë³´ë„ˆìŠ¤ë¥¼ êµ¬í•˜ê³  ê° ì‚¬ì›ì˜ ê¸‰ì—¬ ì§€ê¸‰ì•¡ì„ êµ¬í•˜ì‹œì˜¤.
+        ë³´ë„ˆìŠ¤ = ê¸°ë³¸ê¸‰(SALARY)*ì˜ì—…ì‹¤ì (COMMISSIN_PCT)
+        ì§€ê¸‰ì•¡ = ê¸°ë³¸ê¸‰+ë³´ë„ˆìŠ¤
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ê¸°ë³¸ê¸‰, ë³´ë„ˆìŠ¤, ì§€ê¸‰ì•¡ì´ë‹¤.
         
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               FIRST_NAME||''||LAST_NAME AS »ç¿ø¸í, 
-               SALARY AS ±âº»±Þ, 
-               COMMISSION_PCT AS ¿µ¾÷½ÇÀû,
-               NVL(SALARY * COMMISSION_PCT,0) AS º¸³Ê½º, 
-               SALARY + NVL(SALARY*COMMISSION_PCT,0) AS Áö±Þ¾× --NULL°ªÀ» 0À¸·Î ¹Ù²Þ
-        FROM HR.EMPLOYEES;  --´Ù¸¥ »ç¶÷ÀÇ ÀÚ·á¸¦ ¾²·Á¸é À¯Àú¸íÀ» ¹Ýµå½Ã ±âÀÔ .(dot)´Â ¼Ò¼Ó³ªÅ¸³¿
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               FIRST_NAME||''||LAST_NAME AS ì‚¬ì›ëª…, 
+               SALARY AS ê¸°ë³¸ê¸‰, 
+               COMMISSION_PCT AS ì˜ì—…ì‹¤ì ,
+               NVL(SALARY * COMMISSION_PCT,0) AS ë³´ë„ˆìŠ¤, 
+               SALARY + NVL(SALARY*COMMISSION_PCT,0) AS ì§€ê¸‰ì•¡ --NULLê°’ì„ 0ìœ¼ë¡œ ë°”ê¿ˆ
+        FROM HR.EMPLOYEES;  --ë‹¤ë¥¸ ì‚¬ëžŒì˜ ìžë£Œë¥¼ ì“°ë ¤ë©´ ìœ ì €ëª…ì„ ë°˜ë“œì‹œ ê¸°ìž… .(dot)ëŠ” ì†Œì†ë‚˜íƒ€ëƒ„
         
         
-»ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ ¸¶ÀÏ¸®Áö°¡ 3000 ÀÌ»óÀÎ È¸¿øÀ» Á¶È¸ÇÏ½Ã¿À
-       Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ¸¶ÀÏ¸®Áö, Á÷¾÷
+ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ë§ˆì¼ë¦¬ì§€ê°€ 3000 ì´ìƒì¸ íšŒì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
+       AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ë§ˆì¼ë¦¬ì§€, ì§ì—…
        
-       SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-              MEM_NAME AS È¸¿ø¸í, 
-              MEM_MILEAGE AS ¸¶ÀÏ¸®Áö, 
-              MEM_JOB AS Á÷¾÷
-         FROM MEMBER --³»°èÁ¤Àº À¯Àú¸í. »ý·«°¡´É
+       SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+              MEM_NAME AS íšŒì›ëª…, 
+              MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€, 
+              MEM_JOB AS ì§ì—…
+         FROM MEMBER --ë‚´ê³„ì •ì€ ìœ ì €ëª…. ìƒëžµê°€ëŠ¥
             WHERE MEM_MILEAGE >= 3000
-            ORDER BY 3 DESC; --SELECTÀÇ À§¿¡¼­ 3¹øÂ°ÀÎ MEM_MILEAGE AS ¸¶ÀÏ¸®Áö°¡ ³»¸²Â÷¼øÀ¸·Î Á¤·ÄµÈ´Ù.(ÄÃ·³ÀÌ ±â¼úµÇ¾îÁø ¼ø¹ø)
-        --ORDER BY MEM_MILEAGE DESC; µµ ¶È°°Àº ¶æ
+            ORDER BY 3 DESC; --SELECTì˜ ìœ„ì—ì„œ 3ë²ˆì§¸ì¸ MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€ê°€ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ëœë‹¤.(ì»¬ëŸ¼ì´ ê¸°ìˆ ë˜ì–´ì§„ ìˆœë²ˆ)
+        --ORDER BY MEM_MILEAGE DESC; ë„ ë˜‘ê°™ì€ ëœ»
         
         
         
         
-  »ç¿ë¿¹) È¸¿øÅ×ÀÌºí¿¡¼­ ¸¶ÀÏ¸®Áö°¡ 3000 ÀÌ»óÀÌ¸é¼­ °ÅÁÖÁö°¡ '´ëÀü'ÀÎ È¸¿øÀ» Á¶È¸ÇÏ½Ã¿À
-         Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, ¸¶ÀÏ¸®Áö, Á÷¾÷, ¼ºº°
-         ¼ºº°¶õ¿¡´Â '¿©¼ºÈ¸¿ø','³²¼ºÈ¸¿ø' Áß ÇÏ³ª¸¦ Ãâ·Â
+  ì‚¬ìš©ì˜ˆ) íšŒì›í…Œì´ë¸”ì—ì„œ ë§ˆì¼ë¦¬ì§€ê°€ 3000 ì´ìƒì´ë©´ì„œ ê±°ì£¼ì§€ê°€ 'ëŒ€ì „'ì¸ íšŒì›ì„ ì¡°íšŒí•˜ì‹œì˜¤
+         AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ë§ˆì¼ë¦¬ì§€, ì§ì—…, ì„±ë³„
+         ì„±ë³„ëž€ì—ëŠ” 'ì—¬ì„±íšŒì›','ë‚¨ì„±íšŒì›' ì¤‘ í•˜ë‚˜ë¥¼ ì¶œë ¥
          
-         SELECT MEM_ID AS È¸¿ø¹øÈ£, 
-                MEM_NAME AS È¸¿ø¸í, 
-                MEM_MILEAGE AS ¸¶ÀÏ¸®Áö, 
-                MEM_JOB AS Á÷¾÷, 
-                --MEM_JOB AS Á÷ ¾÷
-                --°ø¹éÀÌ µé¾î°¡°Ô µÇ¸é SELECTÀýÀÌ ³¡³­°ÍÀ¸·Î °£ÁÖ. ¿À·ù¸Þ¼¼Áö "FROM keyword not found where expected"
-                --¿À¶óÅ¬Àº °ø¹éÀÌ ³¡À» ¶æÇÔ.
+         SELECT MEM_ID AS íšŒì›ë²ˆí˜¸, 
+                MEM_NAME AS íšŒì›ëª…, 
+                MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€, 
+                MEM_JOB AS ì§ì—…, 
+                --MEM_JOB AS ì§ ì—…
+                --ê³µë°±ì´ ë“¤ì–´ê°€ê²Œ ë˜ë©´ SELECTì ˆì´ ëë‚œê²ƒìœ¼ë¡œ ê°„ì£¼. ì˜¤ë¥˜ë©”ì„¸ì§€ "FROM keyword not found where expected"
+                --ì˜¤ë¼í´ì€ ê³µë°±ì´ ëì„ ëœ»í•¨.
                 CASE WHEN SUBSTR(MEM_REGNO2,1,1)='1' THEN 
-                          '³²¼ºÈ¸¿ø' 
+                          'ë‚¨ì„±íšŒì›' 
                           ELSE 
-                          '¿©¼ºÈ¸¿ø' 
-                          END  AS ¼ºº° 
+                          'ì—¬ì„±íšŒì›' 
+                          END  AS ì„±ë³„ 
             FROM MEMBER
            WHERE MEM_MILEAGE >= 3000
-             AND MEM_ADD1 LIKE '´ëÀü%'; -- % ¿ÍÀÏµåÄ«µå
+             AND MEM_ADD1 LIKE 'ëŒ€ì „%'; -- % ì™€ì¼ë“œì¹´ë“œ
              
              
-»ç¿ë¿¹) ³âµµ¸¦ ÀÔ·Â¹Þ¾Æ À±³â°ú Æò³âÀ» ±¸º°ÇÏ½Ã¿À
-        ACCEPT P_YEAR PROMPT '³âµµÀÔ·Â:'
+ì‚¬ìš©ì˜ˆ) ë…„ë„ë¥¼ ìž…ë ¥ë°›ì•„ ìœ¤ë…„ê³¼ í‰ë…„ì„ êµ¬ë³„í•˜ì‹œì˜¤
+        ACCEPT P_YEAR PROMPT 'ë…„ë„ìž…ë ¥:'
         DECLARE
          V_YEAR NUMBER := TO_NUMBER('&P_YEAR');
          V_RES VARCHAR2(100);
         BEGIN
          IF (MOD(V_YEAR,4)=0 AND MOD(V_YEAR,100)!=0)OR
             (MOD(V_YEAR,400)=0) THEN
-            V_RES:=V_YEAR||'³âµµ´Â À±³âÀÔ´Ï´Ù.';
+            V_RES:=V_YEAR||'ë…„ë„ëŠ” ìœ¤ë…„ìž…ë‹ˆë‹¤.';
             ELSE
-            V_RES:=V_YEAR||'³âµµ´Â Æò³âÀÔ´Ï´Ù.';
+            V_RES:=V_YEAR||'ë…„ë„ëŠ” í‰ë…„ìž…ë‹ˆë‹¤.';
             END IF;
             DBMS_OUTPUT.PUT_LINE(V_RES);
         END;
         
-2)±âÅ¸¿¬»êÀÚ
-- ¹üÀ§ÁöÁ¤ÀÌ³ª º¹¼ö°³ÀÇ Ç¥Çö½ÄÀ» ÁöÁ¤ÇÒ¶§ µîÀ» Ç¥Çö
-- IN, ANY, SOME, ALL, BETWEEN, LIKE, EXISTS µîÀÌ Á¦°ø
-(1) IN ¿¬»çÀÚ --(OR¿Í ºñ½ÁÇÔ)
-. ÁúÀÇ Å½»öÀ» À§ÇØ »ç¿ëµÉ µÑ ÀÌ»óÀÇ Ç¥Çö½ÄÀ» ÁöÁ¤
-. Á¦½ÃµÈ º¹¼ö°³ÀÇ ÀÚ·á Áß ¾î´ÀÇÏ³ª¿Í ÀÏÄ¡ÇÏ¸é ÀüÃ¼ °á°ú°¡ ÂüÀ» ¹ÝÈ¯
-  ÀüÃ¼ °á°ú°¡ ÂüÀ» ¹ÝÈ¯
-(»ç¿ëÇü½Ä)
-  ÄÃ·³¸í IN (°ª1[, °ª2,...]) -- IN ¾È¿¡ =(°ü°è¿¬»êÀÚ)°¡ Æ÷ÇÔµÇ¾î ÀÖ±â ¶§¹®¿¡ ºñ±³¿¬»êÀÚ »ç¿ëºÒ°¡
-  - 'ÄÃ·³¸í'¿¡ ÀúÀåµÈ °ªÀÌ '°ª1[, °ª2,...]'Áß ¾î´ÀÇÏ³ª¿Í ÀÏÄ¡ÇÏ¸é °á°ú°¡ Âü(true)À» ¹ÝÈ¯
-  - =ANY, =SOME À¸·Î ¹Ù²Ù¾î »ç¿ë °¡´ÉÇÔ
-  - ¿¬¼ÓµÈ °ªÀº BETWEENÀ¸·Î, ºÒ¿¬¼ÓÀûÀÎ °ªÀÇ ºñ±³´Â INÀ¸·Î ¼öÇà
-  - OR¿¬»êÀÚ·Î Ä¡È¯ °¡´É
+2)ê¸°íƒ€ì—°ì‚°ìž
+- ë²”ìœ„ì§€ì •ì´ë‚˜ ë³µìˆ˜ê°œì˜ í‘œí˜„ì‹ì„ ì§€ì •í• ë•Œ ë“±ì„ í‘œí˜„
+- IN, ANY, SOME, ALL, BETWEEN, LIKE, EXISTS ë“±ì´ ì œê³µ
+(1) IN ì—°ì‚¬ìž --(ORì™€ ë¹„ìŠ·í•¨)
+. ì§ˆì˜ íƒìƒ‰ì„ ìœ„í•´ ì‚¬ìš©ë  ë‘˜ ì´ìƒì˜ í‘œí˜„ì‹ì„ ì§€ì •
+. ì œì‹œëœ ë³µìˆ˜ê°œì˜ ìžë£Œ ì¤‘ ì–´ëŠí•˜ë‚˜ì™€ ì¼ì¹˜í•˜ë©´ ì „ì²´ ê²°ê³¼ê°€ ì°¸ì„ ë°˜í™˜
+  ì „ì²´ ê²°ê³¼ê°€ ì°¸ì„ ë°˜í™˜
+(ì‚¬ìš©í˜•ì‹)
+  ì»¬ëŸ¼ëª… IN (ê°’1[, ê°’2,...]) -- IN ì•ˆì— =(ê´€ê³„ì—°ì‚°ìž)ê°€ í¬í•¨ë˜ì–´ ìžˆê¸° ë•Œë¬¸ì— ë¹„êµì—°ì‚°ìž ì‚¬ìš©ë¶ˆê°€
+  - 'ì»¬ëŸ¼ëª…'ì— ì €ìž¥ëœ ê°’ì´ 'ê°’1[, ê°’2,...]'ì¤‘ ì–´ëŠí•˜ë‚˜ì™€ ì¼ì¹˜í•˜ë©´ ê²°ê³¼ê°€ ì°¸(true)ì„ ë°˜í™˜
+  - =ANY, =SOME ìœ¼ë¡œ ë°”ê¾¸ì–´ ì‚¬ìš© ê°€ëŠ¥í•¨
+  - ì—°ì†ëœ ê°’ì€ BETWEENìœ¼ë¡œ, ë¶ˆì—°ì†ì ì¸ ê°’ì˜ ë¹„êµëŠ” INìœ¼ë¡œ ìˆ˜í–‰
+  - ORì—°ì‚°ìžë¡œ ì¹˜í™˜ ê°€ëŠ¥
   
   
-  »ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ºÎ¼­¹øÈ£ 20, 50, 90, 110¿¡ ¼ÓÇÏ´Â »ç¿øÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¹øÈ£, ±Þ¿©
+  ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ë¶€ì„œë²ˆí˜¸ 20, 50, 90, 110ì— ì†í•˜ëŠ” ì‚¬ì›ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œë²ˆí˜¸, ê¸‰ì—¬
         
-        --OR¿¬»êÀÇ °æ¿ì
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               FIRST_NAME||''||LAST_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­¹øÈ£, 
-               SALARY AS ±Þ¿©
+        --ORì—°ì‚°ì˜ ê²½ìš°
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               FIRST_NAME||''||LAST_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œë²ˆí˜¸, 
+               SALARY AS ê¸‰ì—¬
         FROM HR.EMPLOYEES
         WHERE DEPARTMENT_ID=20
            OR DEPARTMENT_ID=50
@@ -175,53 +175,53 @@ SELECT * |[DISTINCT]ÄÃ·³¸í [AS ÄÃ·³º°Äª][,] --¸¶Áö¸· ½ÇÇà(AS»ç¿ë½Ã ÁÖÀÇ) / DISTI
            OR DEPARTMENT_ID=110;
            
            
-        --IN¿¬»êÀÇ °æ¿ì
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               FIRST_NAME||''||LAST_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­¹øÈ£, 
-               SALARY AS ±Þ¿©
+        --INì—°ì‚°ì˜ ê²½ìš°
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               FIRST_NAME||''||LAST_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œë²ˆí˜¸, 
+               SALARY AS ê¸‰ì—¬
         FROM HR.EMPLOYEES
         WHERE DEPARTMENT_ID IN(20,50,90,110)
         ORDER BY 3;
             
 
-(2)ANY(SOME)¿¬»êÀÚ
-. IN¿¬»êÀÚ¿Í À¯»çÇÑ ±â´ÉÁ¦°ø
-. ÁÖ¾îÁøµ¥ÀÌÅÍ Áß ¾î´À ÇÏ³ªÀÇ °ª°ú ANY(SOME)¾Õ¿¡
-  ±â¼úµÈ °ü°è¿¬»êÀÚ¸¦ ¸¸Á·ÇÏ¸é Âü(TRUE)ÀÎ °á°ú¸¦ ¹ÝÈ¯
+(2)ANY(SOME)ì—°ì‚°ìž
+. INì—°ì‚°ìžì™€ ìœ ì‚¬í•œ ê¸°ëŠ¥ì œê³µ
+. ì£¼ì–´ì§„ë°ì´í„° ì¤‘ ì–´ëŠ í•˜ë‚˜ì˜ ê°’ê³¼ ANY(SOME)ì•žì—
+  ê¸°ìˆ ëœ ê´€ê³„ì—°ì‚°ìžë¥¼ ë§Œì¡±í•˜ë©´ ì°¸(TRUE)ì¸ ê²°ê³¼ë¥¼ ë°˜í™˜
 
-(»ç¿ëÇü½Ä)
-    ÄÃ·³¸í °ü°è¿¬»êÀÚANY|SOME(°ª1[,°ª2,...]) -- °ü°è¿¬»êÀÚANY »çÀÌ¿¡ °ø¹éÀÌ ¿À¸é ¾ÈµÊ. = ANY ->X 
+(ì‚¬ìš©í˜•ì‹)
+    ì»¬ëŸ¼ëª… ê´€ê³„ì—°ì‚°ìžANY|SOME(ê°’1[,ê°’2,...]) -- ê´€ê³„ì—°ì‚°ìžANY ì‚¬ì´ì— ê³µë°±ì´ ì˜¤ë©´ ì•ˆë¨. = ANY ->X 
 
 
-»ç¿ë¿¹) »ç¿øÅ×ÀÌºí¿¡¼­ ºÎ¼­¹øÈ£ 20, 50, 90, 110¿¡ ¼ÓÇÏ´Â »ç¿øÁ¤º¸¸¦ Á¶È¸ÇÏ½Ã¿À.
-        Alias´Â »ç¿ø¹øÈ£, »ç¿ø¸í, ºÎ¼­¹øÈ£, ±Þ¿© 
+ì‚¬ìš©ì˜ˆ) ì‚¬ì›í…Œì´ë¸”ì—ì„œ ë¶€ì„œë²ˆí˜¸ 20, 50, 90, 110ì— ì†í•˜ëŠ” ì‚¬ì›ì •ë³´ë¥¼ ì¡°íšŒí•˜ì‹œì˜¤.
+        AliasëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ëª…, ë¶€ì„œë²ˆí˜¸, ê¸‰ì—¬ 
         
-        --ANY¿¬»êÀÇ °æ¿ì(IN°ú À¯»çÇÑ °á°ú Ãâ·Â)
-        SELECT EMPLOYEE_ID AS »ç¿ø¹øÈ£, 
-               FIRST_NAME||''||LAST_NAME AS »ç¿ø¸í, 
-               DEPARTMENT_ID AS ºÎ¼­¹øÈ£, 
-               SALARY AS ±Þ¿©
+        --ANYì—°ì‚°ì˜ ê²½ìš°(INê³¼ ìœ ì‚¬í•œ ê²°ê³¼ ì¶œë ¥)
+        SELECT EMPLOYEE_ID AS ì‚¬ì›ë²ˆí˜¸, 
+               FIRST_NAME||''||LAST_NAME AS ì‚¬ì›ëª…, 
+               DEPARTMENT_ID AS ë¶€ì„œë²ˆí˜¸, 
+               SALARY AS ê¸‰ì—¬
         FROM HR.EMPLOYEES
         WHERE DEPARTMENT_ID =ANY(20,50,90,110)
         ORDER BY 3;
          
 
 
-»ç¿ë¿¹)È¸¿øÅ×ÀÌºí¿¡¼­ Á÷¾÷ÀÌ °ø¹«¿øÀÎ È¸¿øµéÀÌ º¸À¯ÇÑ ¸¶ÀÏ¸®Áöº¸´Ù ¸¹Àº ¸¶ÀÏ¸®Áö¸¦ º¸À¯ÇÑ È¸¿øµéÀ» Á¶È¸ÇÏ½Ã¿À
-    Alias´Â È¸¿ø¹øÈ£, È¸¿ø¸í, Á÷¾÷, ¸¶ÀÏ¸®Áö
+ì‚¬ìš©ì˜ˆ)íšŒì›í…Œì´ë¸”ì—ì„œ ì§ì—…ì´ ê³µë¬´ì›ì¸ íšŒì›ë“¤ì´ ë³´ìœ í•œ ë§ˆì¼ë¦¬ì§€ë³´ë‹¤ ë§Žì€ ë§ˆì¼ë¦¬ì§€ë¥¼ ë³´ìœ í•œ íšŒì›ë“¤ì„ ì¡°íšŒí•˜ì‹œì˜¤
+    AliasëŠ” íšŒì›ë²ˆí˜¸, íšŒì›ëª…, ì§ì—…, ë§ˆì¼ë¦¬ì§€
     
-    SELECT MEM_ID AS È¸¿ø¹øÈ£,
-           MEM_NAME AS È¸¿ø¸í,
-           MEM_JOB AS Á÷¾÷,
-           MEM_MILEAGE AS ¸¶ÀÏ¸®Áö
+    SELECT MEM_ID AS íšŒì›ë²ˆí˜¸,
+           MEM_NAME AS íšŒì›ëª…,
+           MEM_JOB AS ì§ì—…,
+           MEM_MILEAGE AS ë§ˆì¼ë¦¬ì§€
         FROM MEMBER
       WHERE MEM_MILEAGE >ANY(SELECT MEM_MILEAGE
                                 FROM MEMBER
-                                WHERE MEM_JOB='°ø¹«¿ø');
-                                -- >=´Â µ¥ÀÌÅÍ°ª 1:4 ·Î ºñ±³ºÒ°¡
-                                -- ±×·¡¼­ ÀÌ¶§¾²´Â°ÍÀÌ ANY¿Í SOMEÀÓ
-                                -- ¼­ºêÄõ¸®ºÎÅÍ ¸ÕÀú ½ÇÇàµÊ
+                                WHERE MEM_JOB='ê³µë¬´ì›');
+                                -- >=ëŠ” ë°ì´í„°ê°’ 1:4 ë¡œ ë¹„êµë¶ˆê°€
+                                -- ê·¸ëž˜ì„œ ì´ë•Œì“°ëŠ”ê²ƒì´ ANYì™€ SOMEìž„
+                                -- ì„œë¸Œì¿¼ë¦¬ë¶€í„° ë¨¼ì € ì‹¤í–‰ë¨
          
             
         
