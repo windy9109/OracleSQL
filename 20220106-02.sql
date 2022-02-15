@@ -1,47 +1,47 @@
-2022-0106-02)³¯Â¥ ÀÚ·áÇü
-- ³â, ¿ù, ÀÏ, ½Ã, ºÐ, ÃÊµîÀÇ ÀÚ·á¸¦ ÀúÀå
-- ³¯Â¥ÇüÀº '+', '-'¿¬»êÀÌ °¡´É
-- ±âº» ³¯Â¥Çü: DATE, ½Ã°£´ëÁ¤º¸¸¦ Æ÷ÇÔÇÏ´Â TIMESTAMPÇüÀÌ Á¦°ø
-1) DATA
-. ±âº»³¯Â¥ Å¸ÀÔ
-. SYSDATE: ³¯Â¥ÇÔ¼ö·Î ½Ã½ºÅÛÀÇ ½Ã°¢Á¤º¸¸¦ Á¦°ø
+2022-0106-02)ë‚ ì§œ ìžë£Œí˜•
+- ë…„, ì›”, ì¼, ì‹œ, ë¶„, ì´ˆë“±ì˜ ìžë£Œë¥¼ ì €ìž¥
+- ë‚ ì§œí˜•ì€ '+', '-'ì—°ì‚°ì´ ê°€ëŠ¥
+- ê¸°ë³¸ ë‚ ì§œí˜•: DATE, ì‹œê°„ëŒ€ì •ë³´ë¥¼ í¬í•¨í•˜ëŠ” TIMESTAMPí˜•ì´ ì œê³µ
+1) DATA 
+. ê¸°ë³¸ë‚ ì§œ íƒ€ìž…
+. SYSDATE: ë‚ ì§œí•¨ìˆ˜ë¡œ ì‹œìŠ¤í…œì˜ ì‹œê°ì •ë³´ë¥¼ ì œê³µ
 
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
 CREATE TABLE TEMP_05(
     COL1 DATE,
     COL2 DATE,
     COL3 DATE);
     
-    --À¯È¿¼º°Ë»ç
-    INSERT INTO TEMP_05 --ÀúÀå
+    --ìœ íš¨ì„±ê²€ì‚¬
+    INSERT INTO TEMP_05 --ì €ìž¥
      VALUES(SYSDATE, SYSDATE-5, '20100106');
      
-    INSERT INTO TEMP_05 --ÀúÀå¾ÈµÊ/
-     VALUES(SYSDATE, SYSDATE-30, '20100230'); -- Á¸ÀçÇÏÁö ¾Ê´Â ³¯Â¥
+    INSERT INTO TEMP_05 --ì €ìž¥ì•ˆë¨/
+     VALUES(SYSDATE, SYSDATE-30, '20100230'); -- ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë‚ ì§œ
      
-    INSERT INTO TEMP_05 --ÀúÀå¾ÈµÊ/
-     VALUES(SYSDATE, SYSDATE-30, '20100229'); -- Á¸ÀçÇÏÁö ¾Ê´Â ³¯Â¥/À±³âÀÌ ¾Æ´Ô
+    INSERT INTO TEMP_05 --ì €ìž¥ì•ˆë¨/
+     VALUES(SYSDATE, SYSDATE-30, '20100229'); -- ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë‚ ì§œ/ìœ¤ë…„ì´ ì•„ë‹˜
      
      
      SELECT * FROM TEMP_05;
      
-     (½Ã°¢Á¤º¸Ãâ·Â: TO_CHAR())
+     (ì‹œê°ì •ë³´ì¶œë ¥: TO_CHAR())
      SELECT TO_CHAR(COL1,'YYYY-MM-DD HH24:MI:SS'),
             TO_CHAR(COL2,'YYYY-MM-DD HH24:MI:SS'),
             TO_CHAR(COL3,'YYYY-MM-DD HH24:MI:SS')
      FROM TEMP_05;
      
      
-1) TIMESTAMP --Á¤±³ÇÑ ÀÛ¾÷ÀÌ ÇÊ¿äÇÑ°æ¿ì°¡ ¾Æ´Ï¸é DATA¸¦ »ç¿ëÇÑ´Ù.
- . Á¤±³ÇÑ ³¯Â¥Á¤º¸(½Ã°£´ë Á¤º¸, 10¾ïºÐÀÇ 1ÃÊ)Á¦°ø
- . TIMESTAMP: ½Ã°£´ë
-   TIMESTAMP WITH TIME ZONE: ½Ã°£´ëÁ¤º¸ Æ÷ÇÔ --½Ã°£´ë Á¤º¸¸¦ ´Ù·ê°æ¿ì »ç¿ë
-   TIMESTAMP WITH LOCAL TIME ZONE: ·ÎÄÃ¼­¹ö°¡ À§Ä¡ÇÑ ½Ã°£´ëÁ¤º¸ => TIMESTAMP¿Í µ¿ÀÏ
+1) TIMESTAMP --ì •êµí•œ ìž‘ì—…ì´ í•„ìš”í•œê²½ìš°ê°€ ì•„ë‹ˆë©´ DATAë¥¼ ì‚¬ìš©í•œë‹¤.
+ . ì •êµí•œ ë‚ ì§œì •ë³´(ì‹œê°„ëŒ€ ì •ë³´, 10ì–µë¶„ì˜ 1ì´ˆ)ì œê³µ
+ . TIMESTAMP: ì‹œê°„ëŒ€
+   TIMESTAMP WITH TIME ZONE: ì‹œê°„ëŒ€ì •ë³´ í¬í•¨ --ì‹œê°„ëŒ€ ì •ë³´ë¥¼ ë‹¤ë£°ê²½ìš° ì‚¬ìš©
+   TIMESTAMP WITH LOCAL TIME ZONE: ë¡œì»¬ì„œë²„ê°€ ìœ„ì¹˜í•œ ì‹œê°„ëŒ€ì •ë³´ => TIMESTAMPì™€ ë™ì¼
    
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
     CREATE TABLE TEMP_06(
         COL1 TIMESTAMP,
-        COL2 TIMESTAMP WITH TIME ZONE, --¼­¿ï±âÁØ
+        COL2 TIMESTAMP WITH TIME ZONE, --ì„œìš¸ê¸°ì¤€
         COL3 TIMESTAMP WITH LOCAL TIME ZONE);
         
     INSERT INTO TEMP_06 VALUES(SYSDATE,SYSDATE,SYSDATE);
