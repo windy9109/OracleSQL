@@ -1,14 +1,14 @@
 2022-0107-01)
-3. DELETE¹®
-  - Å×ÀÌºí³»ÀÇ ÀÚ·á¸¦ »èÁ¦ÇÒ¶§ »ç¿ë
-  - ROLLBACK ÀÇ ´ë»ó
+3. DELETEë¬¸
+  - í…Œì´ë¸”ë‚´ì˜ ìžë£Œë¥¼ ì‚­ì œí• ë•Œ ì‚¬ìš©
+  - ROLLBACK ì˜ ëŒ€ìƒ
+ 
+(ì‚¬ìš©í˜•ì‹)
+DELETE FROM í…Œì´ë¸”ëª…
+[WHERE ì¡°ê±´];
+. WHERE ì ˆì´ ìƒëžµë˜ë©´ ëª¨ë“  ìžë£Œë¥¼ ì‚­ì œ
 
-(»ç¿ëÇü½Ä)
-DELETE FROM Å×ÀÌºí¸í
-[WHERE Á¶°Ç];
-. WHERE ÀýÀÌ »ý·«µÇ¸é ¸ðµç ÀÚ·á¸¦ »èÁ¦
-
-»ç¿ë¿¹) Å×ÀÌºí GOODSÀÇ ¸ðµç ÀÚ·á¸¦ »èÁ¦
+ì‚¬ìš©ì˜ˆ) í…Œì´ë¸” GOODSì˜ ëª¨ë“  ìžë£Œë¥¼ ì‚­ì œ
 DELETE FROM GOODS;
 
 COMMIT;
@@ -20,9 +20,9 @@ SELECT FROM GOODS;
 
 
 
-»ç¿ë¿¹)Å×ÀÌºí GOODSÀÇ ÀÚ·áÁß »óÇ°ÄÚµå°¡ 'P101'º¸´Ù Å« ÀÚ·á¸¦ »èÁ¦ÇÏ½Ã¿À.
+ì‚¬ìš©ì˜ˆ)í…Œì´ë¸” GOODSì˜ ìžë£Œì¤‘ ìƒí’ˆì½”ë“œê°€ 'P101'ë³´ë‹¤ í° ìžë£Œë¥¼ ì‚­ì œí•˜ì‹œì˜¤.
 DELETE FROM GOODS
-    WHERE GOOD_ID>='P102'; -- Á¶°ÇÀÇ ¿ÞÂÊºÎÅÍ ºñ±³ÇÏ¿© Ã³¸®
+    WHERE GOOD_ID>='P102'; -- ì¡°ê±´ì˜ ì™¼ìª½ë¶€í„° ë¹„êµí•˜ì—¬ ì²˜ë¦¬
 
 SELECT * FROM GOODS;
 
