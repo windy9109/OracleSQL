@@ -1,18 +1,18 @@
-2022-0104-01)евюл╨М ╩Щ╪╨
-CREATE TABLE ╦М╥ию╦╥н ╩Щ╪╨
-(г╔гЖгЭ╫д)
-CREATE TABLE евюл╨М╦М(
-    дц╥Ё╦М ╣╔юлеме╦ют[(е╘╠Б)][NOT NULL][DEFAULT ╟╙][,]
+2022-0104-01)М┘▄Л²╢К╦■ Л┐²Л└╠
+CREATE TABLE К╙┘К═╧Л°╪К║° Л┐²Л└╠ 
+(М▒°М≤└М≤∙Л▀²)
+CREATE TABLE М┘▄Л²╢К╦■К╙┘(
+    Л╩╛К÷╪К╙┘ К█╟Л²╢М└╟М┐─Л·┘[(М│╛Й╦╟)][NOT NULL][DEFAULT Й╟▓][,]
                         :
-    дц╥Ё╦М евюлеме╦ют[(е╘╠Б)][NOT NULL][DEFAULT ╟╙][,]
-    [CONSTRAINT ╠Б╨╩е╟ юн╣╕╫╨ PRIMARY KEY (дц╥Ё╦М,[, дц╥Ё╦М,...])[,]]
-    [CONSTRAINT ©э╥║е╟ юн╣╕╫╨ FOREIGN KEY (дц╥Ё╦М)
-        REFERENCES евюл╨М╦М(дц╥Ё╦М)[,]]
-    [CONSTRAINT ©э╥║е╟ юн╣╕╫╨ FOREIGN KEY (дц╥Ё╦М)
-        REFERENCES евюл╨М╦М(дц╥Ё╦М)];
+    Л╩╛К÷╪К╙┘ М┘▄Л²╢М└╟М┐─Л·┘[(М│╛Й╦╟)][NOT NULL][DEFAULT Й╟▓][,]
+    [CONSTRAINT Й╦╟КЁ╦М┌╓ Л²╦К█╠Л┼╓ PRIMARY KEY (Л╩╛К÷╪К╙┘,[, Л╩╛К÷╪К╙┘,...])[,]]
+    [CONSTRAINT Л≥╦К·≤М┌╓ Л²╦К█╠Л┼╓ FOREIGN KEY (Л╩╛К÷╪К╙┘)
+        REFERENCES М┘▄Л²╢К╦■К╙┘(Л╩╛К÷╪К╙┘)[,]]
+    [CONSTRAINT Л≥╦К·≤М┌╓ Л²╦К█╠Л┼╓ FOREIGN KEY (Л╩╛К÷╪К╙┘)
+        REFERENCES М┘▄Л²╢К╦■К╙┘(Л╩╛К÷╪К╙┘)];
         
         
-╩Г©К©╧)
+Л┌╛Л ╘Л≤┬)
     CREATE TABLE GOODS(
         GOOD_ID CHAR(4) NOT NULL,
         GOOD_NAME VARCHAR2(30),
@@ -27,9 +27,9 @@ CREATE TABLE евюл╨М╦М(
         CONSTRAINT pk_customers PRIMARY KEY(CUST_ID));
         
     CREATE TABLE ORDERS(
-        ORDER_ID CHAR(12), --╠Б╨╩е╟
+        ORDER_ID CHAR(12), --Й╦╟КЁ╦М┌╓
         ORDER_DATE DATE DEFAULT SYSDATE,
-        CUST_ID CHAR(3), --©э╥║е╟
+        CUST_ID CHAR(3), --Л≥╦К·≤М┌╓
         CONSTRAINT pk_oders PRIMARY KEY(ORDER_ID),
         CONSTRAINT fk_orders_cust FOREIGN KEY(CUST_ID)
             REFERENCES CUSTOMERSP(CUST_ID));
