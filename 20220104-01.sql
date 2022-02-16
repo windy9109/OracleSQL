@@ -1,27 +1,27 @@
-2022-0104-01)»ç¿ëÀÚ »ý¼º
-CREATE USER - »ç¿ëÀÚ»ý¼º
-GRANT - ±ÇÇÑºÎ¿©
+2022-0104-01)ì‚¬ìš©ìž ìƒì„±
+CREATE USER - ì‚¬ìš©ìžìƒì„± 
+GRANT - ê¶Œí•œë¶€ì—¬
 
-1) »ç¿ëÀÚ »ý¼º
-CREATE USER À¯Àú¸í IDENTIFIED BY ¾ÏÈ£;
-À¯Àú¸í Ã¹±ÛÀÚ´Â ¹«Á¶°Ç ¿µ¾î
-µÎ¹øÂ°ºÎÅÍ ¼ýÀÚ°¡´É
-´ë¼Ò¹®ÀÚ ±¸ºÐ X
-Æ¯¼ö¹®ÀÚ´Â µÎ°³ »ç¿ë°¡´É _,$
-ÇÏÁö¸¸ _¸¸ »ç¿ëÇÏ±â
+1) ì‚¬ìš©ìž ìƒì„±
+CREATE USER ìœ ì €ëª… IDENTIFIED BY ì•”í˜¸;
+ìœ ì €ëª… ì²«ê¸€ìžëŠ” ë¬´ì¡°ê±´ ì˜ì–´
+ë‘ë²ˆì§¸ë¶€í„° ìˆ«ìžê°€ëŠ¥
+ëŒ€ì†Œë¬¸ìž êµ¬ë¶„ X
+íŠ¹ìˆ˜ë¬¸ìžëŠ” ë‘ê°œ ì‚¬ìš©ê°€ëŠ¥ _,$
+í•˜ì§€ë§Œ _ë§Œ ì‚¬ìš©í•˜ê¸°
 
-~ Æ¿µå > 1ÀÇ º¸¼ö¸¦ ±¸ÇÏ´Â ¿¬»êÀÚ
-@ ÀüÄ¡»ç AT
-& ¿£ÆÛ¼¾µå(¿£µå¿¬»êÀÚ)
-* ¾Æ½ºÆ®¸¯½º(¿À¶óÅ¬¿¡¼­´Â ALLÀÇ ÀÇ¹Ì > ¸ðµçÀÇ ÀÇ¹Ì, °ö¿¬»êÀÚ)
+~ í‹¸ë“œ > 1ì˜ ë³´ìˆ˜ë¥¼ êµ¬í•˜ëŠ” ì—°ì‚°ìž
+@ ì „ì¹˜ì‚¬ AT
+& ì—”í¼ì„¼ë“œ(ì—”ë“œì—°ì‚°ìž)
+* ì•„ìŠ¤íŠ¸ë¦­ìŠ¤(ì˜¤ë¼í´ì—ì„œëŠ” ALLì˜ ì˜ë¯¸ > ëª¨ë“ ì˜ ì˜ë¯¸, ê³±ì—°ì‚°ìž)
 
-½ºÅ©¸³Æ®½ÇÇà½Ã: ctrl+enter
+ìŠ¤í¬ë¦½íŠ¸ì‹¤í–‰ì‹œ: ctrl+enter
 
     CREATE USER LSG9 IDENTIFIED BY java;
     
-2)±ÇÇÑºÎ¿©
-GRANT ±ÇÇÑ¸í1[, ±ÇÇÑ¸í2,.....] TO À¯Àú¸í;
-[] ´ë°ýÈ£´Â »ý·«°¡´ÉÇÏ´Ù´Â ¶æ
+2)ê¶Œí•œë¶€ì—¬
+GRANT ê¶Œí•œëª…1[, ê¶Œí•œëª…2,.....] TO ìœ ì €ëª…;
+[] ëŒ€ê´„í˜¸ëŠ” ìƒëžµê°€ëŠ¥í•˜ë‹¤ëŠ” ëœ»
 
 GRANT CONNECT, RESOURCE, DBA TO LSG9;
     
