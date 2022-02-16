@@ -1,58 +1,58 @@
-2022-0105-02)µ¥ÀÌÅÍÅ¸ÀÔ
-- ¿À¶óÅ¬¿¡ »ç¿ëµÇ´Â µ¥ÀÌÅÍ Å¸ÀÔÀº ¹®ÀÚ¿­, ¼ýÀÚ, ³¯Â¥, ÀÌÁøÀÚ·á µîÀÌ Á¦°ø
-¡Ø¹®ÀÚ¿­Àº ¹Ýµå½Ã '¹®ÀÚ¿­'°ú °°ÀÌ ½áÁØ´Ù
-¡ØSQL¿¡¼­ ¼ýÀÚ´Â NUMBER µ¥ÀÌÅÍ Å¸ÀÔ¸¸ »ç¿ë
+2022-0105-02)ë°ì´í„°íƒ€ìž…
+- ì˜¤ë¼í´ì— ì‚¬ìš©ë˜ëŠ” ë°ì´í„° íƒ€ìž…ì€ ë¬¸ìžì—´, ìˆ«ìž, ë‚ ì§œ, ì´ì§„ìžë£Œ ë“±ì´ ì œê³µ
+â€»ë¬¸ìžì—´ì€ ë°˜ë“œì‹œ 'ë¬¸ìžì—´'ê³¼ ê°™ì´ ì¨ì¤€ë‹¤
+â€»SQLì—ì„œ ìˆ«ìžëŠ” NUMBER ë°ì´í„° íƒ€ìž…ë§Œ ì‚¬ìš© 
 
-1. ¹®ÀÚ¿­ÀÚ·á
-  .¹®ÀÚÀÚ·á(''·Î ¹­ÀÎ ÀÚ·á)¸¦ ÀúÀÚÇÏ±â À§ÇÑ Å¸ÀÔ -> µû¿ÈÇ¥ ¹Û¿¡¼­´Â ´ë¼Ò¹®ÀÚ ±¸ºÐ ¾ÈÇÔ
-  .°¡º¯±æÀÌ(CHARÁ¦¿ÜÇÑ ¸ðµÎ)¿Í °íÁ¤±æÀÌ(CHAR)·Î ±¸ºÐ -> °¡º¯±æÀÌ ¹®ÀÚ¿­ÀÌ ³²À¸¸é SYSTEM¿¡ ¹Ý³³ÇÑ´Ù.
+1. ë¬¸ìžì—´ìžë£Œ
+  .ë¬¸ìžìžë£Œ(''ë¡œ ë¬¶ì¸ ìžë£Œ)ë¥¼ ì €ìží•˜ê¸° ìœ„í•œ íƒ€ìž… -> ë”°ì˜´í‘œ ë°–ì—ì„œëŠ” ëŒ€ì†Œë¬¸ìž êµ¬ë¶„ ì•ˆí•¨
+  .ê°€ë³€ê¸¸ì´(CHARì œì™¸í•œ ëª¨ë‘)ì™€ ê³ ì •ê¸¸ì´(CHAR)ë¡œ êµ¬ë¶„ -> ê°€ë³€ê¸¸ì´ ë¬¸ìžì—´ì´ ë‚¨ìœ¼ë©´ SYSTEMì— ë°˜ë‚©í•œë‹¤.
   1)CHAE(n[BYTE|CHAR])
-    .°íÁ¤±æÀÌ µ¥ÀÌÅÍ ÀúÀå
-    .ÃÖ´ë 2000BYTE ÀúÀå
-    .'n[BYTE|CHAR]' : È®º¸ÇÏ´Â ÀúÀå°ø°£ÀÇ Å©±â ÁöÁ¤
-    .'BYTE'°¡ defaultÀÌ¸ç 'CHAR'Àº nÀÌ ¹®ÀÚ °¹¼ö¸¦ ÀÇ¹Ì
-    .ÇÑ±Û ÇÑ±ÛÀÚ´Â 3byteÀÓ -> µû¶ó¼­ ÇÑ±ÛÀÌ ÀúÀåµÇ´Â °¹¼ö´Â 666°³ÀÓ / ¾ËÆÄºªÀº ±×´ë·Î 2000ÀÚ
-    .º¸Åë ±âº»Å°³ª ±æÀÌ°¡ °íÁ¤µÇ°í °íÁ¤µÈ±æÀÌ°¡ Áß¿äÇÑ °æ¿ì(ÁÖ¹Î¹øÈ£³ª ¿ìÆí¹øÈ£ µî)¿¡ »ç¿ë
+    .ê³ ì •ê¸¸ì´ ë°ì´í„° ì €ìž¥
+    .ìµœëŒ€ 2000BYTE ì €ìž¥
+    .'n[BYTE|CHAR]' : í™•ë³´í•˜ëŠ” ì €ìž¥ê³µê°„ì˜ í¬ê¸° ì§€ì •
+    .'BYTE'ê°€ defaultì´ë©° 'CHAR'ì€ nì´ ë¬¸ìž ê°¯ìˆ˜ë¥¼ ì˜ë¯¸
+    .í•œê¸€ í•œê¸€ìžëŠ” 3byteìž„ -> ë”°ë¼ì„œ í•œê¸€ì´ ì €ìž¥ë˜ëŠ” ê°¯ìˆ˜ëŠ” 666ê°œìž„ / ì•ŒíŒŒë²³ì€ ê·¸ëŒ€ë¡œ 2000ìž
+    .ë³´í†µ ê¸°ë³¸í‚¤ë‚˜ ê¸¸ì´ê°€ ê³ ì •ë˜ê³  ê³ ì •ëœê¸¸ì´ê°€ ì¤‘ìš”í•œ ê²½ìš°(ì£¼ë¯¼ë²ˆí˜¸ë‚˜ ìš°íŽ¸ë²ˆí˜¸ ë“±)ì— ì‚¬ìš©
   
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
   CREATE TABLE TRMP_01(
     COL1 CHAR(10 BYTE),
     COL2 CHAR(10 CHAR),
     COL3 CHAR(10));
   
-¿À·ù¹®±¸)
+ì˜¤ë¥˜ë¬¸êµ¬)
    INSERT INTO TRMP_01(COL1,COL2,COL3)
-    VALUES('´ëÀü½Ã','´ëÀü½Ã Áß±¸ ¿À·ùµ¿','´ëÀü½Ã Áß±¸ ¿À·ùµ¿'); --COL3Àº MAX 10byte ÀÎµ¥ 26byteÃÊ°ú
+    VALUES('ëŒ€ì „ì‹œ','ëŒ€ì „ì‹œ ì¤‘êµ¬ ì˜¤ë¥˜ë™','ëŒ€ì „ì‹œ ì¤‘êµ¬ ì˜¤ë¥˜ë™'); --COL3ì€ MAX 10byte ì¸ë° 26byteì´ˆê³¼
   
-Á¤»ó¹®±¸)
+ì •ìƒë¬¸êµ¬)
    INSERT INTO TRMP_01(COL1,COL2,COL3)
-    VALUES('´ëÀü½Ã','´ëÀü½Ã Áß±¸ ¿À·ùµ¿','Áß±¸');
+    VALUES('ëŒ€ì „ì‹œ','ëŒ€ì „ì‹œ ì¤‘êµ¬ ì˜¤ë¥˜ë™','ì¤‘êµ¬');
 
 
  SELECT * FROM TRMP_01;
  
- SELECT LENGTHB(COL1), -- LENGTHB()°ýÈ£¾ÈÀÇ ÄÃ·³À» ¹ÙÀÌÆ®·Î ³ªÅ¸³»¼¼¿ä. ¹ÙÀÌÆ® °¹¼ö
+ SELECT LENGTHB(COL1), -- LENGTHB()ê´„í˜¸ì•ˆì˜ ì»¬ëŸ¼ì„ ë°”ì´íŠ¸ë¡œ ë‚˜íƒ€ë‚´ì„¸ìš”. ë°”ì´íŠ¸ ê°¯ìˆ˜
         LENGTHB(COL2),
         LENGTHB(COL3)
    FROM TRMP_01;
   
   
---ÇàÃß°¡)
-  INSERT INTO TRMP_01 VALUES('´ëÇÑ','´ëÇÑ¹Î±¹','¹Î±¹'); -- 12+6 = 18BYTE
-  -- CHAR(10)¿¡¼­ ´ëÇÑ¹Î±¹(4) »©°í ³²Àº 6BYTE¿Í ´ëÇÑ¹Î±¹(12)¸¦ ÇÕÇÏ¿© 18BYTEµÊ
-  -- CHARÀÚ·áÇüÀÇ ¼À¹ýÀº BYTE¿Í ´Ù¸£´Ù´Â °ÍÀ» ¾Ë¼öÀÖÀ½.
+--í–‰ì¶”ê°€)
+  INSERT INTO TRMP_01 VALUES('ëŒ€í•œ','ëŒ€í•œë¯¼êµ­','ë¯¼êµ­'); -- 12+6 = 18BYTE
+  -- CHAR(10)ì—ì„œ ëŒ€í•œë¯¼êµ­(4) ë¹¼ê³  ë‚¨ì€ 6BYTEì™€ ëŒ€í•œë¯¼êµ­(12)ë¥¼ í•©í•˜ì—¬ 18BYTEë¨
+  -- CHARìžë£Œí˜•ì˜ ì…ˆë²•ì€ BYTEì™€ ë‹¤ë¥´ë‹¤ëŠ” ê²ƒì„ ì•Œìˆ˜ìžˆìŒ.
   SELECT * FROM TRMP_01;
   
   
-2)VARCHAR2(n[BYTE|CHAR]) --¿À¶óÅ¬¿¡¸¸ À¯ÀÏÇÔ
-  .°¡º¯±æÀÌ ¹®ÀÚ¿­ ÀúÀå
-  .VARCHER¿Í µ¿ÀÏ±â´É Á¦°ø
-  .ÃÖ´ë 4000BYTE ÀúÀå±â´É --ÇÑ±Û 1333±ÛÀÚ
-  .»ç¿ëÀÚ°¡ Á¤ÀÇÇÑ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í ³²´Â ±â¾ï°ø°£Àº ¹ÝÈ¯
-  .°¡Àå³Î¸® »ç¿ëµÇ´Â Å¸ÀÔ
-  --NVARCHAR, NVARCHAR2, NCLOB ´Â ´Ù±¹¾î Á¦°ø ÀÚ·áÇü
+2)VARCHAR2(n[BYTE|CHAR]) --ì˜¤ë¼í´ì—ë§Œ ìœ ì¼í•¨
+  .ê°€ë³€ê¸¸ì´ ë¬¸ìžì—´ ì €ìž¥
+  .VARCHERì™€ ë™ì¼ê¸°ëŠ¥ ì œê³µ
+  .ìµœëŒ€ 4000BYTE ì €ìž¥ê¸°ëŠ¥ --í•œê¸€ 1333ê¸€ìž
+  .ì‚¬ìš©ìžê°€ ì •ì˜í•œ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ê³  ë‚¨ëŠ” ê¸°ì–µê³µê°„ì€ ë°˜í™˜
+  .ê°€ìž¥ë„ë¦¬ ì‚¬ìš©ë˜ëŠ” íƒ€ìž…
+  --NVARCHAR, NVARCHAR2, NCLOB ëŠ” ë‹¤êµ­ì–´ ì œê³µ ìžë£Œí˜•
   
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
         CREATE TABLE TEMP_02(
           COL1 VARCHAR2(4000 BYTE),
           COL2 VARCHAR2(4000 CHAR),
@@ -67,74 +67,74 @@
                 LENGTHB(COL3)
         FROM TEMP_02;
 
-3)LONG --µÉ¼öÀÖÀ¸¸é ¾²Áö ¾Ê´ÂÆí
-  .°¡º¯±æÀÌ ÀÚ·á ÀúÀå
-  .ÃÖ´ë 2GB±îÁö ÀúÀå °¡´É
-  .ÀÏºÎ ±â´ÉÀº »ç¿ëºÒ°¡
-  .ÇÑ Å×ÀÌºí¿¡ 1°³ÀÇ LONG Å¸ÀÔ¸¸ »ç¿ë°¡´É(±â´É°³¼± Áß´Ü) 
-  .CLOB Å¸ÀÔÀ¸·Î ´ëÃ¼
-  .SELECT¹®ÀÇ SELECTÀý, UPDATE¹®ÀÇ SETÀý, INSERT¹®ÀÇ VALUESÀý¿¡¼­¸¸ »ç¿ë °¡´É 
+3)LONG --ë ìˆ˜ìžˆìœ¼ë©´ ì“°ì§€ ì•ŠëŠ”íŽ¸
+  .ê°€ë³€ê¸¸ì´ ìžë£Œ ì €ìž¥
+  .ìµœëŒ€ 2GBê¹Œì§€ ì €ìž¥ ê°€ëŠ¥
+  .ì¼ë¶€ ê¸°ëŠ¥ì€ ì‚¬ìš©ë¶ˆê°€
+  .í•œ í…Œì´ë¸”ì— 1ê°œì˜ LONG íƒ€ìž…ë§Œ ì‚¬ìš©ê°€ëŠ¥(ê¸°ëŠ¥ê°œì„  ì¤‘ë‹¨) 
+  .CLOB íƒ€ìž…ìœ¼ë¡œ ëŒ€ì²´
+  .SELECTë¬¸ì˜ SELECTì ˆ, UPDATEë¬¸ì˜ SETì ˆ, INSERTë¬¸ì˜ VALUESì ˆì—ì„œë§Œ ì‚¬ìš© ê°€ëŠ¥ 
   
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
 
-¿À·ù)
+ì˜¤ë¥˜)
         CREATE TABLE TEMP_03(
             COL1 LONG,
             COL2 VARCHAR2(200),
-            COL3 LONG); --LONG Áßº¹
+            COL3 LONG); --LONG ì¤‘ë³µ
 
-Á¤»ó)
+ì •ìƒ)
         CREATE TABLE TEMP_03(
             COL1 LONG,
             COL2 VARCHAR2(200));
   
-  INSERT INTO TEMP_03 VALUES('´ëÀü½Ã Áß±¸ °è·æ·Î 846 3Ãþ','´ë´öÀÎÀç°³¹ß¿ø');
+  INSERT INTO TEMP_03 VALUES('ëŒ€ì „ì‹œ ì¤‘êµ¬ ê³„ë£¡ë¡œ 846 3ì¸µ','ëŒ€ë•ì¸ìž¬ê°œë°œì›');
   
   SELECT * FROM TEMP_03;
   
-  °Ë»ö ¿À·ù1)
-  SELECT LENGTHB(COL1), --LONG µ¥ÀÌÅÍÅ¸ÀÔÀÌ ³Ê¹« Ä¿¼­ ¸ø¼À
+  ê²€ìƒ‰ ì˜¤ë¥˜1)
+  SELECT LENGTHB(COL1), --LONG ë°ì´í„°íƒ€ìž…ì´ ë„ˆë¬´ ì»¤ì„œ ëª»ì…ˆ
          LENGTHB(COL2) 
   FROM TEMP_03;
   
 
-  °Ë»ö ¿À·ù2)
-  SELECT SUBSTR(COL2,2,5) FROM TEMP_03; --SQLÀº 1¹øºÎÅÍ ¼ÀÇÏ¹Ç·Î '´öÀÎÀç°³¹ß'ÀÌ Ãâ·ÂµÊ
-  SELECT SUBSTR(COL1,2,5) FROM TEMP_03; --¿À·ù/»ç¿ëºÒ°¡´É
+  ê²€ìƒ‰ ì˜¤ë¥˜2)
+  SELECT SUBSTR(COL2,2,5) FROM TEMP_03; --SQLì€ 1ë²ˆë¶€í„° ì…ˆí•˜ë¯€ë¡œ 'ë•ì¸ìž¬ê°œë°œ'ì´ ì¶œë ¥ë¨
+  SELECT SUBSTR(COL1,2,5) FROM TEMP_03; --ì˜¤ë¥˜/ì‚¬ìš©ë¶ˆê°€ëŠ¥
 
 
 4)CLOB(Character Large OBjects)
-  .°¡º¯±æÀÌ ¹®ÀÚ¿­À» ÀúÀå
-  .ÃÖ´ë 4GB ±îÁö Ã³¸®°¡´É
-  .ÇÑ Å×ÀÌºí¿¡ º¹¼ö°³ÀÇ CLOB »ç¿ë°¡´É
-  .ÀÏºÎ ±â´ÉÀº DBMS_LOB APIÀÇ Áö¿øÀ» ¹Þ¾Æ¾ßÇÔ(EX: LENGTHBµîÀº Á¦ÇÑ)
+  .ê°€ë³€ê¸¸ì´ ë¬¸ìžì—´ì„ ì €ìž¥
+  .ìµœëŒ€ 4GB ê¹Œì§€ ì²˜ë¦¬ê°€ëŠ¥
+  .í•œ í…Œì´ë¸”ì— ë³µìˆ˜ê°œì˜ CLOB ì‚¬ìš©ê°€ëŠ¥
+  .ì¼ë¶€ ê¸°ëŠ¥ì€ DBMS_LOB APIì˜ ì§€ì›ì„ ë°›ì•„ì•¼í•¨(EX: LENGTHBë“±ì€ ì œí•œ)
 
-»ç¿ë¿¹)
+ì‚¬ìš©ì˜ˆ)
         CREATE TABLE TRMP_04(
             COL1 CLOB,
             COL2 CLOB,
             COL3 VARCHAR2(4000));
         
-        INSERT INTO TRMP_04 VALUES('´ëÀü½Ã Áß±¸ °è·æ·Î 846 3Ãþ','´ë´öÀÎÀç°³¹ß¿ø','ILPOSTINO');
+        INSERT INTO TRMP_04 VALUES('ëŒ€ì „ì‹œ ì¤‘êµ¬ ê³„ë£¡ë¡œ 846 3ì¸µ','ëŒ€ë•ì¸ìž¬ê°œë°œì›','ILPOSTINO');
         
         
         
         SELECT * FROM TRMP_04;
  
- ¿À·ù¿¹½Ã)
-        SELECT LENGTHB(COL1), --¿À·ù
+ ì˜¤ë¥˜ì˜ˆì‹œ)
+        SELECT LENGTHB(COL1), --ì˜¤ë¥˜
                 LENGTHB(COL2),
                 LENGTHB(COL3)
         FROM TRMP_04;
  
- Á¤»ó¿¹½Ã)
+ ì •ìƒì˜ˆì‹œ)
         SELECT DBMS_LOB.GETLENGTH(COL1),
-                LENGTH(COL2), --4000BYTE ÀÌ³»¸é Ãâ·Â
+                LENGTH(COL2), --4000BYTE ì´ë‚´ë©´ ì¶œë ¥
                 LENGTHB(COL3)
         FROM TRMP_04;
  
 
-  --JAVA´Â ¹®ÀÚ ÃÖ¿ì¼±
-  --ORACLEÀº ¼ýÀÚ ÃÖ¿ì¼±
+  --JAVAëŠ” ë¬¸ìž ìµœìš°ì„ 
+  --ORACLEì€ ìˆ«ìž ìµœìš°ì„ 
     SELECT '76'+1900 FROM DUAL;   
   
