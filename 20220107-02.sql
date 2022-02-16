@@ -2,7 +2,7 @@
  
 **객체삭제 (DROP)
 . 테이블 삭제
-  DROP TABLE 테이블명;
+  DROP TABLE 테이블명; 
   
   사용예)쇼핑몰 테이블(BUYER, BUYPROD, CART, LPROD, MEMBER)을 제외하고 모든 테이블을 삭제
         DROP TABLE ORDER_GOODS;
