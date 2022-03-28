@@ -50,14 +50,12 @@ drop table mymember;
 
 
 
-create table jdbc_board(
-    board_no number not null,  -- 번호(자동증가)
-    board_title varchar2(100) not null, -- 제목
-    board_writer varchar2(50) not null, -- 작성자
-    board_date date not null,   	-- 작성날짜
-    board_cnt number default 0, -- 조회수
-    board_content clob,     	-- 내용
-    constraint pk_jdbc_board primary key (board_no)
+create table TODOLIST(
+   T_NO number not null,  -- 번호(자동증가)
+   T_LIST varchar2(4000) not null, -- 제목
+   T_STATE varchar2(40) not null, -- 작성자
+   T_DATE date not null,   	-- 작성날짜
+    constraint pk_TODOLIST primary key (T_NO)
 );
 
 
@@ -68,6 +66,10 @@ create sequence board_seq
     
     
     
+ALTER TABLE TODOLIST ADD( t_no number);
+
+update TODOLIST set t_no=2 where t_list='todoList crud 구현하기';   
     
+ALTER TABLE TODOLIST ADD PRIMARY KEY(todoList_key);
     
 
